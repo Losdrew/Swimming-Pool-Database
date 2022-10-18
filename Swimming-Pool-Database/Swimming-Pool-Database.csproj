@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\QueryEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\QueryEdit.Designer.cs">
+      <DependentUpon>QueryEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Regrouping.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>swimmingpoolDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\QueryEdit.resx">
+      <DependentUpon>QueryEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Regrouping.resx">
       <DependentUpon>Regrouping.cs</DependentUpon>
     </EmbeddedResource>
@@ -80,6 +89,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
