@@ -74,9 +74,9 @@ namespace Swimming_Pool_Database.Forms
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.tableAdapterManager = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.TableAdapterManager();
-            this.сlientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.сlientsTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.СlientsTableAdapter();
-            this.сlientsDataGridView = new System.Windows.Forms.DataGridView();
+            this.clientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clientsTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.ClientsTableAdapter();
+            this.clientsDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -110,8 +110,8 @@ namespace Swimming_Pool_Database.Forms
             this.bindingNavigator2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator)).BeginInit();
             this.bindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.сlientsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.сlientsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coachesBindingSource)).BeginInit();
@@ -468,7 +468,7 @@ namespace Swimming_Pool_Database.Forms
             // bindingNavigator
             // 
             this.bindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.bindingNavigator.BindingSource = this.сlientsBindingSource;
+            this.bindingNavigator.BindingSource = this.clientsBindingSource;
             this.bindingNavigator.CountItem = this.bindingNavigatorCountItem;
             this.bindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
             this.bindingNavigator.Dock = System.Windows.Forms.DockStyle.None;
@@ -501,20 +501,20 @@ namespace Swimming_Pool_Database.Forms
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.UpdateOrder = Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // сlientsBindingSource
+            // clientsBindingSource
             // 
-            this.сlientsBindingSource.DataMember = "Сlients";
-            this.сlientsBindingSource.DataSource = this.swimmingpoolDataSet;
+            this.clientsBindingSource.DataMember = "Clients";
+            this.clientsBindingSource.DataSource = this.swimmingpoolDataSet;
             // 
-            // сlientsTableAdapter
+            // clientsTableAdapter
             // 
-            this.сlientsTableAdapter.ClearBeforeFill = true;
+            this.clientsTableAdapter.ClearBeforeFill = true;
             // 
-            // сlientsDataGridView
+            // clientsDataGridView
             // 
-            this.сlientsDataGridView.AutoGenerateColumns = false;
-            this.сlientsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.сlientsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clientsDataGridView.AutoGenerateColumns = false;
+            this.clientsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.clientsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
@@ -525,13 +525,13 @@ namespace Swimming_Pool_Database.Forms
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12});
-            this.сlientsDataGridView.DataSource = this.сlientsBindingSource;
-            this.сlientsDataGridView.Location = new System.Drawing.Point(12, 31);
-            this.сlientsDataGridView.Name = "сlientsDataGridView";
-            this.сlientsDataGridView.RowHeadersWidth = 51;
-            this.сlientsDataGridView.RowTemplate.Height = 24;
-            this.сlientsDataGridView.Size = new System.Drawing.Size(703, 261);
-            this.сlientsDataGridView.TabIndex = 13;
+            this.clientsDataGridView.DataSource = this.clientsBindingSource;
+            this.clientsDataGridView.Location = new System.Drawing.Point(12, 31);
+            this.clientsDataGridView.Name = "clientsDataGridView";
+            this.clientsDataGridView.RowHeadersWidth = 51;
+            this.clientsDataGridView.RowTemplate.Height = 24;
+            this.clientsDataGridView.Size = new System.Drawing.Size(703, 261);
+            this.clientsDataGridView.TabIndex = 13;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -745,7 +745,7 @@ namespace Swimming_Pool_Database.Forms
             this.ClientSize = new System.Drawing.Size(752, 946);
             this.Controls.Add(this.coachesDataGridView);
             this.Controls.Add(this.groupsDataGridView);
-            this.Controls.Add(this.сlientsDataGridView);
+            this.Controls.Add(this.clientsDataGridView);
             this.Controls.Add(this.bindingNavigator2);
             this.Controls.Add(this.bindingNavigator1);
             this.Controls.Add(this.bindingNavigator);
@@ -766,8 +766,8 @@ namespace Swimming_Pool_Database.Forms
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator)).EndInit();
             this.bindingNavigator.ResumeLayout(false);
             this.bindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.сlientsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.сlientsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coachesBindingSource)).EndInit();
@@ -827,9 +827,9 @@ namespace Swimming_Pool_Database.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private BindingSource сlientsBindingSource;
-        private СlientsTableAdapter сlientsTableAdapter;
-        private DataGridView сlientsDataGridView;
+        private BindingSource clientsBindingSource;
+        private ClientsTableAdapter clientsTableAdapter;
+        private DataGridView clientsDataGridView;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;

@@ -9,7 +9,6 @@ namespace Swimming_Pool_Database.Forms
         {
             InitializeComponent();
         }
-
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit(); 
@@ -17,8 +16,8 @@ namespace Swimming_Pool_Database.Forms
 
         private void clientsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bindingNavigator.BindingSource = ñlientsBindingSource;
-            dataGridView.DataSource = ñlientsBindingSource;
+            bindingNavigator.BindingSource = clientsBindingSource;
+            dataGridView.DataSource = clientsBindingSource;
             label1.Text = "Clients";
         }
 
@@ -29,7 +28,7 @@ namespace Swimming_Pool_Database.Forms
             label1.Text = "Groups";
         }
 
-        private void lockersToolStripMenuItem_Click(object sender, EventArgs e)
+        private void coachesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             bindingNavigator.BindingSource = coachesBindingSource;
             dataGridView.DataSource = coachesBindingSource;
@@ -40,13 +39,13 @@ namespace Swimming_Pool_Database.Forms
         {
             coachesTableAdapter.Fill(swimmingpoolDataSet.Coaches);
             groupsTableAdapter.Fill(swimmingpoolDataSet.Groups);
-            ñlientsTableAdapter.Fill(swimmingpoolDataSet.Ñlients);
+            clientsTableAdapter.Fill(swimmingpoolDataSet.Clients);
             dataGridView.AutoGenerateColumns = true;
         }
 
         private void Form3_FormClosing(object sender, FormClosingEventArgs e)
         {
-            ñlientsTableAdapter.Update(swimmingpoolDataSet);
+            clientsTableAdapter.Update(swimmingpoolDataSet);
             groupsTableAdapter.Update(swimmingpoolDataSet);
             coachesTableAdapter.Update(swimmingpoolDataSet);
         }
@@ -55,16 +54,18 @@ namespace Swimming_Pool_Database.Forms
         {
             var regrouping = new Regrouping();
             regrouping.ShowDialog();
-            ñlientsTableAdapter.Fill(swimmingpoolDataSet.Ñlients); 
-            groupsTableAdapter.Fill(swimmingpoolDataSet.Groups);
         }
 
         private void threeTablesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var threeTables = new ThreeTables();
             threeTables.ShowDialog();
-            ñlientsTableAdapter.Fill(swimmingpoolDataSet.Ñlients); 
-            groupsTableAdapter.Fill(swimmingpoolDataSet.Groups);
+        }
+
+        private void queryEditToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var queryEdit = new QueryEdit();
+            queryEdit.ShowDialog();
         }
     }
 }

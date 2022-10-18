@@ -31,11 +31,9 @@ namespace Swimming_Pool_Database.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.groupsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.swimmingpoolDataSet = new Swimming_Pool_Database.swimmingpoolDataSet();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,6 +45,7 @@ namespace Swimming_Pool_Database.Forms
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.regroupingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.threeTablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.queryEditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -59,26 +58,27 @@ namespace Swimming_Pool_Database.Forms
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.coachesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.groupsTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.GroupsTableAdapter();
             this.coachesTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.CoachesTableAdapter();
-            this.сlientsTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.СlientsTableAdapter();
-            this.tableAdapterManager = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.TableAdapterManager();
-            this.сlientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.groupsTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.GroupsTableAdapter();
+            this.clientsTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.ClientsTableAdapter();
+            this.swimmingpoolDataSet = new Swimming_Pool_Database.swimmingpoolDataSet();
+            this.groupsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.coachesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.swimmingpoolDataSet)).BeginInit();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator)).BeginInit();
             this.bindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.swimmingpoolDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coachesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.сlientsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView
             // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dataGridView.ColumnHeadersHeight = 29;
             this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -90,16 +90,6 @@ namespace Swimming_Pool_Database.Forms
             this.dataGridView.RowTemplate.Height = 29;
             this.dataGridView.Size = new System.Drawing.Size(792, 380);
             this.dataGridView.TabIndex = 3;
-            // 
-            // groupsBindingSource
-            // 
-            this.groupsBindingSource.DataMember = "Groups";
-            this.groupsBindingSource.DataSource = this.swimmingpoolDataSet;
-            // 
-            // swimmingpoolDataSet
-            // 
-            this.swimmingpoolDataSet.DataSetName = "swimmingpoolDataSet";
-            this.swimmingpoolDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label1
             // 
@@ -153,29 +143,30 @@ namespace Swimming_Pool_Database.Forms
             // clientsToolStripMenuItem
             // 
             this.clientsToolStripMenuItem.Name = "clientsToolStripMenuItem";
-            this.clientsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.clientsToolStripMenuItem.Size = new System.Drawing.Size(147, 26);
             this.clientsToolStripMenuItem.Text = "Clients";
             this.clientsToolStripMenuItem.Click += new System.EventHandler(this.clientsToolStripMenuItem_Click);
             // 
             // groupsToolStripMenuItem
             // 
             this.groupsToolStripMenuItem.Name = "groupsToolStripMenuItem";
-            this.groupsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.groupsToolStripMenuItem.Size = new System.Drawing.Size(147, 26);
             this.groupsToolStripMenuItem.Text = "Groups";
             this.groupsToolStripMenuItem.Click += new System.EventHandler(this.groupsToolStripMenuItem_Click);
             // 
             // coachesToolStripMenuItem
             // 
             this.coachesToolStripMenuItem.Name = "coachesToolStripMenuItem";
-            this.coachesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.coachesToolStripMenuItem.Size = new System.Drawing.Size(147, 26);
             this.coachesToolStripMenuItem.Text = "Coaches";
-            this.coachesToolStripMenuItem.Click += new System.EventHandler(this.lockersToolStripMenuItem_Click);
+            this.coachesToolStripMenuItem.Click += new System.EventHandler(this.coachesToolStripMenuItem_Click);
             // 
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.regroupingToolStripMenuItem,
-            this.threeTablesToolStripMenuItem});
+            this.threeTablesToolStripMenuItem,
+            this.queryEditToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
             this.viewToolStripMenuItem.Text = "View";
@@ -183,16 +174,23 @@ namespace Swimming_Pool_Database.Forms
             // regroupingToolStripMenuItem
             // 
             this.regroupingToolStripMenuItem.Name = "regroupingToolStripMenuItem";
-            this.regroupingToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.regroupingToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
             this.regroupingToolStripMenuItem.Text = "Regrouping";
             this.regroupingToolStripMenuItem.Click += new System.EventHandler(this.regroupingToolStripMenuItem_Click);
             // 
             // threeTablesToolStripMenuItem
             // 
             this.threeTablesToolStripMenuItem.Name = "threeTablesToolStripMenuItem";
-            this.threeTablesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.threeTablesToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
             this.threeTablesToolStripMenuItem.Text = "Three Tables";
             this.threeTablesToolStripMenuItem.Click += new System.EventHandler(this.threeTablesToolStripMenuItem_Click);
+            // 
+            // queryEditToolStripMenuItem
+            // 
+            this.queryEditToolStripMenuItem.Name = "queryEditToolStripMenuItem";
+            this.queryEditToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
+            this.queryEditToolStripMenuItem.Text = "Query Edit";
+            this.queryEditToolStripMenuItem.Click += new System.EventHandler(this.queryEditToolStripMenuItem_Click);
             // 
             // bindingNavigator
             // 
@@ -309,35 +307,37 @@ namespace Swimming_Pool_Database.Forms
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
-            // coachesBindingSource
+            // coachesTableAdapter
             // 
-            this.coachesBindingSource.DataMember = "Coaches";
-            this.coachesBindingSource.DataSource = this.swimmingpoolDataSet;
+            this.coachesTableAdapter.ClearBeforeFill = true;
             // 
             // groupsTableAdapter
             // 
             this.groupsTableAdapter.ClearBeforeFill = true;
             // 
-            // coachesTableAdapter
+            // clientsTableAdapter
             // 
-            this.coachesTableAdapter.ClearBeforeFill = true;
+            this.clientsTableAdapter.ClearBeforeFill = true;
             // 
-            // сlientsTableAdapter
+            // swimmingpoolDataSet
             // 
-            this.сlientsTableAdapter.ClearBeforeFill = true;
+            this.swimmingpoolDataSet.DataSetName = "swimmingpoolDataSet";
+            this.swimmingpoolDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // tableAdapterManager
+            // groupsBindingSource
             // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.CoachesTableAdapter = this.coachesTableAdapter;
-            this.tableAdapterManager.GroupsTableAdapter = this.groupsTableAdapter;
-            this.tableAdapterManager.UpdateOrder = Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.СlientsTableAdapter = this.сlientsTableAdapter;
+            this.groupsBindingSource.DataMember = "Groups";
+            this.groupsBindingSource.DataSource = this.swimmingpoolDataSet;
             // 
-            // сlientsBindingSource
+            // clientsBindingSource
             // 
-            this.сlientsBindingSource.DataMember = "Сlients";
-            this.сlientsBindingSource.DataSource = this.swimmingpoolDataSet;
+            this.clientsBindingSource.DataMember = "Clients";
+            this.clientsBindingSource.DataSource = this.swimmingpoolDataSet;
+            // 
+            // coachesBindingSource
+            // 
+            this.coachesBindingSource.DataMember = "Coaches";
+            this.coachesBindingSource.DataSource = this.swimmingpoolDataSet;
             // 
             // MainForm
             // 
@@ -357,15 +357,15 @@ namespace Swimming_Pool_Database.Forms
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form3_FormClosing);
             this.Load += new System.EventHandler(this.Form3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.swimmingpoolDataSet)).EndInit();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator)).EndInit();
             this.bindingNavigator.ResumeLayout(false);
             this.bindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.swimmingpoolDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coachesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.сlientsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -393,16 +393,16 @@ namespace Swimming_Pool_Database.Forms
         private ToolStripButton bindingNavigatorMoveNextItem;
         private ToolStripButton bindingNavigatorMoveLastItem;
         private ToolStripSeparator bindingNavigatorSeparator2;
-        private swimmingpoolDataSet swimmingpoolDataSet;
-        private BindingSource groupsBindingSource;
-        private BindingSource coachesBindingSource;
-        private swimmingpoolDataSetTableAdapters.GroupsTableAdapter groupsTableAdapter;
-        private swimmingpoolDataSetTableAdapters.CoachesTableAdapter coachesTableAdapter;
-        private swimmingpoolDataSetTableAdapters.СlientsTableAdapter сlientsTableAdapter;
-        private swimmingpoolDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private BindingSource сlientsBindingSource;
         private ToolStripMenuItem viewToolStripMenuItem;
         private ToolStripMenuItem regroupingToolStripMenuItem;
         private ToolStripMenuItem threeTablesToolStripMenuItem;
+        private ToolStripMenuItem queryEditToolStripMenuItem;
+        private swimmingpoolDataSetTableAdapters.CoachesTableAdapter coachesTableAdapter;
+        private swimmingpoolDataSetTableAdapters.GroupsTableAdapter groupsTableAdapter;
+        private swimmingpoolDataSetTableAdapters.ClientsTableAdapter clientsTableAdapter;
+        private swimmingpoolDataSet swimmingpoolDataSet;
+        private BindingSource groupsBindingSource;
+        private BindingSource clientsBindingSource;
+        private BindingSource coachesBindingSource;
     }
 }

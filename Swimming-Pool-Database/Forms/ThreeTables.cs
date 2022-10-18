@@ -11,7 +11,7 @@ namespace Swimming_Pool_Database.Forms
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            сlientsTableAdapter.Update(swimmingpoolDataSet);
+            clientsTableAdapter.Update(swimmingpoolDataSet);
             groupsTableAdapter.Update(swimmingpoolDataSet);
             coachesTableAdapter.Update(swimmingpoolDataSet);
         }
@@ -25,7 +25,7 @@ namespace Swimming_Pool_Database.Forms
         {
             coachesTableAdapter.Fill(swimmingpoolDataSet.Coaches);
             groupsTableAdapter.Fill(swimmingpoolDataSet.Groups);
-            сlientsTableAdapter.Fill(swimmingpoolDataSet.Сlients);
+            clientsTableAdapter.Fill(swimmingpoolDataSet.Clients);
         }
     }
 }

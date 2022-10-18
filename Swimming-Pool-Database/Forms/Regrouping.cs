@@ -12,18 +12,18 @@ namespace Swimming_Pool_Database.Forms
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            сlientsTableAdapter.Fill(swimmingpoolDataSet.Сlients);
+            clientsTableAdapter.Fill(swimmingpoolDataSet.Clients);
             groupsTableAdapter.Fill(swimmingpoolDataSet.Groups);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void confirmChangesButton_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Do you really want to accept changes?", "Change data",
                     MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 groupsBindingSource.EndEdit();
                 groupsTableAdapter.Update(swimmingpoolDataSet);
-                сlientsTableAdapter.Update(swimmingpoolDataSet);
+                clientsTableAdapter.Update(swimmingpoolDataSet);
             }
         }
     }
