@@ -121,9 +121,9 @@ namespace Swimming_Pool_Database.Forms
                     break;
                 case Tables.Groups:
                     editForm = new EditGroups();
-                    groupsTableAdapter.Fill(swimmingpoolDataSet.Groups);
                     break;
                 case Tables.Coaches:
+                    editForm = new EditCoaches();
                     break;
             }
 
@@ -150,7 +150,7 @@ namespace Swimming_Pool_Database.Forms
                     dataTable = new swimmingpoolDataSet.ClientsDataTable();
                     isQueryExecuted = TryQuery(() =>
                         clientsTableAdapter.FillBy((swimmingpoolDataSet.ClientsDataTable)dataTable,
-                            Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value)));
+                            Convert.ToInt32(((DataRowView)dataGridView.SelectedRows[0].DataBoundItem).Row["client_id"])));
                     row = dataTable.Rows[0].ItemArray;
                     editForm = new EditClients(
                         Convert.ToInt32(row[0]),
@@ -168,7 +168,7 @@ namespace Swimming_Pool_Database.Forms
                     dataTable = new swimmingpoolDataSet.GroupsDataTable();
                     isQueryExecuted = TryQuery(() =>
                         groupsTableAdapter.FillBy((swimmingpoolDataSet.GroupsDataTable)dataTable,
-                            Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value)));
+                            Convert.ToInt32(((DataRowView)dataGridView.SelectedRows[0].DataBoundItem).Row["group_id"])));
                     row = dataTable.Rows[0].ItemArray;
                     editForm = new EditGroups(
                         Convert.ToInt32(row[0]),
@@ -178,6 +178,18 @@ namespace Swimming_Pool_Database.Forms
                     groupsTableAdapter.Fill(swimmingpoolDataSet.Groups);
                     break;
                 case Tables.Coaches:
+                    dataTable = new swimmingpoolDataSet.CoachesDataTable();
+                    isQueryExecuted = TryQuery(() =>
+                        coachesTableAdapter.FillBy((swimmingpoolDataSet.CoachesDataTable)dataTable,
+                            Convert.ToInt32(((DataRowView)dataGridView.SelectedRows[0].DataBoundItem).Row["coach_id"])));
+                    row = dataTable.Rows[0].ItemArray;
+                    editForm = new EditCoaches(
+                        Convert.ToInt32(row[0]),
+                        row[1].ToString(),
+                        row[2].ToString(),
+                        row[3].ToString(),
+                        Convert.ToInt32(row[4]));
+                    coachesTableAdapter.Fill(swimmingpoolDataSet.Coaches);
                     break;
             }
 
@@ -204,13 +216,15 @@ namespace Swimming_Pool_Database.Forms
             {
                 case Tables.Clients:
                     isQueryExecuted = TryQuery(() =>
-                        clientsTableAdapter.DeleteQuery(Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value)));
+                        clientsTableAdapter.DeleteQuery(Convert.ToInt32(((DataRowView)dataGridView.SelectedRows[0].DataBoundItem).Row["client_id"])));
                     break;
                 case Tables.Groups:
                     isQueryExecuted = TryQuery(() =>
-                        groupsTableAdapter.DeleteQuery(Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value)));
+                        groupsTableAdapter.DeleteQuery(Convert.ToInt32(((DataRowView)dataGridView.SelectedRows[0].DataBoundItem).Row["group_id"])));
                     break;
                 case Tables.Coaches:
+                    isQueryExecuted = TryQuery(() =>
+                        coachesTableAdapter.DeleteQuery(Convert.ToInt32(((DataRowView)dataGridView.SelectedRows[0].DataBoundItem).Row["coach_id"])));
                     break;
             }
 
