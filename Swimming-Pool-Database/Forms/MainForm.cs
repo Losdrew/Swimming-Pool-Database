@@ -120,6 +120,8 @@ namespace Swimming_Pool_Database.Forms
                     editForm = new EditClients();
                     break;
                 case Tables.Groups:
+                    editForm = new EditGroups();
+                    groupsTableAdapter.Fill(swimmingpoolDataSet.Groups);
                     break;
                 case Tables.Coaches:
                     break;
@@ -139,6 +141,7 @@ namespace Swimming_Pool_Database.Forms
 
             DataTable dataTable;
             bool isQueryExecuted = false;
+            object[] row;
             Form editForm = new Form();
 
             switch (currentTable)
@@ -148,20 +151,31 @@ namespace Swimming_Pool_Database.Forms
                     isQueryExecuted = TryQuery(() =>
                         clientsTableAdapter.FillBy((swimmingpoolDataSet.ClientsDataTable)dataTable,
                             Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value)));
-                    var columns = dataTable.Rows[0].ItemArray;
+                    row = dataTable.Rows[0].ItemArray;
                     editForm = new EditClients(
-                        Convert.ToInt32(columns[0]),
-                        columns[1].ToString(),
-                        columns[2].ToString(),
-                        columns[3].ToString(),
-                        columns[4].ToString(),
-                        Convert.ToDateTime(columns[5]),
-                        columns[6].ToString(),
-                        columns[7].ToString(),
-                        Convert.ToInt32(columns[8]),
-                        Convert.ToInt32(columns[9]));
+                        Convert.ToInt32(row[0]),
+                        row[1].ToString(),
+                        row[2].ToString(),
+                        row[3].ToString(),
+                        row[4].ToString(),
+                        Convert.ToDateTime(row[5]),
+                        row[6].ToString(),
+                        row[7].ToString(),
+                        Convert.ToInt32(row[8]),
+                        Convert.ToInt32(row[9]));
                     break;
                 case Tables.Groups:
+                    dataTable = new swimmingpoolDataSet.GroupsDataTable();
+                    isQueryExecuted = TryQuery(() =>
+                        groupsTableAdapter.FillBy((swimmingpoolDataSet.GroupsDataTable)dataTable,
+                            Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value)));
+                    row = dataTable.Rows[0].ItemArray;
+                    editForm = new EditGroups(
+                        Convert.ToInt32(row[0]),
+                        Convert.ToInt32(row[1]),
+                        row[2].ToString(),
+                        row[3].ToString());
+                    groupsTableAdapter.Fill(swimmingpoolDataSet.Groups);
                     break;
                 case Tables.Coaches:
                     break;
@@ -193,6 +207,8 @@ namespace Swimming_Pool_Database.Forms
                         clientsTableAdapter.DeleteQuery(Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value)));
                     break;
                 case Tables.Groups:
+                    isQueryExecuted = TryQuery(() =>
+                        groupsTableAdapter.DeleteQuery(Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value)));
                     break;
                 case Tables.Coaches:
                     break;
