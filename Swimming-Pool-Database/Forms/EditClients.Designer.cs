@@ -28,70 +28,68 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Label first_nameLabel;
-            System.Windows.Forms.Label last_nameLabel;
-            System.Windows.Forms.Label middle_nameLabel;
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label firstNameLabel;
+            System.Windows.Forms.Label lastNameLabel;
+            System.Windows.Forms.Label middleNameLabel;
             System.Windows.Forms.Label sexLabel;
-            System.Windows.Forms.Label date_of_birthLabel;
-            System.Windows.Forms.Label client_typeLabel;
-            System.Windows.Forms.Label medical_groupLabel;
-            System.Windows.Forms.Label group_idLabel;
-            System.Windows.Forms.Label locker_idLabel;
-            this.okButton = new System.Windows.Forms.Button();
+            System.Windows.Forms.Label dateOfBirthLabel;
+            System.Windows.Forms.Label preparationLevelLabel;
+            System.Windows.Forms.Label emailLabel;
+            this.acceptButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
             this.middleNameTextBox = new System.Windows.Forms.TextBox();
-            this.lockerIdTextBox = new System.Windows.Forms.TextBox();
             this.dateOfBirthDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.sexComboBox = new System.Windows.Forms.ComboBox();
-            this.clientTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.medicalGroupComboBox = new System.Windows.Forms.ComboBox();
-            this.groupIdComboBox = new System.Windows.Forms.ComboBox();
-            first_nameLabel = new System.Windows.Forms.Label();
-            last_nameLabel = new System.Windows.Forms.Label();
-            middle_nameLabel = new System.Windows.Forms.Label();
+            this.preparationLevelComboBox = new System.Windows.Forms.ComboBox();
+            this.emailTextBox = new System.Windows.Forms.TextBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.clientsTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.ClientsTableAdapter();
+            this.clientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.swimmingpoolDataSet = new Swimming_Pool_Database.swimmingpoolDataSet();
+            firstNameLabel = new System.Windows.Forms.Label();
+            lastNameLabel = new System.Windows.Forms.Label();
+            middleNameLabel = new System.Windows.Forms.Label();
             sexLabel = new System.Windows.Forms.Label();
-            date_of_birthLabel = new System.Windows.Forms.Label();
-            client_typeLabel = new System.Windows.Forms.Label();
-            medical_groupLabel = new System.Windows.Forms.Label();
-            group_idLabel = new System.Windows.Forms.Label();
-            locker_idLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.swimmingpoolDataSet)).BeginInit();
+            dateOfBirthLabel = new System.Windows.Forms.Label();
+            preparationLevelLabel = new System.Windows.Forms.Label();
+            emailLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coachesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.swimmingpoolDataSet)).BeginInit();
             this.SuspendLayout();
             // 
-            // first_nameLabel
+            // firstNameLabel
             // 
-            first_nameLabel.AutoSize = true;
-            first_nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            first_nameLabel.Location = new System.Drawing.Point(37, 31);
-            first_nameLabel.Name = "first_nameLabel";
-            first_nameLabel.Size = new System.Drawing.Size(109, 25);
-            first_nameLabel.TabIndex = 3;
-            first_nameLabel.Text = "First name:";
+            firstNameLabel.AutoSize = true;
+            firstNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            firstNameLabel.Location = new System.Drawing.Point(37, 31);
+            firstNameLabel.Name = "firstNameLabel";
+            firstNameLabel.Size = new System.Drawing.Size(55, 25);
+            firstNameLabel.TabIndex = 3;
+            firstNameLabel.Text = "Ім\'я:";
             // 
-            // last_nameLabel
+            // lastNameLabel
             // 
-            last_nameLabel.AutoSize = true;
-            last_nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            last_nameLabel.Location = new System.Drawing.Point(37, 64);
-            last_nameLabel.Name = "last_nameLabel";
-            last_nameLabel.Size = new System.Drawing.Size(109, 25);
-            last_nameLabel.TabIndex = 5;
-            last_nameLabel.Text = "Last name:";
+            lastNameLabel.AutoSize = true;
+            lastNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            lastNameLabel.Location = new System.Drawing.Point(37, 64);
+            lastNameLabel.Name = "lastNameLabel";
+            lastNameLabel.Size = new System.Drawing.Size(107, 25);
+            lastNameLabel.TabIndex = 5;
+            lastNameLabel.Text = "Прізвище:";
             // 
-            // middle_nameLabel
+            // middleNameLabel
             // 
-            middle_nameLabel.AutoSize = true;
-            middle_nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            middle_nameLabel.Location = new System.Drawing.Point(37, 96);
-            middle_nameLabel.Name = "middle_nameLabel";
-            middle_nameLabel.Size = new System.Drawing.Size(130, 25);
-            middle_nameLabel.TabIndex = 7;
-            middle_nameLabel.Text = "Middle name:";
+            middleNameLabel.AutoSize = true;
+            middleNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            middleNameLabel.Location = new System.Drawing.Point(37, 96);
+            middleNameLabel.Name = "middleNameLabel";
+            middleNameLabel.Size = new System.Drawing.Size(128, 25);
+            middleNameLabel.TabIndex = 7;
+            middleNameLabel.Text = "По-батькові:";
             // 
             // sexLabel
             // 
@@ -99,86 +97,66 @@
             sexLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             sexLabel.Location = new System.Drawing.Point(37, 130);
             sexLabel.Name = "sexLabel";
-            sexLabel.Size = new System.Drawing.Size(53, 25);
+            sexLabel.Size = new System.Drawing.Size(75, 25);
             sexLabel.TabIndex = 9;
-            sexLabel.Text = "Sex:";
+            sexLabel.Text = "Стать:";
             // 
-            // date_of_birthLabel
+            // dateOfBirthLabel
             // 
-            date_of_birthLabel.AutoSize = true;
-            date_of_birthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            date_of_birthLabel.Location = new System.Drawing.Point(37, 163);
-            date_of_birthLabel.Name = "date_of_birthLabel";
-            date_of_birthLabel.Size = new System.Drawing.Size(122, 25);
-            date_of_birthLabel.TabIndex = 11;
-            date_of_birthLabel.Text = "Date of birth:";
+            dateOfBirthLabel.AutoSize = true;
+            dateOfBirthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dateOfBirthLabel.Location = new System.Drawing.Point(37, 163);
+            dateOfBirthLabel.Name = "dateOfBirthLabel";
+            dateOfBirthLabel.Size = new System.Drawing.Size(188, 25);
+            dateOfBirthLabel.TabIndex = 11;
+            dateOfBirthLabel.Text = "Дата народження:";
             // 
-            // client_typeLabel
+            // preparationLevelLabel
             // 
-            client_typeLabel.AutoSize = true;
-            client_typeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            client_typeLabel.Location = new System.Drawing.Point(37, 196);
-            client_typeLabel.Name = "client_typeLabel";
-            client_typeLabel.Size = new System.Drawing.Size(110, 25);
-            client_typeLabel.TabIndex = 13;
-            client_typeLabel.Text = "Client type:";
+            preparationLevelLabel.AutoSize = true;
+            preparationLevelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            preparationLevelLabel.Location = new System.Drawing.Point(37, 196);
+            preparationLevelLabel.Name = "preparationLevelLabel";
+            preparationLevelLabel.Size = new System.Drawing.Size(181, 25);
+            preparationLevelLabel.TabIndex = 13;
+            preparationLevelLabel.Text = "Рівень підготовки:";
             // 
-            // medical_groupLabel
+            // emailLabel
             // 
-            medical_groupLabel.AutoSize = true;
-            medical_groupLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            medical_groupLabel.Location = new System.Drawing.Point(37, 231);
-            medical_groupLabel.Name = "medical_groupLabel";
-            medical_groupLabel.Size = new System.Drawing.Size(141, 25);
-            medical_groupLabel.TabIndex = 15;
-            medical_groupLabel.Text = "Medical group:";
+            emailLabel.AutoSize = true;
+            emailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            emailLabel.Location = new System.Drawing.Point(37, 230);
+            emailLabel.Name = "emailLabel";
+            emailLabel.Size = new System.Drawing.Size(199, 25);
+            emailLabel.TabIndex = 33;
+            emailLabel.Text = "Електронна адреса:";
             // 
-            // group_idLabel
+            // acceptButton
             // 
-            group_idLabel.AutoSize = true;
-            group_idLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            group_idLabel.Location = new System.Drawing.Point(37, 265);
-            group_idLabel.Name = "group_idLabel";
-            group_idLabel.Size = new System.Drawing.Size(72, 25);
-            group_idLabel.TabIndex = 17;
-            group_idLabel.Text = "Group:";
-            // 
-            // locker_idLabel
-            // 
-            locker_idLabel.AutoSize = true;
-            locker_idLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            locker_idLabel.Location = new System.Drawing.Point(37, 300);
-            locker_idLabel.Name = "locker_idLabel";
-            locker_idLabel.Size = new System.Drawing.Size(77, 25);
-            locker_idLabel.TabIndex = 19;
-            locker_idLabel.Text = "Locker:";
-            // 
-            // okButton
-            // 
-            this.okButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.okButton.Location = new System.Drawing.Point(42, 351);
-            this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(158, 39);
-            this.okButton.TabIndex = 24;
-            this.okButton.Text = "OK";
-            this.okButton.UseVisualStyleBackColor = true;
-            this.okButton.Click += new System.EventHandler(this.okButton_Click);
+            this.acceptButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.acceptButton.Location = new System.Drawing.Point(70, 290);
+            this.acceptButton.Name = "acceptButton";
+            this.acceptButton.Size = new System.Drawing.Size(158, 39);
+            this.acceptButton.TabIndex = 24;
+            this.acceptButton.Text = "Підтвердити";
+            this.acceptButton.UseVisualStyleBackColor = true;
+            this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
             // 
             // cancelButton
             // 
             this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cancelButton.Location = new System.Drawing.Point(224, 351);
+            this.cancelButton.Location = new System.Drawing.Point(252, 290);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(160, 39);
             this.cancelButton.TabIndex = 25;
-            this.cancelButton.Text = "Cancel";
+            this.cancelButton.Text = "Відмінити";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // firstNameTextBox
             // 
             this.firstNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.firstNameTextBox.Location = new System.Drawing.Point(191, 32);
+            this.firstNameTextBox.Location = new System.Drawing.Point(252, 31);
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(193, 27);
             this.firstNameTextBox.TabIndex = 26;
@@ -186,7 +164,7 @@
             // lastNameTextBox
             // 
             this.lastNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lastNameTextBox.Location = new System.Drawing.Point(191, 65);
+            this.lastNameTextBox.Location = new System.Drawing.Point(252, 64);
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(193, 27);
             this.lastNameTextBox.TabIndex = 27;
@@ -194,23 +172,15 @@
             // middleNameTextBox
             // 
             this.middleNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.middleNameTextBox.Location = new System.Drawing.Point(191, 98);
+            this.middleNameTextBox.Location = new System.Drawing.Point(252, 97);
             this.middleNameTextBox.Name = "middleNameTextBox";
             this.middleNameTextBox.Size = new System.Drawing.Size(193, 27);
             this.middleNameTextBox.TabIndex = 28;
             // 
-            // lockerIdTextBox
-            // 
-            this.lockerIdTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lockerIdTextBox.Location = new System.Drawing.Point(191, 301);
-            this.lockerIdTextBox.Name = "lockerIdTextBox";
-            this.lockerIdTextBox.Size = new System.Drawing.Size(193, 27);
-            this.lockerIdTextBox.TabIndex = 29;
-            // 
             // dateOfBirthDateTimePicker
             // 
             this.dateOfBirthDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dateOfBirthDateTimePicker.Location = new System.Drawing.Point(191, 163);
+            this.dateOfBirthDateTimePicker.Location = new System.Drawing.Point(252, 162);
             this.dateOfBirthDateTimePicker.Name = "dateOfBirthDateTimePicker";
             this.dateOfBirthDateTimePicker.Size = new System.Drawing.Size(193, 27);
             this.dateOfBirthDateTimePicker.TabIndex = 30;
@@ -222,101 +192,100 @@
             this.sexComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.sexComboBox.FormattingEnabled = true;
             this.sexComboBox.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-            this.sexComboBox.Location = new System.Drawing.Point(191, 130);
+            "Чоловіча",
+            "Жіноча"});
+            this.sexComboBox.Location = new System.Drawing.Point(252, 129);
             this.sexComboBox.Name = "sexComboBox";
             this.sexComboBox.Size = new System.Drawing.Size(193, 28);
             this.sexComboBox.TabIndex = 31;
             // 
-            // clientTypeComboBox
+            // preparationLevelComboBox
             // 
-            this.clientTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.clientTypeComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.clientTypeComboBox.FormattingEnabled = true;
-            this.clientTypeComboBox.Items.AddRange(new object[] {
-            "Amateur",
-            "Sportsman"});
-            this.clientTypeComboBox.Location = new System.Drawing.Point(191, 196);
-            this.clientTypeComboBox.Name = "clientTypeComboBox";
-            this.clientTypeComboBox.Size = new System.Drawing.Size(193, 28);
-            this.clientTypeComboBox.TabIndex = 32;
+            this.preparationLevelComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.preparationLevelComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.preparationLevelComboBox.FormattingEnabled = true;
+            this.preparationLevelComboBox.Items.AddRange(new object[] {
+            "Початківець",
+            "Любитель",
+            "Спортсмен"});
+            this.preparationLevelComboBox.Location = new System.Drawing.Point(252, 195);
+            this.preparationLevelComboBox.Name = "preparationLevelComboBox";
+            this.preparationLevelComboBox.Size = new System.Drawing.Size(193, 28);
+            this.preparationLevelComboBox.TabIndex = 32;
             // 
-            // medicalGroupComboBox
+            // emailTextBox
             // 
-            this.medicalGroupComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.medicalGroupComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.medicalGroupComboBox.FormattingEnabled = true;
-            this.medicalGroupComboBox.Items.AddRange(new object[] {
-            "Main",
-            "Preparatory",
-            "Special"});
-            this.medicalGroupComboBox.Location = new System.Drawing.Point(191, 232);
-            this.medicalGroupComboBox.Name = "medicalGroupComboBox";
-            this.medicalGroupComboBox.Size = new System.Drawing.Size(193, 28);
-            this.medicalGroupComboBox.TabIndex = 33;
+            this.emailTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.emailTextBox.Location = new System.Drawing.Point(252, 229);
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.Size = new System.Drawing.Size(193, 27);
+            this.emailTextBox.TabIndex = 34;
+            this.emailTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.emailTextBox_Validating);
+            this.emailTextBox.Validated += new System.EventHandler(this.emailTextBox_Validated);
             // 
-            // groupIdComboBox
+            // errorProvider
             // 
-            this.groupIdComboBox.DataSource = this.groupsBindingSource;
-            this.groupIdComboBox.DisplayMember = "group_id";
-            this.groupIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.groupIdComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupIdComboBox.FormattingEnabled = true;
-            this.groupIdComboBox.Location = new System.Drawing.Point(191, 266);
-            this.groupIdComboBox.Name = "groupIdComboBox";
-            this.groupIdComboBox.Size = new System.Drawing.Size(193, 28);
-            this.groupIdComboBox.TabIndex = 34;
-            this.groupIdComboBox.ValueMember = "group_id";
+            this.errorProvider.ContainerControl = this;
+            // 
+            // clientsTableAdapter
+            // 
+            this.clientsTableAdapter.ClearBeforeFill = true;
+            // 
+            // clientsBindingSource
+            // 
+            this.clientsBindingSource.DataMember = "Clients";
+            this.clientsBindingSource.DataSource = this.swimmingpoolDataSet;
+            // 
+            // swimmingpoolDataSet
+            // 
+            this.swimmingpoolDataSet.DataSetName = "swimmingpoolDataSet";
+            this.swimmingpoolDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // EditClients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(425, 417);
-            this.Controls.Add(this.groupIdComboBox);
-            this.Controls.Add(this.medicalGroupComboBox);
-            this.Controls.Add(this.clientTypeComboBox);
+            this.ClientSize = new System.Drawing.Size(501, 379);
+            this.Controls.Add(this.emailTextBox);
+            this.Controls.Add(emailLabel);
+            this.Controls.Add(this.preparationLevelComboBox);
             this.Controls.Add(this.sexComboBox);
             this.Controls.Add(this.dateOfBirthDateTimePicker);
-            this.Controls.Add(this.lockerIdTextBox);
             this.Controls.Add(this.middleNameTextBox);
             this.Controls.Add(this.lastNameTextBox);
             this.Controls.Add(this.firstNameTextBox);
             this.Controls.Add(this.cancelButton);
-            this.Controls.Add(this.okButton);
-            this.Controls.Add(first_nameLabel);
-            this.Controls.Add(last_nameLabel);
-            this.Controls.Add(middle_nameLabel);
+            this.Controls.Add(this.acceptButton);
+            this.Controls.Add(firstNameLabel);
+            this.Controls.Add(lastNameLabel);
+            this.Controls.Add(middleNameLabel);
             this.Controls.Add(sexLabel);
-            this.Controls.Add(date_of_birthLabel);
-            this.Controls.Add(client_typeLabel);
-            this.Controls.Add(medical_groupLabel);
-            this.Controls.Add(group_idLabel);
-            this.Controls.Add(locker_idLabel);
+            this.Controls.Add(dateOfBirthLabel);
+            this.Controls.Add(preparationLevelLabel);
             this.Name = "EditClients";
-            this.Text = "EditClients";
-            this.Load += new System.EventHandler(this.EditClients_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.swimmingpoolDataSet)).EndInit();
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Редагування клієнта";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coachesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.swimmingpoolDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button okButton;
+        private System.Windows.Forms.Button acceptButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.TextBox firstNameTextBox;
         private System.Windows.Forms.TextBox lastNameTextBox;
         private System.Windows.Forms.TextBox middleNameTextBox;
-        private System.Windows.Forms.TextBox lockerIdTextBox;
         private System.Windows.Forms.DateTimePicker dateOfBirthDateTimePicker;
         private System.Windows.Forms.ComboBox sexComboBox;
-        private System.Windows.Forms.ComboBox clientTypeComboBox;
-        private System.Windows.Forms.ComboBox medicalGroupComboBox;
-        private System.Windows.Forms.ComboBox groupIdComboBox;
+        private System.Windows.Forms.ComboBox preparationLevelComboBox;
+        private System.Windows.Forms.TextBox emailTextBox;
+        private System.Windows.Forms.ErrorProvider errorProvider;
+        private swimmingpoolDataSetTableAdapters.ClientsTableAdapter clientsTableAdapter;
+        private System.Windows.Forms.BindingSource clientsBindingSource;
+        private swimmingpoolDataSet swimmingpoolDataSet;
     }
 }
