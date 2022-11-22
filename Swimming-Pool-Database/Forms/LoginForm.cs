@@ -39,7 +39,7 @@ namespace Swimming_Pool_Database.Forms
                 return;
             }
 
-            CommonFunctions.MakeFormActive(new MainForm());
+            CommonFunctions.MakeFormActive(new AdminMainForm());
         }
 
         private void regButton_Click(object sender, EventArgs e)
@@ -76,7 +76,7 @@ namespace Swimming_Pool_Database.Forms
                 odbcConnection.Close();
             }
 
-            CommonFunctions.MakeFormActive(new MainForm());
+            CommonFunctions.MakeFormActive(new AdminMainForm());
         }
 
         private void ShowLoginOrPasswordEmptyMessage()
