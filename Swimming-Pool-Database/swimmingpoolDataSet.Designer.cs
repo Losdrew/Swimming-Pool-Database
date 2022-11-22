@@ -38,17 +38,17 @@ namespace Swimming_Pool_Database {
         
         private ClientsDataTable tableClients;
         
-        private global::System.Data.DataRelation relationFK_Pools_Instructors;
+        private global::System.Data.DataRelation relationFK_Clients_VisitorCards;
         
-        private global::System.Data.DataRelation relationFK_Pools_SwimLanes;
+        private global::System.Data.DataRelation relationFK_Subscriptions_VisitorCards;
         
         private global::System.Data.DataRelation relationFK_SwimLanes_Trainings;
         
         private global::System.Data.DataRelation relationFK_VisitorCards_Trainings;
         
-        private global::System.Data.DataRelation relationFK_Subscriptions_VisitorCards;
+        private global::System.Data.DataRelation relationFK_Pools_SwimLanes;
         
-        private global::System.Data.DataRelation relationFK_Clients_VisitorCards;
+        private global::System.Data.DataRelation relationFK_Pools_Instructors;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -350,12 +350,12 @@ namespace Swimming_Pool_Database {
                     this.tableClients.InitVars();
                 }
             }
-            this.relationFK_Pools_Instructors = this.Relations["FK_Pools_Instructors"];
-            this.relationFK_Pools_SwimLanes = this.Relations["FK_Pools_SwimLanes"];
+            this.relationFK_Clients_VisitorCards = this.Relations["FK_Clients_VisitorCards"];
+            this.relationFK_Subscriptions_VisitorCards = this.Relations["FK_Subscriptions_VisitorCards"];
             this.relationFK_SwimLanes_Trainings = this.Relations["FK_SwimLanes_Trainings"];
             this.relationFK_VisitorCards_Trainings = this.Relations["FK_VisitorCards_Trainings"];
-            this.relationFK_Subscriptions_VisitorCards = this.Relations["FK_Subscriptions_VisitorCards"];
-            this.relationFK_Clients_VisitorCards = this.Relations["FK_Clients_VisitorCards"];
+            this.relationFK_Pools_SwimLanes = this.Relations["FK_Pools_SwimLanes"];
+            this.relationFK_Pools_Instructors = this.Relations["FK_Pools_Instructors"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -409,13 +409,6 @@ namespace Swimming_Pool_Database {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_Subscriptions_VisitorCards", new global::System.Data.DataColumn[] {
-                        this.tableSubscriptions.subscription_idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableVisitorCards.subscription_idColumn});
-            this.tableVisitorCards.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.Cascade;
-            fkc.UpdateRule = global::System.Data.Rule.Cascade;
             fkc = new global::System.Data.ForeignKeyConstraint("FK_Clients_VisitorCards", new global::System.Data.DataColumn[] {
                         this.tableClients.client_idColumn}, new global::System.Data.DataColumn[] {
                         this.tableVisitorCards.client_idColumn});
@@ -423,14 +416,21 @@ namespace Swimming_Pool_Database {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            this.relationFK_Pools_Instructors = new global::System.Data.DataRelation("FK_Pools_Instructors", new global::System.Data.DataColumn[] {
-                        this.tablePools.pool_idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableInstructors.pool_idColumn}, false);
-            this.Relations.Add(this.relationFK_Pools_Instructors);
-            this.relationFK_Pools_SwimLanes = new global::System.Data.DataRelation("FK_Pools_SwimLanes", new global::System.Data.DataColumn[] {
-                        this.tablePools.pool_idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableSwimLanes.pool_idColumn}, false);
-            this.Relations.Add(this.relationFK_Pools_SwimLanes);
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_Subscriptions_VisitorCards", new global::System.Data.DataColumn[] {
+                        this.tableSubscriptions.subscription_idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableVisitorCards.subscription_idColumn});
+            this.tableVisitorCards.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            this.relationFK_Clients_VisitorCards = new global::System.Data.DataRelation("FK_Clients_VisitorCards", new global::System.Data.DataColumn[] {
+                        this.tableClients.client_idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableVisitorCards.client_idColumn}, false);
+            this.Relations.Add(this.relationFK_Clients_VisitorCards);
+            this.relationFK_Subscriptions_VisitorCards = new global::System.Data.DataRelation("FK_Subscriptions_VisitorCards", new global::System.Data.DataColumn[] {
+                        this.tableSubscriptions.subscription_idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableVisitorCards.subscription_idColumn}, false);
+            this.Relations.Add(this.relationFK_Subscriptions_VisitorCards);
             this.relationFK_SwimLanes_Trainings = new global::System.Data.DataRelation("FK_SwimLanes_Trainings", new global::System.Data.DataColumn[] {
                         this.tableSwimLanes.swimlane_idColumn}, new global::System.Data.DataColumn[] {
                         this.tableTrainings.swimlane_idColumn}, false);
@@ -439,14 +439,14 @@ namespace Swimming_Pool_Database {
                         this.tableVisitorCards.card_idColumn}, new global::System.Data.DataColumn[] {
                         this.tableTrainings.card_idColumn}, false);
             this.Relations.Add(this.relationFK_VisitorCards_Trainings);
-            this.relationFK_Subscriptions_VisitorCards = new global::System.Data.DataRelation("FK_Subscriptions_VisitorCards", new global::System.Data.DataColumn[] {
-                        this.tableSubscriptions.subscription_idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableVisitorCards.subscription_idColumn}, false);
-            this.Relations.Add(this.relationFK_Subscriptions_VisitorCards);
-            this.relationFK_Clients_VisitorCards = new global::System.Data.DataRelation("FK_Clients_VisitorCards", new global::System.Data.DataColumn[] {
-                        this.tableClients.client_idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableVisitorCards.client_idColumn}, false);
-            this.Relations.Add(this.relationFK_Clients_VisitorCards);
+            this.relationFK_Pools_SwimLanes = new global::System.Data.DataRelation("FK_Pools_SwimLanes", new global::System.Data.DataColumn[] {
+                        this.tablePools.pool_idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableSwimLanes.pool_idColumn}, false);
+            this.Relations.Add(this.relationFK_Pools_SwimLanes);
+            this.relationFK_Pools_Instructors = new global::System.Data.DataRelation("FK_Pools_Instructors", new global::System.Data.DataColumn[] {
+                        this.tablePools.pool_idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableInstructors.pool_idColumn}, false);
+            this.Relations.Add(this.relationFK_Pools_Instructors);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2485,13 +2485,17 @@ namespace Swimming_Pool_Database {
             
             private global::System.Data.DataColumn _columnПо_батькові;
             
-            private global::System.Data.DataColumn columnСтать;
-            
             private global::System.Data.DataColumn columnДата_народження;
+            
+            private global::System.Data.DataColumn columnСтать;
             
             private global::System.Data.DataColumn columnРівень_підготовки;
             
             private global::System.Data.DataColumn columnЕлектронна_адреса;
+            
+            private global::System.Data.DataColumn columnЛогін;
+            
+            private global::System.Data.DataColumn columnПароль;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -2560,17 +2564,17 @@ namespace Swimming_Pool_Database {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn СтатьColumn {
+            public global::System.Data.DataColumn Дата_народженняColumn {
                 get {
-                    return this.columnСтать;
+                    return this.columnДата_народження;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Дата_народженняColumn {
+            public global::System.Data.DataColumn СтатьColumn {
                 get {
-                    return this.columnДата_народження;
+                    return this.columnСтать;
                 }
             }
             
@@ -2587,6 +2591,22 @@ namespace Swimming_Pool_Database {
             public global::System.Data.DataColumn Електронна_адресаColumn {
                 get {
                     return this.columnЕлектронна_адреса;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ЛогінColumn {
+                get {
+                    return this.columnЛогін;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ПарольColumn {
+                get {
+                    return this.columnПароль;
                 }
             }
             
@@ -2627,20 +2647,29 @@ namespace Swimming_Pool_Database {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ClientsRow AddClientsRow(string _Ім_я, string Прізвище, string _По_батькові, string Стать, System.DateTime Дата_народження, string Рівень_підготовки, string Електронна_адреса) {
+            public ClientsRow AddClientsRow(string _Ім_я, string Прізвище, string _По_батькові, System.DateTime Дата_народження, string Стать, string Рівень_підготовки, string Електронна_адреса, string Логін, string Пароль) {
                 ClientsRow rowClientsRow = ((ClientsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         _Ім_я,
                         Прізвище,
                         _По_батькові,
-                        Стать,
                         Дата_народження,
+                        Стать,
                         Рівень_підготовки,
-                        Електронна_адреса};
+                        Електронна_адреса,
+                        Логін,
+                        Пароль};
                 rowClientsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowClientsRow);
                 return rowClientsRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ClientsRow FindByclient_id(int client_id) {
+                return ((ClientsRow)(this.Rows.Find(new object[] {
+                            client_id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2664,10 +2693,12 @@ namespace Swimming_Pool_Database {
                 this._columnІм_я = base.Columns["Ім\'я"];
                 this.columnПрізвище = base.Columns["Прізвище"];
                 this._columnПо_батькові = base.Columns["По-батькові"];
-                this.columnСтать = base.Columns["Стать"];
                 this.columnДата_народження = base.Columns["Дата народження"];
+                this.columnСтать = base.Columns["Стать"];
                 this.columnРівень_підготовки = base.Columns["Рівень підготовки"];
                 this.columnЕлектронна_адреса = base.Columns["Електронна адреса"];
+                this.columnЛогін = base.Columns["Логін"];
+                this.columnПароль = base.Columns["Пароль"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2685,16 +2716,20 @@ namespace Swimming_Pool_Database {
                 this._columnПо_батькові.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnПо_батькові");
                 this._columnПо_батькові.ExtendedProperties.Add("Generator_UserColumnName", "По-батькові");
                 base.Columns.Add(this._columnПо_батькові);
-                this.columnСтать = new global::System.Data.DataColumn("Стать", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnСтать);
                 this.columnДата_народження = new global::System.Data.DataColumn("Дата народження", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnДата_народження);
+                this.columnСтать = new global::System.Data.DataColumn("Стать", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnСтать);
                 this.columnРівень_підготовки = new global::System.Data.DataColumn("Рівень підготовки", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnРівень_підготовки);
                 this.columnЕлектронна_адреса = new global::System.Data.DataColumn("Електронна адреса", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnЕлектронна_адреса);
+                this.columnЛогін = new global::System.Data.DataColumn("Логін", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnЛогін);
+                this.columnПароль = new global::System.Data.DataColumn("Пароль", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnПароль);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnclient_id}, false));
+                                this.columnclient_id}, true));
                 this.columnclient_id.AutoIncrement = true;
                 this.columnclient_id.AutoIncrementSeed = -1;
                 this.columnclient_id.AutoIncrementStep = -1;
@@ -2706,6 +2741,8 @@ namespace Swimming_Pool_Database {
                 this.columnСтать.MaxLength = 127;
                 this.columnРівень_підготовки.MaxLength = 127;
                 this.columnЕлектронна_адреса.MaxLength = 127;
+                this.columnЛогін.MaxLength = 4095;
+                this.columnПароль.MaxLength = 4095;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2996,23 +3033,23 @@ namespace Swimming_Pool_Database {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SwimLanesRow[] GetSwimLanesRows() {
-                if ((this.Table.ChildRelations["FK_Pools_SwimLanes"] == null)) {
-                    return new SwimLanesRow[0];
-                }
-                else {
-                    return ((SwimLanesRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Pools_SwimLanes"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public InstructorsRow[] GetInstructorsRows() {
                 if ((this.Table.ChildRelations["FK_Pools_Instructors"] == null)) {
                     return new InstructorsRow[0];
                 }
                 else {
                     return ((InstructorsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Pools_Instructors"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SwimLanesRow[] GetSwimLanesRows() {
+                if ((this.Table.ChildRelations["FK_Pools_SwimLanes"] == null)) {
+                    return new SwimLanesRow[0];
+                }
+                else {
+                    return ((SwimLanesRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Pools_SwimLanes"])));
                 }
             }
         }
@@ -3565,23 +3602,23 @@ namespace Swimming_Pool_Database {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SubscriptionsRow SubscriptionsRow {
-                get {
-                    return ((SubscriptionsRow)(this.GetParentRow(this.Table.ParentRelations["FK_Subscriptions_VisitorCards"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Subscriptions_VisitorCards"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ClientsRow ClientsRow {
                 get {
                     return ((ClientsRow)(this.GetParentRow(this.Table.ParentRelations["FK_Clients_VisitorCards"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Clients_VisitorCards"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SubscriptionsRow SubscriptionsRow {
+                get {
+                    return ((SubscriptionsRow)(this.GetParentRow(this.Table.ParentRelations["FK_Subscriptions_VisitorCards"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Subscriptions_VisitorCards"]);
                 }
             }
             
@@ -3732,22 +3769,6 @@ namespace Swimming_Pool_Database {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Стать {
-                get {
-                    try {
-                        return ((string)(this[this.tableClients.СтатьColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Стать\' in table \'Clients\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableClients.СтатьColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public System.DateTime Дата_народження {
                 get {
                     try {
@@ -3759,6 +3780,22 @@ namespace Swimming_Pool_Database {
                 }
                 set {
                     this[this.tableClients.Дата_народженняColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Стать {
+                get {
+                    try {
+                        return ((string)(this[this.tableClients.СтатьColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Стать\' in table \'Clients\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableClients.СтатьColumn] = value;
                 }
             }
             
@@ -3791,6 +3828,38 @@ namespace Swimming_Pool_Database {
                 }
                 set {
                     this[this.tableClients.Електронна_адресаColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Логін {
+                get {
+                    try {
+                        return ((string)(this[this.tableClients.ЛогінColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Логін\' in table \'Clients\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableClients.ЛогінColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Пароль {
+                get {
+                    try {
+                        return ((string)(this[this.tableClients.ПарольColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Пароль\' in table \'Clients\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableClients.ПарольColumn] = value;
                 }
             }
             
@@ -3832,18 +3901,6 @@ namespace Swimming_Pool_Database {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsСтатьNull() {
-                return this.IsNull(this.tableClients.СтатьColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetСтатьNull() {
-                this[this.tableClients.СтатьColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsДата_народженняNull() {
                 return this.IsNull(this.tableClients.Дата_народженняColumn);
             }
@@ -3852,6 +3909,18 @@ namespace Swimming_Pool_Database {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetДата_народженняNull() {
                 this[this.tableClients.Дата_народженняColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsСтатьNull() {
+                return this.IsNull(this.tableClients.СтатьColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetСтатьNull() {
+                this[this.tableClients.СтатьColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3876,6 +3945,30 @@ namespace Swimming_Pool_Database {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetЕлектронна_адресаNull() {
                 this[this.tableClients.Електронна_адресаColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsЛогінNull() {
+                return this.IsNull(this.tableClients.ЛогінColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetЛогінNull() {
+                this[this.tableClients.ЛогінColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsПарольNull() {
+                return this.IsNull(this.tableClients.ПарольColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetПарольNull() {
+                this[this.tableClients.ПарольColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6929,14 +7022,16 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("first_name", "Ім\'я");
             tableMapping.ColumnMappings.Add("last_name", "Прізвище");
             tableMapping.ColumnMappings.Add("middle_name", "По-батькові");
-            tableMapping.ColumnMappings.Add("sex", "Стать");
             tableMapping.ColumnMappings.Add("date_of_birth", "Дата народження");
+            tableMapping.ColumnMappings.Add("sex", "Стать");
             tableMapping.ColumnMappings.Add("preparation_level", "Рівень підготовки");
             tableMapping.ColumnMappings.Add("email", "Електронна адреса");
+            tableMapping.ColumnMappings.Add("login", "Логін");
+            tableMapping.ColumnMappings.Add("password", "Пароль");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.Odbc.OdbcCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM ""swimmingpool"".""public"".""Clients"" WHERE ((""client_id"" = ?) AND ((? = 1 AND ""first_name"" IS NULL) OR (""first_name"" = ?)) AND ((? = 1 AND ""last_name"" IS NULL) OR (""last_name"" = ?)) AND ((? = 1 AND ""middle_name"" IS NULL) OR (""middle_name"" = ?)) AND ((? = 1 AND ""sex"" IS NULL) OR (""sex"" = ?)) AND ((? = 1 AND ""date_of_birth"" IS NULL) OR (""date_of_birth"" = ?)) AND ((? = 1 AND ""preparation_level"" IS NULL) OR (""preparation_level"" = ?)) AND ((? = 1 AND ""email"" IS NULL) OR (""email"" = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM ""swimmingpool"".""public"".""Clients"" WHERE ((""client_id"" = ?) AND ((? = 1 AND ""first_name"" IS NULL) OR (""first_name"" = ?)) AND ((? = 1 AND ""last_name"" IS NULL) OR (""last_name"" = ?)) AND ((? = 1 AND ""middle_name"" IS NULL) OR (""middle_name"" = ?)) AND ((? = 1 AND ""date_of_birth"" IS NULL) OR (""date_of_birth"" = ?)) AND ((? = 1 AND ""sex"" IS NULL) OR (""sex"" = ?)) AND ((? = 1 AND ""preparation_level"" IS NULL) OR (""preparation_level"" = ?)) AND ((? = 1 AND ""email"" IS NULL) OR (""email"" = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_client_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "client_id", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_first_name", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "first_name", global::System.Data.DataRowVersion.Original, true, null));
@@ -6945,10 +7040,10 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_last_name", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "last_name", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_middle_name", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "middle_name", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_middle_name", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "middle_name", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_sex", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "sex", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_sex", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "sex", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_date_of_birth", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "date_of_birth", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_date_of_birth", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "date_of_birth", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_sex", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "sex", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_sex", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "sex", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_preparation_level", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "preparation_level", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_preparation_level", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "preparation_level", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_email", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "email", global::System.Data.DataRowVersion.Original, true, null));
@@ -6956,27 +7051,31 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
             this._adapter.InsertCommand = new global::System.Data.Odbc.OdbcCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO \"swimmingpool\".\"public\".\"Clients\" (\"first_name\", \"last_name\", \"middle" +
-                "_name\", \"sex\", \"date_of_birth\", \"preparation_level\", \"email\") VALUES (?, ?, ?, ?" +
-                ", ?, ?, ?)";
+                "_name\", \"date_of_birth\", \"sex\", \"preparation_level\", \"email\", \"login\", \"password" +
+                "\") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("first_name", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "first_name", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("last_name", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "last_name", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("middle_name", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "middle_name", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("sex", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "sex", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("date_of_birth", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "date_of_birth", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("sex", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "sex", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("preparation_level", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "preparation_level", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("email", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "email", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("login", global::System.Data.Odbc.OdbcType.NText, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "login", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("password", global::System.Data.Odbc.OdbcType.NText, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "password", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.Odbc.OdbcCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE ""swimmingpool"".""public"".""Clients"" SET ""first_name"" = ?, ""last_name"" = ?, ""middle_name"" = ?, ""sex"" = ?, ""date_of_birth"" = ?, ""preparation_level"" = ?, ""email"" = ? WHERE ((""client_id"" = ?) AND ((? = 1 AND ""first_name"" IS NULL) OR (""first_name"" = ?)) AND ((? = 1 AND ""last_name"" IS NULL) OR (""last_name"" = ?)) AND ((? = 1 AND ""middle_name"" IS NULL) OR (""middle_name"" = ?)) AND ((? = 1 AND ""sex"" IS NULL) OR (""sex"" = ?)) AND ((? = 1 AND ""date_of_birth"" IS NULL) OR (""date_of_birth"" = ?)) AND ((? = 1 AND ""preparation_level"" IS NULL) OR (""preparation_level"" = ?)) AND ((? = 1 AND ""email"" IS NULL) OR (""email"" = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE ""swimmingpool"".""public"".""Clients"" SET ""first_name"" = ?, ""last_name"" = ?, ""middle_name"" = ?, ""date_of_birth"" = ?, ""sex"" = ?, ""preparation_level"" = ?, ""email"" = ?, ""login"" = ?, ""password"" = ? WHERE ((""client_id"" = ?) AND ((? = 1 AND ""first_name"" IS NULL) OR (""first_name"" = ?)) AND ((? = 1 AND ""last_name"" IS NULL) OR (""last_name"" = ?)) AND ((? = 1 AND ""middle_name"" IS NULL) OR (""middle_name"" = ?)) AND ((? = 1 AND ""date_of_birth"" IS NULL) OR (""date_of_birth"" = ?)) AND ((? = 1 AND ""sex"" IS NULL) OR (""sex"" = ?)) AND ((? = 1 AND ""preparation_level"" IS NULL) OR (""preparation_level"" = ?)) AND ((? = 1 AND ""email"" IS NULL) OR (""email"" = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("first_name", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "first_name", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("last_name", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "last_name", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("middle_name", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "middle_name", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("sex", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "sex", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("date_of_birth", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "date_of_birth", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("sex", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "sex", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("preparation_level", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "preparation_level", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("email", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "email", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("login", global::System.Data.Odbc.OdbcType.NText, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "login", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("password", global::System.Data.Odbc.OdbcType.NText, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "password", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_client_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "client_id", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_first_name", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "first_name", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_first_name", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "first_name", global::System.Data.DataRowVersion.Original, false, null));
@@ -6984,10 +7083,10 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_last_name", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "last_name", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_middle_name", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "middle_name", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_middle_name", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "middle_name", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_sex", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "sex", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_sex", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "sex", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_date_of_birth", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "date_of_birth", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_date_of_birth", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "date_of_birth", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_sex", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "sex", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_sex", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "sex", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_preparation_level", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "preparation_level", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_preparation_level", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "preparation_level", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_email", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "email", global::System.Data.DataRowVersion.Original, true, null));
@@ -7004,11 +7103,11 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.Odbc.OdbcCommand[4];
+            this._commandCollection = new global::System.Data.Odbc.OdbcCommand[6];
             this._commandCollection[0] = new global::System.Data.Odbc.OdbcCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT \"client_id\", \"first_name\", \"last_name\", \"middle_name\", \"sex\", \"date_of_bir" +
-                "th\", \"preparation_level\", \"email\" FROM \"public\".\"Clients\"";
+            this._commandCollection[0].CommandText = "SELECT \"client_id\", \"first_name\", \"last_name\", \"middle_name\", \"date_of_birth\", \"s" +
+                "ex\", \"preparation_level\", \"email\", \"login\", \"password\" FROM \"public\".\"Clients\"";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.Odbc.OdbcCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -7017,24 +7116,40 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
             this._commandCollection[1].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("client_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "client_id", global::System.Data.DataRowVersion.Original, false, null));
             this._commandCollection[2] = new global::System.Data.Odbc.OdbcCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT \"client_id\", \"first_name\", \"last_name\", \"middle_name\", \"sex\", \"date_of_bir" +
-                "th\", \"preparation_level\", \"email\" FROM \"public\".\"Clients\" WHERE (\"client_id\"=?)";
+            this._commandCollection[2].CommandText = "SELECT \"client_id\", \"first_name\", \"last_name\", \"middle_name\", \"date_of_birth\", \"s" +
+                "ex\", \"preparation_level\", \"email\", \"login\", \"password\" FROM \"public\".\"Clients\" W" +
+                "HERE (\"client_id\"=?)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("client_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "client_id", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[3] = new global::System.Data.Odbc.OdbcCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "UPDATE \"swimmingpool\".\"public\".\"Clients\" SET \"first_name\" = ?, \"last_name\" = ?, \"" +
-                "middle_name\" = ?, \"sex\" = ?, \"date_of_birth\" = ?, \"preparation_level\" = ?, \"emai" +
-                "l\" = ? WHERE (\"client_id\" = ?)";
+            this._commandCollection[3].CommandText = "SELECT \"client_id\" FROM \"public\".\"Clients\" WHERE (\"login\"=?) AND (\"password\"=?)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("first_name", global::System.Data.Odbc.OdbcType.NVarChar, 1024, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "first_name", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("last_name", global::System.Data.Odbc.OdbcType.NVarChar, 1024, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "last_name", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("middle_name", global::System.Data.Odbc.OdbcType.NVarChar, 1024, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "middle_name", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("sex", global::System.Data.Odbc.OdbcType.NVarChar, 1024, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "sex", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("date_of_birth", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "date_of_birth", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("preparation_level", global::System.Data.Odbc.OdbcType.NVarChar, 1024, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "preparation_level", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("email", global::System.Data.Odbc.OdbcType.NVarChar, 1024, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "email", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_client_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "client_id", global::System.Data.DataRowVersion.Original, false, null));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("login", global::System.Data.Odbc.OdbcType.NVarChar, 8190, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "login", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("password", global::System.Data.Odbc.OdbcType.NVarChar, 8190, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "password", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[4] = new global::System.Data.Odbc.OdbcCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "INSERT INTO \"swimmingpool\".\"public\".\"Clients\" (\"login\", \"password\") VALUES (?, ?)" +
+                "";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("login", global::System.Data.Odbc.OdbcType.NVarChar, 8190, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "login", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("password", global::System.Data.Odbc.OdbcType.NVarChar, 8190, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "password", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[5] = new global::System.Data.Odbc.OdbcCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = "UPDATE \"swimmingpool\".\"public\".\"Clients\" SET \"first_name\" = ?, \"last_name\" = ?, \"" +
+                "middle_name\" = ?, \"date_of_birth\" = ?, \"sex\" = ?, \"preparation_level\" = ?, \"emai" +
+                "l\" = ?, \"login\" = ?, \"password\" = ? WHERE (\"client_id\" = ?)";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("first_name", global::System.Data.Odbc.OdbcType.NVarChar, 1024, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "first_name", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("last_name", global::System.Data.Odbc.OdbcType.NVarChar, 1024, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "last_name", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("middle_name", global::System.Data.Odbc.OdbcType.NVarChar, 1024, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "middle_name", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("date_of_birth", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "date_of_birth", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("sex", global::System.Data.Odbc.OdbcType.NVarChar, 1024, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "sex", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("preparation_level", global::System.Data.Odbc.OdbcType.NVarChar, 1024, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "preparation_level", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("email", global::System.Data.Odbc.OdbcType.NVarChar, 1024, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "email", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("login", global::System.Data.Odbc.OdbcType.NVarChar, 8190, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "login", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("password", global::System.Data.Odbc.OdbcType.NVarChar, 8190, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "password", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_client_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "client_id", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7079,7 +7194,7 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual swimmingpoolDataSet.ClientsDataTable GetDataBy1(int client_id) {
+        public virtual swimmingpoolDataSet.ClientsDataTable GetDataBy4(int client_id) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(client_id));
             swimmingpoolDataSet.ClientsDataTable dataTable = new swimmingpoolDataSet.ClientsDataTable();
@@ -7120,7 +7235,7 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_client_id, string Original_first_name, string Original_last_name, string Original_middle_name, string Original_sex, System.DateTime Original_date_of_birth, string Original_preparation_level, string Original_email) {
+        public virtual int Delete(int Original_client_id, string Original_first_name, string Original_last_name, string Original_middle_name, System.DateTime Original_date_of_birth, string Original_sex, string Original_preparation_level, string Original_email) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_client_id));
             if ((Original_first_name == null)) {
                 throw new global::System.ArgumentNullException("Original_first_name");
@@ -7143,15 +7258,15 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_middle_name));
             }
+            this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(Original_date_of_birth));
             if ((Original_sex == null)) {
                 throw new global::System.ArgumentNullException("Original_sex");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_sex));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_sex));
             }
-            this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-            this.Adapter.DeleteCommand.Parameters[10].Value = ((System.DateTime)(Original_date_of_birth));
             if ((Original_preparation_level == null)) {
                 throw new global::System.ArgumentNullException("Original_preparation_level");
             }
@@ -7186,7 +7301,7 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string first_name, string last_name, string middle_name, string sex, System.DateTime date_of_birth, string preparation_level, string email) {
+        public virtual int Insert(string first_name, string last_name, string middle_name, System.DateTime date_of_birth, string sex, string preparation_level, string email, string login, string password) {
             if ((first_name == null)) {
                 throw new global::System.ArgumentNullException("first_name");
             }
@@ -7205,13 +7320,13 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(middle_name));
             }
+            this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(date_of_birth));
             if ((sex == null)) {
                 throw new global::System.ArgumentNullException("sex");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(sex));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(sex));
             }
-            this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(date_of_birth));
             if ((preparation_level == null)) {
                 throw new global::System.ArgumentNullException("preparation_level");
             }
@@ -7223,6 +7338,18 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
             }
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = ((string)(email));
+            }
+            if ((login == null)) {
+                throw new global::System.ArgumentNullException("login");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(login));
+            }
+            if ((password == null)) {
+                throw new global::System.ArgumentNullException("password");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(password));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -7244,7 +7371,24 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string first_name, string last_name, string middle_name, string sex, System.DateTime date_of_birth, string preparation_level, string email, int Original_client_id, string Original_first_name, string Original_last_name, string Original_middle_name, string Original_sex, System.DateTime Original_date_of_birth, string Original_preparation_level, string Original_email) {
+        public virtual int Update(
+                    string first_name, 
+                    string last_name, 
+                    string middle_name, 
+                    System.DateTime date_of_birth, 
+                    string sex, 
+                    string preparation_level, 
+                    string email, 
+                    string login, 
+                    string password, 
+                    int Original_client_id, 
+                    string Original_first_name, 
+                    string Original_last_name, 
+                    string Original_middle_name, 
+                    System.DateTime Original_date_of_birth, 
+                    string Original_sex, 
+                    string Original_preparation_level, 
+                    string Original_email) {
             if ((first_name == null)) {
                 throw new global::System.ArgumentNullException("first_name");
             }
@@ -7263,13 +7407,13 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(middle_name));
             }
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(date_of_birth));
             if ((sex == null)) {
                 throw new global::System.ArgumentNullException("sex");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(sex));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(sex));
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(date_of_birth));
             if ((preparation_level == null)) {
                 throw new global::System.ArgumentNullException("preparation_level");
             }
@@ -7282,50 +7426,62 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(email));
             }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_client_id));
+            if ((login == null)) {
+                throw new global::System.ArgumentNullException("login");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(login));
+            }
+            if ((password == null)) {
+                throw new global::System.ArgumentNullException("password");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(password));
+            }
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_client_id));
             if ((Original_first_name == null)) {
                 throw new global::System.ArgumentNullException("Original_first_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_first_name));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_first_name));
             }
             if ((Original_last_name == null)) {
                 throw new global::System.ArgumentNullException("Original_last_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_last_name));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_last_name));
             }
             if ((Original_middle_name == null)) {
                 throw new global::System.ArgumentNullException("Original_middle_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_middle_name));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_middle_name));
             }
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((System.DateTime)(Original_date_of_birth));
             if ((Original_sex == null)) {
                 throw new global::System.ArgumentNullException("Original_sex");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_sex));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_sex));
             }
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((System.DateTime)(Original_date_of_birth));
             if ((Original_preparation_level == null)) {
                 throw new global::System.ArgumentNullException("Original_preparation_level");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_preparation_level));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_preparation_level));
             }
             if ((Original_email == null)) {
                 throw new global::System.ArgumentNullException("Original_email");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_email));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_email));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -7370,9 +7526,84 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateQuery(string first_name, string last_name, string middle_name, string sex, global::System.Nullable<global::System.DateTime> date_of_birth, string preparation_level, string email, int Original_client_id) {
+        public virtual object GetClientByLoginAndPassword(string login, string password) {
             global::System.Data.Odbc.OdbcCommand command = this.CommandCollection[3];
+            if ((login == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[0].Value = ((string)(login));
+            }
+            if ((password == null)) {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[1].Value = ((string)(password));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int InsertLoginAndPassword(string login, string password) {
+            global::System.Data.Odbc.OdbcCommand command = this.CommandCollection[4];
+            if ((login == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[0].Value = ((string)(login));
+            }
+            if ((password == null)) {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[1].Value = ((string)(password));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateQuery(string first_name, string last_name, string middle_name, global::System.Nullable<global::System.DateTime> date_of_birth, string sex, string preparation_level, string email, string login, string password, int Original_client_id) {
+            global::System.Data.Odbc.OdbcCommand command = this.CommandCollection[5];
             if ((first_name == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -7391,17 +7622,17 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
             else {
                 command.Parameters[2].Value = ((string)(middle_name));
             }
-            if ((sex == null)) {
+            if ((date_of_birth.HasValue == true)) {
+                command.Parameters[3].Value = ((System.DateTime)(date_of_birth.Value));
+            }
+            else {
                 command.Parameters[3].Value = global::System.DBNull.Value;
             }
-            else {
-                command.Parameters[3].Value = ((string)(sex));
-            }
-            if ((date_of_birth.HasValue == true)) {
-                command.Parameters[4].Value = ((System.DateTime)(date_of_birth.Value));
-            }
-            else {
+            if ((sex == null)) {
                 command.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[4].Value = ((string)(sex));
             }
             if ((preparation_level == null)) {
                 command.Parameters[5].Value = global::System.DBNull.Value;
@@ -7415,7 +7646,19 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
             else {
                 command.Parameters[6].Value = ((string)(email));
             }
-            command.Parameters[7].Value = ((int)(Original_client_id));
+            if ((login == null)) {
+                command.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[7].Value = ((string)(login));
+            }
+            if ((password == null)) {
+                command.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[8].Value = ((string)(password));
+            }
+            command.Parameters[9].Value = ((int)(Original_client_id));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7665,21 +7908,21 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateUpdatedRows(swimmingpoolDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._poolsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Pools.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._poolsTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._subscriptionsTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Subscriptions.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._subscriptionsTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._poolsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Pools.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._poolsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -7692,15 +7935,6 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._swimLanesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.SwimLanes.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._swimLanesTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._visitorCardsTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.VisitorCards.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -7710,12 +7944,12 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._instructorsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Instructors.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._swimLanesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.SwimLanes.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._instructorsTableAdapter.Update(updatedRows));
+                    result = (result + this._swimLanesTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -7725,6 +7959,15 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._trainingsTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._instructorsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Instructors.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._instructorsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -7738,19 +7981,19 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateInsertedRows(swimmingpoolDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._poolsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Pools.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._poolsTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._subscriptionsTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Subscriptions.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._subscriptionsTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._poolsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Pools.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._poolsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -7762,14 +8005,6 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._swimLanesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.SwimLanes.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._swimLanesTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._visitorCardsTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.VisitorCards.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -7778,11 +8013,11 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._instructorsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Instructors.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._swimLanesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.SwimLanes.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._instructorsTableAdapter.Update(addedRows));
+                    result = (result + this._swimLanesTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -7791,6 +8026,14 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._trainingsTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._instructorsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Instructors.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._instructorsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -7804,14 +8047,6 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateDeletedRows(swimmingpoolDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._trainingsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Trainings.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._trainingsTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._instructorsTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Instructors.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -7820,11 +8055,11 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._visitorCardsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.VisitorCards.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._trainingsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Trainings.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._visitorCardsTableAdapter.Update(deletedRows));
+                    result = (result + this._trainingsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -7836,6 +8071,14 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._visitorCardsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.VisitorCards.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._visitorCardsTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._clientsTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Clients.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -7844,19 +8087,19 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._subscriptionsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Subscriptions.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._subscriptionsTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._poolsTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Pools.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._poolsTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._subscriptionsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Subscriptions.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._subscriptionsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

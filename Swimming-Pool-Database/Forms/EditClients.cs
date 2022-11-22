@@ -13,8 +13,8 @@ namespace Swimming_Pool_Database.Forms
             InitializeComponent();
         }
 
-        public EditClients(int id, string firstName, string lastName, string middleName, string sex, 
-            DateTime dateOfBirth, string preparationLevel, string email) : this()
+        public EditClients(int id, string firstName, string lastName, string middleName, DateTime dateOfBirth, 
+            string sex, string preparationLevel, string email, string login, string password) : this()
         {
             _isEdit = true;
             _id = id;
@@ -45,21 +45,26 @@ namespace Swimming_Pool_Database.Forms
                     break;
             }
             emailTextBox.Text = email;
+            loginTextBox.Text = login;
+            passwordTextBox.Text = password;
         }
 
         private void acceptButton_Click(object sender, EventArgs e)
         {
             if (_isEdit)
             {
+                var pastLogin = loginTextBox.Text;
                 if (!CommonFunctions.TryQuery(() =>
                         clientsTableAdapter.UpdateQuery(
                             firstNameTextBox.Text,
                             lastNameTextBox.Text,
                             middleNameTextBox.Text,
-                            sexComboBox.Items[sexComboBox.SelectedIndex].ToString(),
                             dateOfBirthDateTimePicker.Value,
+                            sexComboBox.Items[sexComboBox.SelectedIndex].ToString(),
                             preparationLevelComboBox.Items[preparationLevelComboBox.SelectedIndex].ToString(),
                             emailTextBox.Text,
+                            loginTextBox.Text,
+                            passwordTextBox.Text,
                             _id)))
                 {
                     return;
@@ -72,10 +77,12 @@ namespace Swimming_Pool_Database.Forms
                             firstNameTextBox.Text,
                             lastNameTextBox.Text,
                             middleNameTextBox.Text,
-                            sexComboBox.Items[sexComboBox.SelectedIndex].ToString(),
                             dateOfBirthDateTimePicker.Value,
+                            sexComboBox.Items[sexComboBox.SelectedIndex].ToString(),
                             preparationLevelComboBox.Items[preparationLevelComboBox.SelectedIndex].ToString(),
-                            emailTextBox.Text)))
+                            emailTextBox.Text,
+                            loginTextBox.Text,
+                            passwordTextBox.Text)))
                 {
                     return;
                 }

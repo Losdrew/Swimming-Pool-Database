@@ -36,6 +36,8 @@
             System.Windows.Forms.Label dateOfBirthLabel;
             System.Windows.Forms.Label preparationLevelLabel;
             System.Windows.Forms.Label emailLabel;
+            System.Windows.Forms.Label loginLabel;
+            System.Windows.Forms.Label passwordLabel;
             this.acceptButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
@@ -49,6 +51,8 @@
             this.clientsTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.ClientsTableAdapter();
             this.clientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.swimmingpoolDataSet = new Swimming_Pool_Database.swimmingpoolDataSet();
+            this.loginTextBox = new System.Windows.Forms.TextBox();
+            this.passwordTextBox = new System.Windows.Forms.TextBox();
             firstNameLabel = new System.Windows.Forms.Label();
             lastNameLabel = new System.Windows.Forms.Label();
             middleNameLabel = new System.Windows.Forms.Label();
@@ -56,6 +60,8 @@
             dateOfBirthLabel = new System.Windows.Forms.Label();
             preparationLevelLabel = new System.Windows.Forms.Label();
             emailLabel = new System.Windows.Forms.Label();
+            loginLabel = new System.Windows.Forms.Label();
+            passwordLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.swimmingpoolDataSet)).BeginInit();
@@ -125,16 +131,26 @@
             // 
             emailLabel.AutoSize = true;
             emailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            emailLabel.Location = new System.Drawing.Point(37, 230);
+            emailLabel.Location = new System.Drawing.Point(37, 229);
             emailLabel.Name = "emailLabel";
             emailLabel.Size = new System.Drawing.Size(199, 25);
             emailLabel.TabIndex = 33;
             emailLabel.Text = "Електронна адреса:";
             // 
+            // loginLabel
+            // 
+            loginLabel.AutoSize = true;
+            loginLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            loginLabel.Location = new System.Drawing.Point(37, 262);
+            loginLabel.Name = "loginLabel";
+            loginLabel.Size = new System.Drawing.Size(67, 25);
+            loginLabel.TabIndex = 35;
+            loginLabel.Text = "Логін:";
+            // 
             // acceptButton
             // 
             this.acceptButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.acceptButton.Location = new System.Drawing.Point(70, 290);
+            this.acceptButton.Location = new System.Drawing.Point(70, 354);
             this.acceptButton.Name = "acceptButton";
             this.acceptButton.Size = new System.Drawing.Size(158, 39);
             this.acceptButton.TabIndex = 24;
@@ -145,7 +161,7 @@
             // cancelButton
             // 
             this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cancelButton.Location = new System.Drawing.Point(252, 290);
+            this.cancelButton.Location = new System.Drawing.Point(252, 354);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(160, 39);
             this.cancelButton.TabIndex = 25;
@@ -241,11 +257,41 @@
             this.swimmingpoolDataSet.DataSetName = "swimmingpoolDataSet";
             this.swimmingpoolDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // loginTextBox
+            // 
+            this.loginTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.loginTextBox.Location = new System.Drawing.Point(252, 262);
+            this.loginTextBox.Name = "loginTextBox";
+            this.loginTextBox.Size = new System.Drawing.Size(193, 27);
+            this.loginTextBox.TabIndex = 36;
+            // 
+            // passwordTextBox
+            // 
+            this.passwordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.passwordTextBox.Location = new System.Drawing.Point(252, 295);
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.Size = new System.Drawing.Size(193, 27);
+            this.passwordTextBox.TabIndex = 38;
+            // 
+            // passwordLabel
+            // 
+            passwordLabel.AutoSize = true;
+            passwordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            passwordLabel.Location = new System.Drawing.Point(37, 295);
+            passwordLabel.Name = "passwordLabel";
+            passwordLabel.Size = new System.Drawing.Size(86, 25);
+            passwordLabel.TabIndex = 37;
+            passwordLabel.Text = "Пароль:";
+            // 
             // EditClients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(501, 379);
+            this.ClientSize = new System.Drawing.Size(501, 426);
+            this.Controls.Add(this.passwordTextBox);
+            this.Controls.Add(passwordLabel);
+            this.Controls.Add(this.loginTextBox);
+            this.Controls.Add(loginLabel);
             this.Controls.Add(this.emailTextBox);
             this.Controls.Add(emailLabel);
             this.Controls.Add(this.preparationLevelComboBox);
@@ -287,5 +333,7 @@
         private swimmingpoolDataSetTableAdapters.ClientsTableAdapter clientsTableAdapter;
         private System.Windows.Forms.BindingSource clientsBindingSource;
         private swimmingpoolDataSet swimmingpoolDataSet;
+        private System.Windows.Forms.TextBox loginTextBox;
+        private System.Windows.Forms.TextBox passwordTextBox;
     }
 }

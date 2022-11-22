@@ -116,10 +116,12 @@ namespace Swimming_Pool_Database.Forms
                         row[1].ToString(),
                         row[2].ToString(),
                         row[3].ToString(),
-                        row[4].ToString(),
-                        Convert.ToDateTime(row[5]),
+                        Convert.ToDateTime(row[4]),
+                        row[5].ToString(),
                         row[6].ToString(),
-                        row[7].ToString());
+                        row[7].ToString(),
+                        row[8].ToString(),
+                        row[9].ToString());
                     break;
                 case Tables.Subscriptions:
                     dataTable = new swimmingpoolDataSet.SubscriptionsDataTable();
