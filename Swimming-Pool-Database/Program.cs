@@ -13,7 +13,7 @@ namespace Swimming_Pool_Database
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            AppContext.MainForm = new LoginForm();
+            AppContext.MainForm = new AdminMainForm();
             Application.Run(AppContext);
         }
     }
