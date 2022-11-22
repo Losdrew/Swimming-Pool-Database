@@ -24,9 +24,11 @@ namespace Swimming_Pool_Database.Forms
                 return;
             }
 
+            int? clientId;
+
             try
             {
-                clientsTableAdapter.GetClientByLoginAndPassword(authLoginTextBox.Text, authPasswordTextBox.Text);
+                clientId = clientsTableAdapter.GetClientByLoginAndPassword(authLoginTextBox.Text, authPasswordTextBox.Text);
             }
             catch
             {
@@ -38,7 +40,7 @@ namespace Swimming_Pool_Database.Forms
                 return;
             }
 
-            CommonFunctions.MakeFormActive(new UserMainForm());
+            CommonFunctions.MakeFormActive(new ClientMainForm(clientId));
         }
 
         private void regButton_Click(object sender, EventArgs e)
@@ -77,7 +79,7 @@ namespace Swimming_Pool_Database.Forms
                 return;
             }
 
-            CommonFunctions.MakeFormActive(new UserMainForm());
+            CommonFunctions.MakeFormActive(new ClientMainForm(regLoginTextBox.Text, regPasswordTextBox.Text));
         }
 
         private void ShowLoginOrPasswordEmptyMessage()

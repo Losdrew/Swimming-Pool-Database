@@ -13,6 +13,15 @@ namespace Swimming_Pool_Database.Forms
             InitializeComponent();
         }
 
+        public EditClients(int id, string login, string password) : this()
+        {
+            _isEdit = true;
+            _id = id;
+
+            loginTextBox.Text = login;
+            passwordTextBox.Text = password;
+        }
+
         public EditClients(int id, string firstName, string lastName, string middleName, DateTime dateOfBirth, 
             string sex, string preparationLevel, string email, string login, string password) : this()
         {
@@ -53,7 +62,6 @@ namespace Swimming_Pool_Database.Forms
         {
             if (_isEdit)
             {
-                var pastLogin = loginTextBox.Text;
                 if (!CommonFunctions.TryQuery(() =>
                         clientsTableAdapter.UpdateQuery(
                             firstNameTextBox.Text,

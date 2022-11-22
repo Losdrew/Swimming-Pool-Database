@@ -38,13 +38,13 @@ namespace Swimming_Pool_Database {
         
         private ClientsDataTable tableClients;
         
-        private global::System.Data.DataRelation relationFK_Clients_VisitorCards;
-        
         private global::System.Data.DataRelation relationFK_Subscriptions_VisitorCards;
         
-        private global::System.Data.DataRelation relationFK_SwimLanes_Trainings;
+        private global::System.Data.DataRelation relationFK_Clients_VisitorCards;
         
         private global::System.Data.DataRelation relationFK_VisitorCards_Trainings;
+        
+        private global::System.Data.DataRelation relationFK_SwimLanes_Trainings;
         
         private global::System.Data.DataRelation relationFK_Pools_SwimLanes;
         
@@ -350,10 +350,10 @@ namespace Swimming_Pool_Database {
                     this.tableClients.InitVars();
                 }
             }
-            this.relationFK_Clients_VisitorCards = this.Relations["FK_Clients_VisitorCards"];
             this.relationFK_Subscriptions_VisitorCards = this.Relations["FK_Subscriptions_VisitorCards"];
-            this.relationFK_SwimLanes_Trainings = this.Relations["FK_SwimLanes_Trainings"];
+            this.relationFK_Clients_VisitorCards = this.Relations["FK_Clients_VisitorCards"];
             this.relationFK_VisitorCards_Trainings = this.Relations["FK_VisitorCards_Trainings"];
+            this.relationFK_SwimLanes_Trainings = this.Relations["FK_SwimLanes_Trainings"];
             this.relationFK_Pools_SwimLanes = this.Relations["FK_Pools_SwimLanes"];
             this.relationFK_Pools_Instructors = this.Relations["FK_Pools_Instructors"];
         }
@@ -395,13 +395,6 @@ namespace Swimming_Pool_Database {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_SwimLanes_Trainings", new global::System.Data.DataColumn[] {
-                        this.tableSwimLanes.swimlane_idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableTrainings.swimlane_idColumn});
-            this.tableTrainings.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.Cascade;
-            fkc.UpdateRule = global::System.Data.Rule.Cascade;
             fkc = new global::System.Data.ForeignKeyConstraint("FK_VisitorCards_Trainings", new global::System.Data.DataColumn[] {
                         this.tableVisitorCards.card_idColumn}, new global::System.Data.DataColumn[] {
                         this.tableTrainings.card_idColumn});
@@ -409,10 +402,10 @@ namespace Swimming_Pool_Database {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_Clients_VisitorCards", new global::System.Data.DataColumn[] {
-                        this.tableClients.client_idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableVisitorCards.client_idColumn});
-            this.tableVisitorCards.Constraints.Add(fkc);
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_SwimLanes_Trainings", new global::System.Data.DataColumn[] {
+                        this.tableSwimLanes.swimlane_idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableTrainings.swimlane_idColumn});
+            this.tableTrainings.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
@@ -423,22 +416,29 @@ namespace Swimming_Pool_Database {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            this.relationFK_Clients_VisitorCards = new global::System.Data.DataRelation("FK_Clients_VisitorCards", new global::System.Data.DataColumn[] {
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_Clients_VisitorCards", new global::System.Data.DataColumn[] {
                         this.tableClients.client_idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableVisitorCards.client_idColumn}, false);
-            this.Relations.Add(this.relationFK_Clients_VisitorCards);
+                        this.tableVisitorCards.client_idColumn});
+            this.tableVisitorCards.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
             this.relationFK_Subscriptions_VisitorCards = new global::System.Data.DataRelation("FK_Subscriptions_VisitorCards", new global::System.Data.DataColumn[] {
                         this.tableSubscriptions.subscription_idColumn}, new global::System.Data.DataColumn[] {
                         this.tableVisitorCards.subscription_idColumn}, false);
             this.Relations.Add(this.relationFK_Subscriptions_VisitorCards);
-            this.relationFK_SwimLanes_Trainings = new global::System.Data.DataRelation("FK_SwimLanes_Trainings", new global::System.Data.DataColumn[] {
-                        this.tableSwimLanes.swimlane_idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableTrainings.swimlane_idColumn}, false);
-            this.Relations.Add(this.relationFK_SwimLanes_Trainings);
+            this.relationFK_Clients_VisitorCards = new global::System.Data.DataRelation("FK_Clients_VisitorCards", new global::System.Data.DataColumn[] {
+                        this.tableClients.client_idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableVisitorCards.client_idColumn}, false);
+            this.Relations.Add(this.relationFK_Clients_VisitorCards);
             this.relationFK_VisitorCards_Trainings = new global::System.Data.DataRelation("FK_VisitorCards_Trainings", new global::System.Data.DataColumn[] {
                         this.tableVisitorCards.card_idColumn}, new global::System.Data.DataColumn[] {
                         this.tableTrainings.card_idColumn}, false);
             this.Relations.Add(this.relationFK_VisitorCards_Trainings);
+            this.relationFK_SwimLanes_Trainings = new global::System.Data.DataRelation("FK_SwimLanes_Trainings", new global::System.Data.DataColumn[] {
+                        this.tableSwimLanes.swimlane_idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableTrainings.swimlane_idColumn}, false);
+            this.Relations.Add(this.relationFK_SwimLanes_Trainings);
             this.relationFK_Pools_SwimLanes = new global::System.Data.DataRelation("FK_Pools_SwimLanes", new global::System.Data.DataColumn[] {
                         this.tablePools.pool_idColumn}, new global::System.Data.DataColumn[] {
                         this.tableSwimLanes.pool_idColumn}, false);
@@ -3402,23 +3402,23 @@ namespace Swimming_Pool_Database {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SwimLanesRow SwimLanesRow {
-                get {
-                    return ((SwimLanesRow)(this.GetParentRow(this.Table.ParentRelations["FK_SwimLanes_Trainings"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_SwimLanes_Trainings"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public VisitorCardsRow VisitorCardsRow {
                 get {
                     return ((VisitorCardsRow)(this.GetParentRow(this.Table.ParentRelations["FK_VisitorCards_Trainings"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_VisitorCards_Trainings"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SwimLanesRow SwimLanesRow {
+                get {
+                    return ((SwimLanesRow)(this.GetParentRow(this.Table.ParentRelations["FK_SwimLanes_Trainings"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_SwimLanes_Trainings"]);
                 }
             }
             
@@ -3602,23 +3602,23 @@ namespace Swimming_Pool_Database {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ClientsRow ClientsRow {
-                get {
-                    return ((ClientsRow)(this.GetParentRow(this.Table.ParentRelations["FK_Clients_VisitorCards"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Clients_VisitorCards"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public SubscriptionsRow SubscriptionsRow {
                 get {
                     return ((SubscriptionsRow)(this.GetParentRow(this.Table.ParentRelations["FK_Subscriptions_VisitorCards"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Subscriptions_VisitorCards"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ClientsRow ClientsRow {
+                get {
+                    return ((ClientsRow)(this.GetParentRow(this.Table.ParentRelations["FK_Clients_VisitorCards"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Clients_VisitorCards"]);
                 }
             }
             
@@ -7123,7 +7123,8 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
             this._commandCollection[2].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("client_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "client_id", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[3] = new global::System.Data.Odbc.OdbcCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT \"client_id\" FROM \"public\".\"Clients\" WHERE (\"login\"=?) AND (\"password\"=?)";
+            this._commandCollection[3].CommandText = "SELECT \"client_id\" FROM \"swimmingpool\".\"public\".\"Clients\" WHERE (\"login\"=?) AND (" +
+                "\"password\"=?)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("login", global::System.Data.Odbc.OdbcType.NVarChar, 8190, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "login", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[3].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("password", global::System.Data.Odbc.OdbcType.NVarChar, 8190, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "password", global::System.Data.DataRowVersion.Current, false, null));
@@ -7526,10 +7527,10 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual object GetClientByLoginAndPassword(string login, string password) {
+        public virtual global::System.Nullable<int> GetClientByLoginAndPassword(string login, string password) {
             global::System.Data.Odbc.OdbcCommand command = this.CommandCollection[3];
             if ((login == null)) {
-                command.Parameters[0].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("login");
             }
             else {
                 command.Parameters[0].Value = ((string)(login));
@@ -7556,10 +7557,10 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
             }
             if (((returnValue == null) 
                         || (returnValue.GetType() == typeof(global::System.DBNull)))) {
-                return null;
+                return new global::System.Nullable<int>();
             }
             else {
-                return ((object)(returnValue));
+                return new global::System.Nullable<int>(((int)(returnValue)));
             }
         }
         
