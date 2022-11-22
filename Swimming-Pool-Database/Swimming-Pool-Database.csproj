@@ -47,29 +47,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonFunctions.cs" />
     <Compile Include="Forms\EditClients.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\EditClients.Designer.cs">
       <DependentUpon>EditClients.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\EditForm.cs">
+    <Compile Include="Forms\EditSubscriptions.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\EditForm.Designer.cs">
-      <DependentUpon>EditForm.cs</DependentUpon>
+    <Compile Include="Forms\EditSubscriptions.Designer.cs">
+      <DependentUpon>EditSubscriptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditVisitorCards.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditVisitorCards.Designer.cs">
+      <DependentUpon>EditVisitorCards.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\QueryEdit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\QueryEdit.Designer.cs">
-      <DependentUpon>QueryEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
@@ -88,15 +89,11 @@
       <DependentUpon>EditClients.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\EditForm.resx">
-      <DependentUpon>EditForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
+    <EmbeddedResource Include="Forms\EditSubscriptions.resx">
+      <DependentUpon>EditSubscriptions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\QueryEdit.resx">
-      <DependentUpon>QueryEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
