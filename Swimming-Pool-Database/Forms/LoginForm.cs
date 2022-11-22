@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Data.Odbc;
 using System.Windows.Forms;
-using Swimming_Pool_Database.Properties;
 
 namespace Swimming_Pool_Database.Forms
 {
@@ -12,11 +10,6 @@ namespace Swimming_Pool_Database.Forms
             InitializeComponent();
         }
 
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-            clientsTableAdapter.Fill(swimmingpoolDataSet.Clients);
-        }
-
         private void authButton_Click(object sender, EventArgs e)
         {
             if (authLoginTextBox.Text == "" || authPasswordTextBox.Text == "")
@@ -25,9 +18,15 @@ namespace Swimming_Pool_Database.Forms
                 return;
             }
 
+            if (authLoginTextBox.Text == "admin" && authPasswordTextBox.Text == "admin")
+            {
+                CommonFunctions.MakeFormActive(new AdminMainForm());
+                return;
+            }
+
             try
             {
-                new OdbcConnection(GetNewConnectionString(authLoginTextBox.Text, authPasswordTextBox.Text)).Open();
+                clientsTableAdapter.GetClientByLoginAndPassword(authLoginTextBox.Text, authPasswordTextBox.Text);
             }
             catch
             {
@@ -39,7 +38,7 @@ namespace Swimming_Pool_Database.Forms
                 return;
             }
 
-            CommonFunctions.MakeFormActive(new AdminMainForm());
+            CommonFunctions.MakeFormActive(new UserMainForm());
         }
 
         private void regButton_Click(object sender, EventArgs e)
@@ -60,23 +59,25 @@ namespace Swimming_Pool_Database.Forms
                 return;
             }
 
-            var odbcConnection = new OdbcConnection(GetNewConnectionString(regLoginTextBox.Text, regPasswordTextBox.Text));
-
             try
             {
-                odbcConnection.Open();
+                if (regLoginTextBox.Text == "admin")
+                {
+                    throw new Exception();
+                }
+
+                clientsTableAdapter.InsertLoginAndPassword(regLoginTextBox.Text, regPasswordTextBox.Text);
             }
             catch
             {
-                odbcConnection = new OdbcConnection(Settings.Default.swimmingpoolConnectionString);
-                var sql = "CREATE ROLE " + regLoginTextBox.Text + " LOGIN PASSWORD '" + regPasswordTextBox.Text + "'";
-                var command = new OdbcCommand(sql, odbcConnection);
-                odbcConnection.Open();
-                command.ExecuteReader();
-                odbcConnection.Close();
+                MessageBox.Show("Користувач з таким логіном вже існує!",
+                    "Неправильний логін",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
             }
 
-            CommonFunctions.MakeFormActive(new AdminMainForm());
+            CommonFunctions.MakeFormActive(new UserMainForm());
         }
 
         private void ShowLoginOrPasswordEmptyMessage()
@@ -85,14 +86,6 @@ namespace Swimming_Pool_Database.Forms
                 "Недостатньо даних",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
-        }
-
-        private string GetNewConnectionString(string login, string password)
-        {
-            var newConnectionString = Settings.Default.swimmingpoolConnectionString;
-            newConnectionString = newConnectionString.Replace("uid=postgres", "uid=" + login);
-            newConnectionString = newConnectionString.Insert(newConnectionString.IndexOf("ssl"), "pwd=" + password + ";");
-            return newConnectionString;
         }
     }
 }

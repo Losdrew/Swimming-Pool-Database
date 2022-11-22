@@ -30,19 +30,19 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.regButton = new System.Windows.Forms.Button();
-            this.regPasswordTextBox = new System.Windows.Forms.TextBox();
-            this.regLoginTextBox = new System.Windows.Forms.TextBox();
-            this.regPasswordLabel = new System.Windows.Forms.Label();
-            this.regLoginLabel = new System.Windows.Forms.Label();
-            this.regRepeatPasswordTextBox = new System.Windows.Forms.TextBox();
-            this.regRepeatPasswordLabel = new System.Windows.Forms.Label();
             this.authButton = new System.Windows.Forms.Button();
             this.authPasswordTextBox = new System.Windows.Forms.TextBox();
             this.authLoginTextBox = new System.Windows.Forms.TextBox();
             this.authPasswordLabel = new System.Windows.Forms.Label();
             this.authLoginLabel = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.regRepeatPasswordTextBox = new System.Windows.Forms.TextBox();
+            this.regRepeatPasswordLabel = new System.Windows.Forms.Label();
+            this.regButton = new System.Windows.Forms.Button();
+            this.regPasswordTextBox = new System.Windows.Forms.TextBox();
+            this.regLoginTextBox = new System.Windows.Forms.TextBox();
+            this.regPasswordLabel = new System.Windows.Forms.Label();
+            this.regLoginLabel = new System.Windows.Forms.Label();
             this.swimmingpoolDataSet = new Swimming_Pool_Database.swimmingpoolDataSet();
             this.clientsTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.ClientsTableAdapter();
             this.tabControl1.SuspendLayout();
@@ -77,89 +77,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Авторизація";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.regRepeatPasswordTextBox);
-            this.tabPage2.Controls.Add(this.regRepeatPasswordLabel);
-            this.tabPage2.Controls.Add(this.regButton);
-            this.tabPage2.Controls.Add(this.regPasswordTextBox);
-            this.tabPage2.Controls.Add(this.regLoginTextBox);
-            this.tabPage2.Controls.Add(this.regPasswordLabel);
-            this.tabPage2.Controls.Add(this.regLoginLabel);
-            this.tabPage2.Location = new System.Drawing.Point(4, 28);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(532, 289);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Реєстрація";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // regButton
-            // 
-            this.regButton.Location = new System.Drawing.Point(191, 204);
-            this.regButton.Name = "regButton";
-            this.regButton.Size = new System.Drawing.Size(159, 41);
-            this.regButton.TabIndex = 9;
-            this.regButton.Text = "Реєстрація";
-            this.regButton.UseVisualStyleBackColor = true;
-            this.regButton.Click += new System.EventHandler(this.regButton_Click);
-            // 
-            // regPasswordTextBox
-            // 
-            this.regPasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.regPasswordTextBox.Location = new System.Drawing.Point(250, 93);
-            this.regPasswordTextBox.Name = "regPasswordTextBox";
-            this.regPasswordTextBox.Size = new System.Drawing.Size(210, 27);
-            this.regPasswordTextBox.TabIndex = 8;
-            this.regPasswordTextBox.UseSystemPasswordChar = true;
-            // 
-            // regLoginTextBox
-            // 
-            this.regLoginTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.regLoginTextBox.Location = new System.Drawing.Point(250, 54);
-            this.regLoginTextBox.Name = "regLoginTextBox";
-            this.regLoginTextBox.Size = new System.Drawing.Size(210, 27);
-            this.regLoginTextBox.TabIndex = 7;
-            // 
-            // regPasswordLabel
-            // 
-            this.regPasswordLabel.AutoSize = true;
-            this.regPasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.regPasswordLabel.Location = new System.Drawing.Point(51, 95);
-            this.regPasswordLabel.Name = "regPasswordLabel";
-            this.regPasswordLabel.Size = new System.Drawing.Size(86, 25);
-            this.regPasswordLabel.TabIndex = 6;
-            this.regPasswordLabel.Text = "Пароль:";
-            // 
-            // regLoginLabel
-            // 
-            this.regLoginLabel.AutoSize = true;
-            this.regLoginLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.regLoginLabel.Location = new System.Drawing.Point(51, 54);
-            this.regLoginLabel.Name = "regLoginLabel";
-            this.regLoginLabel.Size = new System.Drawing.Size(67, 25);
-            this.regLoginLabel.TabIndex = 5;
-            this.regLoginLabel.Text = "Логін:";
-            // 
-            // regRepeatPasswordTextBox
-            // 
-            this.regRepeatPasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.regRepeatPasswordTextBox.Location = new System.Drawing.Point(250, 136);
-            this.regRepeatPasswordTextBox.Name = "regRepeatPasswordTextBox";
-            this.regRepeatPasswordTextBox.Size = new System.Drawing.Size(210, 27);
-            this.regRepeatPasswordTextBox.TabIndex = 11;
-            this.regRepeatPasswordTextBox.UseSystemPasswordChar = true;
-            // 
-            // regRepeatPasswordLabel
-            // 
-            this.regRepeatPasswordLabel.AutoSize = true;
-            this.regRepeatPasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.regRepeatPasswordLabel.Location = new System.Drawing.Point(51, 136);
-            this.regRepeatPasswordLabel.Name = "regRepeatPasswordLabel";
-            this.regRepeatPasswordLabel.Size = new System.Drawing.Size(183, 25);
-            this.regRepeatPasswordLabel.TabIndex = 10;
-            this.regRepeatPasswordLabel.Text = "Повторіть пароль:";
             // 
             // authButton
             // 
@@ -208,6 +125,89 @@
             this.authLoginLabel.TabIndex = 12;
             this.authLoginLabel.Text = "Логін:";
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.regRepeatPasswordTextBox);
+            this.tabPage2.Controls.Add(this.regRepeatPasswordLabel);
+            this.tabPage2.Controls.Add(this.regButton);
+            this.tabPage2.Controls.Add(this.regPasswordTextBox);
+            this.tabPage2.Controls.Add(this.regLoginTextBox);
+            this.tabPage2.Controls.Add(this.regPasswordLabel);
+            this.tabPage2.Controls.Add(this.regLoginLabel);
+            this.tabPage2.Location = new System.Drawing.Point(4, 28);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(532, 289);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Реєстрація";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // regRepeatPasswordTextBox
+            // 
+            this.regRepeatPasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.regRepeatPasswordTextBox.Location = new System.Drawing.Point(250, 136);
+            this.regRepeatPasswordTextBox.Name = "regRepeatPasswordTextBox";
+            this.regRepeatPasswordTextBox.Size = new System.Drawing.Size(210, 27);
+            this.regRepeatPasswordTextBox.TabIndex = 11;
+            this.regRepeatPasswordTextBox.UseSystemPasswordChar = true;
+            // 
+            // regRepeatPasswordLabel
+            // 
+            this.regRepeatPasswordLabel.AutoSize = true;
+            this.regRepeatPasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.regRepeatPasswordLabel.Location = new System.Drawing.Point(51, 136);
+            this.regRepeatPasswordLabel.Name = "regRepeatPasswordLabel";
+            this.regRepeatPasswordLabel.Size = new System.Drawing.Size(183, 25);
+            this.regRepeatPasswordLabel.TabIndex = 10;
+            this.regRepeatPasswordLabel.Text = "Повторіть пароль:";
+            // 
+            // regButton
+            // 
+            this.regButton.Location = new System.Drawing.Point(191, 204);
+            this.regButton.Name = "regButton";
+            this.regButton.Size = new System.Drawing.Size(159, 41);
+            this.regButton.TabIndex = 9;
+            this.regButton.Text = "Реєстрація";
+            this.regButton.UseVisualStyleBackColor = true;
+            this.regButton.Click += new System.EventHandler(this.regButton_Click);
+            // 
+            // regPasswordTextBox
+            // 
+            this.regPasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.regPasswordTextBox.Location = new System.Drawing.Point(250, 93);
+            this.regPasswordTextBox.Name = "regPasswordTextBox";
+            this.regPasswordTextBox.Size = new System.Drawing.Size(210, 27);
+            this.regPasswordTextBox.TabIndex = 8;
+            this.regPasswordTextBox.UseSystemPasswordChar = true;
+            // 
+            // regLoginTextBox
+            // 
+            this.regLoginTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.regLoginTextBox.Location = new System.Drawing.Point(250, 54);
+            this.regLoginTextBox.Name = "regLoginTextBox";
+            this.regLoginTextBox.Size = new System.Drawing.Size(210, 27);
+            this.regLoginTextBox.TabIndex = 7;
+            // 
+            // regPasswordLabel
+            // 
+            this.regPasswordLabel.AutoSize = true;
+            this.regPasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.regPasswordLabel.Location = new System.Drawing.Point(51, 95);
+            this.regPasswordLabel.Name = "regPasswordLabel";
+            this.regPasswordLabel.Size = new System.Drawing.Size(86, 25);
+            this.regPasswordLabel.TabIndex = 6;
+            this.regPasswordLabel.Text = "Пароль:";
+            // 
+            // regLoginLabel
+            // 
+            this.regLoginLabel.AutoSize = true;
+            this.regLoginLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.regLoginLabel.Location = new System.Drawing.Point(51, 54);
+            this.regLoginLabel.Name = "regLoginLabel";
+            this.regLoginLabel.Size = new System.Drawing.Size(67, 25);
+            this.regLoginLabel.TabIndex = 5;
+            this.regLoginLabel.Text = "Логін:";
+            // 
             // swimmingpoolDataSet
             // 
             this.swimmingpoolDataSet.DataSetName = "swimmingpoolDataSet";
@@ -225,8 +225,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Вхід у систему";
-            this.Load += new System.EventHandler(this.LoginForm_Load);
+            this.Text = "Вхід в систему";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
