@@ -24,13 +24,9 @@ namespace Swimming_Pool_Database.Forms
                 return;
             }
 
-            int? clientId;
+            var clientId = clientsTableAdapter.GetClientByLoginAndPassword(authLoginTextBox.Text, authPasswordTextBox.Text);
 
-            try
-            {
-                clientId = clientsTableAdapter.GetClientByLoginAndPassword(authLoginTextBox.Text, authPasswordTextBox.Text);
-            }
-            catch
+            if (clientId == null)
             {
                 MessageBox.Show("Логін або пароль уведені неправильно.",
                     "Неправильні дані",
@@ -40,7 +36,7 @@ namespace Swimming_Pool_Database.Forms
                 return;
             }
 
-            CommonFunctions.MakeFormActive(new ClientMainForm(clientId));
+            CommonFunctions.MakeFormActive(new ClientMainForm(clientId.Value));
         }
 
         private void regButton_Click(object sender, EventArgs e)
