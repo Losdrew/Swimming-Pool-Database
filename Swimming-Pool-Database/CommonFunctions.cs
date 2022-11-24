@@ -29,5 +29,20 @@ namespace Swimming_Pool_Database
 
             return true;
         }
+
+        public static bool IsAnyRowSelected(DataGridView dataGridView)
+        {
+            if (dataGridView.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Рядок не обрано!",
+                    "Помилка", 
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return false;
+            }
+
+            return true;
+        }
     }
 }
