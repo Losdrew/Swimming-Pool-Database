@@ -1,52 +1,14 @@
 ﻿using System;
 using System.Data;
-using System.Globalization;
 using System.Windows.Forms;
 
 namespace Swimming_Pool_Database.Forms
 {
     public partial class AdminMainForm : Form
     {
-        private enum Tables
-        {
-            Clients,
-            Subscriptions,
-            VisitorCards
-        }
-
-        private Tables currentTable;
-
         public AdminMainForm()
         {
             InitializeComponent();
-        }
-
-        private void clientsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            dataGridView.DataSource = clientsBindingSource;
-            dataGridView.Columns[0].Visible = false;
-            tableNameLabel.Text = "Клієнти";
-            currentTable = Tables.Clients;
-        }
-
-        private void subscriptionsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            dataGridView.DataSource = subscriptionsBindingSource;
-            dataGridView.Columns[0].Visible = false;
-            var format = (NumberFormatInfo)NumberFormatInfo.CurrentInfo.Clone();
-            format.CurrencySymbol = "₴";
-            dataGridView.Columns["ціна"].DefaultCellStyle.FormatProvider = format;
-            dataGridView.Columns["ціна"].DefaultCellStyle.Format = "c";
-            tableNameLabel.Text = "Абонементи";
-            currentTable = Tables.Subscriptions;
-        }
-
-        private void visitorCardsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            dataGridView.DataSource = visitorCardsBindingSource;
-            dataGridView.Columns[0].Visible = false;
-            tableNameLabel.Text = "Картки відвідувачів";
-            currentTable = Tables.VisitorCards;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -57,174 +19,199 @@ namespace Swimming_Pool_Database.Forms
         private void FillTableAdapters()
         {
             clientsTableAdapter.Fill(swimmingpoolDataSet.Clients);
-            subscriptionsTableAdapter.Fill(swimmingpoolDataSet.Subscriptions);
-            visitorCardsTableAdapter.Fill(swimmingpoolDataSet.VisitorCards);
+            subscriptionsViewTableAdapter.Fill(swimmingpoolDataSet.SubscriptionsView);
+            visitorCardsViewTableAdapter.Fill(swimmingpoolDataSet.VisitorCardsView);
         }
 
-        private void Form3_FormClosing(object sender, FormClosingEventArgs e)
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            clientsTableAdapter.Update(swimmingpoolDataSet);
-            subscriptionsTableAdapter.Update(swimmingpoolDataSet);
+            Close();
         }
 
-        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        private void TabControl_Selected(object sender, TabControlEventArgs e)
         {
-            if (!IsAnyTableSelected())
+            switch (e.TabPage)
+            {
+                case TabPage tabPage when tabPage.Equals(clientsTabPage):
+                    clientsDataGridView.Columns[0].Visible = false;
+                    break;
+                case TabPage tabPage when tabPage.Equals(subscriptionsTabPage):
+                    subscriptionsDataGridView.Columns[0].Visible = false;
+                    break;
+                case TabPage tabPage when tabPage.Equals(visitorCardsTabPage):
+                    visitorCardsDataGridView.Columns[0].Visible = false;
+                    break;
+            }
+        }
+
+        private void AddClientButton_Click(object sender, EventArgs e)
+        {
+            new EditClients().ShowDialog();
+            FillAdaptersAndAcceptChanges();
+        }
+
+        private void EditClientButton_Click(object sender, EventArgs e)
+        {
+            if (!CommonFunctions.IsAnyRowSelected(clientsDataGridView))
             {
                 return;
             }
 
-            var editForm = new Form();
+            var dataTable = new swimmingpoolDataSet.ClientsDataTable();
 
-            switch (currentTable)
+            if (!CommonFunctions.TryQuery(() =>
+                    clientsTableAdapter.FillBy(dataTable,
+                        Convert.ToInt32(((DataRowView)clientsDataGridView.SelectedRows[0].DataBoundItem).Row[0]))))
             {
-                case Tables.Clients:
-                    editForm = new EditClients();
-                    break;
-                case Tables.Subscriptions:
-                    editForm = new EditSubscriptions();
-                    break;
+                return;
             }
 
-            editForm.ShowDialog();
+            var row = dataTable.Rows[0].ItemArray;
+            new EditClients(
+                Convert.ToInt32(row[0]),
+                row[1].ToString(),
+                row[2].ToString(),
+                row[3].ToString(),
+                Convert.ToDateTime(row[4]),
+                row[5].ToString(),
+                row[6].ToString(),
+                row[7].ToString(),
+                row[8].ToString(),
+                row[9].ToString()).ShowDialog();
+
+            FillAdaptersAndAcceptChanges();
+        }
+
+        private void DeleteClientButton_Click(object sender, EventArgs e)
+        {
+            if (!CommonFunctions.IsAnyRowSelected(clientsDataGridView) || !IsSureToDelete())
+            {
+                return;
+            }
+
+            if (!CommonFunctions.TryQuery(() =>
+                    clientsTableAdapter.DeleteQuery(
+                        Convert.ToInt32(((DataRowView)clientsDataGridView.SelectedRows[0].DataBoundItem).Row[0]))))
+            {
+                return;
+            }
+
+            FillAdaptersAndAcceptChanges();
+        }
+
+        private void AddSubscriptionButton_Click(object sender, EventArgs e)
+        {
+            new EditSubscriptions().ShowDialog();
+            FillAdaptersAndAcceptChanges();
+        }
+
+        private void EditSubscriptionButton_Click(object sender, EventArgs e)
+        {
+            if (!CommonFunctions.IsAnyRowSelected(subscriptionsDataGridView))
+            {
+                return;
+            }
+
+            var dataTable = new swimmingpoolDataSet.SubscriptionsDataTable();
+
+            if (!CommonFunctions.TryQuery(() =>
+                    subscriptionsTableAdapter.FillBy(dataTable,
+                        Convert.ToInt32(((DataRowView)subscriptionsDataGridView.SelectedRows[0].DataBoundItem).Row[0]))))
+            {
+                return;
+            }
+
+            var row = dataTable.Rows[0].ItemArray;
+            new EditSubscriptions(
+                Convert.ToInt32(row[0]),
+                row[1].ToString(),
+                Convert.ToDecimal(row[2]),
+                Convert.ToInt32(row[3]),
+                Convert.ToInt32(row[4])).ShowDialog();
+
+            FillAdaptersAndAcceptChanges();
+        }
+
+        private void DeleteSubscriptionButton_Click(object sender, EventArgs e)
+        {
+            if (!CommonFunctions.IsAnyRowSelected(subscriptionsDataGridView) || !IsSureToDelete())
+            {
+                return;
+            }
+
+            if (!CommonFunctions.TryQuery(() =>
+                    subscriptionsTableAdapter.DeleteQuery(
+                        Convert.ToInt32(((DataRowView)subscriptionsDataGridView.SelectedRows[0].DataBoundItem).Row[0]))))
+            {
+                return;
+            }
+
+            FillAdaptersAndAcceptChanges();
+        }
+
+        private void AddVisitorCardButton_Click(object sender, EventArgs e)
+        {
+            new EditVisitorCards().ShowDialog();
+            FillAdaptersAndAcceptChanges();
+        }
+
+        private void EditVisitorCardButton_Click(object sender, EventArgs e)
+        {
+            if (!CommonFunctions.IsAnyRowSelected(visitorCardsDataGridView))
+            {
+                return;
+            }
+
+            var dataTable = new swimmingpoolDataSet.VisitorCardsDataTable();
+
+            if (!CommonFunctions.TryQuery(() =>
+                    visitorCardsTableAdapter.FillBy(dataTable,
+                        Convert.ToInt32(((DataRowView)visitorCardsDataGridView.SelectedRows[0].DataBoundItem).Row[0]))))
+            {
+                return;
+            }
+
+            var row = dataTable.Rows[0].ItemArray;
+            new EditVisitorCards(
+                Convert.ToInt32(row[0]),
+                Convert.ToInt32(row[1]),
+                Convert.ToInt32(row[2]),
+                Convert.ToDateTime(row[3]),
+                Convert.ToDateTime(row[4]),
+                Convert.ToInt32(row[5])).ShowDialog();
+
+            FillAdaptersAndAcceptChanges();
+        }
+
+        private void DeleteVisitorCardButton_Click(object sender, EventArgs e)
+        {
+            if (!CommonFunctions.IsAnyRowSelected(visitorCardsDataGridView) || !IsSureToDelete())
+            {
+                return;
+            }
+
+            if (!CommonFunctions.TryQuery(() =>
+                    visitorCardsTableAdapter.DeleteQuery(
+                        Convert.ToInt32(((DataRowView)visitorCardsDataGridView.SelectedRows[0].DataBoundItem).Row[0]))))
+            {
+                return;
+            }
+
+            FillAdaptersAndAcceptChanges();
+        }
+
+        private void FillAdaptersAndAcceptChanges()
+        {
             FillTableAdapters();
             swimmingpoolDataSet.AcceptChanges();
         }
 
-        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
+        private bool IsSureToDelete()
         {
-            if (!IsAnyTableSelected() || !IsAnyRowSelected() || IsRowEmpty())
-            {
-                return;
-            }
-
-            DataTable dataTable;
-            var isQueryExecuted = false;
-            object[] row;
-            var editForm = new Form();
-
-            switch (currentTable)
-            {
-                case Tables.Clients:
-                    dataTable = new swimmingpoolDataSet.ClientsDataTable();
-                    isQueryExecuted = CommonFunctions.TryQuery(() =>
-                        clientsTableAdapter.FillBy((swimmingpoolDataSet.ClientsDataTable)dataTable,
-                          Convert.ToInt32(((DataRowView)dataGridView.SelectedRows[0].DataBoundItem).Row[0])));
-                    row = dataTable.Rows[0].ItemArray;
-                    editForm = new EditClients(
-                        Convert.ToInt32(row[0]),
-                        row[1].ToString(),
-                        row[2].ToString(),
-                        row[3].ToString(),
-                        Convert.ToDateTime(row[4]),
-                        row[5].ToString(),
-                        row[6].ToString(),
-                        row[7].ToString(),
-                        row[8].ToString(),
-                        row[9].ToString());
-                    break;
-                case Tables.Subscriptions:
-                    dataTable = new swimmingpoolDataSet.SubscriptionsDataTable();
-                    isQueryExecuted = CommonFunctions.TryQuery(() =>
-                        subscriptionsTableAdapter.FillBy((swimmingpoolDataSet.SubscriptionsDataTable)dataTable,
-                            Convert.ToInt32(((DataRowView)dataGridView.SelectedRows[0].DataBoundItem).Row[0])));
-                    row = dataTable.Rows[0].ItemArray;
-                    editForm = new EditSubscriptions(
-                        Convert.ToInt32(row[0]),
-                        row[1].ToString(),
-                        Convert.ToDecimal(row[2]),
-                        Convert.ToInt32(row[3]),
-                        Convert.ToInt32(row[4]));
-                    break;
-            }
-
-            if (!isQueryExecuted)
-            {
-                return;
-            }
-
-            editForm.ShowDialog();
-            FillTableAdapters();
-            swimmingpoolDataSet.AcceptChanges();
-        }
-
-        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (!IsAnyTableSelected() || !IsAnyRowSelected() || IsRowEmpty() || 
-                MessageBox.Show("Ви впевнені, що хочете видалити запис?",
-                    "Видалення", 
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question) == DialogResult.No)
-            {
-                return;
-            }
-
-            var isQueryExecuted = false;
-
-            switch (currentTable)
-            {
-                case Tables.Clients:
-                    isQueryExecuted = CommonFunctions.TryQuery(() =>
-                        clientsTableAdapter.DeleteQuery(Convert.ToInt32(((DataRowView)dataGridView.SelectedRows[0].DataBoundItem).Row[0])));
-                    break;
-                case Tables.Subscriptions:
-                    isQueryExecuted = CommonFunctions.TryQuery(() =>
-                        subscriptionsTableAdapter.DeleteQuery(Convert.ToInt32(((DataRowView)dataGridView.SelectedRows[0].DataBoundItem).Row[0])));
-                    break;
-            }
-
-            if (!isQueryExecuted)
-            {
-                return;
-            }
-
-            FillTableAdapters();
-            swimmingpoolDataSet.AcceptChanges();
-        }
-
-        private bool IsAnyTableSelected()
-        {
-            if (dataGridView.DataSource is null)
-            {
-                MessageBox.Show("Таблицю не обрано!",
-                    "Помилка", 
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-
-                return false;
-            }
-
-            return true;
-        }
-
-        private bool IsAnyRowSelected()
-        {
-            if (dataGridView.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Рядок не обрано!",
-                    "Помилка", 
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-
-                return false;
-            }
-
-            return true;
-        }
-
-        private bool IsRowEmpty()
-        {
-            if (dataGridView.SelectedRows[0].DataBoundItem is null)
-            {
-                MessageBox.Show("Рядок пустий!",
-                    "Помилка", 
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-
-                return true;
-            }
-
-            return false;
+            return MessageBox.Show("Ви впевнені, що хочете видалити запис?",
+                "Видалення",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) == DialogResult.Yes;
         }
     }
 }
