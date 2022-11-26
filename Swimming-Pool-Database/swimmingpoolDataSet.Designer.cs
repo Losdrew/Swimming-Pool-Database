@@ -32,27 +32,25 @@ namespace Swimming_Pool_Database {
         
         private TrainingsDataTable tableTrainings;
         
-        private VisitorCardsDataTable tableVisitorCards;
-        
         private ClientsDataTable tableClients;
-        
-        private VisitorCardsViewDataTable tableVisitorCardsView;
         
         private SubscriptionsViewDataTable tableSubscriptionsView;
         
+        private VisitorCardsDataTable tableVisitorCards;
+        
         private SubscriptionsDataTable tableSubscriptions;
         
-        private global::System.Data.DataRelation relationFK_Subscriptions_VisitorCards;
-        
-        private global::System.Data.DataRelation relationFK_Clients_VisitorCards;
-        
         private global::System.Data.DataRelation relationFK_SwimLanes_Trainings;
-        
-        private global::System.Data.DataRelation relationFK_VisitorCards_Trainings;
         
         private global::System.Data.DataRelation relationFK_Pools_SwimLanes;
         
         private global::System.Data.DataRelation relationFK_Pools_Instructors;
+        
+        private global::System.Data.DataRelation relationFK_Clients_VisitorCards;
+        
+        private global::System.Data.DataRelation relationFK_Subscriptions_VisitorCards;
+        
+        private global::System.Data.DataRelation relationFK_VisitorCards_Trainings;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -94,17 +92,14 @@ namespace Swimming_Pool_Database {
                 if ((ds.Tables["Trainings"] != null)) {
                     base.Tables.Add(new TrainingsDataTable(ds.Tables["Trainings"]));
                 }
-                if ((ds.Tables["VisitorCards"] != null)) {
-                    base.Tables.Add(new VisitorCardsDataTable(ds.Tables["VisitorCards"]));
-                }
                 if ((ds.Tables["Clients"] != null)) {
                     base.Tables.Add(new ClientsDataTable(ds.Tables["Clients"]));
                 }
-                if ((ds.Tables["VisitorCardsView"] != null)) {
-                    base.Tables.Add(new VisitorCardsViewDataTable(ds.Tables["VisitorCardsView"]));
-                }
                 if ((ds.Tables["SubscriptionsView"] != null)) {
                     base.Tables.Add(new SubscriptionsViewDataTable(ds.Tables["SubscriptionsView"]));
+                }
+                if ((ds.Tables["VisitorCards"] != null)) {
+                    base.Tables.Add(new VisitorCardsDataTable(ds.Tables["VisitorCards"]));
                 }
                 if ((ds.Tables["Subscriptions"] != null)) {
                     base.Tables.Add(new SubscriptionsDataTable(ds.Tables["Subscriptions"]));
@@ -171,16 +166,6 @@ namespace Swimming_Pool_Database {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public VisitorCardsDataTable VisitorCards {
-            get {
-                return this.tableVisitorCards;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public ClientsDataTable Clients {
             get {
                 return this.tableClients;
@@ -191,9 +176,9 @@ namespace Swimming_Pool_Database {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public VisitorCardsViewDataTable VisitorCardsView {
+        public SubscriptionsViewDataTable SubscriptionsView {
             get {
-                return this.tableVisitorCardsView;
+                return this.tableSubscriptionsView;
             }
         }
         
@@ -201,9 +186,9 @@ namespace Swimming_Pool_Database {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public SubscriptionsViewDataTable SubscriptionsView {
+        public VisitorCardsDataTable VisitorCards {
             get {
-                return this.tableSubscriptionsView;
+                return this.tableVisitorCards;
             }
         }
         
@@ -296,17 +281,14 @@ namespace Swimming_Pool_Database {
                 if ((ds.Tables["Trainings"] != null)) {
                     base.Tables.Add(new TrainingsDataTable(ds.Tables["Trainings"]));
                 }
-                if ((ds.Tables["VisitorCards"] != null)) {
-                    base.Tables.Add(new VisitorCardsDataTable(ds.Tables["VisitorCards"]));
-                }
                 if ((ds.Tables["Clients"] != null)) {
                     base.Tables.Add(new ClientsDataTable(ds.Tables["Clients"]));
                 }
-                if ((ds.Tables["VisitorCardsView"] != null)) {
-                    base.Tables.Add(new VisitorCardsViewDataTable(ds.Tables["VisitorCardsView"]));
-                }
                 if ((ds.Tables["SubscriptionsView"] != null)) {
                     base.Tables.Add(new SubscriptionsViewDataTable(ds.Tables["SubscriptionsView"]));
+                }
+                if ((ds.Tables["VisitorCards"] != null)) {
+                    base.Tables.Add(new VisitorCardsDataTable(ds.Tables["VisitorCards"]));
                 }
                 if ((ds.Tables["Subscriptions"] != null)) {
                     base.Tables.Add(new SubscriptionsDataTable(ds.Tables["Subscriptions"]));
@@ -368,22 +350,10 @@ namespace Swimming_Pool_Database {
                     this.tableTrainings.InitVars();
                 }
             }
-            this.tableVisitorCards = ((VisitorCardsDataTable)(base.Tables["VisitorCards"]));
-            if ((initTable == true)) {
-                if ((this.tableVisitorCards != null)) {
-                    this.tableVisitorCards.InitVars();
-                }
-            }
             this.tableClients = ((ClientsDataTable)(base.Tables["Clients"]));
             if ((initTable == true)) {
                 if ((this.tableClients != null)) {
                     this.tableClients.InitVars();
-                }
-            }
-            this.tableVisitorCardsView = ((VisitorCardsViewDataTable)(base.Tables["VisitorCardsView"]));
-            if ((initTable == true)) {
-                if ((this.tableVisitorCardsView != null)) {
-                    this.tableVisitorCardsView.InitVars();
                 }
             }
             this.tableSubscriptionsView = ((SubscriptionsViewDataTable)(base.Tables["SubscriptionsView"]));
@@ -392,18 +362,24 @@ namespace Swimming_Pool_Database {
                     this.tableSubscriptionsView.InitVars();
                 }
             }
+            this.tableVisitorCards = ((VisitorCardsDataTable)(base.Tables["VisitorCards"]));
+            if ((initTable == true)) {
+                if ((this.tableVisitorCards != null)) {
+                    this.tableVisitorCards.InitVars();
+                }
+            }
             this.tableSubscriptions = ((SubscriptionsDataTable)(base.Tables["Subscriptions"]));
             if ((initTable == true)) {
                 if ((this.tableSubscriptions != null)) {
                     this.tableSubscriptions.InitVars();
                 }
             }
-            this.relationFK_Subscriptions_VisitorCards = this.Relations["FK_Subscriptions_VisitorCards"];
-            this.relationFK_Clients_VisitorCards = this.Relations["FK_Clients_VisitorCards"];
             this.relationFK_SwimLanes_Trainings = this.Relations["FK_SwimLanes_Trainings"];
-            this.relationFK_VisitorCards_Trainings = this.Relations["FK_VisitorCards_Trainings"];
             this.relationFK_Pools_SwimLanes = this.Relations["FK_Pools_SwimLanes"];
             this.relationFK_Pools_Instructors = this.Relations["FK_Pools_Instructors"];
+            this.relationFK_Clients_VisitorCards = this.Relations["FK_Clients_VisitorCards"];
+            this.relationFK_Subscriptions_VisitorCards = this.Relations["FK_Subscriptions_VisitorCards"];
+            this.relationFK_VisitorCards_Trainings = this.Relations["FK_VisitorCards_Trainings"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -422,14 +398,12 @@ namespace Swimming_Pool_Database {
             base.Tables.Add(this.tableSwimLanes);
             this.tableTrainings = new TrainingsDataTable();
             base.Tables.Add(this.tableTrainings);
-            this.tableVisitorCards = new VisitorCardsDataTable();
-            base.Tables.Add(this.tableVisitorCards);
             this.tableClients = new ClientsDataTable();
             base.Tables.Add(this.tableClients);
-            this.tableVisitorCardsView = new VisitorCardsViewDataTable();
-            base.Tables.Add(this.tableVisitorCardsView);
             this.tableSubscriptionsView = new SubscriptionsViewDataTable();
             base.Tables.Add(this.tableSubscriptionsView);
+            this.tableVisitorCards = new VisitorCardsDataTable();
+            base.Tables.Add(this.tableVisitorCards);
             this.tableSubscriptions = new SubscriptionsDataTable();
             base.Tables.Add(this.tableSubscriptions);
             global::System.Data.ForeignKeyConstraint fkc;
@@ -454,43 +428,10 @@ namespace Swimming_Pool_Database {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_VisitorCards_Trainings", new global::System.Data.DataColumn[] {
-                        this.tableVisitorCards.card_idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableTrainings.card_idColumn});
-            this.tableTrainings.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.Cascade;
-            fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_Subscriptions_VisitorCards", new global::System.Data.DataColumn[] {
-                        this.tableSubscriptions.subscription_idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableVisitorCards.subscription_idColumn});
-            this.tableVisitorCards.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.Cascade;
-            fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_Clients_VisitorCards", new global::System.Data.DataColumn[] {
-                        this.tableClients.client_idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableVisitorCards.client_idColumn});
-            this.tableVisitorCards.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.Cascade;
-            fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            this.relationFK_Subscriptions_VisitorCards = new global::System.Data.DataRelation("FK_Subscriptions_VisitorCards", new global::System.Data.DataColumn[] {
-                        this.tableSubscriptions.subscription_idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableVisitorCards.subscription_idColumn}, false);
-            this.Relations.Add(this.relationFK_Subscriptions_VisitorCards);
-            this.relationFK_Clients_VisitorCards = new global::System.Data.DataRelation("FK_Clients_VisitorCards", new global::System.Data.DataColumn[] {
-                        this.tableClients.client_idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableVisitorCards.client_idColumn}, false);
-            this.Relations.Add(this.relationFK_Clients_VisitorCards);
             this.relationFK_SwimLanes_Trainings = new global::System.Data.DataRelation("FK_SwimLanes_Trainings", new global::System.Data.DataColumn[] {
                         this.tableSwimLanes.swimlane_idColumn}, new global::System.Data.DataColumn[] {
                         this.tableTrainings.swimlane_idColumn}, false);
             this.Relations.Add(this.relationFK_SwimLanes_Trainings);
-            this.relationFK_VisitorCards_Trainings = new global::System.Data.DataRelation("FK_VisitorCards_Trainings", new global::System.Data.DataColumn[] {
-                        this.tableVisitorCards.card_idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableTrainings.card_idColumn}, false);
-            this.Relations.Add(this.relationFK_VisitorCards_Trainings);
             this.relationFK_Pools_SwimLanes = new global::System.Data.DataRelation("FK_Pools_SwimLanes", new global::System.Data.DataColumn[] {
                         this.tablePools.pool_idColumn}, new global::System.Data.DataColumn[] {
                         this.tableSwimLanes.pool_idColumn}, false);
@@ -499,6 +440,18 @@ namespace Swimming_Pool_Database {
                         this.tablePools.pool_idColumn}, new global::System.Data.DataColumn[] {
                         this.tableInstructors.pool_idColumn}, false);
             this.Relations.Add(this.relationFK_Pools_Instructors);
+            this.relationFK_Clients_VisitorCards = new global::System.Data.DataRelation("FK_Clients_VisitorCards", new global::System.Data.DataColumn[] {
+                        this.tableClients.client_idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableVisitorCards.client_idColumn}, false);
+            this.Relations.Add(this.relationFK_Clients_VisitorCards);
+            this.relationFK_Subscriptions_VisitorCards = new global::System.Data.DataRelation("FK_Subscriptions_VisitorCards", new global::System.Data.DataColumn[] {
+                        this.tableSubscriptions.subscription_idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableVisitorCards.subscription_idColumn}, false);
+            this.Relations.Add(this.relationFK_Subscriptions_VisitorCards);
+            this.relationFK_VisitorCards_Trainings = new global::System.Data.DataRelation("FK_VisitorCards_Trainings", new global::System.Data.DataColumn[] {
+                        this.tableVisitorCards.card_idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableTrainings.card_idColumn}, false);
+            this.Relations.Add(this.relationFK_VisitorCards_Trainings);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -527,25 +480,19 @@ namespace Swimming_Pool_Database {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeVisitorCards() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeClients() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeVisitorCardsView() {
+        private bool ShouldSerializeSubscriptionsView() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeSubscriptionsView() {
+        private bool ShouldSerializeVisitorCards() {
             return false;
         }
         
@@ -623,16 +570,13 @@ namespace Swimming_Pool_Database {
         public delegate void TrainingsRowChangeEventHandler(object sender, TrainingsRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void VisitorCardsRowChangeEventHandler(object sender, VisitorCardsRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void ClientsRowChangeEventHandler(object sender, ClientsRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void VisitorCardsViewRowChangeEventHandler(object sender, VisitorCardsViewRowChangeEvent e);
+        public delegate void SubscriptionsViewRowChangeEventHandler(object sender, SubscriptionsViewRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void SubscriptionsViewRowChangeEventHandler(object sender, SubscriptionsViewRowChangeEvent e);
+        public delegate void VisitorCardsRowChangeEventHandler(object sender, VisitorCardsRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void SubscriptionsRowChangeEventHandler(object sender, SubscriptionsRowChangeEvent e);
@@ -1888,343 +1832,6 @@ namespace Swimming_Pool_Database {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class VisitorCardsDataTable : global::System.Data.TypedTableBase<VisitorCardsRow> {
-            
-            private global::System.Data.DataColumn columncard_id;
-            
-            private global::System.Data.DataColumn columnsubscription_id;
-            
-            private global::System.Data.DataColumn columnclient_id;
-            
-            private global::System.Data.DataColumn columnstart_date;
-            
-            private global::System.Data.DataColumn columnexpiry_date;
-            
-            private global::System.Data.DataColumn columnattendance_left_count;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VisitorCardsDataTable() {
-                this.TableName = "VisitorCards";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal VisitorCardsDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected VisitorCardsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn card_idColumn {
-                get {
-                    return this.columncard_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn subscription_idColumn {
-                get {
-                    return this.columnsubscription_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn client_idColumn {
-                get {
-                    return this.columnclient_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn start_dateColumn {
-                get {
-                    return this.columnstart_date;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn expiry_dateColumn {
-                get {
-                    return this.columnexpiry_date;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn attendance_left_countColumn {
-                get {
-                    return this.columnattendance_left_count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VisitorCardsRow this[int index] {
-                get {
-                    return ((VisitorCardsRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event VisitorCardsRowChangeEventHandler VisitorCardsRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event VisitorCardsRowChangeEventHandler VisitorCardsRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event VisitorCardsRowChangeEventHandler VisitorCardsRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event VisitorCardsRowChangeEventHandler VisitorCardsRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddVisitorCardsRow(VisitorCardsRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VisitorCardsRow AddVisitorCardsRow(SubscriptionsRow parentSubscriptionsRowByFK_Subscriptions_VisitorCards, ClientsRow parentClientsRowByFK_Clients_VisitorCards, System.DateTime start_date, System.DateTime expiry_date, int attendance_left_count) {
-                VisitorCardsRow rowVisitorCardsRow = ((VisitorCardsRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        null,
-                        null,
-                        start_date,
-                        expiry_date,
-                        attendance_left_count};
-                if ((parentSubscriptionsRowByFK_Subscriptions_VisitorCards != null)) {
-                    columnValuesArray[1] = parentSubscriptionsRowByFK_Subscriptions_VisitorCards[0];
-                }
-                if ((parentClientsRowByFK_Clients_VisitorCards != null)) {
-                    columnValuesArray[2] = parentClientsRowByFK_Clients_VisitorCards[0];
-                }
-                rowVisitorCardsRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowVisitorCardsRow);
-                return rowVisitorCardsRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VisitorCardsRow FindBycard_id(int card_id) {
-                return ((VisitorCardsRow)(this.Rows.Find(new object[] {
-                            card_id})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                VisitorCardsDataTable cln = ((VisitorCardsDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new VisitorCardsDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal void InitVars() {
-                this.columncard_id = base.Columns["card_id"];
-                this.columnsubscription_id = base.Columns["subscription_id"];
-                this.columnclient_id = base.Columns["client_id"];
-                this.columnstart_date = base.Columns["start_date"];
-                this.columnexpiry_date = base.Columns["expiry_date"];
-                this.columnattendance_left_count = base.Columns["attendance_left_count"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            private void InitClass() {
-                this.columncard_id = new global::System.Data.DataColumn("card_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncard_id);
-                this.columnsubscription_id = new global::System.Data.DataColumn("subscription_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsubscription_id);
-                this.columnclient_id = new global::System.Data.DataColumn("client_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnclient_id);
-                this.columnstart_date = new global::System.Data.DataColumn("start_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstart_date);
-                this.columnexpiry_date = new global::System.Data.DataColumn("expiry_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnexpiry_date);
-                this.columnattendance_left_count = new global::System.Data.DataColumn("attendance_left_count", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnattendance_left_count);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columncard_id}, true));
-                this.columncard_id.AutoIncrement = true;
-                this.columncard_id.AutoIncrementSeed = -1;
-                this.columncard_id.AutoIncrementStep = -1;
-                this.columncard_id.AllowDBNull = false;
-                this.columncard_id.Unique = true;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VisitorCardsRow NewVisitorCardsRow() {
-                return ((VisitorCardsRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new VisitorCardsRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(VisitorCardsRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.VisitorCardsRowChanged != null)) {
-                    this.VisitorCardsRowChanged(this, new VisitorCardsRowChangeEvent(((VisitorCardsRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.VisitorCardsRowChanging != null)) {
-                    this.VisitorCardsRowChanging(this, new VisitorCardsRowChangeEvent(((VisitorCardsRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.VisitorCardsRowDeleted != null)) {
-                    this.VisitorCardsRowDeleted(this, new VisitorCardsRowChangeEvent(((VisitorCardsRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.VisitorCardsRowDeleting != null)) {
-                    this.VisitorCardsRowDeleting(this, new VisitorCardsRowChangeEvent(((VisitorCardsRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveVisitorCardsRow(VisitorCardsRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                swimmingpoolDataSet ds = new swimmingpoolDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "VisitorCardsDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class ClientsDataTable : global::System.Data.TypedTableBase<ClientsRow> {
             
             private global::System.Data.DataColumn columnclient_id;
@@ -2620,355 +2227,6 @@ namespace Swimming_Pool_Database {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class VisitorCardsViewDataTable : global::System.Data.TypedTableBase<VisitorCardsViewRow> {
-            
-            private global::System.Data.DataColumn columncard_id;
-            
-            private global::System.Data.DataColumn columnname;
-            
-            private global::System.Data.DataColumn columnfirst_name;
-            
-            private global::System.Data.DataColumn columnlast_name;
-            
-            private global::System.Data.DataColumn columnmiddle_name;
-            
-            private global::System.Data.DataColumn columnstart_date;
-            
-            private global::System.Data.DataColumn columnexpiry_date;
-            
-            private global::System.Data.DataColumn columnattendance_left_count;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VisitorCardsViewDataTable() {
-                this.TableName = "VisitorCardsView";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal VisitorCardsViewDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected VisitorCardsViewDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn card_idColumn {
-                get {
-                    return this.columncard_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn nameColumn {
-                get {
-                    return this.columnname;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn first_nameColumn {
-                get {
-                    return this.columnfirst_name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn last_nameColumn {
-                get {
-                    return this.columnlast_name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn middle_nameColumn {
-                get {
-                    return this.columnmiddle_name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn start_dateColumn {
-                get {
-                    return this.columnstart_date;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn expiry_dateColumn {
-                get {
-                    return this.columnexpiry_date;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn attendance_left_countColumn {
-                get {
-                    return this.columnattendance_left_count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VisitorCardsViewRow this[int index] {
-                get {
-                    return ((VisitorCardsViewRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event VisitorCardsViewRowChangeEventHandler VisitorCardsViewRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event VisitorCardsViewRowChangeEventHandler VisitorCardsViewRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event VisitorCardsViewRowChangeEventHandler VisitorCardsViewRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event VisitorCardsViewRowChangeEventHandler VisitorCardsViewRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddVisitorCardsViewRow(VisitorCardsViewRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VisitorCardsViewRow AddVisitorCardsViewRow(int card_id, string name, string first_name, string last_name, string middle_name, System.DateTime start_date, System.DateTime expiry_date, int attendance_left_count) {
-                VisitorCardsViewRow rowVisitorCardsViewRow = ((VisitorCardsViewRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        card_id,
-                        name,
-                        first_name,
-                        last_name,
-                        middle_name,
-                        start_date,
-                        expiry_date,
-                        attendance_left_count};
-                rowVisitorCardsViewRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowVisitorCardsViewRow);
-                return rowVisitorCardsViewRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                VisitorCardsViewDataTable cln = ((VisitorCardsViewDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new VisitorCardsViewDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal void InitVars() {
-                this.columncard_id = base.Columns["card_id"];
-                this.columnname = base.Columns["name"];
-                this.columnfirst_name = base.Columns["first_name"];
-                this.columnlast_name = base.Columns["last_name"];
-                this.columnmiddle_name = base.Columns["middle_name"];
-                this.columnstart_date = base.Columns["start_date"];
-                this.columnexpiry_date = base.Columns["expiry_date"];
-                this.columnattendance_left_count = base.Columns["attendance_left_count"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            private void InitClass() {
-                this.columncard_id = new global::System.Data.DataColumn("card_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncard_id);
-                this.columnname = new global::System.Data.DataColumn("name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnname);
-                this.columnfirst_name = new global::System.Data.DataColumn("first_name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfirst_name);
-                this.columnlast_name = new global::System.Data.DataColumn("last_name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnlast_name);
-                this.columnmiddle_name = new global::System.Data.DataColumn("middle_name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnmiddle_name);
-                this.columnstart_date = new global::System.Data.DataColumn("start_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstart_date);
-                this.columnexpiry_date = new global::System.Data.DataColumn("expiry_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnexpiry_date);
-                this.columnattendance_left_count = new global::System.Data.DataColumn("attendance_left_count", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnattendance_left_count);
-                this.columnname.MaxLength = 4095;
-                this.columnfirst_name.MaxLength = 255;
-                this.columnlast_name.MaxLength = 255;
-                this.columnmiddle_name.MaxLength = 255;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VisitorCardsViewRow NewVisitorCardsViewRow() {
-                return ((VisitorCardsViewRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new VisitorCardsViewRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(VisitorCardsViewRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.VisitorCardsViewRowChanged != null)) {
-                    this.VisitorCardsViewRowChanged(this, new VisitorCardsViewRowChangeEvent(((VisitorCardsViewRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.VisitorCardsViewRowChanging != null)) {
-                    this.VisitorCardsViewRowChanging(this, new VisitorCardsViewRowChangeEvent(((VisitorCardsViewRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.VisitorCardsViewRowDeleted != null)) {
-                    this.VisitorCardsViewRowDeleted(this, new VisitorCardsViewRowChangeEvent(((VisitorCardsViewRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.VisitorCardsViewRowDeleting != null)) {
-                    this.VisitorCardsViewRowDeleting(this, new VisitorCardsViewRowChangeEvent(((VisitorCardsViewRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveVisitorCardsViewRow(VisitorCardsViewRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                swimmingpoolDataSet ds = new swimmingpoolDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "VisitorCardsViewDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class SubscriptionsViewDataTable : global::System.Data.TypedTableBase<SubscriptionsViewRow> {
             
             private global::System.Data.DataColumn columnsubscription_id;
@@ -3230,6 +2488,343 @@ namespace Swimming_Pool_Database {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "SubscriptionsViewDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class VisitorCardsDataTable : global::System.Data.TypedTableBase<VisitorCardsRow> {
+            
+            private global::System.Data.DataColumn columncard_id;
+            
+            private global::System.Data.DataColumn columnsubscription_id;
+            
+            private global::System.Data.DataColumn columnclient_id;
+            
+            private global::System.Data.DataColumn columnstart_date;
+            
+            private global::System.Data.DataColumn columnexpiry_date;
+            
+            private global::System.Data.DataColumn columnattendance_left_count;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public VisitorCardsDataTable() {
+                this.TableName = "VisitorCards";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal VisitorCardsDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected VisitorCardsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn card_idColumn {
+                get {
+                    return this.columncard_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn subscription_idColumn {
+                get {
+                    return this.columnsubscription_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn client_idColumn {
+                get {
+                    return this.columnclient_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn start_dateColumn {
+                get {
+                    return this.columnstart_date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn expiry_dateColumn {
+                get {
+                    return this.columnexpiry_date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn attendance_left_countColumn {
+                get {
+                    return this.columnattendance_left_count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public VisitorCardsRow this[int index] {
+                get {
+                    return ((VisitorCardsRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event VisitorCardsRowChangeEventHandler VisitorCardsRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event VisitorCardsRowChangeEventHandler VisitorCardsRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event VisitorCardsRowChangeEventHandler VisitorCardsRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event VisitorCardsRowChangeEventHandler VisitorCardsRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddVisitorCardsRow(VisitorCardsRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public VisitorCardsRow AddVisitorCardsRow(SubscriptionsRow parentSubscriptionsRowByFK_Subscriptions_VisitorCards, ClientsRow parentClientsRowByFK_Clients_VisitorCards, System.DateTime start_date, System.DateTime expiry_date, int attendance_left_count) {
+                VisitorCardsRow rowVisitorCardsRow = ((VisitorCardsRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        null,
+                        null,
+                        start_date,
+                        expiry_date,
+                        attendance_left_count};
+                if ((parentSubscriptionsRowByFK_Subscriptions_VisitorCards != null)) {
+                    columnValuesArray[1] = parentSubscriptionsRowByFK_Subscriptions_VisitorCards[0];
+                }
+                if ((parentClientsRowByFK_Clients_VisitorCards != null)) {
+                    columnValuesArray[2] = parentClientsRowByFK_Clients_VisitorCards[0];
+                }
+                rowVisitorCardsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowVisitorCardsRow);
+                return rowVisitorCardsRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public VisitorCardsRow FindBycard_id(int card_id) {
+                return ((VisitorCardsRow)(this.Rows.Find(new object[] {
+                            card_id})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                VisitorCardsDataTable cln = ((VisitorCardsDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new VisitorCardsDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columncard_id = base.Columns["card_id"];
+                this.columnsubscription_id = base.Columns["subscription_id"];
+                this.columnclient_id = base.Columns["client_id"];
+                this.columnstart_date = base.Columns["start_date"];
+                this.columnexpiry_date = base.Columns["expiry_date"];
+                this.columnattendance_left_count = base.Columns["attendance_left_count"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columncard_id = new global::System.Data.DataColumn("card_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncard_id);
+                this.columnsubscription_id = new global::System.Data.DataColumn("subscription_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsubscription_id);
+                this.columnclient_id = new global::System.Data.DataColumn("client_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnclient_id);
+                this.columnstart_date = new global::System.Data.DataColumn("start_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstart_date);
+                this.columnexpiry_date = new global::System.Data.DataColumn("expiry_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnexpiry_date);
+                this.columnattendance_left_count = new global::System.Data.DataColumn("attendance_left_count", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnattendance_left_count);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columncard_id}, true));
+                this.columncard_id.AutoIncrement = true;
+                this.columncard_id.AutoIncrementSeed = -1;
+                this.columncard_id.AutoIncrementStep = -1;
+                this.columncard_id.AllowDBNull = false;
+                this.columncard_id.Unique = true;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public VisitorCardsRow NewVisitorCardsRow() {
+                return ((VisitorCardsRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new VisitorCardsRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(VisitorCardsRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.VisitorCardsRowChanged != null)) {
+                    this.VisitorCardsRowChanged(this, new VisitorCardsRowChangeEvent(((VisitorCardsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.VisitorCardsRowChanging != null)) {
+                    this.VisitorCardsRowChanging(this, new VisitorCardsRowChangeEvent(((VisitorCardsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.VisitorCardsRowDeleted != null)) {
+                    this.VisitorCardsRowDeleted(this, new VisitorCardsRowChangeEvent(((VisitorCardsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.VisitorCardsRowDeleting != null)) {
+                    this.VisitorCardsRowDeleting(this, new VisitorCardsRowChangeEvent(((VisitorCardsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemoveVisitorCardsRow(VisitorCardsRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                swimmingpoolDataSet ds = new swimmingpoolDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "VisitorCardsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -4068,205 +3663,6 @@ namespace Swimming_Pool_Database {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class VisitorCardsRow : global::System.Data.DataRow {
-            
-            private VisitorCardsDataTable tableVisitorCards;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal VisitorCardsRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableVisitorCards = ((VisitorCardsDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int card_id {
-                get {
-                    return ((int)(this[this.tableVisitorCards.card_idColumn]));
-                }
-                set {
-                    this[this.tableVisitorCards.card_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int subscription_id {
-                get {
-                    try {
-                        return ((int)(this[this.tableVisitorCards.subscription_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'subscription_id\' in table \'VisitorCards\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableVisitorCards.subscription_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int client_id {
-                get {
-                    try {
-                        return ((int)(this[this.tableVisitorCards.client_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'client_id\' in table \'VisitorCards\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableVisitorCards.client_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime start_date {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableVisitorCards.start_dateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'start_date\' in table \'VisitorCards\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableVisitorCards.start_dateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime expiry_date {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableVisitorCards.expiry_dateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'expiry_date\' in table \'VisitorCards\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableVisitorCards.expiry_dateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int attendance_left_count {
-                get {
-                    try {
-                        return ((int)(this[this.tableVisitorCards.attendance_left_countColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'attendance_left_count\' in table \'VisitorCards\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableVisitorCards.attendance_left_countColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SubscriptionsRow SubscriptionsRow {
-                get {
-                    return ((SubscriptionsRow)(this.GetParentRow(this.Table.ParentRelations["FK_Subscriptions_VisitorCards"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Subscriptions_VisitorCards"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ClientsRow ClientsRow {
-                get {
-                    return ((ClientsRow)(this.GetParentRow(this.Table.ParentRelations["FK_Clients_VisitorCards"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Clients_VisitorCards"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Issubscription_idNull() {
-                return this.IsNull(this.tableVisitorCards.subscription_idColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setsubscription_idNull() {
-                this[this.tableVisitorCards.subscription_idColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isclient_idNull() {
-                return this.IsNull(this.tableVisitorCards.client_idColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setclient_idNull() {
-                this[this.tableVisitorCards.client_idColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isstart_dateNull() {
-                return this.IsNull(this.tableVisitorCards.start_dateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setstart_dateNull() {
-                this[this.tableVisitorCards.start_dateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isexpiry_dateNull() {
-                return this.IsNull(this.tableVisitorCards.expiry_dateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setexpiry_dateNull() {
-                this[this.tableVisitorCards.expiry_dateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isattendance_left_countNull() {
-                return this.IsNull(this.tableVisitorCards.attendance_left_countColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setattendance_left_countNull() {
-                this[this.tableVisitorCards.attendance_left_countColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TrainingsRow[] GetTrainingsRows() {
-                if ((this.Table.ChildRelations["FK_VisitorCards_Trainings"] == null)) {
-                    return new TrainingsRow[0];
-                }
-                else {
-                    return ((TrainingsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_VisitorCards_Trainings"])));
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
         public partial class ClientsRow : global::System.Data.DataRow {
             
             private ClientsDataTable tableClients;
@@ -4556,246 +3952,6 @@ namespace Swimming_Pool_Database {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class VisitorCardsViewRow : global::System.Data.DataRow {
-            
-            private VisitorCardsViewDataTable tableVisitorCardsView;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal VisitorCardsViewRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableVisitorCardsView = ((VisitorCardsViewDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int card_id {
-                get {
-                    try {
-                        return ((int)(this[this.tableVisitorCardsView.card_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'card_id\' in table \'VisitorCardsView\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableVisitorCardsView.card_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string name {
-                get {
-                    try {
-                        return ((string)(this[this.tableVisitorCardsView.nameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'name\' in table \'VisitorCardsView\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableVisitorCardsView.nameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string first_name {
-                get {
-                    try {
-                        return ((string)(this[this.tableVisitorCardsView.first_nameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'first_name\' in table \'VisitorCardsView\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableVisitorCardsView.first_nameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string last_name {
-                get {
-                    try {
-                        return ((string)(this[this.tableVisitorCardsView.last_nameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'last_name\' in table \'VisitorCardsView\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableVisitorCardsView.last_nameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string middle_name {
-                get {
-                    try {
-                        return ((string)(this[this.tableVisitorCardsView.middle_nameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'middle_name\' in table \'VisitorCardsView\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableVisitorCardsView.middle_nameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime start_date {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableVisitorCardsView.start_dateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'start_date\' in table \'VisitorCardsView\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableVisitorCardsView.start_dateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime expiry_date {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableVisitorCardsView.expiry_dateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'expiry_date\' in table \'VisitorCardsView\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableVisitorCardsView.expiry_dateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int attendance_left_count {
-                get {
-                    try {
-                        return ((int)(this[this.tableVisitorCardsView.attendance_left_countColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'attendance_left_count\' in table \'VisitorCardsView\' is DBNul" +
-                                "l.", e);
-                    }
-                }
-                set {
-                    this[this.tableVisitorCardsView.attendance_left_countColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Iscard_idNull() {
-                return this.IsNull(this.tableVisitorCardsView.card_idColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setcard_idNull() {
-                this[this.tableVisitorCardsView.card_idColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsnameNull() {
-                return this.IsNull(this.tableVisitorCardsView.nameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetnameNull() {
-                this[this.tableVisitorCardsView.nameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isfirst_nameNull() {
-                return this.IsNull(this.tableVisitorCardsView.first_nameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setfirst_nameNull() {
-                this[this.tableVisitorCardsView.first_nameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Islast_nameNull() {
-                return this.IsNull(this.tableVisitorCardsView.last_nameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setlast_nameNull() {
-                this[this.tableVisitorCardsView.last_nameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Ismiddle_nameNull() {
-                return this.IsNull(this.tableVisitorCardsView.middle_nameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setmiddle_nameNull() {
-                this[this.tableVisitorCardsView.middle_nameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isstart_dateNull() {
-                return this.IsNull(this.tableVisitorCardsView.start_dateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setstart_dateNull() {
-                this[this.tableVisitorCardsView.start_dateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isexpiry_dateNull() {
-                return this.IsNull(this.tableVisitorCardsView.expiry_dateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setexpiry_dateNull() {
-                this[this.tableVisitorCardsView.expiry_dateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isattendance_left_countNull() {
-                return this.IsNull(this.tableVisitorCardsView.attendance_left_countColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setattendance_left_countNull() {
-                this[this.tableVisitorCardsView.attendance_left_countColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
         public partial class SubscriptionsViewRow : global::System.Data.DataRow {
             
             private SubscriptionsViewDataTable tableSubscriptionsView;
@@ -4945,6 +4101,205 @@ namespace Swimming_Pool_Database {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setday_countNull() {
                 this[this.tableSubscriptionsView.day_countColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class VisitorCardsRow : global::System.Data.DataRow {
+            
+            private VisitorCardsDataTable tableVisitorCards;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal VisitorCardsRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableVisitorCards = ((VisitorCardsDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int card_id {
+                get {
+                    return ((int)(this[this.tableVisitorCards.card_idColumn]));
+                }
+                set {
+                    this[this.tableVisitorCards.card_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int subscription_id {
+                get {
+                    try {
+                        return ((int)(this[this.tableVisitorCards.subscription_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'subscription_id\' in table \'VisitorCards\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVisitorCards.subscription_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int client_id {
+                get {
+                    try {
+                        return ((int)(this[this.tableVisitorCards.client_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'client_id\' in table \'VisitorCards\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVisitorCards.client_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime start_date {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableVisitorCards.start_dateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'start_date\' in table \'VisitorCards\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVisitorCards.start_dateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime expiry_date {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableVisitorCards.expiry_dateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'expiry_date\' in table \'VisitorCards\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVisitorCards.expiry_dateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int attendance_left_count {
+                get {
+                    try {
+                        return ((int)(this[this.tableVisitorCards.attendance_left_countColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'attendance_left_count\' in table \'VisitorCards\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVisitorCards.attendance_left_countColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ClientsRow ClientsRow {
+                get {
+                    return ((ClientsRow)(this.GetParentRow(this.Table.ParentRelations["FK_Clients_VisitorCards"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Clients_VisitorCards"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SubscriptionsRow SubscriptionsRow {
+                get {
+                    return ((SubscriptionsRow)(this.GetParentRow(this.Table.ParentRelations["FK_Subscriptions_VisitorCards"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Subscriptions_VisitorCards"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Issubscription_idNull() {
+                return this.IsNull(this.tableVisitorCards.subscription_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setsubscription_idNull() {
+                this[this.tableVisitorCards.subscription_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isclient_idNull() {
+                return this.IsNull(this.tableVisitorCards.client_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setclient_idNull() {
+                this[this.tableVisitorCards.client_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isstart_dateNull() {
+                return this.IsNull(this.tableVisitorCards.start_dateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setstart_dateNull() {
+                this[this.tableVisitorCards.start_dateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isexpiry_dateNull() {
+                return this.IsNull(this.tableVisitorCards.expiry_dateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setexpiry_dateNull() {
+                this[this.tableVisitorCards.expiry_dateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isattendance_left_countNull() {
+                return this.IsNull(this.tableVisitorCards.attendance_left_countColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setattendance_left_countNull() {
+                this[this.tableVisitorCards.attendance_left_countColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public TrainingsRow[] GetTrainingsRows() {
+                if ((this.Table.ChildRelations["FK_VisitorCards_Trainings"] == null)) {
+                    return new TrainingsRow[0];
+                }
+                else {
+                    return ((TrainingsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_VisitorCards_Trainings"])));
+                }
             }
         }
         
@@ -5237,40 +4592,6 @@ namespace Swimming_Pool_Database {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class VisitorCardsRowChangeEvent : global::System.EventArgs {
-            
-            private VisitorCardsRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VisitorCardsRowChangeEvent(VisitorCardsRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VisitorCardsRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public class ClientsRowChangeEvent : global::System.EventArgs {
             
             private ClientsRow eventRow;
@@ -5305,22 +4626,22 @@ namespace Swimming_Pool_Database {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class VisitorCardsViewRowChangeEvent : global::System.EventArgs {
+        public class SubscriptionsViewRowChangeEvent : global::System.EventArgs {
             
-            private VisitorCardsViewRow eventRow;
+            private SubscriptionsViewRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VisitorCardsViewRowChangeEvent(VisitorCardsViewRow row, global::System.Data.DataRowAction action) {
+            public SubscriptionsViewRowChangeEvent(SubscriptionsViewRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VisitorCardsViewRow Row {
+            public SubscriptionsViewRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -5339,22 +4660,22 @@ namespace Swimming_Pool_Database {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class SubscriptionsViewRowChangeEvent : global::System.EventArgs {
+        public class VisitorCardsRowChangeEvent : global::System.EventArgs {
             
-            private SubscriptionsViewRow eventRow;
+            private VisitorCardsRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SubscriptionsViewRowChangeEvent(SubscriptionsViewRow row, global::System.Data.DataRowAction action) {
+            public VisitorCardsRowChangeEvent(VisitorCardsRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SubscriptionsViewRow Row {
+            public VisitorCardsRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -7168,500 +6489,6 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class VisitorCardsTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.Odbc.OdbcDataAdapter _adapter;
-        
-        private global::System.Data.Odbc.OdbcConnection _connection;
-        
-        private global::System.Data.Odbc.OdbcTransaction _transaction;
-        
-        private global::System.Data.Odbc.OdbcCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public VisitorCardsTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected internal global::System.Data.Odbc.OdbcDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::System.Data.Odbc.OdbcConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.Odbc.OdbcCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::System.Data.Odbc.OdbcTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected global::System.Data.Odbc.OdbcCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.Odbc.OdbcDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "VisitorCards";
-            tableMapping.ColumnMappings.Add("card_id", "card_id");
-            tableMapping.ColumnMappings.Add("subscription_id", "subscription_id");
-            tableMapping.ColumnMappings.Add("client_id", "client_id");
-            tableMapping.ColumnMappings.Add("start_date", "start_date");
-            tableMapping.ColumnMappings.Add("expiry_date", "expiry_date");
-            tableMapping.ColumnMappings.Add("attendance_left_count", "attendance_left_count");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.Odbc.OdbcCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM ""swimmingpool"".""public"".""VisitorCards"" WHERE ((""card_id"" = ?) AND ((? = 1 AND ""subscription_id"" IS NULL) OR (""subscription_id"" = ?)) AND ((? = 1 AND ""client_id"" IS NULL) OR (""client_id"" = ?)) AND ((? = 1 AND ""start_date"" IS NULL) OR (""start_date"" = ?)) AND ((? = 1 AND ""expiry_date"" IS NULL) OR (""expiry_date"" = ?)) AND ((? = 1 AND ""attendance_left_count"" IS NULL) OR (""attendance_left_count"" = ?)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_card_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "card_id", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_subscription_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "subscription_id", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_subscription_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "subscription_id", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_client_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "client_id", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_client_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "client_id", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_start_date", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "start_date", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_start_date", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "start_date", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_expiry_date", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "expiry_date", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_expiry_date", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "expiry_date", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_attendance_left_count", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "attendance_left_count", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_attendance_left_count", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "attendance_left_count", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.InsertCommand = new global::System.Data.Odbc.OdbcCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO \"swimmingpool\".\"public\".\"VisitorCards\" (\"subscription_id\", \"client_id" +
-                "\", \"start_date\", \"expiry_date\", \"attendance_left_count\") VALUES (?, ?, ?, ?, ?)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("subscription_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "subscription_id", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("client_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "client_id", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("start_date", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "start_date", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("expiry_date", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "expiry_date", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("attendance_left_count", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "attendance_left_count", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand = new global::System.Data.Odbc.OdbcCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE ""swimmingpool"".""public"".""VisitorCards"" SET ""subscription_id"" = ?, ""client_id"" = ?, ""start_date"" = ?, ""expiry_date"" = ?, ""attendance_left_count"" = ? WHERE ((""card_id"" = ?) AND ((? = 1 AND ""subscription_id"" IS NULL) OR (""subscription_id"" = ?)) AND ((? = 1 AND ""client_id"" IS NULL) OR (""client_id"" = ?)) AND ((? = 1 AND ""start_date"" IS NULL) OR (""start_date"" = ?)) AND ((? = 1 AND ""expiry_date"" IS NULL) OR (""expiry_date"" = ?)) AND ((? = 1 AND ""attendance_left_count"" IS NULL) OR (""attendance_left_count"" = ?)))";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("subscription_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "subscription_id", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("client_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "client_id", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("start_date", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "start_date", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("expiry_date", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "expiry_date", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("attendance_left_count", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "attendance_left_count", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_card_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "card_id", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_subscription_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "subscription_id", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_subscription_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "subscription_id", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_client_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "client_id", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_client_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "client_id", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_start_date", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "start_date", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_start_date", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "start_date", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_expiry_date", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "expiry_date", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_expiry_date", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "expiry_date", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_attendance_left_count", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "attendance_left_count", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_attendance_left_count", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "attendance_left_count", global::System.Data.DataRowVersion.Original, false, null));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.Odbc.OdbcConnection();
-            this._connection.ConnectionString = global::Swimming_Pool_Database.Properties.Settings.Default.swimmingpoolConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.Odbc.OdbcCommand[5];
-            this._commandCollection[0] = new global::System.Data.Odbc.OdbcCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT \"card_id\", \"subscription_id\", \"client_id\", \"start_date\", \"expiry_date\", \"a" +
-                "ttendance_left_count\" FROM \"public\".\"VisitorCards\"";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.Odbc.OdbcCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "DELETE FROM \"swimmingpool\".\"public\".\"VisitorCards\" WHERE (\"card_id\" = ?)";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("card_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "card_id", global::System.Data.DataRowVersion.Original, false, null));
-            this._commandCollection[2] = new global::System.Data.Odbc.OdbcCommand();
-            this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT \"card_id\", \"subscription_id\", \"client_id\", \"start_date\", \"expiry_date\", \"a" +
-                "ttendance_left_count\" FROM \"public\".\"VisitorCards\" WHERE (\"card_id\"=?)";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("card_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "card_id", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[3] = new global::System.Data.Odbc.OdbcCommand();
-            this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT \"card_id\" FROM \"swimmingpool\".\"public\".\"VisitorCards\" WHERE (\"client_id\"=?" +
-                ") AND(expiry_date>=CURRENT_DATE)";
-            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("client_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "client_id", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[4] = new global::System.Data.Odbc.OdbcCommand();
-            this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "UPDATE \"swimmingpool\".\"public\".\"VisitorCards\" SET \"subscription_id\" = ?, \"client_" +
-                "id\" = ?, \"start_date\" = ?, \"expiry_date\" = ?, \"attendance_left_count\" = ? WHERE " +
-                "(\"card_id\" = ?)";
-            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("subscription_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "subscription_id", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("client_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "client_id", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("start_date", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "start_date", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("expiry_date", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "expiry_date", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("attendance_left_count", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "attendance_left_count", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_card_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "card_id", global::System.Data.DataRowVersion.Original, false, null));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(swimmingpoolDataSet.VisitorCardsDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual swimmingpoolDataSet.VisitorCardsDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            swimmingpoolDataSet.VisitorCardsDataTable dataTable = new swimmingpoolDataSet.VisitorCardsDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(swimmingpoolDataSet.VisitorCardsDataTable dataTable, int card_id) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(card_id));
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual swimmingpoolDataSet.VisitorCardsDataTable GetDataBy2(int card_id) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(card_id));
-            swimmingpoolDataSet.VisitorCardsDataTable dataTable = new swimmingpoolDataSet.VisitorCardsDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillCurrentlyActiveCard(swimmingpoolDataSet.VisitorCardsDataTable dataTable, global::System.Nullable<int> client_id) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
-            if ((client_id.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(client_id.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(swimmingpoolDataSet.VisitorCardsDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(swimmingpoolDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "VisitorCards");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_card_id, int Original_subscription_id, int Original_client_id, System.DateTime Original_start_date, System.DateTime Original_expiry_date, int Original_attendance_left_count) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_card_id));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_subscription_id));
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_client_id));
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-            this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_start_date));
-            this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-            this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(Original_expiry_date));
-            this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-            this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(Original_attendance_left_count));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int subscription_id, int client_id, System.DateTime start_date, System.DateTime expiry_date, int attendance_left_count) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(subscription_id));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(client_id));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(start_date));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(expiry_date));
-            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(attendance_left_count));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int subscription_id, int client_id, System.DateTime start_date, System.DateTime expiry_date, int attendance_left_count, int Original_card_id, int Original_subscription_id, int Original_client_id, System.DateTime Original_start_date, System.DateTime Original_expiry_date, int Original_attendance_left_count) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(subscription_id));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(client_id));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(start_date));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(expiry_date));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(attendance_left_count));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_card_id));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_subscription_id));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_client_id));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_start_date));
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((System.DateTime)(Original_expiry_date));
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_attendance_left_count));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
-        public virtual int DeleteQuery(int card_id) {
-            global::System.Data.Odbc.OdbcCommand command = this.CommandCollection[1];
-            command.Parameters[0].Value = ((int)(card_id));
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            int returnValue;
-            try {
-                returnValue = command.ExecuteNonQuery();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateQuery(global::System.Nullable<int> subscription_id, global::System.Nullable<int> client_id, global::System.Nullable<global::System.DateTime> start_date, global::System.Nullable<global::System.DateTime> expiry_date, global::System.Nullable<int> attendance_left_count, int Original_card_id) {
-            global::System.Data.Odbc.OdbcCommand command = this.CommandCollection[4];
-            if ((subscription_id.HasValue == true)) {
-                command.Parameters[0].Value = ((int)(subscription_id.Value));
-            }
-            else {
-                command.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((client_id.HasValue == true)) {
-                command.Parameters[1].Value = ((int)(client_id.Value));
-            }
-            else {
-                command.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((start_date.HasValue == true)) {
-                command.Parameters[2].Value = ((System.DateTime)(start_date.Value));
-            }
-            else {
-                command.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((expiry_date.HasValue == true)) {
-                command.Parameters[3].Value = ((System.DateTime)(expiry_date.Value));
-            }
-            else {
-                command.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((attendance_left_count.HasValue == true)) {
-                command.Parameters[4].Value = ((int)(attendance_left_count.Value));
-            }
-            else {
-                command.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            command.Parameters[5].Value = ((int)(Original_card_id));
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            int returnValue;
-            try {
-                returnValue = command.ExecuteNonQuery();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            return returnValue;
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class ClientsTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.Odbc.OdbcDataAdapter _adapter;
@@ -8443,181 +7270,6 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class VisitorCardsViewTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.Odbc.OdbcDataAdapter _adapter;
-        
-        private global::System.Data.Odbc.OdbcConnection _connection;
-        
-        private global::System.Data.Odbc.OdbcTransaction _transaction;
-        
-        private global::System.Data.Odbc.OdbcCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public VisitorCardsViewTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected internal global::System.Data.Odbc.OdbcDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::System.Data.Odbc.OdbcConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.Odbc.OdbcCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::System.Data.Odbc.OdbcTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected global::System.Data.Odbc.OdbcCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.Odbc.OdbcDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "VisitorCardsView";
-            tableMapping.ColumnMappings.Add("card_id", "card_id");
-            tableMapping.ColumnMappings.Add("name", "name");
-            tableMapping.ColumnMappings.Add("first_name", "first_name");
-            tableMapping.ColumnMappings.Add("last_name", "last_name");
-            tableMapping.ColumnMappings.Add("middle_name", "middle_name");
-            tableMapping.ColumnMappings.Add("start_date", "start_date");
-            tableMapping.ColumnMappings.Add("expiry_date", "expiry_date");
-            tableMapping.ColumnMappings.Add("attendance_left_count", "attendance_left_count");
-            this._adapter.TableMappings.Add(tableMapping);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.Odbc.OdbcConnection();
-            this._connection.ConnectionString = global::Swimming_Pool_Database.Properties.Settings.Default.swimmingpoolConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.Odbc.OdbcCommand[1];
-            this._commandCollection[0] = new global::System.Data.Odbc.OdbcCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT \"card_id\", \"name\", \"first_name\", \"last_name\", \"middle_name\", \"start_date\"," +
-                " \"expiry_date\", \"attendance_left_count\" FROM \"public\".\"VisitorCardsView\"";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(swimmingpoolDataSet.VisitorCardsViewDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual swimmingpoolDataSet.VisitorCardsViewDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            swimmingpoolDataSet.VisitorCardsViewDataTable dataTable = new swimmingpoolDataSet.VisitorCardsViewDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class SubscriptionsViewTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.Odbc.OdbcDataAdapter _adapter;
@@ -8778,6 +7430,517 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
             swimmingpoolDataSet.SubscriptionsViewDataTable dataTable = new swimmingpoolDataSet.SubscriptionsViewDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class VisitorCardsTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.Odbc.OdbcDataAdapter _adapter;
+        
+        private global::System.Data.Odbc.OdbcConnection _connection;
+        
+        private global::System.Data.Odbc.OdbcTransaction _transaction;
+        
+        private global::System.Data.Odbc.OdbcCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public VisitorCardsTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::System.Data.Odbc.OdbcDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.Odbc.OdbcConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.Odbc.OdbcCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.Odbc.OdbcTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.Odbc.OdbcCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.Odbc.OdbcDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "VisitorCards";
+            tableMapping.ColumnMappings.Add("card_id", "card_id");
+            tableMapping.ColumnMappings.Add("subscription_id", "subscription_id");
+            tableMapping.ColumnMappings.Add("client_id", "client_id");
+            tableMapping.ColumnMappings.Add("start_date", "start_date");
+            tableMapping.ColumnMappings.Add("expiry_date", "expiry_date");
+            tableMapping.ColumnMappings.Add("attendance_left_count", "attendance_left_count");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.Odbc.OdbcCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM ""swimmingpool"".""public"".""VisitorCards"" WHERE ((""card_id"" = ?) AND ((? = 1 AND ""subscription_id"" IS NULL) OR (""subscription_id"" = ?)) AND ((? = 1 AND ""client_id"" IS NULL) OR (""client_id"" = ?)) AND ((? = 1 AND ""start_date"" IS NULL) OR (""start_date"" = ?)) AND ((? = 1 AND ""expiry_date"" IS NULL) OR (""expiry_date"" = ?)) AND ((? = 1 AND ""attendance_left_count"" IS NULL) OR (""attendance_left_count"" = ?)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_card_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "card_id", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_subscription_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "subscription_id", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_subscription_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "subscription_id", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_client_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "client_id", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_client_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "client_id", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_start_date", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "start_date", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_start_date", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "start_date", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_expiry_date", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "expiry_date", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_expiry_date", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "expiry_date", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_attendance_left_count", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "attendance_left_count", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_attendance_left_count", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "attendance_left_count", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.InsertCommand = new global::System.Data.Odbc.OdbcCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO \"swimmingpool\".\"public\".\"VisitorCards\" (\"subscription_id\", \"client_id" +
+                "\", \"start_date\", \"expiry_date\", \"attendance_left_count\") VALUES (?, ?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("subscription_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "subscription_id", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("client_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "client_id", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("start_date", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "start_date", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("expiry_date", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "expiry_date", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("attendance_left_count", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "attendance_left_count", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand = new global::System.Data.Odbc.OdbcCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE ""swimmingpool"".""public"".""VisitorCards"" SET ""subscription_id"" = ?, ""client_id"" = ?, ""start_date"" = ?, ""expiry_date"" = ?, ""attendance_left_count"" = ? WHERE ((""card_id"" = ?) AND ((? = 1 AND ""subscription_id"" IS NULL) OR (""subscription_id"" = ?)) AND ((? = 1 AND ""client_id"" IS NULL) OR (""client_id"" = ?)) AND ((? = 1 AND ""start_date"" IS NULL) OR (""start_date"" = ?)) AND ((? = 1 AND ""expiry_date"" IS NULL) OR (""expiry_date"" = ?)) AND ((? = 1 AND ""attendance_left_count"" IS NULL) OR (""attendance_left_count"" = ?)))";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("subscription_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "subscription_id", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("client_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "client_id", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("start_date", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "start_date", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("expiry_date", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "expiry_date", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("attendance_left_count", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "attendance_left_count", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_card_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "card_id", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_subscription_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "subscription_id", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_subscription_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "subscription_id", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_client_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "client_id", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_client_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "client_id", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_start_date", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "start_date", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_start_date", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "start_date", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_expiry_date", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "expiry_date", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_expiry_date", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "expiry_date", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_attendance_left_count", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "attendance_left_count", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_attendance_left_count", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "attendance_left_count", global::System.Data.DataRowVersion.Original, false, null));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.Odbc.OdbcConnection();
+            this._connection.ConnectionString = global::Swimming_Pool_Database.Properties.Settings.Default.swimmingpoolConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.Odbc.OdbcCommand[5];
+            this._commandCollection[0] = new global::System.Data.Odbc.OdbcCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT \"card_id\", \"subscription_id\", \"client_id\", \"start_date\", \"expiry_date\", \"a" +
+                "ttendance_left_count\" FROM \"public\".\"VisitorCards\"";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.Odbc.OdbcCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "DELETE FROM \"swimmingpool\".\"public\".\"VisitorCards\" WHERE (\"card_id\" = ?)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("card_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "card_id", global::System.Data.DataRowVersion.Original, false, null));
+            this._commandCollection[2] = new global::System.Data.Odbc.OdbcCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT \"card_id\", \"subscription_id\", \"client_id\", \"start_date\", \"expiry_date\", \"a" +
+                "ttendance_left_count\" FROM \"public\".\"VisitorCards\" WHERE (\"card_id\"=?)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("card_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "card_id", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[3] = new global::System.Data.Odbc.OdbcCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT \"card_id\", \"subscription_id\", \"client_id\", \"start_date\", \"expiry_date\", \"a" +
+                "ttendance_left_count\" FROM \"public\".\"VisitorCards\" WHERE (\"client_id\"=?)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("client_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "client_id", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[4] = new global::System.Data.Odbc.OdbcCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "UPDATE \"swimmingpool\".\"public\".\"VisitorCards\" SET \"subscription_id\" = ?, \"client_" +
+                "id\" = ?, \"start_date\" = ?, \"expiry_date\" = ?, \"attendance_left_count\" = ? WHERE " +
+                "(\"card_id\" = ?)";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("subscription_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "subscription_id", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("client_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "client_id", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("start_date", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "start_date", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("expiry_date", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "expiry_date", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("attendance_left_count", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "attendance_left_count", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_card_id", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "card_id", global::System.Data.DataRowVersion.Original, false, null));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(swimmingpoolDataSet.VisitorCardsDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual swimmingpoolDataSet.VisitorCardsDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            swimmingpoolDataSet.VisitorCardsDataTable dataTable = new swimmingpoolDataSet.VisitorCardsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(swimmingpoolDataSet.VisitorCardsDataTable dataTable, int card_id) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(card_id));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual swimmingpoolDataSet.VisitorCardsDataTable GetDataBy1(int card_id) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(card_id));
+            swimmingpoolDataSet.VisitorCardsDataTable dataTable = new swimmingpoolDataSet.VisitorCardsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByClientId(swimmingpoolDataSet.VisitorCardsDataTable dataTable, global::System.Nullable<int> client_id) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((client_id.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(client_id.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual swimmingpoolDataSet.VisitorCardsDataTable GetDataByClientId(global::System.Nullable<int> client_id) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((client_id.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(client_id.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            swimmingpoolDataSet.VisitorCardsDataTable dataTable = new swimmingpoolDataSet.VisitorCardsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(swimmingpoolDataSet.VisitorCardsDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(swimmingpoolDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "VisitorCards");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_card_id, int Original_subscription_id, int Original_client_id, System.DateTime Original_start_date, System.DateTime Original_expiry_date, int Original_attendance_left_count) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_card_id));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_subscription_id));
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_client_id));
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_start_date));
+            this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(Original_expiry_date));
+            this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(Original_attendance_left_count));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(int subscription_id, int client_id, System.DateTime start_date, System.DateTime expiry_date, int attendance_left_count) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(subscription_id));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(client_id));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(start_date));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(expiry_date));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(attendance_left_count));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(int subscription_id, int client_id, System.DateTime start_date, System.DateTime expiry_date, int attendance_left_count, int Original_card_id, int Original_subscription_id, int Original_client_id, System.DateTime Original_start_date, System.DateTime Original_expiry_date, int Original_attendance_left_count) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(subscription_id));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(client_id));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(start_date));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(expiry_date));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(attendance_left_count));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_card_id));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_subscription_id));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_client_id));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_start_date));
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((System.DateTime)(Original_expiry_date));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_attendance_left_count));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
+        public virtual int DeleteQuery(int card_id) {
+            global::System.Data.Odbc.OdbcCommand command = this.CommandCollection[1];
+            command.Parameters[0].Value = ((int)(card_id));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateQuery(global::System.Nullable<int> subscription_id, global::System.Nullable<int> client_id, global::System.Nullable<global::System.DateTime> start_date, global::System.Nullable<global::System.DateTime> expiry_date, global::System.Nullable<int> attendance_left_count, int Original_card_id) {
+            global::System.Data.Odbc.OdbcCommand command = this.CommandCollection[4];
+            if ((subscription_id.HasValue == true)) {
+                command.Parameters[0].Value = ((int)(subscription_id.Value));
+            }
+            else {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((client_id.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(client_id.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((start_date.HasValue == true)) {
+                command.Parameters[2].Value = ((System.DateTime)(start_date.Value));
+            }
+            else {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((expiry_date.HasValue == true)) {
+                command.Parameters[3].Value = ((System.DateTime)(expiry_date.Value));
+            }
+            else {
+                command.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((attendance_left_count.HasValue == true)) {
+                command.Parameters[4].Value = ((int)(attendance_left_count.Value));
+            }
+            else {
+                command.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            command.Parameters[5].Value = ((int)(Original_card_id));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     
@@ -9027,7 +8190,7 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual swimmingpoolDataSet.SubscriptionsDataTable GetDataBy(int subscription_id) {
+        public virtual swimmingpoolDataSet.SubscriptionsDataTable GetDataBy1(int subscription_id) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(subscription_id));
             swimmingpoolDataSet.SubscriptionsDataTable dataTable = new swimmingpoolDataSet.SubscriptionsDataTable();
@@ -9252,9 +8415,9 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
         
         private TrainingsTableAdapter _trainingsTableAdapter;
         
-        private VisitorCardsTableAdapter _visitorCardsTableAdapter;
-        
         private ClientsTableAdapter _clientsTableAdapter;
+        
+        private VisitorCardsTableAdapter _visitorCardsTableAdapter;
         
         private SubscriptionsTableAdapter _subscriptionsTableAdapter;
         
@@ -9334,12 +8497,12 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public VisitorCardsTableAdapter VisitorCardsTableAdapter {
+        public ClientsTableAdapter ClientsTableAdapter {
             get {
-                return this._visitorCardsTableAdapter;
+                return this._clientsTableAdapter;
             }
             set {
-                this._visitorCardsTableAdapter = value;
+                this._clientsTableAdapter = value;
             }
         }
         
@@ -9348,12 +8511,12 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public ClientsTableAdapter ClientsTableAdapter {
+        public VisitorCardsTableAdapter VisitorCardsTableAdapter {
             get {
-                return this._clientsTableAdapter;
+                return this._visitorCardsTableAdapter;
             }
             set {
-                this._clientsTableAdapter = value;
+                this._visitorCardsTableAdapter = value;
             }
         }
         
@@ -9406,13 +8569,13 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
                             && (this._trainingsTableAdapter.Connection != null))) {
                     return this._trainingsTableAdapter.Connection;
                 }
-                if (((this._visitorCardsTableAdapter != null) 
-                            && (this._visitorCardsTableAdapter.Connection != null))) {
-                    return this._visitorCardsTableAdapter.Connection;
-                }
                 if (((this._clientsTableAdapter != null) 
                             && (this._clientsTableAdapter.Connection != null))) {
                     return this._clientsTableAdapter.Connection;
+                }
+                if (((this._visitorCardsTableAdapter != null) 
+                            && (this._visitorCardsTableAdapter.Connection != null))) {
+                    return this._visitorCardsTableAdapter.Connection;
                 }
                 if (((this._subscriptionsTableAdapter != null) 
                             && (this._subscriptionsTableAdapter.Connection != null))) {
@@ -9443,10 +8606,10 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
                 if ((this._trainingsTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._visitorCardsTableAdapter != null)) {
+                if ((this._clientsTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._clientsTableAdapter != null)) {
+                if ((this._visitorCardsTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._subscriptionsTableAdapter != null)) {
@@ -9463,21 +8626,21 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateUpdatedRows(swimmingpoolDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._poolsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Pools.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._poolsTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._clientsTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Clients.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._clientsTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._poolsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Pools.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._poolsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -9490,21 +8653,21 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._visitorCardsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.VisitorCards.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._visitorCardsTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._swimLanesTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.SwimLanes.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._swimLanesTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._visitorCardsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.VisitorCards.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._visitorCardsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -9536,19 +8699,19 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateInsertedRows(swimmingpoolDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._poolsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Pools.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._poolsTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._clientsTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Clients.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._clientsTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._poolsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Pools.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._poolsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -9560,19 +8723,19 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._visitorCardsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.VisitorCards.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._visitorCardsTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._swimLanesTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.SwimLanes.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._swimLanesTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._visitorCardsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.VisitorCards.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._visitorCardsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -9618,19 +8781,19 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._swimLanesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.SwimLanes.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._swimLanesTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._visitorCardsTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.VisitorCards.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._visitorCardsTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._swimLanesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.SwimLanes.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._swimLanesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -9642,19 +8805,19 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._clientsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Clients.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._clientsTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._poolsTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Pools.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._poolsTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._clientsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Clients.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._clientsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -9717,13 +8880,13 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._visitorCardsTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._visitorCardsTableAdapter.Connection) == false))) {
+            if (((this._clientsTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._clientsTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._clientsTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._clientsTableAdapter.Connection) == false))) {
+            if (((this._visitorCardsTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._visitorCardsTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -9800,15 +8963,6 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
                         adaptersWithAcceptChangesDuringUpdate.Add(this._trainingsTableAdapter.Adapter);
                     }
                 }
-                if ((this._visitorCardsTableAdapter != null)) {
-                    revertConnections.Add(this._visitorCardsTableAdapter, this._visitorCardsTableAdapter.Connection);
-                    this._visitorCardsTableAdapter.Connection = ((global::System.Data.Odbc.OdbcConnection)(workConnection));
-                    this._visitorCardsTableAdapter.Transaction = ((global::System.Data.Odbc.OdbcTransaction)(workTransaction));
-                    if (this._visitorCardsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._visitorCardsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._visitorCardsTableAdapter.Adapter);
-                    }
-                }
                 if ((this._clientsTableAdapter != null)) {
                     revertConnections.Add(this._clientsTableAdapter, this._clientsTableAdapter.Connection);
                     this._clientsTableAdapter.Connection = ((global::System.Data.Odbc.OdbcConnection)(workConnection));
@@ -9816,6 +8970,15 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
                     if (this._clientsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._clientsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._clientsTableAdapter.Adapter);
+                    }
+                }
+                if ((this._visitorCardsTableAdapter != null)) {
+                    revertConnections.Add(this._visitorCardsTableAdapter, this._visitorCardsTableAdapter.Connection);
+                    this._visitorCardsTableAdapter.Connection = ((global::System.Data.Odbc.OdbcConnection)(workConnection));
+                    this._visitorCardsTableAdapter.Transaction = ((global::System.Data.Odbc.OdbcTransaction)(workTransaction));
+                    if (this._visitorCardsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._visitorCardsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._visitorCardsTableAdapter.Adapter);
                     }
                 }
                 if ((this._subscriptionsTableAdapter != null)) {
@@ -9901,13 +9064,13 @@ namespace Swimming_Pool_Database.swimmingpoolDataSetTableAdapters {
                     this._trainingsTableAdapter.Connection = ((global::System.Data.Odbc.OdbcConnection)(revertConnections[this._trainingsTableAdapter]));
                     this._trainingsTableAdapter.Transaction = null;
                 }
-                if ((this._visitorCardsTableAdapter != null)) {
-                    this._visitorCardsTableAdapter.Connection = ((global::System.Data.Odbc.OdbcConnection)(revertConnections[this._visitorCardsTableAdapter]));
-                    this._visitorCardsTableAdapter.Transaction = null;
-                }
                 if ((this._clientsTableAdapter != null)) {
                     this._clientsTableAdapter.Connection = ((global::System.Data.Odbc.OdbcConnection)(revertConnections[this._clientsTableAdapter]));
                     this._clientsTableAdapter.Transaction = null;
+                }
+                if ((this._visitorCardsTableAdapter != null)) {
+                    this._visitorCardsTableAdapter.Connection = ((global::System.Data.Odbc.OdbcConnection)(revertConnections[this._visitorCardsTableAdapter]));
+                    this._visitorCardsTableAdapter.Transaction = null;
                 }
                 if ((this._subscriptionsTableAdapter != null)) {
                     this._subscriptionsTableAdapter.Connection = ((global::System.Data.Odbc.OdbcConnection)(revertConnections[this._subscriptionsTableAdapter]));

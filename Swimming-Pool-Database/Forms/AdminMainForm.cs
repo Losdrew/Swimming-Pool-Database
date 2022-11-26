@@ -20,7 +20,7 @@ namespace Swimming_Pool_Database.Forms
         {
             clientsTableAdapter.Fill(swimmingpoolDataSet.Clients);
             subscriptionsViewTableAdapter.Fill(swimmingpoolDataSet.SubscriptionsView);
-            visitorCardsViewTableAdapter.Fill(swimmingpoolDataSet.VisitorCardsView);
+            visitorCardsTableAdapter.Fill(swimmingpoolDataSet.VisitorCards);
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
