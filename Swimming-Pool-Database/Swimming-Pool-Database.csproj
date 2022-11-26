@@ -72,11 +72,11 @@
     <Compile Include="Forms\AdminMainForm.Designer.cs">
       <DependentUpon>AdminMainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ClientMainForm.cs">
+    <Compile Include="Forms\UserMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ClientMainForm.Designer.cs">
-      <DependentUpon>ClientMainForm.cs</DependentUpon>
+    <Compile Include="Forms\UserMainForm.Designer.cs">
+      <DependentUpon>UserMainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\EditVisitorCards.cs">
       <SubType>Form</SubType>
@@ -111,8 +111,8 @@
       <DependentUpon>AdminMainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ClientMainForm.resx">
-      <DependentUpon>ClientMainForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\UserMainForm.resx">
+      <DependentUpon>UserMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditVisitorCards.resx">
       <DependentUpon>EditVisitorCards.cs</DependentUpon>
@@ -143,8 +143,8 @@
     </None>
     <None Include="swimmingpoolDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>swimmingpoolDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>swimmingpoolDataSet.Designer.cs</LastGenOutput>
     </None>
     <None Include="swimmingpoolDataSet.xss">
       <DependentUpon>swimmingpoolDataSet.xsd</DependentUpon>
