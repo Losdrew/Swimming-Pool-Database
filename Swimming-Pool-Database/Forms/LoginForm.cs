@@ -10,7 +10,7 @@ namespace Swimming_Pool_Database.Forms
             InitializeComponent();
         }
 
-        private void authButton_Click(object sender, EventArgs e)
+        private void AuthButton_Click(object sender, EventArgs e)
         {
             if (authLoginTextBox.Text == "" || authPasswordTextBox.Text == "")
             {
@@ -36,10 +36,10 @@ namespace Swimming_Pool_Database.Forms
                 return;
             }
 
-            CommonFunctions.MakeFormActive(new ClientMainForm(clientId.Value));
+            CommonFunctions.MakeFormActive(new UserMainForm(clientId.Value));
         }
 
-        private void regButton_Click(object sender, EventArgs e)
+        private void RegButton_Click(object sender, EventArgs e)
         {
             if (regLoginTextBox.Text == "" || regPasswordTextBox.Text == "" || regRepeatPasswordTextBox.Text == "")
             {
@@ -75,7 +75,7 @@ namespace Swimming_Pool_Database.Forms
                 return;
             }
 
-            CommonFunctions.MakeFormActive(new ClientMainForm(regLoginTextBox.Text, regPasswordTextBox.Text));
+            CommonFunctions.MakeFormActive(new UserMainForm(regLoginTextBox.Text, regPasswordTextBox.Text));
         }
 
         private void ShowLoginOrPasswordEmptyMessage()

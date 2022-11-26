@@ -26,26 +26,13 @@ namespace Swimming_Pool_Database.Forms
             clientComboBox.SelectedValue = clientId;
             startDateTimePicker.Value = startDate;
             expiryDateTimePicker.Value = expiryDate;
-            attendanceLeftCountTextBox.Text = attendanceLeftCount.ToString();
+            attendanceLeftCountNumericUpDown.Value = attendanceLeftCount;
+            attendanceLeftCountNumericUpDown.Maximum =
+                Convert.ToInt32(((DataRowView)subscriptionsBindingSource.Current)["attendance_count"]);
         }
 
         private void AcceptButton_Click(object sender, EventArgs e)
         {
-            var dataTable = new swimmingpoolDataSet.VisitorCardsDataTable();
-            var cardId = visitorCardsTableAdapter.FillCurrentlyActiveCard(dataTable,
-                Convert.ToInt32(((DataRowView)clientComboBox.SelectedItem)["client_id"]));
-
-            if (cardId != 0)
-            {
-                MessageBox.Show(
-                    "Неможливо додати нову картку клієнту, так як поточна ще дійсна!",
-                    "Клієнт вже має дійсну картку",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-
-                return;
-            }
-
             if (_isEdit)
             {
                 if (!CommonFunctions.TryQuery(() =>
@@ -54,7 +41,7 @@ namespace Swimming_Pool_Database.Forms
                             Convert.ToInt32(clientComboBox.SelectedValue),
                             startDateTimePicker.Value,
                             expiryDateTimePicker.Value,
-                            Convert.ToInt32(attendanceLeftCountTextBox.Text),
+                            Convert.ToInt32(attendanceLeftCountNumericUpDown.Value),
                             _id)))
                 {
                     return;
@@ -68,7 +55,7 @@ namespace Swimming_Pool_Database.Forms
                             Convert.ToInt32(clientComboBox.SelectedValue),
                             startDateTimePicker.Value,
                             expiryDateTimePicker.Value,
-                            Convert.ToInt32(attendanceLeftCountTextBox.Text))))
+                            Convert.ToInt32(attendanceLeftCountNumericUpDown.Value))))
                 {
                     return;
                 }
@@ -98,12 +85,14 @@ namespace Swimming_Pool_Database.Forms
             expiryDateTimePicker.Value =
                 startDateTimePicker.Value.AddDays(
                     Convert.ToInt32(((DataRowView)subscriptionsBindingSource.Current)["day_count"]));
-            attendanceLeftCountTextBox.Text = Convert.ToInt32(((DataRowView)subscriptionsBindingSource.Current)["attendance_count"]) + "";
+            attendanceLeftCountNumericUpDown.Maximum =
+                Convert.ToInt32(((DataRowView)subscriptionsBindingSource.Current)["attendance_count"]);
+            attendanceLeftCountNumericUpDown.Value = attendanceLeftCountNumericUpDown.Maximum;
         }
 
         private void StartDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
-            if (subscriptionsBindingSource.Current is null)
+            if (!startDateTimePicker.Focused)
             {
                 return;
             }
@@ -115,7 +104,7 @@ namespace Swimming_Pool_Database.Forms
 
         private void ExpiryDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
-            if (subscriptionsBindingSource.Current is null)
+            if (!expiryDateTimePicker.Focused)
             {
                 return;
             }

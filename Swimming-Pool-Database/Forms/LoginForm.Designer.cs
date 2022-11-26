@@ -60,7 +60,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(540, 321);
+            this.tabControl1.Size = new System.Drawing.Size(458, 296);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -73,43 +73,43 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 28);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(532, 289);
+            this.tabPage1.Size = new System.Drawing.Size(450, 264);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Авторизація";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // authButton
             // 
-            this.authButton.Location = new System.Drawing.Point(190, 170);
+            this.authButton.Location = new System.Drawing.Point(154, 169);
             this.authButton.Name = "authButton";
             this.authButton.Size = new System.Drawing.Size(159, 41);
             this.authButton.TabIndex = 16;
             this.authButton.Text = "Вхід";
             this.authButton.UseVisualStyleBackColor = true;
-            this.authButton.Click += new System.EventHandler(this.authButton_Click);
+            this.authButton.Click += new System.EventHandler(this.AuthButton_Click);
             // 
             // authPasswordTextBox
             // 
             this.authPasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.authPasswordTextBox.Location = new System.Drawing.Point(222, 100);
+            this.authPasswordTextBox.Location = new System.Drawing.Point(202, 99);
             this.authPasswordTextBox.Name = "authPasswordTextBox";
-            this.authPasswordTextBox.Size = new System.Drawing.Size(210, 27);
+            this.authPasswordTextBox.Size = new System.Drawing.Size(172, 27);
             this.authPasswordTextBox.TabIndex = 15;
             this.authPasswordTextBox.UseSystemPasswordChar = true;
             // 
             // authLoginTextBox
             // 
             this.authLoginTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.authLoginTextBox.Location = new System.Drawing.Point(222, 61);
+            this.authLoginTextBox.Location = new System.Drawing.Point(202, 60);
             this.authLoginTextBox.Name = "authLoginTextBox";
-            this.authLoginTextBox.Size = new System.Drawing.Size(210, 27);
+            this.authLoginTextBox.Size = new System.Drawing.Size(172, 27);
             this.authLoginTextBox.TabIndex = 14;
             // 
             // authPasswordLabel
             // 
             this.authPasswordLabel.AutoSize = true;
             this.authPasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.authPasswordLabel.Location = new System.Drawing.Point(108, 101);
+            this.authPasswordLabel.Location = new System.Drawing.Point(88, 100);
             this.authPasswordLabel.Name = "authPasswordLabel";
             this.authPasswordLabel.Size = new System.Drawing.Size(86, 25);
             this.authPasswordLabel.TabIndex = 13;
@@ -119,7 +119,7 @@
             // 
             this.authLoginLabel.AutoSize = true;
             this.authLoginLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.authLoginLabel.Location = new System.Drawing.Point(108, 60);
+            this.authLoginLabel.Location = new System.Drawing.Point(88, 59);
             this.authLoginLabel.Name = "authLoginLabel";
             this.authLoginLabel.Size = new System.Drawing.Size(67, 25);
             this.authLoginLabel.TabIndex = 12;
@@ -137,7 +137,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 28);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(532, 289);
+            this.tabPage2.Size = new System.Drawing.Size(450, 264);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Реєстрація";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -145,9 +145,9 @@
             // regRepeatPasswordTextBox
             // 
             this.regRepeatPasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.regRepeatPasswordTextBox.Location = new System.Drawing.Point(250, 136);
+            this.regRepeatPasswordTextBox.Location = new System.Drawing.Point(231, 117);
             this.regRepeatPasswordTextBox.Name = "regRepeatPasswordTextBox";
-            this.regRepeatPasswordTextBox.Size = new System.Drawing.Size(210, 27);
+            this.regRepeatPasswordTextBox.Size = new System.Drawing.Size(180, 27);
             this.regRepeatPasswordTextBox.TabIndex = 11;
             this.regRepeatPasswordTextBox.UseSystemPasswordChar = true;
             // 
@@ -155,7 +155,7 @@
             // 
             this.regRepeatPasswordLabel.AutoSize = true;
             this.regRepeatPasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.regRepeatPasswordLabel.Location = new System.Drawing.Point(51, 136);
+            this.regRepeatPasswordLabel.Location = new System.Drawing.Point(32, 117);
             this.regRepeatPasswordLabel.Name = "regRepeatPasswordLabel";
             this.regRepeatPasswordLabel.Size = new System.Drawing.Size(183, 25);
             this.regRepeatPasswordLabel.TabIndex = 10;
@@ -163,36 +163,36 @@
             // 
             // regButton
             // 
-            this.regButton.Location = new System.Drawing.Point(191, 204);
+            this.regButton.Location = new System.Drawing.Point(138, 184);
             this.regButton.Name = "regButton";
             this.regButton.Size = new System.Drawing.Size(159, 41);
             this.regButton.TabIndex = 9;
             this.regButton.Text = "Реєстрація";
             this.regButton.UseVisualStyleBackColor = true;
-            this.regButton.Click += new System.EventHandler(this.regButton_Click);
+            this.regButton.Click += new System.EventHandler(this.RegButton_Click);
             // 
             // regPasswordTextBox
             // 
             this.regPasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.regPasswordTextBox.Location = new System.Drawing.Point(250, 93);
+            this.regPasswordTextBox.Location = new System.Drawing.Point(231, 74);
             this.regPasswordTextBox.Name = "regPasswordTextBox";
-            this.regPasswordTextBox.Size = new System.Drawing.Size(210, 27);
+            this.regPasswordTextBox.Size = new System.Drawing.Size(180, 27);
             this.regPasswordTextBox.TabIndex = 8;
             this.regPasswordTextBox.UseSystemPasswordChar = true;
             // 
             // regLoginTextBox
             // 
             this.regLoginTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.regLoginTextBox.Location = new System.Drawing.Point(250, 54);
+            this.regLoginTextBox.Location = new System.Drawing.Point(231, 35);
             this.regLoginTextBox.Name = "regLoginTextBox";
-            this.regLoginTextBox.Size = new System.Drawing.Size(210, 27);
+            this.regLoginTextBox.Size = new System.Drawing.Size(180, 27);
             this.regLoginTextBox.TabIndex = 7;
             // 
             // regPasswordLabel
             // 
             this.regPasswordLabel.AutoSize = true;
             this.regPasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.regPasswordLabel.Location = new System.Drawing.Point(51, 95);
+            this.regPasswordLabel.Location = new System.Drawing.Point(32, 76);
             this.regPasswordLabel.Name = "regPasswordLabel";
             this.regPasswordLabel.Size = new System.Drawing.Size(86, 25);
             this.regPasswordLabel.TabIndex = 6;
@@ -202,7 +202,7 @@
             // 
             this.regLoginLabel.AutoSize = true;
             this.regLoginLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.regLoginLabel.Location = new System.Drawing.Point(51, 54);
+            this.regLoginLabel.Location = new System.Drawing.Point(32, 35);
             this.regLoginLabel.Name = "regLoginLabel";
             this.regLoginLabel.Size = new System.Drawing.Size(67, 25);
             this.regLoginLabel.TabIndex = 5;
@@ -221,7 +221,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(540, 321);
+            this.ClientSize = new System.Drawing.Size(458, 296);
             this.Controls.Add(this.tabControl1);
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

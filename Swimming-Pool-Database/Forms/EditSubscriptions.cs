@@ -24,7 +24,7 @@ namespace Swimming_Pool_Database.Forms
             dayCountNumericUpDown.Value = dayCount;
         }
 
-        private void acceptButton_Click(object sender, System.EventArgs e)
+        private void AcceptButton_Click(object sender, EventArgs e)
         {
             if (_isEdit)
             {
@@ -44,7 +44,7 @@ namespace Swimming_Pool_Database.Forms
                 if (!CommonFunctions.TryQuery(() =>
                         subscriptionsTableAdapter.Insert(
                             nameTextBox.Text,
-                            Convert.ToDouble(priceNumericUpDown.Value),
+                            priceNumericUpDown.Value,
                             Convert.ToInt32(attendanceCountNumericUpDown.Value),
                             Convert.ToInt32(dayCountNumericUpDown.Value))))
                 {
@@ -55,7 +55,7 @@ namespace Swimming_Pool_Database.Forms
             Close();
         }
 
-        private void cancelButton_Click(object sender, System.EventArgs e)
+        private void CancelButton_Click(object sender, EventArgs e)
         {
             Close();
         }

@@ -46,7 +46,7 @@
             this.clientComboBox = new System.Windows.Forms.ComboBox();
             this.startDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.expiryDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.attendanceLeftCountTextBox = new System.Windows.Forms.TextBox();
+            this.attendanceLeftCountNumericUpDown = new System.Windows.Forms.NumericUpDown();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -55,6 +55,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.subscriptionsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.swimmingpoolDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attendanceLeftCountNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -204,21 +205,20 @@
             this.expiryDateTimePicker.TabIndex = 74;
             this.expiryDateTimePicker.ValueChanged += new System.EventHandler(this.ExpiryDateTimePicker_ValueChanged);
             // 
-            // attendanceLeftCountTextBox
+            // attendanceLeftCountNumericUpDown
             // 
-            this.attendanceLeftCountTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.attendanceLeftCountTextBox.Location = new System.Drawing.Point(316, 169);
-            this.attendanceLeftCountTextBox.Name = "attendanceLeftCountTextBox";
-            this.attendanceLeftCountTextBox.ReadOnly = true;
-            this.attendanceLeftCountTextBox.Size = new System.Drawing.Size(78, 27);
-            this.attendanceLeftCountTextBox.TabIndex = 75;
+            this.attendanceLeftCountNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.attendanceLeftCountNumericUpDown.Location = new System.Drawing.Point(316, 169);
+            this.attendanceLeftCountNumericUpDown.Name = "attendanceLeftCountNumericUpDown";
+            this.attendanceLeftCountNumericUpDown.Size = new System.Drawing.Size(69, 27);
+            this.attendanceLeftCountNumericUpDown.TabIndex = 75;
             // 
             // EditVisitorCards
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(626, 305);
-            this.Controls.Add(this.attendanceLeftCountTextBox);
+            this.Controls.Add(this.attendanceLeftCountNumericUpDown);
             this.Controls.Add(this.expiryDateTimePicker);
             this.Controls.Add(this.startDateTimePicker);
             this.Controls.Add(this.clientComboBox);
@@ -236,6 +236,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.subscriptionsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.swimmingpoolDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attendanceLeftCountNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -254,6 +255,6 @@
         private System.Windows.Forms.ComboBox clientComboBox;
         private System.Windows.Forms.DateTimePicker startDateTimePicker;
         private System.Windows.Forms.DateTimePicker expiryDateTimePicker;
-        private System.Windows.Forms.TextBox attendanceLeftCountTextBox;
+        private System.Windows.Forms.NumericUpDown attendanceLeftCountNumericUpDown;
     }
 }

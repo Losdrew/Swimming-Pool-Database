@@ -156,7 +156,7 @@
             this.acceptButton.TabIndex = 24;
             this.acceptButton.Text = "Підтвердити";
             this.acceptButton.UseVisualStyleBackColor = true;
-            this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
+            this.acceptButton.Click += new System.EventHandler(this.AcceptButton_Click);
             // 
             // cancelButton
             // 
@@ -167,7 +167,7 @@
             this.cancelButton.TabIndex = 25;
             this.cancelButton.Text = "Відмінити";
             this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // firstNameTextBox
             // 
@@ -236,8 +236,8 @@
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(193, 27);
             this.emailTextBox.TabIndex = 34;
-            this.emailTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.emailTextBox_Validating);
-            this.emailTextBox.Validated += new System.EventHandler(this.emailTextBox_Validated);
+            this.emailTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.EmailTextBox_Validating);
+            this.emailTextBox.Validated += new System.EventHandler(this.EmailTextBox_Validated);
             // 
             // errorProvider
             // 

@@ -114,7 +114,7 @@
             this.cancelButton.TabIndex = 42;
             this.cancelButton.Text = "Відмінити";
             this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // acceptButton
             // 
@@ -125,7 +125,7 @@
             this.acceptButton.TabIndex = 41;
             this.acceptButton.Text = "Підтвердити";
             this.acceptButton.UseVisualStyleBackColor = true;
-            this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
+            this.acceptButton.Click += new System.EventHandler(this.AcceptButton_Click);
             // 
             // priceNumericUpDown
             // 

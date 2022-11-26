@@ -44,8 +44,8 @@
             this.subscriptionNameTextBox = new System.Windows.Forms.TextBox();
             this.priceTextBox = new System.Windows.Forms.TextBox();
             this.attendanceCountTextBox = new System.Windows.Forms.TextBox();
-            this.startDateTextBox = new System.Windows.Forms.TextBox();
-            this.expiryDateTextBox = new System.Windows.Forms.TextBox();
+            this.startDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.expiryDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.visitorCardsTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.VisitorCardsTableAdapter();
             firstNameLabel = new System.Windows.Forms.Label();
             lastNameLabel = new System.Windows.Forms.Label();
@@ -213,23 +213,23 @@
             this.attendanceCountTextBox.Size = new System.Drawing.Size(193, 27);
             this.attendanceCountTextBox.TabIndex = 64;
             // 
-            // startDateTextBox
+            // startDateTimePicker
             // 
-            this.startDateTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.startDateTextBox.Location = new System.Drawing.Point(263, 132);
-            this.startDateTextBox.Name = "startDateTextBox";
-            this.startDateTextBox.ReadOnly = true;
-            this.startDateTextBox.Size = new System.Drawing.Size(193, 27);
-            this.startDateTextBox.TabIndex = 68;
+            this.startDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.startDateTimePicker.Location = new System.Drawing.Point(263, 132);
+            this.startDateTimePicker.Name = "startDateTimePicker";
+            this.startDateTimePicker.Size = new System.Drawing.Size(193, 27);
+            this.startDateTimePicker.TabIndex = 70;
+            this.startDateTimePicker.ValueChanged += new System.EventHandler(this.StartDateTimePicker_ValueChanged);
             // 
-            // expiryDateTextBox
+            // expiryDateTimePicker
             // 
-            this.expiryDateTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.expiryDateTextBox.Location = new System.Drawing.Point(263, 165);
-            this.expiryDateTextBox.Name = "expiryDateTextBox";
-            this.expiryDateTextBox.ReadOnly = true;
-            this.expiryDateTextBox.Size = new System.Drawing.Size(193, 27);
-            this.expiryDateTextBox.TabIndex = 70;
+            this.expiryDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.expiryDateTimePicker.Location = new System.Drawing.Point(263, 165);
+            this.expiryDateTimePicker.Name = "expiryDateTimePicker";
+            this.expiryDateTimePicker.Size = new System.Drawing.Size(193, 27);
+            this.expiryDateTimePicker.TabIndex = 71;
+            this.expiryDateTimePicker.ValueChanged += new System.EventHandler(this.ExpiryDateTimePicker_ValueChanged);
             // 
             // visitorCardsTableAdapter
             // 
@@ -240,9 +240,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(508, 406);
-            this.Controls.Add(this.expiryDateTextBox);
+            this.Controls.Add(this.expiryDateTimePicker);
+            this.Controls.Add(this.startDateTimePicker);
             this.Controls.Add(label4);
-            this.Controls.Add(this.startDateTextBox);
             this.Controls.Add(label5);
             this.Controls.Add(this.attendanceCountTextBox);
             this.Controls.Add(label3);
@@ -275,8 +275,8 @@
         private System.Windows.Forms.TextBox subscriptionNameTextBox;
         private System.Windows.Forms.TextBox priceTextBox;
         private System.Windows.Forms.TextBox attendanceCountTextBox;
-        private System.Windows.Forms.TextBox startDateTextBox;
-        private System.Windows.Forms.TextBox expiryDateTextBox;
+        private System.Windows.Forms.DateTimePicker startDateTimePicker;
+        private System.Windows.Forms.DateTimePicker expiryDateTimePicker;
         private swimmingpoolDataSetTableAdapters.VisitorCardsTableAdapter visitorCardsTableAdapter;
     }
 }

@@ -7,6 +7,7 @@ namespace Swimming_Pool_Database.Forms
     {
         private readonly int _subscriptionId;
         private readonly int _clientId;
+        private readonly int _dayCount;
 
         private OrderSubscription()
         {
@@ -18,12 +19,13 @@ namespace Swimming_Pool_Database.Forms
         {
             _subscriptionId = subscriptionId;
             _clientId = clientId;
+            _dayCount = dayCount;
 
             subscriptionNameTextBox.Text = subscriptionName;
             priceTextBox.Text = price + "₴";
             attendanceCountTextBox.Text = attendanceCount.ToString();
-            startDateTextBox.Text = DateTime.Now.ToShortDateString();
-            expiryDateTextBox.Text = DateTime.Now.AddDays(dayCount).ToShortDateString();
+            startDateTimePicker.Value = DateTime.Now;
+            expiryDateTimePicker.Value = DateTime.Now;
             firstNameTextBox.Text = firstName;
             lastNameTextBox.Text = lastName;
             middleNameTextBox.Text = middleName;
@@ -31,24 +33,33 @@ namespace Swimming_Pool_Database.Forms
 
         private void OrderButton_Click(object sender, EventArgs e)
         {
-            if (!CommonFunctions.TryQuery(() => 
-                    visitorCardsTableAdapter.Insert(
-                        _subscriptionId,
-                        _clientId,
-                        DateTime.Parse(startDateTextBox.Text),
-                        DateTime.Parse(expiryDateTextBox.Text),
-                        int.Parse(attendanceCountTextBox.Text))))
+            try
             {
+                visitorCardsTableAdapter.Insert(
+                    _subscriptionId,
+                    _clientId,
+                    startDateTimePicker.Value,
+                    expiryDateTimePicker.Value,
+                    int.Parse(attendanceCountTextBox.Text));
+            }
+            catch
+            {
+                MessageBox.Show(
+                    "Неможливо оформити новий абонемент, так як поточний ще дійсний!",
+                    "Ви вже маєте абонемент",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
                 return;
             }
 
             if (MessageBox.Show(
-                "Оформлення абонемента успішне!\n" +
-                "На його основі створено картку відвідувача.\n" +
-                "Бажаєте роздрукувати її?",
-                "Оформлення успішне",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Information) == DialogResult.No)
+                    "Оформлення абонемента успішне!\n" +
+                    "На його основі створено картку відвідувача.\n" +
+                    "Бажаєте роздрукувати її?",
+                    "Оформлення успішне",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Information) == DialogResult.No)
             {
                 //TODO - Звіт з карткою відвідувача
             }
@@ -59,6 +70,22 @@ namespace Swimming_Pool_Database.Forms
         private void CancelButton_Click(object sender, System.EventArgs e)
         {
             Close();
+        }
+
+        private void StartDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            if (startDateTimePicker.Focused)
+            {
+                expiryDateTimePicker.Value = startDateTimePicker.Value.AddDays(_dayCount);
+            }
+        }
+
+        private void ExpiryDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            if (expiryDateTimePicker.Focused)
+            {
+                startDateTimePicker.Value = expiryDateTimePicker.Value.AddDays(-_dayCount);
+            }
         }
     }
 }

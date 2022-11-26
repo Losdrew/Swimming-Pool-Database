@@ -58,7 +58,7 @@ namespace Swimming_Pool_Database.Forms
             passwordTextBox.Text = password;
         }
 
-        private void acceptButton_Click(object sender, EventArgs e)
+        private void AcceptButton_Click(object sender, EventArgs e)
         {
             if (_isEdit)
             {
@@ -99,12 +99,12 @@ namespace Swimming_Pool_Database.Forms
             Close();
         }
 
-        private void cancelButton_Click(object sender, EventArgs e)
+        private void CancelButton_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void emailTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void EmailTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (!IsValidEmail(emailTextBox.Text, out var errorMessage))
             {
@@ -116,9 +116,9 @@ namespace Swimming_Pool_Database.Forms
 
         private bool IsValidEmail(string email, out string errorMessage)
         {
-            if (email.IndexOf("@") > -1)
+            if (email.IndexOf('@') > -1)
             {
-                if (email.IndexOf(".", email.IndexOf("@") ) > email.IndexOf("@") )
+                if (email.IndexOf('.', email.IndexOf('@') ) > email.IndexOf('@') )
                 {
                     errorMessage = "";
                     return true;
@@ -131,7 +131,7 @@ namespace Swimming_Pool_Database.Forms
             return false;
         }
 
-        private void emailTextBox_Validated(object sender, EventArgs e)
+        private void EmailTextBox_Validated(object sender, EventArgs e)
         {
             errorProvider.SetError(emailTextBox, "");
         }
