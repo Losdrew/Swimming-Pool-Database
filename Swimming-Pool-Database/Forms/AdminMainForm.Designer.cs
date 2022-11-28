@@ -37,7 +37,7 @@ namespace Swimming_Pool_Database.Forms
             this.clientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientsTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.ClientsTableAdapter();
             this.tableAdapterManager = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.TableAdapterManager();
-            this.subscriptionsViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.subscriptionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl = new System.Windows.Forms.TabControl();
             this.clientsTabPage = new System.Windows.Forms.TabPage();
             this.clientsDataGridView = new System.Windows.Forms.DataGridView();
@@ -52,7 +52,7 @@ namespace Swimming_Pool_Database.Forms
             this.loginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.searchGroupBox = new System.Windows.Forms.GroupBox();
-            this.searchButton = new System.Windows.Forms.Button();
+            this.clientsSearchButton = new System.Windows.Forms.Button();
             this.middleNameTextBox = new System.Windows.Forms.TextBox();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
@@ -83,12 +83,24 @@ namespace Swimming_Pool_Database.Forms
             this.editClientButton = new System.Windows.Forms.Button();
             this.addClientButton = new System.Windows.Forms.Button();
             this.subscriptionsTabPage = new System.Windows.Forms.TabPage();
+            this.subscriptionSortGroupBox = new System.Windows.Forms.GroupBox();
+            this.sortByDayCountCheckBox = new System.Windows.Forms.CheckBox();
+            this.sortByAttendanceCountCheckBox = new System.Windows.Forms.CheckBox();
+            this.sortByPriceCheckBox = new System.Windows.Forms.CheckBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.dayCountMoreRadioButton = new System.Windows.Forms.RadioButton();
+            this.dayCountLessRadioButton = new System.Windows.Forms.RadioButton();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.attendanceCountMoreRadioButton = new System.Windows.Forms.RadioButton();
+            this.attendanceCountLessRadioButton = new System.Windows.Forms.RadioButton();
+            this.label7 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.priceCheapestRadioButton = new System.Windows.Forms.RadioButton();
+            this.priceExpensiveRadioButton = new System.Windows.Forms.RadioButton();
+            this.subscriptionsSortButton = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.subscriptionsDataGridView = new System.Windows.Forms.DataGridView();
-            this.subscriptionidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.attendancecountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.daycountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.deleteSubscriptionButton = new System.Windows.Forms.Button();
             this.editSubscriptionButton = new System.Windows.Forms.Button();
@@ -110,12 +122,16 @@ namespace Swimming_Pool_Database.Forms
             this.addVisitorCardButton = new System.Windows.Forms.Button();
             this.trainingsTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.TrainingsTableAdapter();
             this.subscriptionsTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.SubscriptionsTableAdapter();
-            this.subscriptionsViewTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.SubscriptionsViewTableAdapter();
             this.visitorCardsTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.VisitorCardsTableAdapter();
+            this.subscriptionidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.attendancecount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.daycount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.swimmingpoolDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.subscriptionsViewBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subscriptionsBindingSource)).BeginInit();
             this.tabControl.SuspendLayout();
             this.clientsTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientsDataGridView)).BeginInit();
@@ -125,6 +141,10 @@ namespace Swimming_Pool_Database.Forms
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.subscriptionsTabPage.SuspendLayout();
+            this.subscriptionSortGroupBox.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.subscriptionsDataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.visitorCardsTabPage.SuspendLayout();
@@ -178,10 +198,10 @@ namespace Swimming_Pool_Database.Forms
             this.tableAdapterManager.UpdateOrder = Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.VisitorCardsTableAdapter = null;
             // 
-            // subscriptionsViewBindingSource
+            // subscriptionsBindingSource
             // 
-            this.subscriptionsViewBindingSource.DataMember = "SubscriptionsView";
-            this.subscriptionsViewBindingSource.DataSource = this.swimmingpoolDataSet;
+            this.subscriptionsBindingSource.DataMember = "Subscriptions";
+            this.subscriptionsBindingSource.DataSource = this.swimmingpoolDataSet;
             // 
             // tabControl
             // 
@@ -334,7 +354,7 @@ namespace Swimming_Pool_Database.Forms
             // 
             // searchGroupBox
             // 
-            this.searchGroupBox.Controls.Add(this.searchButton);
+            this.searchGroupBox.Controls.Add(this.clientsSearchButton);
             this.searchGroupBox.Controls.Add(this.middleNameTextBox);
             this.searchGroupBox.Controls.Add(this.lastNameTextBox);
             this.searchGroupBox.Controls.Add(this.firstNameTextBox);
@@ -349,16 +369,16 @@ namespace Swimming_Pool_Database.Forms
             this.searchGroupBox.TabStop = false;
             this.searchGroupBox.Text = "Пошук клієнтів";
             // 
-            // searchButton
+            // clientsSearchButton
             // 
-            this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.searchButton.Location = new System.Drawing.Point(458, 69);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(121, 38);
-            this.searchButton.TabIndex = 19;
-            this.searchButton.Text = "Шукати";
-            this.searchButton.UseVisualStyleBackColor = true;
-            this.searchButton.Click += new System.EventHandler(this.SetFiltering);
+            this.clientsSearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.clientsSearchButton.Location = new System.Drawing.Point(458, 69);
+            this.clientsSearchButton.Name = "clientsSearchButton";
+            this.clientsSearchButton.Size = new System.Drawing.Size(121, 38);
+            this.clientsSearchButton.TabIndex = 19;
+            this.clientsSearchButton.Text = "Шукати";
+            this.clientsSearchButton.UseVisualStyleBackColor = true;
+            this.clientsSearchButton.Click += new System.EventHandler(this.SetClientsFiltering);
             // 
             // middleNameTextBox
             // 
@@ -446,7 +466,7 @@ namespace Swimming_Pool_Database.Forms
             this.filterButton.TabIndex = 18;
             this.filterButton.Text = "Фільтрувати";
             this.filterButton.UseVisualStyleBackColor = true;
-            this.filterButton.Click += new System.EventHandler(this.SetFiltering);
+            this.filterButton.Click += new System.EventHandler(this.SetClientsFiltering);
             // 
             // panel5
             // 
@@ -670,6 +690,7 @@ namespace Swimming_Pool_Database.Forms
             // 
             // subscriptionsTabPage
             // 
+            this.subscriptionsTabPage.Controls.Add(this.subscriptionSortGroupBox);
             this.subscriptionsTabPage.Controls.Add(this.subscriptionsDataGridView);
             this.subscriptionsTabPage.Controls.Add(this.panel1);
             this.subscriptionsTabPage.Location = new System.Drawing.Point(4, 27);
@@ -680,6 +701,193 @@ namespace Swimming_Pool_Database.Forms
             this.subscriptionsTabPage.Text = "Абонементи";
             this.subscriptionsTabPage.UseVisualStyleBackColor = true;
             // 
+            // subscriptionSortGroupBox
+            // 
+            this.subscriptionSortGroupBox.Controls.Add(this.sortByDayCountCheckBox);
+            this.subscriptionSortGroupBox.Controls.Add(this.sortByAttendanceCountCheckBox);
+            this.subscriptionSortGroupBox.Controls.Add(this.sortByPriceCheckBox);
+            this.subscriptionSortGroupBox.Controls.Add(this.panel8);
+            this.subscriptionSortGroupBox.Controls.Add(this.label8);
+            this.subscriptionSortGroupBox.Controls.Add(this.panel7);
+            this.subscriptionSortGroupBox.Controls.Add(this.label7);
+            this.subscriptionSortGroupBox.Controls.Add(this.panel6);
+            this.subscriptionSortGroupBox.Controls.Add(this.subscriptionsSortButton);
+            this.subscriptionSortGroupBox.Controls.Add(this.label6);
+            this.subscriptionSortGroupBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.subscriptionSortGroupBox.Location = new System.Drawing.Point(3, 339);
+            this.subscriptionSortGroupBox.Name = "subscriptionSortGroupBox";
+            this.subscriptionSortGroupBox.Size = new System.Drawing.Size(1030, 182);
+            this.subscriptionSortGroupBox.TabIndex = 5;
+            this.subscriptionSortGroupBox.TabStop = false;
+            this.subscriptionSortGroupBox.Text = "Сортування абонементів";
+            // 
+            // sortByDayCountCheckBox
+            // 
+            this.sortByDayCountCheckBox.AutoSize = true;
+            this.sortByDayCountCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.sortByDayCountCheckBox.Location = new System.Drawing.Point(758, 101);
+            this.sortByDayCountCheckBox.Name = "sortByDayCountCheckBox";
+            this.sortByDayCountCheckBox.Size = new System.Drawing.Size(215, 22);
+            this.sortByDayCountCheckBox.TabIndex = 27;
+            this.sortByDayCountCheckBox.Text = "Сортування за строком дії";
+            this.sortByDayCountCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // sortByAttendanceCountCheckBox
+            // 
+            this.sortByAttendanceCountCheckBox.AutoSize = true;
+            this.sortByAttendanceCountCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.sortByAttendanceCountCheckBox.Location = new System.Drawing.Point(383, 101);
+            this.sortByAttendanceCountCheckBox.Name = "sortByAttendanceCountCheckBox";
+            this.sortByAttendanceCountCheckBox.Size = new System.Drawing.Size(284, 22);
+            this.sortByAttendanceCountCheckBox.TabIndex = 26;
+            this.sortByAttendanceCountCheckBox.Text = "Сортування за кількістю відвідувань";
+            this.sortByAttendanceCountCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // sortByPriceCheckBox
+            // 
+            this.sortByPriceCheckBox.AutoSize = true;
+            this.sortByPriceCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.sortByPriceCheckBox.Location = new System.Drawing.Point(79, 101);
+            this.sortByPriceCheckBox.Name = "sortByPriceCheckBox";
+            this.sortByPriceCheckBox.Size = new System.Drawing.Size(175, 22);
+            this.sortByPriceCheckBox.TabIndex = 25;
+            this.sortByPriceCheckBox.Text = "Сортування за ціною";
+            this.sortByPriceCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.dayCountMoreRadioButton);
+            this.panel8.Controls.Add(this.dayCountLessRadioButton);
+            this.panel8.Location = new System.Drawing.Point(711, 53);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(310, 42);
+            this.panel8.TabIndex = 24;
+            // 
+            // dayCountMoreRadioButton
+            // 
+            this.dayCountMoreRadioButton.AutoSize = true;
+            this.dayCountMoreRadioButton.Location = new System.Drawing.Point(7, 11);
+            this.dayCountMoreRadioButton.Name = "dayCountMoreRadioButton";
+            this.dayCountMoreRadioButton.Size = new System.Drawing.Size(139, 22);
+            this.dayCountMoreRadioButton.TabIndex = 7;
+            this.dayCountMoreRadioButton.TabStop = true;
+            this.dayCountMoreRadioButton.Text = "Спочатку довші";
+            this.dayCountMoreRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // dayCountLessRadioButton
+            // 
+            this.dayCountLessRadioButton.AutoSize = true;
+            this.dayCountLessRadioButton.Location = new System.Drawing.Point(152, 11);
+            this.dayCountLessRadioButton.Name = "dayCountLessRadioButton";
+            this.dayCountLessRadioButton.Size = new System.Drawing.Size(154, 22);
+            this.dayCountLessRadioButton.TabIndex = 8;
+            this.dayCountLessRadioButton.TabStop = true;
+            this.dayCountLessRadioButton.Text = "Спочатку коротші";
+            this.dayCountLessRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.Location = new System.Drawing.Point(797, 30);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(138, 20);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "За строком дії:";
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.attendanceCountMoreRadioButton);
+            this.panel7.Controls.Add(this.attendanceCountLessRadioButton);
+            this.panel7.Location = new System.Drawing.Point(364, 53);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(319, 42);
+            this.panel7.TabIndex = 22;
+            // 
+            // attendanceCountMoreRadioButton
+            // 
+            this.attendanceCountMoreRadioButton.AutoSize = true;
+            this.attendanceCountMoreRadioButton.Location = new System.Drawing.Point(7, 11);
+            this.attendanceCountMoreRadioButton.Name = "attendanceCountMoreRadioButton";
+            this.attendanceCountMoreRadioButton.Size = new System.Drawing.Size(147, 22);
+            this.attendanceCountMoreRadioButton.TabIndex = 7;
+            this.attendanceCountMoreRadioButton.TabStop = true;
+            this.attendanceCountMoreRadioButton.Text = "Спочатку більше";
+            this.attendanceCountMoreRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // attendanceCountLessRadioButton
+            // 
+            this.attendanceCountLessRadioButton.AutoSize = true;
+            this.attendanceCountLessRadioButton.Location = new System.Drawing.Point(160, 11);
+            this.attendanceCountLessRadioButton.Name = "attendanceCountLessRadioButton";
+            this.attendanceCountLessRadioButton.Size = new System.Drawing.Size(153, 22);
+            this.attendanceCountLessRadioButton.TabIndex = 8;
+            this.attendanceCountLessRadioButton.TabStop = true;
+            this.attendanceCountLessRadioButton.Text = "Спочатку меньше";
+            this.attendanceCountLessRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(414, 30);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(224, 20);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "За кількістю відвідувань:";
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.priceCheapestRadioButton);
+            this.panel6.Controls.Add(this.priceExpensiveRadioButton);
+            this.panel6.Location = new System.Drawing.Point(6, 53);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(328, 42);
+            this.panel6.TabIndex = 20;
+            // 
+            // priceCheapestRadioButton
+            // 
+            this.priceCheapestRadioButton.AutoSize = true;
+            this.priceCheapestRadioButton.Location = new System.Drawing.Point(7, 11);
+            this.priceCheapestRadioButton.Name = "priceCheapestRadioButton";
+            this.priceCheapestRadioButton.Size = new System.Drawing.Size(157, 22);
+            this.priceCheapestRadioButton.TabIndex = 7;
+            this.priceCheapestRadioButton.TabStop = true;
+            this.priceCheapestRadioButton.Text = "Спочатку дешевші";
+            this.priceCheapestRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // priceExpensiveRadioButton
+            // 
+            this.priceExpensiveRadioButton.AutoSize = true;
+            this.priceExpensiveRadioButton.Location = new System.Drawing.Point(170, 11);
+            this.priceExpensiveRadioButton.Name = "priceExpensiveRadioButton";
+            this.priceExpensiveRadioButton.Size = new System.Drawing.Size(156, 22);
+            this.priceExpensiveRadioButton.TabIndex = 8;
+            this.priceExpensiveRadioButton.TabStop = true;
+            this.priceExpensiveRadioButton.Text = "Спочатку дорожчі";
+            this.priceExpensiveRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // subscriptionsSortButton
+            // 
+            this.subscriptionsSortButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.subscriptionsSortButton.Location = new System.Drawing.Point(459, 132);
+            this.subscriptionsSortButton.Name = "subscriptionsSortButton";
+            this.subscriptionsSortButton.Size = new System.Drawing.Size(121, 38);
+            this.subscriptionsSortButton.TabIndex = 19;
+            this.subscriptionsSortButton.Text = "Сортувати";
+            this.subscriptionsSortButton.UseVisualStyleBackColor = true;
+            this.subscriptionsSortButton.Click += new System.EventHandler(this.SubscriptionsSortButton_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(121, 30);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(88, 20);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "За ціною:";
+            // 
             // subscriptionsDataGridView
             // 
             this.subscriptionsDataGridView.AllowUserToAddRows = false;
@@ -689,11 +897,11 @@ namespace Swimming_Pool_Database.Forms
             this.subscriptionsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.subscriptionsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.subscriptionidDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.priceDataGridViewTextBoxColumn,
-            this.attendancecountDataGridViewTextBoxColumn,
-            this.daycountDataGridViewTextBoxColumn});
-            this.subscriptionsDataGridView.DataSource = this.subscriptionsViewBindingSource;
+            this.name,
+            this.price,
+            this.attendancecount,
+            this.daycount});
+            this.subscriptionsDataGridView.DataSource = this.subscriptionsBindingSource;
             this.subscriptionsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.subscriptionsDataGridView.Location = new System.Drawing.Point(3, 3);
             this.subscriptionsDataGridView.Name = "subscriptionsDataGridView";
@@ -703,52 +911,7 @@ namespace Swimming_Pool_Database.Forms
             this.subscriptionsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.subscriptionsDataGridView.Size = new System.Drawing.Size(1030, 518);
             this.subscriptionsDataGridView.TabIndex = 3;
-            // 
-            // subscriptionidDataGridViewTextBoxColumn
-            // 
-            this.subscriptionidDataGridViewTextBoxColumn.DataPropertyName = "subscription_id";
-            this.subscriptionidDataGridViewTextBoxColumn.HeaderText = "subscription_id";
-            this.subscriptionidDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.subscriptionidDataGridViewTextBoxColumn.Name = "subscriptionidDataGridViewTextBoxColumn";
-            this.subscriptionidDataGridViewTextBoxColumn.ReadOnly = true;
-            this.subscriptionidDataGridViewTextBoxColumn.Visible = false;
-            this.subscriptionidDataGridViewTextBoxColumn.Width = 136;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Назва";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Ціна";
-            this.priceDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.priceDataGridViewTextBoxColumn.Width = 67;
-            // 
-            // attendancecountDataGridViewTextBoxColumn
-            // 
-            this.attendancecountDataGridViewTextBoxColumn.DataPropertyName = "attendance_count";
-            this.attendancecountDataGridViewTextBoxColumn.HeaderText = "Кількість відвідувань";
-            this.attendancecountDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.attendancecountDataGridViewTextBoxColumn.Name = "attendancecountDataGridViewTextBoxColumn";
-            this.attendancecountDataGridViewTextBoxColumn.ReadOnly = true;
-            this.attendancecountDataGridViewTextBoxColumn.Width = 168;
-            // 
-            // daycountDataGridViewTextBoxColumn
-            // 
-            this.daycountDataGridViewTextBoxColumn.DataPropertyName = "day_count";
-            this.daycountDataGridViewTextBoxColumn.HeaderText = "Строк дії";
-            this.daycountDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.daycountDataGridViewTextBoxColumn.Name = "daycountDataGridViewTextBoxColumn";
-            this.daycountDataGridViewTextBoxColumn.ReadOnly = true;
-            this.daycountDataGridViewTextBoxColumn.Width = 92;
+            this.subscriptionsDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.SubscriptionsDataGridView_CellFormatting);
             // 
             // panel1
             // 
@@ -846,7 +1009,7 @@ namespace Swimming_Pool_Database.Forms
             // subscriptionidDataGridViewTextBoxColumn1
             // 
             this.subscriptionidDataGridViewTextBoxColumn1.DataPropertyName = "subscription_id";
-            this.subscriptionidDataGridViewTextBoxColumn1.DataSource = this.subscriptionsViewBindingSource;
+            this.subscriptionidDataGridViewTextBoxColumn1.DataSource = this.subscriptionsBindingSource;
             this.subscriptionidDataGridViewTextBoxColumn1.DisplayMember = "name";
             this.subscriptionidDataGridViewTextBoxColumn1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             this.subscriptionidDataGridViewTextBoxColumn1.HeaderText = "Назва абонемента";
@@ -987,13 +1150,55 @@ namespace Swimming_Pool_Database.Forms
             // 
             this.subscriptionsTableAdapter.ClearBeforeFill = true;
             // 
-            // subscriptionsViewTableAdapter
-            // 
-            this.subscriptionsViewTableAdapter.ClearBeforeFill = true;
-            // 
             // visitorCardsTableAdapter
             // 
             this.visitorCardsTableAdapter.ClearBeforeFill = true;
+            // 
+            // subscriptionidDataGridViewTextBoxColumn
+            // 
+            this.subscriptionidDataGridViewTextBoxColumn.DataPropertyName = "subscription_id";
+            this.subscriptionidDataGridViewTextBoxColumn.HeaderText = "subscription_id";
+            this.subscriptionidDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.subscriptionidDataGridViewTextBoxColumn.Name = "subscriptionidDataGridViewTextBoxColumn";
+            this.subscriptionidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.subscriptionidDataGridViewTextBoxColumn.Visible = false;
+            this.subscriptionidDataGridViewTextBoxColumn.Width = 136;
+            // 
+            // name
+            // 
+            this.name.DataPropertyName = "name";
+            this.name.HeaderText = "Назва";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Width = 80;
+            // 
+            // price
+            // 
+            this.price.DataPropertyName = "price";
+            this.price.HeaderText = "Ціна";
+            this.price.MinimumWidth = 6;
+            this.price.Name = "price";
+            this.price.ReadOnly = true;
+            this.price.Width = 67;
+            // 
+            // attendancecount
+            // 
+            this.attendancecount.DataPropertyName = "attendance_count";
+            this.attendancecount.HeaderText = "Кількість відвідувань";
+            this.attendancecount.MinimumWidth = 6;
+            this.attendancecount.Name = "attendancecount";
+            this.attendancecount.ReadOnly = true;
+            this.attendancecount.Width = 168;
+            // 
+            // daycount
+            // 
+            this.daycount.DataPropertyName = "day_count";
+            this.daycount.HeaderText = "Строк дії";
+            this.daycount.MinimumWidth = 6;
+            this.daycount.Name = "daycount";
+            this.daycount.ReadOnly = true;
+            this.daycount.Width = 92;
             // 
             // AdminMainForm
             // 
@@ -1013,7 +1218,7 @@ namespace Swimming_Pool_Database.Forms
             this.menuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.swimmingpoolDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.subscriptionsViewBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subscriptionsBindingSource)).EndInit();
             this.tabControl.ResumeLayout(false);
             this.clientsTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.clientsDataGridView)).EndInit();
@@ -1027,6 +1232,14 @@ namespace Swimming_Pool_Database.Forms
             this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.subscriptionsTabPage.ResumeLayout(false);
+            this.subscriptionSortGroupBox.ResumeLayout(false);
+            this.subscriptionSortGroupBox.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.subscriptionsDataGridView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.visitorCardsTabPage.ResumeLayout(false);
@@ -1044,7 +1257,7 @@ namespace Swimming_Pool_Database.Forms
         private BindingSource clientsBindingSource;
         private swimmingpoolDataSetTableAdapters.ClientsTableAdapter clientsTableAdapter;
         private swimmingpoolDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private BindingSource subscriptionsViewBindingSource;
+        private BindingSource subscriptionsBindingSource;
         private ToolStripMenuItem exitToolStripMenuItem;
         private TabControl tabControl;
         private TabPage clientsTabPage;
@@ -1066,12 +1279,6 @@ namespace Swimming_Pool_Database.Forms
         private Button deleteVisitorCardButton;
         private Button editVisitorCardButton;
         private Button addVisitorCardButton;
-        private swimmingpoolDataSetTableAdapters.SubscriptionsViewTableAdapter subscriptionsViewTableAdapter;
-        private DataGridViewTextBoxColumn subscriptionidDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn attendancecountDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn daycountDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn clientidDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn firstnameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn lastnameDataGridViewTextBoxColumn;
@@ -1119,6 +1326,28 @@ namespace Swimming_Pool_Database.Forms
         private Panel panel5;
         private Panel panel4;
         private Button filterButton;
-        private Button searchButton;
+        private Button clientsSearchButton;
+        private GroupBox subscriptionSortGroupBox;
+        private Button subscriptionsSortButton;
+        private Label label6;
+        private Panel panel6;
+        private RadioButton priceCheapestRadioButton;
+        private RadioButton priceExpensiveRadioButton;
+        private Panel panel8;
+        private RadioButton dayCountMoreRadioButton;
+        private RadioButton dayCountLessRadioButton;
+        private Label label8;
+        private Panel panel7;
+        private RadioButton attendanceCountMoreRadioButton;
+        private RadioButton attendanceCountLessRadioButton;
+        private Label label7;
+        private CheckBox sortByDayCountCheckBox;
+        private CheckBox sortByAttendanceCountCheckBox;
+        private CheckBox sortByPriceCheckBox;
+        private DataGridViewTextBoxColumn subscriptionidDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn name;
+        private DataGridViewTextBoxColumn price;
+        private DataGridViewTextBoxColumn attendancecount;
+        private DataGridViewTextBoxColumn daycount;
     }
 }

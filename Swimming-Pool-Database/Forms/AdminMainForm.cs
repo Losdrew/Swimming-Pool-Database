@@ -20,7 +20,7 @@ namespace Swimming_Pool_Database.Forms
         private void FillTableAdapters()
         {
             clientsTableAdapter.Fill(swimmingpoolDataSet.Clients);
-            subscriptionsViewTableAdapter.Fill(swimmingpoolDataSet.SubscriptionsView);
+            subscriptionsTableAdapter.Fill(swimmingpoolDataSet.Subscriptions);
             visitorCardsTableAdapter.Fill(swimmingpoolDataSet.VisitorCards);
         }
 
@@ -42,6 +42,21 @@ namespace Swimming_Pool_Database.Forms
                 case TabPage tabPage when tabPage.Equals(visitorCardsTabPage):
                     visitorCardsDataGridView.Columns[0].Visible = false;
                     break;
+            }
+        }
+
+        private void SubscriptionsDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == subscriptionsDataGridView.Columns["price"].Index)
+            {
+                e.Value = $"{e.Value:#.##'₴'}";
+                e.FormattingApplied = true;
+            }
+
+            if (e.ColumnIndex == subscriptionsDataGridView.Columns["daycount"].Index)
+            {
+                e.Value = $"{e.Value:## 'днів'}";
+                e.FormattingApplied = true;
             }
         }
 
@@ -215,14 +230,14 @@ namespace Swimming_Pool_Database.Forms
                 MessageBoxIcon.Question) == DialogResult.Yes;
         }
 
-        private void SetFiltering(object sender, EventArgs e)
+        private void SetClientsFiltering(object sender, EventArgs e)
         {
             clientsBindingSource.RemoveFilter();
-            SetSearch();
-            SetFilters();
+            SetClientsSearch();
+            SetClientsFilters();
         }
 
-        private void SetSearch()
+        private void SetClientsSearch()
         {
             SetClientsFilter(true,
                 $"first_name LIKE '%{firstNameTextBox.Text}%' " +
@@ -230,7 +245,7 @@ namespace Swimming_Pool_Database.Forms
                 $"AND middle_name LIKE '%{middleNameTextBox.Text}%'");
         }
 
-        private void SetFilters()
+        private void SetClientsFilters()
         {
             SetClientsFilter(filterDateCheckBox.Checked,
                 $"date_of_birth >= '{filterFromDateTimePicker.Value:yyyy-MM-dd}' " +
@@ -269,6 +284,39 @@ namespace Swimming_Pool_Database.Forms
                 clientsBindingSource.Filter = (string.IsNullOrEmpty(clientsBindingSource.Filter))
                     ? filterString
                     : clientsBindingSource.Filter + " AND " + filterString;
+            }
+        }
+
+        private void SubscriptionsSortButton_Click(object sender, EventArgs e)
+        {
+            subscriptionsBindingSource.RemoveSort();
+
+            if (priceCheapestRadioButton.Checked || priceExpensiveRadioButton.Checked)
+            {
+                var sort = (priceCheapestRadioButton.Checked && !priceExpensiveRadioButton.Checked) ? "" : "DESC";
+                SetSubscriptionsSort(sortByPriceCheckBox.Checked, "price " + sort);
+            }
+
+            if (attendanceCountMoreRadioButton.Checked || attendanceCountLessRadioButton.Checked)
+            {
+                var sort = (attendanceCountMoreRadioButton.Checked && !attendanceCountLessRadioButton.Checked) ? "DESC" : "ASC";
+                SetSubscriptionsSort(sortByAttendanceCountCheckBox.Checked, "attendance_count " + sort);
+            }
+
+            if (dayCountMoreRadioButton.Checked || dayCountLessRadioButton.Checked)
+            {
+                var sort = (dayCountMoreRadioButton.Checked && !dayCountLessRadioButton.Checked) ? "DESC" : "ASC";
+                SetSubscriptionsSort(sortByDayCountCheckBox.Checked, "day_count " + sort);
+            }
+        }
+
+        private void SetSubscriptionsSort(bool condition, string sortString)
+        {
+            if (condition)
+            {
+                subscriptionsBindingSource.Sort = (string.IsNullOrEmpty(subscriptionsBindingSource.Sort))
+                    ? sortString
+                    : subscriptionsBindingSource.Sort + ", " + sortString;
             }
         }
     }
