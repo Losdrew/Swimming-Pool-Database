@@ -29,7 +29,7 @@ namespace Swimming_Pool_Database.Forms
         {
             clientsTableAdapter.Fill(swimmingpoolDataSet.Clients);
             clientsBindingSource.Filter = "client_id = " + _id;
-            subscriptionsViewTableAdapter.Fill(swimmingpoolDataSet.SubscriptionsView);
+            subscriptionsTableAdapter.Fill(swimmingpoolDataSet.Subscriptions);
             visitorCardsTableAdapter.Fill(swimmingpoolDataSet.VisitorCards);
             visitorCardsBindingSource.Filter = "client_id = " + _id;
         }
@@ -47,6 +47,21 @@ namespace Swimming_Pool_Database.Forms
                 case TabPage tabPage when tabPage.Equals(visitorCardTabPage):
                     visitorCardsDataGridView.Columns[0].Visible = false;
                     break;
+            }
+        }
+
+        private void SubscriptionsDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == subscriptionsDataGridView.Columns["price"].Index)
+            {
+                e.Value = $"{e.Value:#.##'₴'}";
+                e.FormattingApplied = true;
+            }
+
+            if (e.ColumnIndex == subscriptionsDataGridView.Columns["daycount"].Index)
+            {
+                e.Value = $"{e.Value:## 'днів'}";
+                e.FormattingApplied = true;
             }
         }
 

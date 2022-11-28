@@ -37,12 +37,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.subscriptionsDataGridView = new System.Windows.Forms.DataGridView();
-            this.subscriptionidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.attendancecountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.daycountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subscriptionsViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.subscriptionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.profileTabPage = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.editClientButton = new System.Windows.Forms.Button();
@@ -63,26 +58,29 @@
             this.visitorCardsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
             this.deleteVisitorCardButton = new System.Windows.Forms.Button();
-            this.subscriptionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientsTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.ClientsTableAdapter();
-            this.subscriptionsViewTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.SubscriptionsViewTableAdapter();
             this.subscriptionsTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.SubscriptionsTableAdapter();
             this.visitorCardsTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.VisitorCardsTableAdapter();
-            this.attendanceleftcountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.expirydateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.startdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.client_idMiddleName = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.client_idLastName = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.clientidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.subscriptionidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.subscriptionidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.attendancecount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.daycount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cardidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subscriptionidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.clientidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.client_idLastName = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.client_idMiddleName = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.startdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expirydateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.attendanceleftcountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.swimmingpoolDataSet)).BeginInit();
             this.tabControl.SuspendLayout();
             this.subscriptionsTabPage.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.subscriptionsDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.subscriptionsViewBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subscriptionsBindingSource)).BeginInit();
             this.profileTabPage.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientsDataGridView)).BeginInit();
@@ -91,7 +89,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.visitorCardsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.visitorCardsBindingSource)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.subscriptionsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -172,11 +169,11 @@
             this.subscriptionsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.subscriptionsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.subscriptionidDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.priceDataGridViewTextBoxColumn,
-            this.attendancecountDataGridViewTextBoxColumn,
-            this.daycountDataGridViewTextBoxColumn});
-            this.subscriptionsDataGridView.DataSource = this.subscriptionsViewBindingSource;
+            this.name,
+            this.price,
+            this.attendancecount,
+            this.daycount});
+            this.subscriptionsDataGridView.DataSource = this.subscriptionsBindingSource;
             this.subscriptionsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.subscriptionsDataGridView.Location = new System.Drawing.Point(3, 3);
             this.subscriptionsDataGridView.Name = "subscriptionsDataGridView";
@@ -186,57 +183,12 @@
             this.subscriptionsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.subscriptionsDataGridView.Size = new System.Drawing.Size(985, 385);
             this.subscriptionsDataGridView.TabIndex = 0;
+            this.subscriptionsDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.SubscriptionsDataGridView_CellFormatting);
             // 
-            // subscriptionidDataGridViewTextBoxColumn
+            // subscriptionsBindingSource
             // 
-            this.subscriptionidDataGridViewTextBoxColumn.DataPropertyName = "subscription_id";
-            this.subscriptionidDataGridViewTextBoxColumn.HeaderText = "subscription_id";
-            this.subscriptionidDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.subscriptionidDataGridViewTextBoxColumn.Name = "subscriptionidDataGridViewTextBoxColumn";
-            this.subscriptionidDataGridViewTextBoxColumn.ReadOnly = true;
-            this.subscriptionidDataGridViewTextBoxColumn.Visible = false;
-            this.subscriptionidDataGridViewTextBoxColumn.Width = 136;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Назва";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Ціна";
-            this.priceDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.priceDataGridViewTextBoxColumn.Width = 67;
-            // 
-            // attendancecountDataGridViewTextBoxColumn
-            // 
-            this.attendancecountDataGridViewTextBoxColumn.DataPropertyName = "attendance_count";
-            this.attendancecountDataGridViewTextBoxColumn.HeaderText = "Кількість відвідувань";
-            this.attendancecountDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.attendancecountDataGridViewTextBoxColumn.Name = "attendancecountDataGridViewTextBoxColumn";
-            this.attendancecountDataGridViewTextBoxColumn.ReadOnly = true;
-            this.attendancecountDataGridViewTextBoxColumn.Width = 168;
-            // 
-            // daycountDataGridViewTextBoxColumn
-            // 
-            this.daycountDataGridViewTextBoxColumn.DataPropertyName = "day_count";
-            this.daycountDataGridViewTextBoxColumn.HeaderText = "Строк дії";
-            this.daycountDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.daycountDataGridViewTextBoxColumn.Name = "daycountDataGridViewTextBoxColumn";
-            this.daycountDataGridViewTextBoxColumn.ReadOnly = true;
-            this.daycountDataGridViewTextBoxColumn.Width = 92;
-            // 
-            // subscriptionsViewBindingSource
-            // 
-            this.subscriptionsViewBindingSource.DataMember = "SubscriptionsView";
-            this.subscriptionsViewBindingSource.DataSource = this.swimmingpoolDataSet;
+            this.subscriptionsBindingSource.DataMember = "Subscriptions";
+            this.subscriptionsBindingSource.DataSource = this.swimmingpoolDataSet;
             // 
             // profileTabPage
             // 
@@ -458,18 +410,9 @@
             this.deleteVisitorCardButton.UseVisualStyleBackColor = true;
             this.deleteVisitorCardButton.Click += new System.EventHandler(this.DeleteVisitorCardButton_Click);
             // 
-            // subscriptionsBindingSource
-            // 
-            this.subscriptionsBindingSource.DataMember = "Subscriptions";
-            this.subscriptionsBindingSource.DataSource = this.swimmingpoolDataSet;
-            // 
             // clientsTableAdapter
             // 
             this.clientsTableAdapter.ClearBeforeFill = true;
-            // 
-            // subscriptionsViewTableAdapter
-            // 
-            this.subscriptionsViewTableAdapter.ClearBeforeFill = true;
             // 
             // subscriptionsTableAdapter
             // 
@@ -479,62 +422,76 @@
             // 
             this.visitorCardsTableAdapter.ClearBeforeFill = true;
             // 
-            // attendanceleftcountDataGridViewTextBoxColumn
+            // subscriptionidDataGridViewTextBoxColumn
             // 
-            this.attendanceleftcountDataGridViewTextBoxColumn.DataPropertyName = "attendance_left_count";
-            this.attendanceleftcountDataGridViewTextBoxColumn.HeaderText = "Залишилось відвідувань";
-            this.attendanceleftcountDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.attendanceleftcountDataGridViewTextBoxColumn.Name = "attendanceleftcountDataGridViewTextBoxColumn";
-            this.attendanceleftcountDataGridViewTextBoxColumn.ReadOnly = true;
-            this.attendanceleftcountDataGridViewTextBoxColumn.Width = 190;
+            this.subscriptionidDataGridViewTextBoxColumn.DataPropertyName = "subscription_id";
+            this.subscriptionidDataGridViewTextBoxColumn.HeaderText = "subscription_id";
+            this.subscriptionidDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.subscriptionidDataGridViewTextBoxColumn.Name = "subscriptionidDataGridViewTextBoxColumn";
+            this.subscriptionidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.subscriptionidDataGridViewTextBoxColumn.Visible = false;
+            this.subscriptionidDataGridViewTextBoxColumn.Width = 136;
             // 
-            // expirydateDataGridViewTextBoxColumn
+            // name
             // 
-            this.expirydateDataGridViewTextBoxColumn.DataPropertyName = "expiry_date";
-            this.expirydateDataGridViewTextBoxColumn.HeaderText = "Дата закінчення дії";
-            this.expirydateDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.expirydateDataGridViewTextBoxColumn.Name = "expirydateDataGridViewTextBoxColumn";
-            this.expirydateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.expirydateDataGridViewTextBoxColumn.Width = 142;
+            this.name.DataPropertyName = "name";
+            this.name.HeaderText = "Назва";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Width = 80;
             // 
-            // startdateDataGridViewTextBoxColumn
+            // price
             // 
-            this.startdateDataGridViewTextBoxColumn.DataPropertyName = "start_date";
-            this.startdateDataGridViewTextBoxColumn.HeaderText = "Дата початку дії";
-            this.startdateDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.startdateDataGridViewTextBoxColumn.Name = "startdateDataGridViewTextBoxColumn";
-            this.startdateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.startdateDataGridViewTextBoxColumn.Width = 124;
+            this.price.DataPropertyName = "price";
+            this.price.HeaderText = "Ціна";
+            this.price.MinimumWidth = 6;
+            this.price.Name = "price";
+            this.price.ReadOnly = true;
+            this.price.Width = 67;
             // 
-            // client_idMiddleName
+            // attendancecount
             // 
-            this.client_idMiddleName.DataPropertyName = "client_id";
-            this.client_idMiddleName.DataSource = this.clientsBindingSource;
-            this.client_idMiddleName.DisplayMember = "middle_name";
-            this.client_idMiddleName.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.client_idMiddleName.HeaderText = "По-батькові";
-            this.client_idMiddleName.MinimumWidth = 6;
-            this.client_idMiddleName.Name = "client_idMiddleName";
-            this.client_idMiddleName.ReadOnly = true;
-            this.client_idMiddleName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.client_idMiddleName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.client_idMiddleName.ValueMember = "client_id";
-            this.client_idMiddleName.Width = 122;
+            this.attendancecount.DataPropertyName = "attendance_count";
+            this.attendancecount.HeaderText = "Кількість відвідувань";
+            this.attendancecount.MinimumWidth = 6;
+            this.attendancecount.Name = "attendancecount";
+            this.attendancecount.ReadOnly = true;
+            this.attendancecount.Width = 168;
             // 
-            // client_idLastName
+            // daycount
             // 
-            this.client_idLastName.DataPropertyName = "client_id";
-            this.client_idLastName.DataSource = this.clientsBindingSource;
-            this.client_idLastName.DisplayMember = "last_name";
-            this.client_idLastName.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.client_idLastName.HeaderText = "Прізвище";
-            this.client_idLastName.MinimumWidth = 6;
-            this.client_idLastName.Name = "client_idLastName";
-            this.client_idLastName.ReadOnly = true;
-            this.client_idLastName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.client_idLastName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.client_idLastName.ValueMember = "client_id";
-            this.client_idLastName.Width = 102;
+            this.daycount.DataPropertyName = "day_count";
+            this.daycount.HeaderText = "Строк дії";
+            this.daycount.MinimumWidth = 6;
+            this.daycount.Name = "daycount";
+            this.daycount.ReadOnly = true;
+            this.daycount.Width = 92;
+            // 
+            // cardidDataGridViewTextBoxColumn
+            // 
+            this.cardidDataGridViewTextBoxColumn.DataPropertyName = "card_id";
+            this.cardidDataGridViewTextBoxColumn.HeaderText = "card_id";
+            this.cardidDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.cardidDataGridViewTextBoxColumn.Name = "cardidDataGridViewTextBoxColumn";
+            this.cardidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cardidDataGridViewTextBoxColumn.Visible = false;
+            this.cardidDataGridViewTextBoxColumn.Width = 85;
+            // 
+            // subscriptionidDataGridViewTextBoxColumn1
+            // 
+            this.subscriptionidDataGridViewTextBoxColumn1.DataPropertyName = "subscription_id";
+            this.subscriptionidDataGridViewTextBoxColumn1.DataSource = this.subscriptionsBindingSource;
+            this.subscriptionidDataGridViewTextBoxColumn1.DisplayMember = "name";
+            this.subscriptionidDataGridViewTextBoxColumn1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.subscriptionidDataGridViewTextBoxColumn1.HeaderText = "Назва абонемента";
+            this.subscriptionidDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.subscriptionidDataGridViewTextBoxColumn1.Name = "subscriptionidDataGridViewTextBoxColumn1";
+            this.subscriptionidDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.subscriptionidDataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.subscriptionidDataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.subscriptionidDataGridViewTextBoxColumn1.ValueMember = "subscription_id";
+            this.subscriptionidDataGridViewTextBoxColumn1.Width = 154;
             // 
             // clientidDataGridViewTextBoxColumn1
             // 
@@ -551,30 +508,62 @@
             this.clientidDataGridViewTextBoxColumn1.ValueMember = "client_id";
             this.clientidDataGridViewTextBoxColumn1.Width = 62;
             // 
-            // subscriptionidDataGridViewTextBoxColumn1
+            // client_idLastName
             // 
-            this.subscriptionidDataGridViewTextBoxColumn1.DataPropertyName = "subscription_id";
-            this.subscriptionidDataGridViewTextBoxColumn1.DataSource = this.subscriptionsViewBindingSource;
-            this.subscriptionidDataGridViewTextBoxColumn1.DisplayMember = "name";
-            this.subscriptionidDataGridViewTextBoxColumn1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.subscriptionidDataGridViewTextBoxColumn1.HeaderText = "Назва абонемента";
-            this.subscriptionidDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.subscriptionidDataGridViewTextBoxColumn1.Name = "subscriptionidDataGridViewTextBoxColumn1";
-            this.subscriptionidDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.subscriptionidDataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.subscriptionidDataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.subscriptionidDataGridViewTextBoxColumn1.ValueMember = "subscription_id";
-            this.subscriptionidDataGridViewTextBoxColumn1.Width = 154;
+            this.client_idLastName.DataPropertyName = "client_id";
+            this.client_idLastName.DataSource = this.clientsBindingSource;
+            this.client_idLastName.DisplayMember = "last_name";
+            this.client_idLastName.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.client_idLastName.HeaderText = "Прізвище";
+            this.client_idLastName.MinimumWidth = 6;
+            this.client_idLastName.Name = "client_idLastName";
+            this.client_idLastName.ReadOnly = true;
+            this.client_idLastName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.client_idLastName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.client_idLastName.ValueMember = "client_id";
+            this.client_idLastName.Width = 102;
             // 
-            // cardidDataGridViewTextBoxColumn
+            // client_idMiddleName
             // 
-            this.cardidDataGridViewTextBoxColumn.DataPropertyName = "card_id";
-            this.cardidDataGridViewTextBoxColumn.HeaderText = "card_id";
-            this.cardidDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.cardidDataGridViewTextBoxColumn.Name = "cardidDataGridViewTextBoxColumn";
-            this.cardidDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cardidDataGridViewTextBoxColumn.Visible = false;
-            this.cardidDataGridViewTextBoxColumn.Width = 85;
+            this.client_idMiddleName.DataPropertyName = "client_id";
+            this.client_idMiddleName.DataSource = this.clientsBindingSource;
+            this.client_idMiddleName.DisplayMember = "middle_name";
+            this.client_idMiddleName.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.client_idMiddleName.HeaderText = "По-батькові";
+            this.client_idMiddleName.MinimumWidth = 6;
+            this.client_idMiddleName.Name = "client_idMiddleName";
+            this.client_idMiddleName.ReadOnly = true;
+            this.client_idMiddleName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.client_idMiddleName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.client_idMiddleName.ValueMember = "client_id";
+            this.client_idMiddleName.Width = 122;
+            // 
+            // startdateDataGridViewTextBoxColumn
+            // 
+            this.startdateDataGridViewTextBoxColumn.DataPropertyName = "start_date";
+            this.startdateDataGridViewTextBoxColumn.HeaderText = "Дата початку дії";
+            this.startdateDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.startdateDataGridViewTextBoxColumn.Name = "startdateDataGridViewTextBoxColumn";
+            this.startdateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.startdateDataGridViewTextBoxColumn.Width = 124;
+            // 
+            // expirydateDataGridViewTextBoxColumn
+            // 
+            this.expirydateDataGridViewTextBoxColumn.DataPropertyName = "expiry_date";
+            this.expirydateDataGridViewTextBoxColumn.HeaderText = "Дата закінчення дії";
+            this.expirydateDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.expirydateDataGridViewTextBoxColumn.Name = "expirydateDataGridViewTextBoxColumn";
+            this.expirydateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.expirydateDataGridViewTextBoxColumn.Width = 142;
+            // 
+            // attendanceleftcountDataGridViewTextBoxColumn
+            // 
+            this.attendanceleftcountDataGridViewTextBoxColumn.DataPropertyName = "attendance_left_count";
+            this.attendanceleftcountDataGridViewTextBoxColumn.HeaderText = "Залишилось відвідувань";
+            this.attendanceleftcountDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.attendanceleftcountDataGridViewTextBoxColumn.Name = "attendanceleftcountDataGridViewTextBoxColumn";
+            this.attendanceleftcountDataGridViewTextBoxColumn.ReadOnly = true;
+            this.attendanceleftcountDataGridViewTextBoxColumn.Width = 190;
             // 
             // UserMainForm
             // 
@@ -595,7 +584,7 @@
             this.subscriptionsTabPage.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.subscriptionsDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.subscriptionsViewBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subscriptionsBindingSource)).EndInit();
             this.profileTabPage.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.clientsDataGridView)).EndInit();
@@ -604,7 +593,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.visitorCardsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.visitorCardsBindingSource)).EndInit();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.subscriptionsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -622,12 +610,6 @@
         private System.Windows.Forms.BindingSource subscriptionsBindingSource;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn subscriptionidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn attendancecountDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn daycountDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource subscriptionsViewBindingSource;
         private System.Windows.Forms.DataGridView clientsDataGridView;
         private System.Windows.Forms.BindingSource clientsBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn clientidDataGridViewTextBoxColumn;
@@ -647,10 +629,14 @@
         private System.Windows.Forms.Button deleteVisitorCardButton;
         private System.Windows.Forms.DataGridView visitorCardsDataGridView;
         private swimmingpoolDataSetTableAdapters.ClientsTableAdapter clientsTableAdapter;
-        private swimmingpoolDataSetTableAdapters.SubscriptionsViewTableAdapter subscriptionsViewTableAdapter;
         private swimmingpoolDataSetTableAdapters.SubscriptionsTableAdapter subscriptionsTableAdapter;
         private System.Windows.Forms.BindingSource visitorCardsBindingSource;
         private swimmingpoolDataSetTableAdapters.VisitorCardsTableAdapter visitorCardsTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subscriptionidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn attendancecount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn daycount;
         private System.Windows.Forms.DataGridViewTextBoxColumn cardidDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn subscriptionidDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewComboBoxColumn clientidDataGridViewTextBoxColumn1;
