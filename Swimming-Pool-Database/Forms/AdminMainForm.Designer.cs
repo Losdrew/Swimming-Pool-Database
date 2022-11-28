@@ -51,6 +51,33 @@ namespace Swimming_Pool_Database.Forms
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.loginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.searchGroupBox = new System.Windows.Forms.GroupBox();
+            this.searchButton = new System.Windows.Forms.Button();
+            this.middleNameTextBox = new System.Windows.Forms.TextBox();
+            this.lastNameTextBox = new System.Windows.Forms.TextBox();
+            this.firstNameTextBox = new System.Windows.Forms.TextBox();
+            this.firstNameLabel = new System.Windows.Forms.Label();
+            this.lastNameLabel = new System.Windows.Forms.Label();
+            this.middleNameLabel = new System.Windows.Forms.Label();
+            this.filterGroupBox = new System.Windows.Forms.GroupBox();
+            this.filterButton = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.beginnerRadioButton = new System.Windows.Forms.RadioButton();
+            this.amateurRadioButton = new System.Windows.Forms.RadioButton();
+            this.sportsmanRadioButton = new System.Windows.Forms.RadioButton();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.maleRadioButton = new System.Windows.Forms.RadioButton();
+            this.femaleRadioButton = new System.Windows.Forms.RadioButton();
+            this.filterPreparationLevelCheckBox = new System.Windows.Forms.CheckBox();
+            this.filterSexCheckBox = new System.Windows.Forms.CheckBox();
+            this.filterDateCheckBox = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.filterToDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.filterFromDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.deleteClientButton = new System.Windows.Forms.Button();
             this.editClientButton = new System.Windows.Forms.Button();
@@ -92,6 +119,10 @@ namespace Swimming_Pool_Database.Forms
             this.tabControl.SuspendLayout();
             this.clientsTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientsDataGridView)).BeginInit();
+            this.searchGroupBox.SuspendLayout();
+            this.filterGroupBox.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.subscriptionsTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.subscriptionsDataGridView)).BeginInit();
@@ -162,7 +193,7 @@ namespace Swimming_Pool_Database.Forms
             this.tabControl.Location = new System.Drawing.Point(0, 28);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1044, 435);
+            this.tabControl.Size = new System.Drawing.Size(1044, 655);
             this.tabControl.TabIndex = 6;
             this.tabControl.Selected += new System.Windows.Forms.TabControlEventHandler(this.TabControl_Selected);
             // 
@@ -170,11 +201,13 @@ namespace Swimming_Pool_Database.Forms
             // 
             this.clientsTabPage.AutoScroll = true;
             this.clientsTabPage.Controls.Add(this.clientsDataGridView);
+            this.clientsTabPage.Controls.Add(this.searchGroupBox);
+            this.clientsTabPage.Controls.Add(this.filterGroupBox);
             this.clientsTabPage.Controls.Add(this.panel2);
             this.clientsTabPage.Location = new System.Drawing.Point(4, 27);
             this.clientsTabPage.Name = "clientsTabPage";
             this.clientsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.clientsTabPage.Size = new System.Drawing.Size(1036, 404);
+            this.clientsTabPage.Size = new System.Drawing.Size(1036, 624);
             this.clientsTabPage.TabIndex = 0;
             this.clientsTabPage.Text = "Клієнти";
             this.clientsTabPage.UseVisualStyleBackColor = true;
@@ -204,7 +237,8 @@ namespace Swimming_Pool_Database.Forms
             this.clientsDataGridView.ReadOnly = true;
             this.clientsDataGridView.RowHeadersWidth = 51;
             this.clientsDataGridView.RowTemplate.Height = 24;
-            this.clientsDataGridView.Size = new System.Drawing.Size(1030, 298);
+            this.clientsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.clientsDataGridView.Size = new System.Drawing.Size(1030, 211);
             this.clientsDataGridView.TabIndex = 4;
             // 
             // clientidDataGridViewTextBoxColumn
@@ -298,13 +332,305 @@ namespace Swimming_Pool_Database.Forms
             this.passwordDataGridViewTextBoxColumn.ReadOnly = true;
             this.passwordDataGridViewTextBoxColumn.Width = 90;
             // 
+            // searchGroupBox
+            // 
+            this.searchGroupBox.Controls.Add(this.searchButton);
+            this.searchGroupBox.Controls.Add(this.middleNameTextBox);
+            this.searchGroupBox.Controls.Add(this.lastNameTextBox);
+            this.searchGroupBox.Controls.Add(this.firstNameTextBox);
+            this.searchGroupBox.Controls.Add(this.firstNameLabel);
+            this.searchGroupBox.Controls.Add(this.lastNameLabel);
+            this.searchGroupBox.Controls.Add(this.middleNameLabel);
+            this.searchGroupBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.searchGroupBox.Location = new System.Drawing.Point(3, 214);
+            this.searchGroupBox.Name = "searchGroupBox";
+            this.searchGroupBox.Size = new System.Drawing.Size(1030, 122);
+            this.searchGroupBox.TabIndex = 4;
+            this.searchGroupBox.TabStop = false;
+            this.searchGroupBox.Text = "Пошук клієнтів";
+            // 
+            // searchButton
+            // 
+            this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.searchButton.Location = new System.Drawing.Point(458, 69);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(121, 38);
+            this.searchButton.TabIndex = 19;
+            this.searchButton.Text = "Шукати";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.SetFiltering);
+            // 
+            // middleNameTextBox
+            // 
+            this.middleNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.middleNameTextBox.Location = new System.Drawing.Point(825, 30);
+            this.middleNameTextBox.Name = "middleNameTextBox";
+            this.middleNameTextBox.Size = new System.Drawing.Size(187, 27);
+            this.middleNameTextBox.TabIndex = 6;
+            // 
+            // lastNameTextBox
+            // 
+            this.lastNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lastNameTextBox.Location = new System.Drawing.Point(437, 30);
+            this.lastNameTextBox.Name = "lastNameTextBox";
+            this.lastNameTextBox.Size = new System.Drawing.Size(187, 27);
+            this.lastNameTextBox.TabIndex = 5;
+            // 
+            // firstNameTextBox
+            // 
+            this.firstNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.firstNameTextBox.Location = new System.Drawing.Point(58, 30);
+            this.firstNameTextBox.Name = "firstNameTextBox";
+            this.firstNameTextBox.Size = new System.Drawing.Size(187, 27);
+            this.firstNameTextBox.TabIndex = 4;
+            // 
+            // firstNameLabel
+            // 
+            this.firstNameLabel.AutoSize = true;
+            this.firstNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.firstNameLabel.Location = new System.Drawing.Point(8, 33);
+            this.firstNameLabel.Name = "firstNameLabel";
+            this.firstNameLabel.Size = new System.Drawing.Size(44, 20);
+            this.firstNameLabel.TabIndex = 1;
+            this.firstNameLabel.Text = "Ім\'я:";
+            // 
+            // lastNameLabel
+            // 
+            this.lastNameLabel.AutoSize = true;
+            this.lastNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lastNameLabel.Location = new System.Drawing.Point(337, 33);
+            this.lastNameLabel.Name = "lastNameLabel";
+            this.lastNameLabel.Size = new System.Drawing.Size(94, 20);
+            this.lastNameLabel.TabIndex = 2;
+            this.lastNameLabel.Text = "Прізвище:";
+            // 
+            // middleNameLabel
+            // 
+            this.middleNameLabel.AutoSize = true;
+            this.middleNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.middleNameLabel.Location = new System.Drawing.Point(703, 33);
+            this.middleNameLabel.Name = "middleNameLabel";
+            this.middleNameLabel.Size = new System.Drawing.Size(116, 20);
+            this.middleNameLabel.TabIndex = 3;
+            this.middleNameLabel.Text = "По-батькові:";
+            // 
+            // filterGroupBox
+            // 
+            this.filterGroupBox.Controls.Add(this.filterButton);
+            this.filterGroupBox.Controls.Add(this.panel5);
+            this.filterGroupBox.Controls.Add(this.panel4);
+            this.filterGroupBox.Controls.Add(this.filterPreparationLevelCheckBox);
+            this.filterGroupBox.Controls.Add(this.filterSexCheckBox);
+            this.filterGroupBox.Controls.Add(this.filterDateCheckBox);
+            this.filterGroupBox.Controls.Add(this.label5);
+            this.filterGroupBox.Controls.Add(this.label4);
+            this.filterGroupBox.Controls.Add(this.label3);
+            this.filterGroupBox.Controls.Add(this.filterToDateTimePicker);
+            this.filterGroupBox.Controls.Add(this.label2);
+            this.filterGroupBox.Controls.Add(this.filterFromDateTimePicker);
+            this.filterGroupBox.Controls.Add(this.label1);
+            this.filterGroupBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.filterGroupBox.Location = new System.Drawing.Point(3, 336);
+            this.filterGroupBox.Name = "filterGroupBox";
+            this.filterGroupBox.Size = new System.Drawing.Size(1030, 185);
+            this.filterGroupBox.TabIndex = 7;
+            this.filterGroupBox.TabStop = false;
+            this.filterGroupBox.Text = "Фільтрація клієнтів";
+            // 
+            // filterButton
+            // 
+            this.filterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.filterButton.Location = new System.Drawing.Point(431, 132);
+            this.filterButton.Name = "filterButton";
+            this.filterButton.Size = new System.Drawing.Size(169, 38);
+            this.filterButton.TabIndex = 18;
+            this.filterButton.Text = "Фільтрувати";
+            this.filterButton.UseVisualStyleBackColor = true;
+            this.filterButton.Click += new System.EventHandler(this.SetFiltering);
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.beginnerRadioButton);
+            this.panel5.Controls.Add(this.amateurRadioButton);
+            this.panel5.Controls.Add(this.sportsmanRadioButton);
+            this.panel5.Location = new System.Drawing.Point(648, 48);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(364, 46);
+            this.panel5.TabIndex = 17;
+            // 
+            // beginnerRadioButton
+            // 
+            this.beginnerRadioButton.AutoSize = true;
+            this.beginnerRadioButton.Location = new System.Drawing.Point(12, 12);
+            this.beginnerRadioButton.Name = "beginnerRadioButton";
+            this.beginnerRadioButton.Size = new System.Drawing.Size(115, 22);
+            this.beginnerRadioButton.TabIndex = 10;
+            this.beginnerRadioButton.TabStop = true;
+            this.beginnerRadioButton.Text = "Початківець";
+            this.beginnerRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // amateurRadioButton
+            // 
+            this.amateurRadioButton.AutoSize = true;
+            this.amateurRadioButton.Location = new System.Drawing.Point(133, 12);
+            this.amateurRadioButton.Name = "amateurRadioButton";
+            this.amateurRadioButton.Size = new System.Drawing.Size(100, 22);
+            this.amateurRadioButton.TabIndex = 11;
+            this.amateurRadioButton.TabStop = true;
+            this.amateurRadioButton.Text = "Любитель";
+            this.amateurRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // sportsmanRadioButton
+            // 
+            this.sportsmanRadioButton.AutoSize = true;
+            this.sportsmanRadioButton.Location = new System.Drawing.Point(239, 12);
+            this.sportsmanRadioButton.Name = "sportsmanRadioButton";
+            this.sportsmanRadioButton.Size = new System.Drawing.Size(107, 22);
+            this.sportsmanRadioButton.TabIndex = 12;
+            this.sportsmanRadioButton.TabStop = true;
+            this.sportsmanRadioButton.Text = "Спортсмен";
+            this.sportsmanRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.maleRadioButton);
+            this.panel4.Controls.Add(this.femaleRadioButton);
+            this.panel4.Location = new System.Drawing.Point(424, 48);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(200, 46);
+            this.panel4.TabIndex = 16;
+            // 
+            // maleRadioButton
+            // 
+            this.maleRadioButton.AutoSize = true;
+            this.maleRadioButton.Location = new System.Drawing.Point(7, 11);
+            this.maleRadioButton.Name = "maleRadioButton";
+            this.maleRadioButton.Size = new System.Drawing.Size(93, 22);
+            this.maleRadioButton.TabIndex = 7;
+            this.maleRadioButton.TabStop = true;
+            this.maleRadioButton.Text = "Чоловіча";
+            this.maleRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // femaleRadioButton
+            // 
+            this.femaleRadioButton.AutoSize = true;
+            this.femaleRadioButton.Location = new System.Drawing.Point(106, 11);
+            this.femaleRadioButton.Name = "femaleRadioButton";
+            this.femaleRadioButton.Size = new System.Drawing.Size(79, 22);
+            this.femaleRadioButton.TabIndex = 8;
+            this.femaleRadioButton.TabStop = true;
+            this.femaleRadioButton.Text = "Жіноча";
+            this.femaleRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // filterPreparationLevelCheckBox
+            // 
+            this.filterPreparationLevelCheckBox.AutoSize = true;
+            this.filterPreparationLevelCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.filterPreparationLevelCheckBox.Location = new System.Drawing.Point(698, 95);
+            this.filterPreparationLevelCheckBox.Name = "filterPreparationLevelCheckBox";
+            this.filterPreparationLevelCheckBox.Size = new System.Drawing.Size(254, 22);
+            this.filterPreparationLevelCheckBox.TabIndex = 15;
+            this.filterPreparationLevelCheckBox.Text = "Фільтрація за рівнем підготовки";
+            this.filterPreparationLevelCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // filterSexCheckBox
+            // 
+            this.filterSexCheckBox.AutoSize = true;
+            this.filterSexCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.filterSexCheckBox.Location = new System.Drawing.Point(431, 95);
+            this.filterSexCheckBox.Name = "filterSexCheckBox";
+            this.filterSexCheckBox.Size = new System.Drawing.Size(177, 22);
+            this.filterSexCheckBox.TabIndex = 14;
+            this.filterSexCheckBox.Text = "Фільтрація за статтю";
+            this.filterSexCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // filterDateCheckBox
+            // 
+            this.filterDateCheckBox.AutoSize = true;
+            this.filterDateCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.filterDateCheckBox.Location = new System.Drawing.Point(131, 95);
+            this.filterDateCheckBox.Name = "filterDateCheckBox";
+            this.filterDateCheckBox.Size = new System.Drawing.Size(173, 22);
+            this.filterDateCheckBox.TabIndex = 13;
+            this.filterDateCheckBox.Text = "Фільтрація за датою";
+            this.filterDateCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(745, 24);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(167, 20);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Рівень підготовки:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(485, 24);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(66, 20);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Стать:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(209, 58);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(33, 18);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "До:";
+            // 
+            // filterToDateTimePicker
+            // 
+            this.filterToDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.filterToDateTimePicker.Location = new System.Drawing.Point(248, 57);
+            this.filterToDateTimePicker.Name = "filterToDateTimePicker";
+            this.filterToDateTimePicker.Size = new System.Drawing.Size(120, 24);
+            this.filterToDateTimePicker.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(31, 58);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(34, 18);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Від:";
+            // 
+            // filterFromDateTimePicker
+            // 
+            this.filterFromDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.filterFromDateTimePicker.Location = new System.Drawing.Point(71, 57);
+            this.filterFromDateTimePicker.Name = "filterFromDateTimePicker";
+            this.filterFromDateTimePicker.Size = new System.Drawing.Size(120, 24);
+            this.filterFromDateTimePicker.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(129, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(161, 20);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Дата народження";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.deleteClientButton);
             this.panel2.Controls.Add(this.editClientButton);
             this.panel2.Controls.Add(this.addClientButton);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(3, 301);
+            this.panel2.Location = new System.Drawing.Point(3, 521);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1030, 100);
             this.panel2.TabIndex = 3;
@@ -349,7 +675,7 @@ namespace Swimming_Pool_Database.Forms
             this.subscriptionsTabPage.Location = new System.Drawing.Point(4, 27);
             this.subscriptionsTabPage.Name = "subscriptionsTabPage";
             this.subscriptionsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.subscriptionsTabPage.Size = new System.Drawing.Size(1036, 404);
+            this.subscriptionsTabPage.Size = new System.Drawing.Size(1036, 624);
             this.subscriptionsTabPage.TabIndex = 1;
             this.subscriptionsTabPage.Text = "Абонементи";
             this.subscriptionsTabPage.UseVisualStyleBackColor = true;
@@ -375,7 +701,7 @@ namespace Swimming_Pool_Database.Forms
             this.subscriptionsDataGridView.RowHeadersWidth = 51;
             this.subscriptionsDataGridView.RowTemplate.Height = 24;
             this.subscriptionsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.subscriptionsDataGridView.Size = new System.Drawing.Size(1030, 298);
+            this.subscriptionsDataGridView.Size = new System.Drawing.Size(1030, 518);
             this.subscriptionsDataGridView.TabIndex = 3;
             // 
             // subscriptionidDataGridViewTextBoxColumn
@@ -430,7 +756,7 @@ namespace Swimming_Pool_Database.Forms
             this.panel1.Controls.Add(this.editSubscriptionButton);
             this.panel1.Controls.Add(this.addSubscriptionButton);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(3, 301);
+            this.panel1.Location = new System.Drawing.Point(3, 521);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1030, 100);
             this.panel1.TabIndex = 2;
@@ -475,7 +801,7 @@ namespace Swimming_Pool_Database.Forms
             this.visitorCardsTabPage.Location = new System.Drawing.Point(4, 27);
             this.visitorCardsTabPage.Name = "visitorCardsTabPage";
             this.visitorCardsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.visitorCardsTabPage.Size = new System.Drawing.Size(1036, 404);
+            this.visitorCardsTabPage.Size = new System.Drawing.Size(1036, 624);
             this.visitorCardsTabPage.TabIndex = 2;
             this.visitorCardsTabPage.Text = "Картки відвідувачів";
             this.visitorCardsTabPage.UseVisualStyleBackColor = true;
@@ -504,7 +830,7 @@ namespace Swimming_Pool_Database.Forms
             this.visitorCardsDataGridView.RowHeadersWidth = 51;
             this.visitorCardsDataGridView.RowTemplate.Height = 24;
             this.visitorCardsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.visitorCardsDataGridView.Size = new System.Drawing.Size(1030, 298);
+            this.visitorCardsDataGridView.Size = new System.Drawing.Size(1030, 518);
             this.visitorCardsDataGridView.TabIndex = 7;
             // 
             // cardidDataGridViewTextBoxColumn
@@ -615,7 +941,7 @@ namespace Swimming_Pool_Database.Forms
             this.panel3.Controls.Add(this.editVisitorCardButton);
             this.panel3.Controls.Add(this.addVisitorCardButton);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(3, 301);
+            this.panel3.Location = new System.Drawing.Point(3, 521);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1030, 100);
             this.panel3.TabIndex = 3;
@@ -674,7 +1000,7 @@ namespace Swimming_Pool_Database.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1044, 463);
+            this.ClientSize = new System.Drawing.Size(1044, 683);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
@@ -691,6 +1017,14 @@ namespace Swimming_Pool_Database.Forms
             this.tabControl.ResumeLayout(false);
             this.clientsTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.clientsDataGridView)).EndInit();
+            this.searchGroupBox.ResumeLayout(false);
+            this.searchGroupBox.PerformLayout();
+            this.filterGroupBox.ResumeLayout(false);
+            this.filterGroupBox.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.subscriptionsTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.subscriptionsDataGridView)).EndInit();
@@ -759,5 +1093,32 @@ namespace Swimming_Pool_Database.Forms
         private DataGridViewTextBoxColumn expirydateDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn attendanceleftcountDataGridViewTextBoxColumn;
         private swimmingpoolDataSetTableAdapters.VisitorCardsTableAdapter visitorCardsTableAdapter;
+        private GroupBox searchGroupBox;
+        private TextBox middleNameTextBox;
+        private TextBox lastNameTextBox;
+        private TextBox firstNameTextBox;
+        private Label firstNameLabel;
+        private Label lastNameLabel;
+        private Label middleNameLabel;
+        private GroupBox filterGroupBox;
+        private CheckBox filterDateCheckBox;
+        private RadioButton sportsmanRadioButton;
+        private RadioButton amateurRadioButton;
+        private RadioButton beginnerRadioButton;
+        private Label label5;
+        private RadioButton femaleRadioButton;
+        private RadioButton maleRadioButton;
+        private Label label4;
+        private Label label3;
+        private DateTimePicker filterToDateTimePicker;
+        private Label label2;
+        private DateTimePicker filterFromDateTimePicker;
+        private Label label1;
+        private CheckBox filterPreparationLevelCheckBox;
+        private CheckBox filterSexCheckBox;
+        private Panel panel5;
+        private Panel panel4;
+        private Button filterButton;
+        private Button searchButton;
     }
 }

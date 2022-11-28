@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Swimming_Pool_Database.Forms
@@ -212,6 +213,63 @@ namespace Swimming_Pool_Database.Forms
                 "Видалення",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question) == DialogResult.Yes;
+        }
+
+        private void SetFiltering(object sender, EventArgs e)
+        {
+            clientsBindingSource.RemoveFilter();
+            SetSearch();
+            SetFilters();
+        }
+
+        private void SetSearch()
+        {
+            SetClientsFilter(true,
+                $"first_name LIKE '%{firstNameTextBox.Text}%' " +
+                $"AND last_name LIKE '%{lastNameTextBox.Text}%' " +
+                $"AND middle_name LIKE '%{middleNameTextBox.Text}%'");
+        }
+
+        private void SetFilters()
+        {
+            SetClientsFilter(filterDateCheckBox.Checked,
+                $"date_of_birth >= '{filterFromDateTimePicker.Value:yyyy-MM-dd}' " +
+                $"AND date_of_birth < '{filterToDateTimePicker.Value:yyyy-MM-dd}'");
+
+            if (maleRadioButton.Checked || femaleRadioButton.Checked)
+            {
+                var sex = (maleRadioButton.Checked && !femaleRadioButton.Checked) ? "Чоловіча" : "Жіноча";
+                SetClientsFilter(filterSexCheckBox.Checked, "sex LIKE '" + sex + "'");
+            }
+            
+            if (beginnerRadioButton.Checked || amateurRadioButton.Checked || sportsmanRadioButton.Checked)
+            {
+                var preparationLevel = "";
+                switch (beginnerRadioButton.Checked)
+                {
+                    case true when !amateurRadioButton.Checked && !sportsmanRadioButton.Checked:
+                        preparationLevel = "Початківець";
+                        break;
+                    case false when amateurRadioButton.Checked && !sportsmanRadioButton.Checked:
+                        preparationLevel = "Любитель";
+                        break;
+                    case false when !amateurRadioButton.Checked && sportsmanRadioButton.Checked:
+                        preparationLevel = "Спортсмен";
+                        break;
+                }
+                SetClientsFilter(filterPreparationLevelCheckBox.Checked,
+                    "preparation_level LIKE '" + preparationLevel + "'");
+            }
+        }
+
+        private void SetClientsFilter(bool condition, string filterString)
+        {
+            if (condition)
+            {
+                clientsBindingSource.Filter = (string.IsNullOrEmpty(clientsBindingSource.Filter))
+                    ? filterString
+                    : clientsBindingSource.Filter + " AND " + filterString;
+            }
         }
     }
 }
