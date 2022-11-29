@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing.Printing;
 using System.Windows.Forms;
 
 namespace Swimming_Pool_Database.Forms
@@ -60,15 +61,32 @@ namespace Swimming_Pool_Database.Forms
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Information) == DialogResult.No)
             {
-                
+                printDialog.Document = printDocument;
+
+                if (printDialog.ShowDialog() == DialogResult.OK)
+                {
+                    printDocument.Print();
+                }
             }
 
             Close();
         }
 
-        private void CancelButton_Click(object sender, System.EventArgs e)
+        private void CancelButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            CommonFunctions.PrintVisitorCard(e,
+                subscriptionNameTextBox.Text,
+                firstNameTextBox.Text,
+                lastNameTextBox.Text,
+                middleNameTextBox.Text,
+                preparationLevelTextBox.Text,
+                Convert.ToDateTime(startDateTextBox.Text),
+                Convert.ToDateTime(expiryDateTextBox.Text));
         }
     }
 }

@@ -99,7 +99,8 @@ namespace Swimming_Pool_Database.Forms
                 Convert.ToInt32(clientsRow[0]),
                 clientsRow[1].ToString(),
                 clientsRow[2].ToString(),
-                clientsRow[3].ToString()
+                clientsRow[3].ToString(),
+                clientsRow[6].ToString()
             ).ShowDialog();
 
             visitorCardsTableAdapter.Fill(swimmingpoolDataSet.VisitorCards);
@@ -130,6 +131,47 @@ namespace Swimming_Pool_Database.Forms
 
             clientsTableAdapter.FillBy(dataTable, _id);
             swimmingpoolDataSet.AcceptChanges();
+        }
+
+        private void PrintVisitorCardButton_Click(object sender, EventArgs e)
+        {
+            if (!CommonFunctions.IsAnyRowSelected(visitorCardsDataGridView))
+            {
+                return;
+            }
+
+            printDialog.Document = printDocument;
+
+            if (printDialog.ShowDialog() == DialogResult.OK)
+            {
+                printDocument.Print();
+            }
+        }
+
+        private void PrintDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            var subscriptionsDataTable = new swimmingpoolDataSet.SubscriptionsDataTable();
+            var clientsDataTable = new swimmingpoolDataSet.ClientsDataTable();
+
+            if (!CommonFunctions.TryQuery(() =>
+                    subscriptionsTableAdapter.FillBy(subscriptionsDataTable,
+                        Convert.ToInt32(((DataRowView)visitorCardsDataGridView.SelectedRows[0].DataBoundItem).Row[1])))
+                || !CommonFunctions.TryQuery(() => clientsTableAdapter.FillBy(clientsDataTable, _id)))
+            {
+                return;
+            }
+
+            var subscriptionsRow = subscriptionsDataTable.Rows[0].ItemArray;
+            var clientsRow = clientsDataTable.Rows[0].ItemArray;
+            CommonFunctions.PrintVisitorCard(e,
+                subscriptionsRow[1].ToString(),
+                clientsRow[1].ToString(),
+                clientsRow[2].ToString(),
+                clientsRow[3].ToString(),
+                clientsRow[6].ToString(),
+                Convert.ToDateTime(((DataRowView)visitorCardsDataGridView.SelectedRows[0].DataBoundItem).Row[3]),
+                Convert.ToDateTime(((DataRowView)visitorCardsDataGridView.SelectedRows[0].DataBoundItem).Row[4])
+            );
         }
 
         private void DeleteVisitorCardButton_Click(object sender, EventArgs e)

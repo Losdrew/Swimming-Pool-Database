@@ -101,11 +101,17 @@ namespace Swimming_Pool_Database.Forms
             this.subscriptionsSortButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.subscriptionsDataGridView = new System.Windows.Forms.DataGridView();
+            this.subscriptionidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.attendancecount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.daycount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.deleteSubscriptionButton = new System.Windows.Forms.Button();
             this.editSubscriptionButton = new System.Windows.Forms.Button();
             this.addSubscriptionButton = new System.Windows.Forms.Button();
             this.visitorCardsTabPage = new System.Windows.Forms.TabPage();
+            this.printVisitorCardButton = new System.Windows.Forms.Button();
             this.visitorCardsDataGridView = new System.Windows.Forms.DataGridView();
             this.cardidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subscriptionidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -123,11 +129,8 @@ namespace Swimming_Pool_Database.Forms
             this.trainingsTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.TrainingsTableAdapter();
             this.subscriptionsTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.SubscriptionsTableAdapter();
             this.visitorCardsTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.VisitorCardsTableAdapter();
-            this.subscriptionidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.attendancecount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.daycount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.printDialog = new System.Windows.Forms.PrintDialog();
+            this.printDocument = new System.Drawing.Printing.PrintDocument();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.swimmingpoolDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientsBindingSource)).BeginInit();
@@ -913,6 +916,52 @@ namespace Swimming_Pool_Database.Forms
             this.subscriptionsDataGridView.TabIndex = 3;
             this.subscriptionsDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.SubscriptionsDataGridView_CellFormatting);
             // 
+            // subscriptionidDataGridViewTextBoxColumn
+            // 
+            this.subscriptionidDataGridViewTextBoxColumn.DataPropertyName = "subscription_id";
+            this.subscriptionidDataGridViewTextBoxColumn.HeaderText = "subscription_id";
+            this.subscriptionidDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.subscriptionidDataGridViewTextBoxColumn.Name = "subscriptionidDataGridViewTextBoxColumn";
+            this.subscriptionidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.subscriptionidDataGridViewTextBoxColumn.Visible = false;
+            this.subscriptionidDataGridViewTextBoxColumn.Width = 136;
+            // 
+            // name
+            // 
+            this.name.DataPropertyName = "name";
+            this.name.HeaderText = "Назва";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Width = 80;
+            // 
+            // price
+            // 
+            this.price.DataPropertyName = "price";
+            this.price.HeaderText = "Ціна";
+            this.price.MinimumWidth = 6;
+            this.price.Name = "price";
+            this.price.ReadOnly = true;
+            this.price.Width = 67;
+            // 
+            // attendancecount
+            // 
+            this.attendancecount.DataPropertyName = "attendance_count";
+            this.attendancecount.HeaderText = "Кількість відвідувань";
+            this.attendancecount.MinimumWidth = 6;
+            this.attendancecount.Name = "attendancecount";
+            this.attendancecount.ReadOnly = true;
+            this.attendancecount.Width = 168;
+            // 
+            // daycount
+            // 
+            this.daycount.DataPropertyName = "day_count";
+            this.daycount.HeaderText = "Строк дії";
+            this.daycount.MinimumWidth = 6;
+            this.daycount.Name = "daycount";
+            this.daycount.ReadOnly = true;
+            this.daycount.Width = 92;
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.deleteSubscriptionButton);
@@ -969,6 +1018,17 @@ namespace Swimming_Pool_Database.Forms
             this.visitorCardsTabPage.Text = "Картки відвідувачів";
             this.visitorCardsTabPage.UseVisualStyleBackColor = true;
             // 
+            // printVisitorCardButton
+            // 
+            this.printVisitorCardButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.printVisitorCardButton.Location = new System.Drawing.Point(377, 78);
+            this.printVisitorCardButton.Name = "printVisitorCardButton";
+            this.printVisitorCardButton.Size = new System.Drawing.Size(269, 48);
+            this.printVisitorCardButton.TabIndex = 4;
+            this.printVisitorCardButton.Text = "Роздрукувати обрану картку";
+            this.printVisitorCardButton.UseVisualStyleBackColor = true;
+            this.printVisitorCardButton.Click += new System.EventHandler(this.PrintVisitorCardButton_Click);
+            // 
             // visitorCardsDataGridView
             // 
             this.visitorCardsDataGridView.AllowUserToAddRows = false;
@@ -993,7 +1053,7 @@ namespace Swimming_Pool_Database.Forms
             this.visitorCardsDataGridView.RowHeadersWidth = 51;
             this.visitorCardsDataGridView.RowTemplate.Height = 24;
             this.visitorCardsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.visitorCardsDataGridView.Size = new System.Drawing.Size(1030, 518);
+            this.visitorCardsDataGridView.Size = new System.Drawing.Size(1030, 478);
             this.visitorCardsDataGridView.TabIndex = 7;
             // 
             // cardidDataGridViewTextBoxColumn
@@ -1100,19 +1160,20 @@ namespace Swimming_Pool_Database.Forms
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.printVisitorCardButton);
             this.panel3.Controls.Add(this.deleteVisitorCardButton);
             this.panel3.Controls.Add(this.editVisitorCardButton);
             this.panel3.Controls.Add(this.addVisitorCardButton);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(3, 521);
+            this.panel3.Location = new System.Drawing.Point(3, 481);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1030, 100);
+            this.panel3.Size = new System.Drawing.Size(1030, 140);
             this.panel3.TabIndex = 3;
             // 
             // deleteVisitorCardButton
             // 
             this.deleteVisitorCardButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.deleteVisitorCardButton.Location = new System.Drawing.Point(727, 26);
+            this.deleteVisitorCardButton.Location = new System.Drawing.Point(727, 15);
             this.deleteVisitorCardButton.Name = "deleteVisitorCardButton";
             this.deleteVisitorCardButton.Size = new System.Drawing.Size(163, 46);
             this.deleteVisitorCardButton.TabIndex = 2;
@@ -1123,7 +1184,7 @@ namespace Swimming_Pool_Database.Forms
             // editVisitorCardButton
             // 
             this.editVisitorCardButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.editVisitorCardButton.Location = new System.Drawing.Point(434, 27);
+            this.editVisitorCardButton.Location = new System.Drawing.Point(434, 16);
             this.editVisitorCardButton.Name = "editVisitorCardButton";
             this.editVisitorCardButton.Size = new System.Drawing.Size(163, 46);
             this.editVisitorCardButton.TabIndex = 1;
@@ -1134,7 +1195,7 @@ namespace Swimming_Pool_Database.Forms
             // addVisitorCardButton
             // 
             this.addVisitorCardButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addVisitorCardButton.Location = new System.Drawing.Point(138, 26);
+            this.addVisitorCardButton.Location = new System.Drawing.Point(138, 15);
             this.addVisitorCardButton.Name = "addVisitorCardButton";
             this.addVisitorCardButton.Size = new System.Drawing.Size(163, 46);
             this.addVisitorCardButton.TabIndex = 0;
@@ -1154,51 +1215,13 @@ namespace Swimming_Pool_Database.Forms
             // 
             this.visitorCardsTableAdapter.ClearBeforeFill = true;
             // 
-            // subscriptionidDataGridViewTextBoxColumn
+            // printDialog
             // 
-            this.subscriptionidDataGridViewTextBoxColumn.DataPropertyName = "subscription_id";
-            this.subscriptionidDataGridViewTextBoxColumn.HeaderText = "subscription_id";
-            this.subscriptionidDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.subscriptionidDataGridViewTextBoxColumn.Name = "subscriptionidDataGridViewTextBoxColumn";
-            this.subscriptionidDataGridViewTextBoxColumn.ReadOnly = true;
-            this.subscriptionidDataGridViewTextBoxColumn.Visible = false;
-            this.subscriptionidDataGridViewTextBoxColumn.Width = 136;
+            this.printDialog.UseEXDialog = true;
             // 
-            // name
+            // printDocument
             // 
-            this.name.DataPropertyName = "name";
-            this.name.HeaderText = "Назва";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            this.name.Width = 80;
-            // 
-            // price
-            // 
-            this.price.DataPropertyName = "price";
-            this.price.HeaderText = "Ціна";
-            this.price.MinimumWidth = 6;
-            this.price.Name = "price";
-            this.price.ReadOnly = true;
-            this.price.Width = 67;
-            // 
-            // attendancecount
-            // 
-            this.attendancecount.DataPropertyName = "attendance_count";
-            this.attendancecount.HeaderText = "Кількість відвідувань";
-            this.attendancecount.MinimumWidth = 6;
-            this.attendancecount.Name = "attendancecount";
-            this.attendancecount.ReadOnly = true;
-            this.attendancecount.Width = 168;
-            // 
-            // daycount
-            // 
-            this.daycount.DataPropertyName = "day_count";
-            this.daycount.HeaderText = "Строк дії";
-            this.daycount.MinimumWidth = 6;
-            this.daycount.Name = "daycount";
-            this.daycount.ReadOnly = true;
-            this.daycount.Width = 92;
+            this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintDocument_PrintPage);
             // 
             // AdminMainForm
             // 
@@ -1349,5 +1372,8 @@ namespace Swimming_Pool_Database.Forms
         private DataGridViewTextBoxColumn price;
         private DataGridViewTextBoxColumn attendancecount;
         private DataGridViewTextBoxColumn daycount;
+        private Button printVisitorCardButton;
+        private PrintDialog printDialog;
+        private System.Drawing.Printing.PrintDocument printDocument;
     }
 }

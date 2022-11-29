@@ -49,6 +49,8 @@
             this.preparationLevelTextBox = new System.Windows.Forms.TextBox();
             this.startDateTextBox = new System.Windows.Forms.TextBox();
             this.expiryDateTextBox = new System.Windows.Forms.TextBox();
+            this.printDialog = new System.Windows.Forms.PrintDialog();
+            this.printDocument = new System.Drawing.Printing.PrintDocument();
             firstNameLabel = new System.Windows.Forms.Label();
             lastNameLabel = new System.Windows.Forms.Label();
             middleNameLabel = new System.Windows.Forms.Label();
@@ -257,6 +259,14 @@
             this.expiryDateTextBox.Size = new System.Drawing.Size(193, 27);
             this.expiryDateTextBox.TabIndex = 75;
             // 
+            // printDialog
+            // 
+            this.printDialog.UseEXDialog = true;
+            // 
+            // printDocument
+            // 
+            this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintDocument_PrintPage);
+            // 
             // OrderSubscription
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -303,5 +313,7 @@
         private System.Windows.Forms.TextBox preparationLevelTextBox;
         private System.Windows.Forms.TextBox startDateTextBox;
         private System.Windows.Forms.TextBox expiryDateTextBox;
+        private System.Windows.Forms.PrintDialog printDialog;
+        private System.Drawing.Printing.PrintDocument printDocument;
     }
 }
