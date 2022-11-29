@@ -7,7 +7,6 @@ namespace Swimming_Pool_Database.Forms
     {
         private readonly int _subscriptionId;
         private readonly int _clientId;
-        private readonly int _dayCount;
 
         private OrderSubscription()
         {
@@ -15,20 +14,20 @@ namespace Swimming_Pool_Database.Forms
         }
 
         public OrderSubscription(int subscriptionId, string subscriptionName, decimal price, int attendanceCount, 
-            int dayCount, int clientId, string firstName, string lastName, string middleName) : this()
+            int dayCount, int clientId, string firstName, string lastName, string middleName, string preparationLevel) : this()
         {
             _subscriptionId = subscriptionId;
             _clientId = clientId;
-            _dayCount = dayCount;
 
             subscriptionNameTextBox.Text = subscriptionName;
             priceTextBox.Text = price + "₴";
             attendanceCountTextBox.Text = attendanceCount.ToString();
-            startDateTimePicker.Value = DateTime.Now;
-            expiryDateTimePicker.Value = DateTime.Now;
+            startDateTextBox.Text = DateTime.Now.ToLongDateString();
+            expiryDateTextBox.Text = DateTime.Now.AddDays(dayCount).ToLongDateString();
             firstNameTextBox.Text = firstName;
             lastNameTextBox.Text = lastName;
             middleNameTextBox.Text = middleName;
+            preparationLevelTextBox.Text = preparationLevel;
         }
 
         private void OrderButton_Click(object sender, EventArgs e)
@@ -38,8 +37,8 @@ namespace Swimming_Pool_Database.Forms
                 visitorCardsTableAdapter.Insert(
                     _subscriptionId,
                     _clientId,
-                    startDateTimePicker.Value,
-                    expiryDateTimePicker.Value,
+                    DateTime.Parse(startDateTextBox.Text),
+                    DateTime.Parse(expiryDateTextBox.Text),
                     int.Parse(attendanceCountTextBox.Text));
             }
             catch
@@ -61,7 +60,7 @@ namespace Swimming_Pool_Database.Forms
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Information) == DialogResult.No)
             {
-                //TODO - Звіт з карткою відвідувача
+                
             }
 
             Close();
@@ -70,22 +69,6 @@ namespace Swimming_Pool_Database.Forms
         private void CancelButton_Click(object sender, System.EventArgs e)
         {
             Close();
-        }
-
-        private void StartDateTimePicker_ValueChanged(object sender, EventArgs e)
-        {
-            if (startDateTimePicker.Focused)
-            {
-                expiryDateTimePicker.Value = startDateTimePicker.Value.AddDays(_dayCount);
-            }
-        }
-
-        private void ExpiryDateTimePicker_ValueChanged(object sender, EventArgs e)
-        {
-            if (expiryDateTimePicker.Focused)
-            {
-                startDateTimePicker.Value = expiryDateTimePicker.Value.AddDays(-_dayCount);
-            }
         }
     }
 }

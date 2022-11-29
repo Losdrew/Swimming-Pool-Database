@@ -36,6 +36,7 @@
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label label5;
             System.Windows.Forms.Label label4;
+            System.Windows.Forms.Label preparationLevelLabel;
             this.middleNameTextBox = new System.Windows.Forms.TextBox();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
@@ -44,9 +45,10 @@
             this.subscriptionNameTextBox = new System.Windows.Forms.TextBox();
             this.priceTextBox = new System.Windows.Forms.TextBox();
             this.attendanceCountTextBox = new System.Windows.Forms.TextBox();
-            this.startDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.expiryDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.visitorCardsTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.VisitorCardsTableAdapter();
+            this.preparationLevelTextBox = new System.Windows.Forms.TextBox();
+            this.startDateTextBox = new System.Windows.Forms.TextBox();
+            this.expiryDateTextBox = new System.Windows.Forms.TextBox();
             firstNameLabel = new System.Windows.Forms.Label();
             lastNameLabel = new System.Windows.Forms.Label();
             middleNameLabel = new System.Windows.Forms.Label();
@@ -55,6 +57,7 @@
             label3 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
+            preparationLevelLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // firstNameLabel
@@ -137,6 +140,16 @@
             label4.TabIndex = 69;
             label4.Text = "Дата закінчення дії:";
             // 
+            // preparationLevelLabel
+            // 
+            preparationLevelLabel.AutoSize = true;
+            preparationLevelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            preparationLevelLabel.Location = new System.Drawing.Point(48, 297);
+            preparationLevelLabel.Name = "preparationLevelLabel";
+            preparationLevelLabel.Size = new System.Drawing.Size(181, 25);
+            preparationLevelLabel.TabIndex = 72;
+            preparationLevelLabel.Text = "Рівень підготовки:";
+            // 
             // middleNameTextBox
             // 
             this.middleNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -167,7 +180,7 @@
             // cancelButton
             // 
             this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cancelButton.Location = new System.Drawing.Point(263, 332);
+            this.cancelButton.Location = new System.Drawing.Point(263, 358);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(160, 39);
             this.cancelButton.TabIndex = 46;
@@ -178,7 +191,7 @@
             // orderButton
             // 
             this.orderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.orderButton.Location = new System.Drawing.Point(81, 332);
+            this.orderButton.Location = new System.Drawing.Point(81, 358);
             this.orderButton.Name = "orderButton";
             this.orderButton.Size = new System.Drawing.Size(158, 39);
             this.orderButton.TabIndex = 45;
@@ -213,35 +226,46 @@
             this.attendanceCountTextBox.Size = new System.Drawing.Size(193, 27);
             this.attendanceCountTextBox.TabIndex = 64;
             // 
-            // startDateTimePicker
-            // 
-            this.startDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.startDateTimePicker.Location = new System.Drawing.Point(263, 132);
-            this.startDateTimePicker.Name = "startDateTimePicker";
-            this.startDateTimePicker.Size = new System.Drawing.Size(193, 27);
-            this.startDateTimePicker.TabIndex = 70;
-            this.startDateTimePicker.ValueChanged += new System.EventHandler(this.StartDateTimePicker_ValueChanged);
-            // 
-            // expiryDateTimePicker
-            // 
-            this.expiryDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.expiryDateTimePicker.Location = new System.Drawing.Point(263, 165);
-            this.expiryDateTimePicker.Name = "expiryDateTimePicker";
-            this.expiryDateTimePicker.Size = new System.Drawing.Size(193, 27);
-            this.expiryDateTimePicker.TabIndex = 71;
-            this.expiryDateTimePicker.ValueChanged += new System.EventHandler(this.ExpiryDateTimePicker_ValueChanged);
-            // 
             // visitorCardsTableAdapter
             // 
             this.visitorCardsTableAdapter.ClearBeforeFill = true;
+            // 
+            // preparationLevelTextBox
+            // 
+            this.preparationLevelTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.preparationLevelTextBox.Location = new System.Drawing.Point(263, 297);
+            this.preparationLevelTextBox.Name = "preparationLevelTextBox";
+            this.preparationLevelTextBox.ReadOnly = true;
+            this.preparationLevelTextBox.Size = new System.Drawing.Size(193, 27);
+            this.preparationLevelTextBox.TabIndex = 73;
+            // 
+            // startDateTextBox
+            // 
+            this.startDateTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.startDateTextBox.Location = new System.Drawing.Point(263, 132);
+            this.startDateTextBox.Name = "startDateTextBox";
+            this.startDateTextBox.ReadOnly = true;
+            this.startDateTextBox.Size = new System.Drawing.Size(193, 27);
+            this.startDateTextBox.TabIndex = 74;
+            // 
+            // expiryDateTextBox
+            // 
+            this.expiryDateTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.expiryDateTextBox.Location = new System.Drawing.Point(263, 165);
+            this.expiryDateTextBox.Name = "expiryDateTextBox";
+            this.expiryDateTextBox.ReadOnly = true;
+            this.expiryDateTextBox.Size = new System.Drawing.Size(193, 27);
+            this.expiryDateTextBox.TabIndex = 75;
             // 
             // OrderSubscription
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(508, 406);
-            this.Controls.Add(this.expiryDateTimePicker);
-            this.Controls.Add(this.startDateTimePicker);
+            this.ClientSize = new System.Drawing.Size(508, 430);
+            this.Controls.Add(this.expiryDateTextBox);
+            this.Controls.Add(this.startDateTextBox);
+            this.Controls.Add(this.preparationLevelTextBox);
+            this.Controls.Add(preparationLevelLabel);
             this.Controls.Add(label4);
             this.Controls.Add(label5);
             this.Controls.Add(this.attendanceCountTextBox);
@@ -275,8 +299,9 @@
         private System.Windows.Forms.TextBox subscriptionNameTextBox;
         private System.Windows.Forms.TextBox priceTextBox;
         private System.Windows.Forms.TextBox attendanceCountTextBox;
-        private System.Windows.Forms.DateTimePicker startDateTimePicker;
-        private System.Windows.Forms.DateTimePicker expiryDateTimePicker;
         private swimmingpoolDataSetTableAdapters.VisitorCardsTableAdapter visitorCardsTableAdapter;
+        private System.Windows.Forms.TextBox preparationLevelTextBox;
+        private System.Windows.Forms.TextBox startDateTextBox;
+        private System.Windows.Forms.TextBox expiryDateTextBox;
     }
 }
