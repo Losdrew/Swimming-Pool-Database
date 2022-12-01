@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Data;
-using System.Linq;
-using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace Swimming_Pool_Database.Forms
@@ -23,6 +21,8 @@ namespace Swimming_Pool_Database.Forms
             clientsTableAdapter.Fill(swimmingpoolDataSet.Clients);
             subscriptionsTableAdapter.Fill(swimmingpoolDataSet.Subscriptions);
             visitorCardsTableAdapter.Fill(swimmingpoolDataSet.VisitorCards);
+            trainingsTableAdapter.Fill(swimmingpoolDataSet.Trainings);
+            swimLanesTableAdapter.Fill(swimmingpoolDataSet.SwimLanes);
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -42,6 +42,9 @@ namespace Swimming_Pool_Database.Forms
                     break;
                 case TabPage tabPage when tabPage.Equals(visitorCardsTabPage):
                     visitorCardsDataGridView.Columns[0].Visible = false;
+                    break;
+                case TabPage tabPage when tabPage.Equals(trainingsTabPage):
+                    trainingsDataGridView.Columns[0].Visible = false;
                     break;
             }
         }
@@ -350,6 +353,56 @@ namespace Swimming_Pool_Database.Forms
             }
 
             FillAdaptersAndAcceptChanges();
+        }
+
+        private void TrainingsDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex != trainingsDataGridView.Columns["cardIdColumn"].Index)
+            {
+                return;
+            }
+
+            var dataTable = new swimmingpoolDataSet.ClientsDataTable();
+            clientsTableAdapter.FillByTrainingCardId(dataTable, Convert.ToInt32(e.Value));
+            var row = dataTable.Rows[0].ItemArray;
+            e.Value = row[1] + " " + row[2] + " " + row[3];
+            e.FormattingApplied = true;
+        }
+
+        private void ClientComboBox_Format(object sender, ListControlConvertEventArgs e)
+        {
+            var row = (DataRowView)e.ListItem;
+            e.Value = row["first_name"] + " " + row["last_name"] + " " + row["middle_name"];
+        }
+
+        private void FilterTrainingsButton_Click(object sender, EventArgs e)
+        {
+            trainingsBindingSource.RemoveFilter();
+
+            if (!filterClientCheckBox.Checked)
+            {
+                return;
+            }
+
+            var dataTable = new swimmingpoolDataSet.VisitorCardsDataTable();
+            visitorCardsTableAdapter.FillByClientId(dataTable, Convert.ToInt32(clientComboBox.SelectedValue));
+
+            if (dataTable.Rows.Count == 0)
+            {
+                trainingsBindingSource.Filter += "card_id = -1";
+            }
+
+            for (var i = 0; i < dataTable.Rows.Count; i++)
+            {
+                if (i == 0)
+                {
+                    trainingsBindingSource.Filter = "card_id = " + dataTable.Rows[i].ItemArray[0];
+                }
+                else
+                {
+                    trainingsBindingSource.Filter += " OR card_id = " + dataTable.Rows[i].ItemArray[0];
+                }
+            }
         }
 
         private void FillAdaptersAndAcceptChanges()

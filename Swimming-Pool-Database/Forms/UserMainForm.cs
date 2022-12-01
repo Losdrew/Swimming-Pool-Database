@@ -32,6 +32,21 @@ namespace Swimming_Pool_Database.Forms
             subscriptionsTableAdapter.Fill(swimmingpoolDataSet.Subscriptions);
             visitorCardsTableAdapter.Fill(swimmingpoolDataSet.VisitorCards);
             visitorCardsBindingSource.Filter = "client_id = " + _id;
+            trainingsTableAdapter.Fill(swimmingpoolDataSet.Trainings);
+            for (var i = 0; i < visitorCardsDataGridView.Rows.Count; i++)
+            {
+                if (i == 0)
+                {
+                    trainingsBindingSource.Filter =
+                        "card_id = " + Convert.ToInt32(visitorCardsDataGridView.Rows[i].Cells[0].Value);
+                }
+                else
+                {
+                    trainingsBindingSource.Filter +=
+                        " OR card_id = " + Convert.ToInt32(visitorCardsDataGridView.Rows[i].Cells[0].Value);
+                }
+            }
+            swimLanesTableAdapter.Fill(swimmingpoolDataSet.SwimLanes);
         }
 
         private void TabControl_Selected(object sender, TabControlEventArgs e)
@@ -46,6 +61,9 @@ namespace Swimming_Pool_Database.Forms
                     break;
                 case TabPage tabPage when tabPage.Equals(visitorCardTabPage):
                     visitorCardsDataGridView.Columns[0].Visible = false;
+                    break;
+                case TabPage tabPage when tabPage.Equals(trainingsTabPage):
+                    trainingsDataGridView.Columns[0].Visible = false;
                     break;
             }
         }
