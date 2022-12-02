@@ -60,7 +60,7 @@ namespace Swimming_Pool_Database.Forms
                     "Бажаєте роздрукувати її?",
                     "Оформлення успішне",
                     MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Information) == DialogResult.No)
+                    MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 printDialog.Document = printDocument;
 

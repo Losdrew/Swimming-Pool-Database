@@ -11,6 +11,8 @@ namespace Swimming_Pool_Database.Forms
         public EditClients()
         {
             InitializeComponent();
+            sexComboBox.SelectedIndex = 0;
+            preparationLevelComboBox.SelectedIndex = 0;
         }
 
         public EditClients(int id, string login, string password) : this()

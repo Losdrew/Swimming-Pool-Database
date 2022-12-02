@@ -12,7 +12,7 @@
     <Shape ID="DesignTable:Clients" ZOrder="9" X="591" Y="381" Height="411" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="260" />
     <Shape ID="DesignTable:VisitorCards" ZOrder="8" X="598" Y="28" Height="319" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="168" />
     <Shape ID="DesignTable:Subscriptions" ZOrder="10" X="259" Y="27" Height="273" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="145" />
-    <Shape ID="DesignTable:Trainings" ZOrder="3" X="946" Y="31" Height="296" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="168" />
+    <Shape ID="DesignTable:Trainings" ZOrder="4" X="946" Y="31" Height="296" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="168" />
   </Shapes>
   <Connectors>
     <Connector ID="DesignRelation:FK_Pools_SwimLanes" ZOrder="7" LineWidth="11">
@@ -51,19 +51,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK_Clients_VisitorCards" ZOrder="4" LineWidth="11">
-      <RoutePoints>
-        <Point>
-          <X>735</X>
-          <Y>381</Y>
-        </Point>
-        <Point>
-          <X>735</X>
-          <Y>347</Y>
-        </Point>
-      </RoutePoints>
-    </Connector>
-    <Connector ID="DesignRelation:SwimLanes_Trainings" ZOrder="2" LineWidth="11">
+    <Connector ID="DesignRelation:SwimLanes_Trainings" ZOrder="3" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>1314</X>
@@ -75,7 +63,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:VisitorCards_Trainings" ZOrder="1" LineWidth="11">
+    <Connector ID="DesignRelation:VisitorCards_Trainings" ZOrder="2" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>898</X>
@@ -84,6 +72,18 @@
         <Point>
           <X>946</X>
           <Y>181</Y>
+        </Point>
+      </RoutePoints>
+    </Connector>
+    <Connector ID="DesignRelation:Clients_VisitorCards" ZOrder="1" LineWidth="11">
+      <RoutePoints>
+        <Point>
+          <X>744</X>
+          <Y>381</Y>
+        </Point>
+        <Point>
+          <X>744</X>
+          <Y>347</Y>
         </Point>
       </RoutePoints>
     </Connector>

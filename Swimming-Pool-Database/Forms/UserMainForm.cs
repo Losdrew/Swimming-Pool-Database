@@ -47,6 +47,10 @@ namespace Swimming_Pool_Database.Forms
                         " OR card_id = " + Convert.ToInt32(visitorCardsDataGridView.Rows[i].Cells[0].Value);
                 }
             }
+            if (string.IsNullOrEmpty(trainingsBindingSource.Filter))
+            {
+                trainingsBindingSource.Filter = "card_id = -1";
+            }
             swimLanesTableAdapter.Fill(swimmingpoolDataSet.SwimLanes);
         }
 

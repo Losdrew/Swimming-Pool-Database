@@ -44,11 +44,11 @@ namespace Swimming_Pool_Database {
         
         private global::System.Data.DataRelation relationFK_Subscriptions_VisitorCards;
         
-        private global::System.Data.DataRelation relationFK_Clients_VisitorCards;
-        
         private global::System.Data.DataRelation relationSwimLanes_Trainings;
         
         private global::System.Data.DataRelation relationVisitorCards_Trainings;
+        
+        private global::System.Data.DataRelation relationClients_VisitorCards;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -353,9 +353,9 @@ namespace Swimming_Pool_Database {
             this.relationFK_Pools_SwimLanes = this.Relations["FK_Pools_SwimLanes"];
             this.relationFK_Pools_Instructors = this.Relations["FK_Pools_Instructors"];
             this.relationFK_Subscriptions_VisitorCards = this.Relations["FK_Subscriptions_VisitorCards"];
-            this.relationFK_Clients_VisitorCards = this.Relations["FK_Clients_VisitorCards"];
             this.relationSwimLanes_Trainings = this.Relations["SwimLanes_Trainings"];
             this.relationVisitorCards_Trainings = this.Relations["VisitorCards_Trainings"];
+            this.relationClients_VisitorCards = this.Relations["Clients_VisitorCards"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -392,10 +392,6 @@ namespace Swimming_Pool_Database {
                         this.tableSubscriptions.subscription_idColumn}, new global::System.Data.DataColumn[] {
                         this.tableVisitorCards.subscription_idColumn}, false);
             this.Relations.Add(this.relationFK_Subscriptions_VisitorCards);
-            this.relationFK_Clients_VisitorCards = new global::System.Data.DataRelation("FK_Clients_VisitorCards", new global::System.Data.DataColumn[] {
-                        this.tableClients.client_idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableVisitorCards.client_idColumn}, false);
-            this.Relations.Add(this.relationFK_Clients_VisitorCards);
             this.relationSwimLanes_Trainings = new global::System.Data.DataRelation("SwimLanes_Trainings", new global::System.Data.DataColumn[] {
                         this.tableSwimLanes.swimlane_idColumn}, new global::System.Data.DataColumn[] {
                         this.tableTrainings.swimlane_idColumn}, false);
@@ -404,6 +400,10 @@ namespace Swimming_Pool_Database {
                         this.tableVisitorCards.card_idColumn}, new global::System.Data.DataColumn[] {
                         this.tableTrainings.card_idColumn}, false);
             this.Relations.Add(this.relationVisitorCards_Trainings);
+            this.relationClients_VisitorCards = new global::System.Data.DataRelation("Clients_VisitorCards", new global::System.Data.DataColumn[] {
+                        this.tableClients.client_idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableVisitorCards.client_idColumn}, false);
+            this.Relations.Add(this.relationClients_VisitorCards);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1950,7 +1950,7 @@ namespace Swimming_Pool_Database {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VisitorCardsRow AddVisitorCardsRow(SubscriptionsRow parentSubscriptionsRowByFK_Subscriptions_VisitorCards, ClientsRow parentClientsRowByFK_Clients_VisitorCards, System.DateTime start_date, System.DateTime expiry_date, int attendance_left_count) {
+            public VisitorCardsRow AddVisitorCardsRow(SubscriptionsRow parentSubscriptionsRowByFK_Subscriptions_VisitorCards, ClientsRow parentClientsRowByClients_VisitorCards, System.DateTime start_date, System.DateTime expiry_date, int attendance_left_count) {
                 VisitorCardsRow rowVisitorCardsRow = ((VisitorCardsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1962,8 +1962,8 @@ namespace Swimming_Pool_Database {
                 if ((parentSubscriptionsRowByFK_Subscriptions_VisitorCards != null)) {
                     columnValuesArray[1] = parentSubscriptionsRowByFK_Subscriptions_VisitorCards[0];
                 }
-                if ((parentClientsRowByFK_Clients_VisitorCards != null)) {
-                    columnValuesArray[2] = parentClientsRowByFK_Clients_VisitorCards[0];
+                if ((parentClientsRowByClients_VisitorCards != null)) {
+                    columnValuesArray[2] = parentClientsRowByClients_VisitorCards[0];
                 }
                 rowVisitorCardsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowVisitorCardsRow);
@@ -3346,11 +3346,11 @@ namespace Swimming_Pool_Database {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public VisitorCardsRow[] GetVisitorCardsRows() {
-                if ((this.Table.ChildRelations["FK_Clients_VisitorCards"] == null)) {
+                if ((this.Table.ChildRelations["Clients_VisitorCards"] == null)) {
                     return new VisitorCardsRow[0];
                 }
                 else {
-                    return ((VisitorCardsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Clients_VisitorCards"])));
+                    return ((VisitorCardsRow[])(base.GetChildRows(this.Table.ChildRelations["Clients_VisitorCards"])));
                 }
             }
         }
@@ -3475,10 +3475,10 @@ namespace Swimming_Pool_Database {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ClientsRow ClientsRow {
                 get {
-                    return ((ClientsRow)(this.GetParentRow(this.Table.ParentRelations["FK_Clients_VisitorCards"])));
+                    return ((ClientsRow)(this.GetParentRow(this.Table.ParentRelations["Clients_VisitorCards"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Clients_VisitorCards"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["Clients_VisitorCards"]);
                 }
             }
             
