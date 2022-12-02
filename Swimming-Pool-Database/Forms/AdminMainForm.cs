@@ -208,6 +208,63 @@ namespace Swimming_Pool_Database.Forms
             FillAdaptersAndAcceptChanges();
         }
 
+        private void AddTrainingButton_Click(object sender, EventArgs e)
+        {
+            new EditTrainings().ShowDialog();
+            FillAdaptersAndAcceptChanges();
+        }
+
+        private void EditTrainingButton_Click(object sender, EventArgs e)
+        {
+            if (!CommonFunctions.IsAnyRowSelected(trainingsDataGridView))
+            {
+                return;
+            }
+
+            var trainingsDataTable = new swimmingpoolDataSet.TrainingsDataTable();
+            var visitorCardsDataTable = new swimmingpoolDataSet.VisitorCardsDataTable();
+
+            if (!CommonFunctions.TryQuery(() =>
+                    trainingsTableAdapter.FillBy(trainingsDataTable,
+                        Convert.ToInt32(((DataRowView)trainingsDataGridView.SelectedRows[0].DataBoundItem).Row[0])))
+                || !CommonFunctions.TryQuery(() =>
+                    visitorCardsTableAdapter.FillBy(visitorCardsDataTable,
+                        Convert.ToInt32(((DataRowView)trainingsDataGridView.SelectedRows[0].DataBoundItem).Row[1]))))
+            {
+                return;
+            }
+
+            var trainingsRow = trainingsDataTable.Rows[0].ItemArray;
+            var visitorCardsRow = visitorCardsDataTable.Rows[0].ItemArray;
+            new EditTrainings(
+                Convert.ToInt32(trainingsRow[0]),
+                Convert.ToInt32(trainingsRow[1]),
+                Convert.ToInt32(visitorCardsRow[2]),
+                Convert.ToInt32(trainingsRow[2]),
+                Convert.ToDateTime(trainingsRow[3]),
+                Convert.ToDateTime(trainingsRow[4]),
+                Convert.ToInt32(trainingsRow[5])).ShowDialog();
+
+            FillAdaptersAndAcceptChanges();
+        }
+
+        private void DeleteTrainingButton_Click(object sender, EventArgs e)
+        {
+            if (!CommonFunctions.IsAnyRowSelected(trainingsDataGridView) || !IsSureToDelete())
+            {
+                return;
+            }
+
+            if (!CommonFunctions.TryQuery(() =>
+                    trainingsTableAdapter.DeleteQuery(
+                        Convert.ToInt32(((DataRowView)trainingsDataGridView.SelectedRows[0].DataBoundItem).Row[0]))))
+            {
+                return;
+            }
+
+            FillAdaptersAndAcceptChanges();
+        }
+
         private void FillAdaptersAndAcceptChanges()
         {
             FillTableAdapters();

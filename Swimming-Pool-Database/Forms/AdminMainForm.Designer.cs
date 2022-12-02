@@ -110,6 +110,14 @@ namespace Swimming_Pool_Database.Forms
             this.addSubscriptionButton = new System.Windows.Forms.Button();
             this.visitorCardsTabPage = new System.Windows.Forms.TabPage();
             this.visitorCardsDataGridView = new System.Windows.Forms.DataGridView();
+            this.cardidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientId = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.clientId1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.clientId2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.subscriptionidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.startdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expirydateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.attendanceleftcountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.visitorCardsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
             this.printVisitorCardButton = new System.Windows.Forms.Button();
@@ -119,10 +127,14 @@ namespace Swimming_Pool_Database.Forms
             this.trainingsTabPage = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.printClientTrainingsButton = new System.Windows.Forms.Button();
-            this.clientComboBox = new System.Windows.Forms.ComboBox();
+            this.trainingsClientComboBox = new System.Windows.Forms.ComboBox();
             this.filterTrainingsButton = new System.Windows.Forms.Button();
             this.filterClientCheckBox = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.deleteTrainingButton = new System.Windows.Forms.Button();
+            this.editTrainingButton = new System.Windows.Forms.Button();
+            this.addTrainingButton = new System.Windows.Forms.Button();
             this.trainingsDataGridView = new System.Windows.Forms.DataGridView();
             this.trainingidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cardIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -143,14 +155,6 @@ namespace Swimming_Pool_Database.Forms
             this.swimLanesTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.SwimLanesTableAdapter();
             this.poolsTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.PoolsTableAdapter();
             this.printClientTrainings = new System.Drawing.Printing.PrintDocument();
-            this.cardidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clientId = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.clientId1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.clientId2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.subscriptionidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.startdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.expirydateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.attendanceleftcountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.clientsTabPage.SuspendLayout();
@@ -176,6 +180,7 @@ namespace Swimming_Pool_Database.Forms
             this.panel3.SuspendLayout();
             this.trainingsTabPage.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trainingsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.swimLanesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trainingsBindingSource)).BeginInit();
@@ -703,7 +708,7 @@ namespace Swimming_Pool_Database.Forms
             this.subscriptionsTabPage.Location = new System.Drawing.Point(4, 27);
             this.subscriptionsTabPage.Name = "subscriptionsTabPage";
             this.subscriptionsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.subscriptionsTabPage.Size = new System.Drawing.Size(1036, 624);
+            this.subscriptionsTabPage.Size = new System.Drawing.Size(1036, 622);
             this.subscriptionsTabPage.TabIndex = 1;
             this.subscriptionsTabPage.Text = "Абонементи";
             this.subscriptionsTabPage.UseVisualStyleBackColor = true;
@@ -721,7 +726,7 @@ namespace Swimming_Pool_Database.Forms
             this.subscriptionSortGroupBox.Controls.Add(this.subscriptionsSortButton);
             this.subscriptionSortGroupBox.Controls.Add(this.label6);
             this.subscriptionSortGroupBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.subscriptionSortGroupBox.Location = new System.Drawing.Point(3, 339);
+            this.subscriptionSortGroupBox.Location = new System.Drawing.Point(3, 337);
             this.subscriptionSortGroupBox.Name = "subscriptionSortGroupBox";
             this.subscriptionSortGroupBox.Size = new System.Drawing.Size(1030, 182);
             this.subscriptionSortGroupBox.TabIndex = 5;
@@ -916,7 +921,7 @@ namespace Swimming_Pool_Database.Forms
             this.subscriptionsDataGridView.RowHeadersWidth = 51;
             this.subscriptionsDataGridView.RowTemplate.Height = 24;
             this.subscriptionsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.subscriptionsDataGridView.Size = new System.Drawing.Size(1030, 518);
+            this.subscriptionsDataGridView.Size = new System.Drawing.Size(1030, 516);
             this.subscriptionsDataGridView.TabIndex = 3;
             this.subscriptionsDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.SubscriptionsDataGridView_CellFormatting);
             // 
@@ -977,7 +982,7 @@ namespace Swimming_Pool_Database.Forms
             this.panel1.Controls.Add(this.editSubscriptionButton);
             this.panel1.Controls.Add(this.addSubscriptionButton);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(3, 521);
+            this.panel1.Location = new System.Drawing.Point(3, 519);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1030, 100);
             this.panel1.TabIndex = 2;
@@ -1022,7 +1027,7 @@ namespace Swimming_Pool_Database.Forms
             this.visitorCardsTabPage.Location = new System.Drawing.Point(4, 27);
             this.visitorCardsTabPage.Name = "visitorCardsTabPage";
             this.visitorCardsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.visitorCardsTabPage.Size = new System.Drawing.Size(1036, 624);
+            this.visitorCardsTabPage.Size = new System.Drawing.Size(1036, 622);
             this.visitorCardsTabPage.TabIndex = 2;
             this.visitorCardsTabPage.Text = "Картки відвідувачів";
             this.visitorCardsTabPage.UseVisualStyleBackColor = true;
@@ -1051,8 +1056,99 @@ namespace Swimming_Pool_Database.Forms
             this.visitorCardsDataGridView.RowHeadersWidth = 51;
             this.visitorCardsDataGridView.RowTemplate.Height = 24;
             this.visitorCardsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.visitorCardsDataGridView.Size = new System.Drawing.Size(1030, 478);
+            this.visitorCardsDataGridView.Size = new System.Drawing.Size(1030, 476);
             this.visitorCardsDataGridView.TabIndex = 7;
+            // 
+            // cardidDataGridViewTextBoxColumn
+            // 
+            this.cardidDataGridViewTextBoxColumn.DataPropertyName = "card_id";
+            this.cardidDataGridViewTextBoxColumn.HeaderText = "card_id";
+            this.cardidDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.cardidDataGridViewTextBoxColumn.Name = "cardidDataGridViewTextBoxColumn";
+            this.cardidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cardidDataGridViewTextBoxColumn.Visible = false;
+            this.cardidDataGridViewTextBoxColumn.Width = 85;
+            // 
+            // clientId
+            // 
+            this.clientId.DataPropertyName = "client_id";
+            this.clientId.DataSource = this.clientsBindingSource;
+            this.clientId.DisplayMember = "first_name";
+            this.clientId.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.clientId.HeaderText = "Ім\'я";
+            this.clientId.MinimumWidth = 6;
+            this.clientId.Name = "clientId";
+            this.clientId.ReadOnly = true;
+            this.clientId.ValueMember = "client_id";
+            this.clientId.Width = 39;
+            // 
+            // clientId1
+            // 
+            this.clientId1.DataPropertyName = "client_id";
+            this.clientId1.DataSource = this.clientsBindingSource;
+            this.clientId1.DisplayMember = "last_name";
+            this.clientId1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.clientId1.HeaderText = "Прізвище";
+            this.clientId1.MinimumWidth = 6;
+            this.clientId1.Name = "clientId1";
+            this.clientId1.ReadOnly = true;
+            this.clientId1.ValueMember = "client_id";
+            this.clientId1.Width = 79;
+            // 
+            // clientId2
+            // 
+            this.clientId2.DataPropertyName = "client_id";
+            this.clientId2.DataSource = this.clientsBindingSource;
+            this.clientId2.DisplayMember = "middle_name";
+            this.clientId2.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.clientId2.HeaderText = "По-батькові";
+            this.clientId2.MinimumWidth = 6;
+            this.clientId2.Name = "clientId2";
+            this.clientId2.ReadOnly = true;
+            this.clientId2.ValueMember = "client_id";
+            this.clientId2.Width = 99;
+            // 
+            // subscriptionidDataGridViewTextBoxColumn1
+            // 
+            this.subscriptionidDataGridViewTextBoxColumn1.DataPropertyName = "subscription_id";
+            this.subscriptionidDataGridViewTextBoxColumn1.DataSource = this.subscriptionsBindingSource;
+            this.subscriptionidDataGridViewTextBoxColumn1.DisplayMember = "name";
+            this.subscriptionidDataGridViewTextBoxColumn1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.subscriptionidDataGridViewTextBoxColumn1.HeaderText = "Назва абонемента";
+            this.subscriptionidDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.subscriptionidDataGridViewTextBoxColumn1.Name = "subscriptionidDataGridViewTextBoxColumn1";
+            this.subscriptionidDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.subscriptionidDataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.subscriptionidDataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.subscriptionidDataGridViewTextBoxColumn1.ValueMember = "subscription_id";
+            this.subscriptionidDataGridViewTextBoxColumn1.Width = 154;
+            // 
+            // startdateDataGridViewTextBoxColumn
+            // 
+            this.startdateDataGridViewTextBoxColumn.DataPropertyName = "start_date";
+            this.startdateDataGridViewTextBoxColumn.HeaderText = "Дата початку дії";
+            this.startdateDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.startdateDataGridViewTextBoxColumn.Name = "startdateDataGridViewTextBoxColumn";
+            this.startdateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.startdateDataGridViewTextBoxColumn.Width = 124;
+            // 
+            // expirydateDataGridViewTextBoxColumn
+            // 
+            this.expirydateDataGridViewTextBoxColumn.DataPropertyName = "expiry_date";
+            this.expirydateDataGridViewTextBoxColumn.HeaderText = "Дата закінчення дії";
+            this.expirydateDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.expirydateDataGridViewTextBoxColumn.Name = "expirydateDataGridViewTextBoxColumn";
+            this.expirydateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.expirydateDataGridViewTextBoxColumn.Width = 142;
+            // 
+            // attendanceleftcountDataGridViewTextBoxColumn
+            // 
+            this.attendanceleftcountDataGridViewTextBoxColumn.DataPropertyName = "attendance_left_count";
+            this.attendanceleftcountDataGridViewTextBoxColumn.HeaderText = "Залишилось відвідувань";
+            this.attendanceleftcountDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.attendanceleftcountDataGridViewTextBoxColumn.Name = "attendanceleftcountDataGridViewTextBoxColumn";
+            this.attendanceleftcountDataGridViewTextBoxColumn.ReadOnly = true;
+            this.attendanceleftcountDataGridViewTextBoxColumn.Width = 190;
             // 
             // visitorCardsBindingSource
             // 
@@ -1066,7 +1162,7 @@ namespace Swimming_Pool_Database.Forms
             this.panel3.Controls.Add(this.editVisitorCardButton);
             this.panel3.Controls.Add(this.addVisitorCardButton);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(3, 481);
+            this.panel3.Location = new System.Drawing.Point(3, 479);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1030, 140);
             this.panel3.TabIndex = 3;
@@ -1118,6 +1214,7 @@ namespace Swimming_Pool_Database.Forms
             // trainingsTabPage
             // 
             this.trainingsTabPage.Controls.Add(this.groupBox1);
+            this.trainingsTabPage.Controls.Add(this.panel9);
             this.trainingsTabPage.Controls.Add(this.trainingsDataGridView);
             this.trainingsTabPage.Location = new System.Drawing.Point(4, 27);
             this.trainingsTabPage.Name = "trainingsTabPage";
@@ -1130,12 +1227,12 @@ namespace Swimming_Pool_Database.Forms
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.printClientTrainingsButton);
-            this.groupBox1.Controls.Add(this.clientComboBox);
+            this.groupBox1.Controls.Add(this.trainingsClientComboBox);
             this.groupBox1.Controls.Add(this.filterTrainingsButton);
             this.groupBox1.Controls.Add(this.filterClientCheckBox);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox1.Location = new System.Drawing.Point(3, 450);
+            this.groupBox1.Location = new System.Drawing.Point(3, 350);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1030, 171);
             this.groupBox1.TabIndex = 9;
@@ -1153,19 +1250,19 @@ namespace Swimming_Pool_Database.Forms
             this.printClientTrainingsButton.UseVisualStyleBackColor = true;
             this.printClientTrainingsButton.Click += new System.EventHandler(this.PrintClientTrainingsButton_Click);
             // 
-            // clientComboBox
+            // trainingsClientComboBox
             // 
-            this.clientComboBox.DataSource = this.clientsBindingSource;
-            this.clientComboBox.DisplayMember = "client_id";
-            this.clientComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.clientComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.clientComboBox.FormattingEnabled = true;
-            this.clientComboBox.Location = new System.Drawing.Point(386, 43);
-            this.clientComboBox.Name = "clientComboBox";
-            this.clientComboBox.Size = new System.Drawing.Size(265, 28);
-            this.clientComboBox.TabIndex = 19;
-            this.clientComboBox.ValueMember = "client_id";
-            this.clientComboBox.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.ClientComboBox_Format);
+            this.trainingsClientComboBox.DataSource = this.clientsBindingSource;
+            this.trainingsClientComboBox.DisplayMember = "client_id";
+            this.trainingsClientComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.trainingsClientComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.trainingsClientComboBox.FormattingEnabled = true;
+            this.trainingsClientComboBox.Location = new System.Drawing.Point(386, 43);
+            this.trainingsClientComboBox.Name = "trainingsClientComboBox";
+            this.trainingsClientComboBox.Size = new System.Drawing.Size(265, 28);
+            this.trainingsClientComboBox.TabIndex = 19;
+            this.trainingsClientComboBox.ValueMember = "client_id";
+            this.trainingsClientComboBox.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.TrainingsClientComboBox_Format);
             // 
             // filterTrainingsButton
             // 
@@ -1199,6 +1296,50 @@ namespace Swimming_Pool_Database.Forms
             this.label10.TabIndex = 6;
             this.label10.Text = "Клієнт:";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.deleteTrainingButton);
+            this.panel9.Controls.Add(this.editTrainingButton);
+            this.panel9.Controls.Add(this.addTrainingButton);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel9.Location = new System.Drawing.Point(3, 521);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(1030, 100);
+            this.panel9.TabIndex = 10;
+            // 
+            // deleteTrainingButton
+            // 
+            this.deleteTrainingButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.deleteTrainingButton.Location = new System.Drawing.Point(730, 26);
+            this.deleteTrainingButton.Name = "deleteTrainingButton";
+            this.deleteTrainingButton.Size = new System.Drawing.Size(163, 46);
+            this.deleteTrainingButton.TabIndex = 2;
+            this.deleteTrainingButton.Text = "Видалити";
+            this.deleteTrainingButton.UseVisualStyleBackColor = true;
+            this.deleteTrainingButton.Click += new System.EventHandler(this.DeleteTrainingButton_Click);
+            // 
+            // editTrainingButton
+            // 
+            this.editTrainingButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.editTrainingButton.Location = new System.Drawing.Point(437, 27);
+            this.editTrainingButton.Name = "editTrainingButton";
+            this.editTrainingButton.Size = new System.Drawing.Size(163, 46);
+            this.editTrainingButton.TabIndex = 1;
+            this.editTrainingButton.Text = "Редагувати";
+            this.editTrainingButton.UseVisualStyleBackColor = true;
+            this.editTrainingButton.Click += new System.EventHandler(this.EditTrainingButton_Click);
+            // 
+            // addTrainingButton
+            // 
+            this.addTrainingButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addTrainingButton.Location = new System.Drawing.Point(141, 26);
+            this.addTrainingButton.Name = "addTrainingButton";
+            this.addTrainingButton.Size = new System.Drawing.Size(163, 46);
+            this.addTrainingButton.TabIndex = 0;
+            this.addTrainingButton.Text = "Додати";
+            this.addTrainingButton.UseVisualStyleBackColor = true;
+            this.addTrainingButton.Click += new System.EventHandler(this.AddTrainingButton_Click);
             // 
             // trainingsDataGridView
             // 
@@ -1355,97 +1496,6 @@ namespace Swimming_Pool_Database.Forms
             this.printClientTrainings.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.PrintClientTrainings_BeginPrint);
             this.printClientTrainings.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintClientTrainings_PrintPage);
             // 
-            // cardidDataGridViewTextBoxColumn
-            // 
-            this.cardidDataGridViewTextBoxColumn.DataPropertyName = "card_id";
-            this.cardidDataGridViewTextBoxColumn.HeaderText = "card_id";
-            this.cardidDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.cardidDataGridViewTextBoxColumn.Name = "cardidDataGridViewTextBoxColumn";
-            this.cardidDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cardidDataGridViewTextBoxColumn.Visible = false;
-            this.cardidDataGridViewTextBoxColumn.Width = 85;
-            // 
-            // clientId
-            // 
-            this.clientId.DataPropertyName = "client_id";
-            this.clientId.DataSource = this.clientsBindingSource;
-            this.clientId.DisplayMember = "first_name";
-            this.clientId.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.clientId.HeaderText = "Ім\'я";
-            this.clientId.MinimumWidth = 6;
-            this.clientId.Name = "clientId";
-            this.clientId.ReadOnly = true;
-            this.clientId.ValueMember = "client_id";
-            this.clientId.Width = 39;
-            // 
-            // clientId1
-            // 
-            this.clientId1.DataPropertyName = "client_id";
-            this.clientId1.DataSource = this.clientsBindingSource;
-            this.clientId1.DisplayMember = "last_name";
-            this.clientId1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.clientId1.HeaderText = "Прізвище";
-            this.clientId1.MinimumWidth = 6;
-            this.clientId1.Name = "clientId1";
-            this.clientId1.ReadOnly = true;
-            this.clientId1.ValueMember = "client_id";
-            this.clientId1.Width = 79;
-            // 
-            // clientId2
-            // 
-            this.clientId2.DataPropertyName = "client_id";
-            this.clientId2.DataSource = this.clientsBindingSource;
-            this.clientId2.DisplayMember = "middle_name";
-            this.clientId2.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.clientId2.HeaderText = "По-батькові";
-            this.clientId2.MinimumWidth = 6;
-            this.clientId2.Name = "clientId2";
-            this.clientId2.ReadOnly = true;
-            this.clientId2.ValueMember = "client_id";
-            this.clientId2.Width = 99;
-            // 
-            // subscriptionidDataGridViewTextBoxColumn1
-            // 
-            this.subscriptionidDataGridViewTextBoxColumn1.DataPropertyName = "subscription_id";
-            this.subscriptionidDataGridViewTextBoxColumn1.DataSource = this.subscriptionsBindingSource;
-            this.subscriptionidDataGridViewTextBoxColumn1.DisplayMember = "name";
-            this.subscriptionidDataGridViewTextBoxColumn1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.subscriptionidDataGridViewTextBoxColumn1.HeaderText = "Назва абонемента";
-            this.subscriptionidDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.subscriptionidDataGridViewTextBoxColumn1.Name = "subscriptionidDataGridViewTextBoxColumn1";
-            this.subscriptionidDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.subscriptionidDataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.subscriptionidDataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.subscriptionidDataGridViewTextBoxColumn1.ValueMember = "subscription_id";
-            this.subscriptionidDataGridViewTextBoxColumn1.Width = 154;
-            // 
-            // startdateDataGridViewTextBoxColumn
-            // 
-            this.startdateDataGridViewTextBoxColumn.DataPropertyName = "start_date";
-            this.startdateDataGridViewTextBoxColumn.HeaderText = "Дата початку дії";
-            this.startdateDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.startdateDataGridViewTextBoxColumn.Name = "startdateDataGridViewTextBoxColumn";
-            this.startdateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.startdateDataGridViewTextBoxColumn.Width = 124;
-            // 
-            // expirydateDataGridViewTextBoxColumn
-            // 
-            this.expirydateDataGridViewTextBoxColumn.DataPropertyName = "expiry_date";
-            this.expirydateDataGridViewTextBoxColumn.HeaderText = "Дата закінчення дії";
-            this.expirydateDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.expirydateDataGridViewTextBoxColumn.Name = "expirydateDataGridViewTextBoxColumn";
-            this.expirydateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.expirydateDataGridViewTextBoxColumn.Width = 142;
-            // 
-            // attendanceleftcountDataGridViewTextBoxColumn
-            // 
-            this.attendanceleftcountDataGridViewTextBoxColumn.DataPropertyName = "attendance_left_count";
-            this.attendanceleftcountDataGridViewTextBoxColumn.HeaderText = "Залишилось відвідувань";
-            this.attendanceleftcountDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.attendanceleftcountDataGridViewTextBoxColumn.Name = "attendanceleftcountDataGridViewTextBoxColumn";
-            this.attendanceleftcountDataGridViewTextBoxColumn.ReadOnly = true;
-            this.attendanceleftcountDataGridViewTextBoxColumn.Width = 190;
-            // 
             // AdminMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1495,6 +1545,7 @@ namespace Swimming_Pool_Database.Forms
             this.trainingsTabPage.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.trainingsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.swimLanesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trainingsBindingSource)).EndInit();
@@ -1603,7 +1654,7 @@ namespace Swimming_Pool_Database.Forms
         private Button filterTrainingsButton;
         private CheckBox filterClientCheckBox;
         private Label label10;
-        private ComboBox clientComboBox;
+        private ComboBox trainingsClientComboBox;
         private BindingSource swimLanesBindingSource;
         private swimmingpoolDataSetTableAdapters.SwimLanesTableAdapter swimLanesTableAdapter;
         private swimmingpoolDataSetTableAdapters.PoolsTableAdapter poolsTableAdapter;
@@ -1624,5 +1675,9 @@ namespace Swimming_Pool_Database.Forms
         private DataGridViewTextBoxColumn startdateDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn expirydateDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn attendanceleftcountDataGridViewTextBoxColumn;
+        private Panel panel9;
+        private Button deleteTrainingButton;
+        private Button editTrainingButton;
+        private Button addTrainingButton;
     }
 }
