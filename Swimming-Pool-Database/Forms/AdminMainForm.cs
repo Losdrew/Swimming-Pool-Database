@@ -52,6 +52,176 @@ namespace Swimming_Pool_Database.Forms
             }
         }
 
+        private void AddClientButton_Click(object sender, EventArgs e)
+        {
+            new EditClients().ShowDialog();
+            FillAdaptersAndAcceptChanges();
+        }
+
+        private void EditClientButton_Click(object sender, EventArgs e)
+        {
+            if (!CommonFunctions.IsAnyRowSelected(clientsDataGridView))
+            {
+                return;
+            }
+
+            var dataTable = new swimmingpoolDataSet.ClientsDataTable();
+
+            if (!CommonFunctions.TryQuery(() =>
+                    clientsTableAdapter.FillBy(dataTable,
+                        Convert.ToInt32(((DataRowView)clientsDataGridView.SelectedRows[0].DataBoundItem).Row[0]))))
+            {
+                return;
+            }
+
+            var row = dataTable.Rows[0].ItemArray;
+            new EditClients(
+                Convert.ToInt32(row[0]),
+                row[1].ToString(),
+                row[2].ToString(),
+                row[3].ToString(),
+                Convert.ToDateTime(row[4]),
+                row[5].ToString(),
+                row[6].ToString(),
+                row[7].ToString(),
+                row[8].ToString(),
+                row[9].ToString()).ShowDialog();
+
+            FillAdaptersAndAcceptChanges();
+        }
+
+        private void DeleteClientButton_Click(object sender, EventArgs e)
+        {
+            if (!CommonFunctions.IsAnyRowSelected(clientsDataGridView) || !IsSureToDelete())
+            {
+                return;
+            }
+
+            if (!CommonFunctions.TryQuery(() =>
+                    clientsTableAdapter.DeleteQuery(
+                        Convert.ToInt32(((DataRowView)clientsDataGridView.SelectedRows[0].DataBoundItem).Row[0]))))
+            {
+                return;
+            }
+
+            FillAdaptersAndAcceptChanges();
+        }
+
+        private void AddSubscriptionButton_Click(object sender, EventArgs e)
+        {
+            new EditSubscriptions().ShowDialog();
+            FillAdaptersAndAcceptChanges();
+        }
+
+        private void EditSubscriptionButton_Click(object sender, EventArgs e)
+        {
+            if (!CommonFunctions.IsAnyRowSelected(subscriptionsDataGridView))
+            {
+                return;
+            }
+
+            var dataTable = new swimmingpoolDataSet.SubscriptionsDataTable();
+
+            if (!CommonFunctions.TryQuery(() =>
+                    subscriptionsTableAdapter.FillBy(dataTable,
+                        Convert.ToInt32(((DataRowView)subscriptionsDataGridView.SelectedRows[0].DataBoundItem).Row[0]))))
+            {
+                return;
+            }
+
+            var row = dataTable.Rows[0].ItemArray;
+            new EditSubscriptions(
+                Convert.ToInt32(row[0]),
+                row[1].ToString(),
+                Convert.ToDecimal(row[2]),
+                Convert.ToInt32(row[3]),
+                Convert.ToInt32(row[4])).ShowDialog();
+
+            FillAdaptersAndAcceptChanges();
+        }
+
+        private void DeleteSubscriptionButton_Click(object sender, EventArgs e)
+        {
+            if (!CommonFunctions.IsAnyRowSelected(subscriptionsDataGridView) || !IsSureToDelete())
+            {
+                return;
+            }
+
+            if (!CommonFunctions.TryQuery(() =>
+                    subscriptionsTableAdapter.DeleteQuery(
+                        Convert.ToInt32(((DataRowView)subscriptionsDataGridView.SelectedRows[0].DataBoundItem).Row[0]))))
+            {
+                return;
+            }
+
+            FillAdaptersAndAcceptChanges();
+        }
+
+        private void AddVisitorCardButton_Click(object sender, EventArgs e)
+        {
+            new EditVisitorCards().ShowDialog();
+            FillAdaptersAndAcceptChanges();
+        }
+
+        private void EditVisitorCardButton_Click(object sender, EventArgs e)
+        {
+            if (!CommonFunctions.IsAnyRowSelected(visitorCardsDataGridView))
+            {
+                return;
+            }
+
+            var dataTable = new swimmingpoolDataSet.VisitorCardsDataTable();
+
+            if (!CommonFunctions.TryQuery(() =>
+                    visitorCardsTableAdapter.FillBy(dataTable,
+                        Convert.ToInt32(((DataRowView)visitorCardsDataGridView.SelectedRows[0].DataBoundItem).Row[0]))))
+            {
+                return;
+            }
+
+            var row = dataTable.Rows[0].ItemArray;
+            new EditVisitorCards(
+                Convert.ToInt32(row[0]),
+                Convert.ToInt32(row[1]),
+                Convert.ToInt32(row[2]),
+                Convert.ToDateTime(row[3]),
+                Convert.ToDateTime(row[4]),
+                Convert.ToInt32(row[5])).ShowDialog();
+
+            FillAdaptersAndAcceptChanges();
+        }
+
+        private void DeleteVisitorCardButton_Click(object sender, EventArgs e)
+        {
+            if (!CommonFunctions.IsAnyRowSelected(visitorCardsDataGridView) || !IsSureToDelete())
+            {
+                return;
+            }
+
+            if (!CommonFunctions.TryQuery(() =>
+                    visitorCardsTableAdapter.DeleteQuery(
+                        Convert.ToInt32(((DataRowView)visitorCardsDataGridView.SelectedRows[0].DataBoundItem).Row[0]))))
+            {
+                return;
+            }
+
+            FillAdaptersAndAcceptChanges();
+        }
+
+        private void FillAdaptersAndAcceptChanges()
+        {
+            FillTableAdapters();
+            swimmingpoolDataSet.AcceptChanges();
+        }
+
+        private bool IsSureToDelete()
+        {
+            return MessageBox.Show("Ви впевнені, що хочете видалити запис?",
+                "Видалення",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) == DialogResult.Yes;
+        }
+
         private void SubscriptionsDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (e.ColumnIndex == subscriptionsDataGridView.Columns["price"].Index)
@@ -65,6 +235,20 @@ namespace Swimming_Pool_Database.Forms
                 e.Value = $"{e.Value:## 'днів'}";
                 e.FormattingApplied = true;
             }
+        }
+
+        private void TrainingsDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex != trainingsDataGridView.Columns["cardIdColumn"].Index)
+            {
+                return;
+            }
+
+            var dataTable = new swimmingpoolDataSet.ClientsDataTable();
+            clientsTableAdapter.FillByTrainingCardId(dataTable, Convert.ToInt32(e.Value));
+            var row = dataTable.Rows[0].ItemArray;
+            e.Value = row[1] + " " + row[2] + " " + row[3];
+            e.FormattingApplied = true;
         }
 
         private void SetClientsFiltering(object sender, EventArgs e)
@@ -147,61 +331,6 @@ namespace Swimming_Pool_Database.Forms
             }
         }
 
-        private void AddClientButton_Click(object sender, EventArgs e)
-        {
-            new EditClients().ShowDialog();
-            FillAdaptersAndAcceptChanges();
-        }
-
-        private void EditClientButton_Click(object sender, EventArgs e)
-        {
-            if (!CommonFunctions.IsAnyRowSelected(clientsDataGridView))
-            {
-                return;
-            }
-
-            var dataTable = new swimmingpoolDataSet.ClientsDataTable();
-
-            if (!CommonFunctions.TryQuery(() =>
-                    clientsTableAdapter.FillBy(dataTable,
-                        Convert.ToInt32(((DataRowView)clientsDataGridView.SelectedRows[0].DataBoundItem).Row[0]))))
-            {
-                return;
-            }
-
-            var row = dataTable.Rows[0].ItemArray;
-            new EditClients(
-                Convert.ToInt32(row[0]),
-                row[1].ToString(),
-                row[2].ToString(),
-                row[3].ToString(),
-                Convert.ToDateTime(row[4]),
-                row[5].ToString(),
-                row[6].ToString(),
-                row[7].ToString(),
-                row[8].ToString(),
-                row[9].ToString()).ShowDialog();
-
-            FillAdaptersAndAcceptChanges();
-        }
-
-        private void DeleteClientButton_Click(object sender, EventArgs e)
-        {
-            if (!CommonFunctions.IsAnyRowSelected(clientsDataGridView) || !IsSureToDelete())
-            {
-                return;
-            }
-
-            if (!CommonFunctions.TryQuery(() =>
-                    clientsTableAdapter.DeleteQuery(
-                        Convert.ToInt32(((DataRowView)clientsDataGridView.SelectedRows[0].DataBoundItem).Row[0]))))
-            {
-                return;
-            }
-
-            FillAdaptersAndAcceptChanges();
-        }
-
         private void SetSubscriptionsSort(bool condition, string sortString)
         {
             if (condition)
@@ -212,54 +341,40 @@ namespace Swimming_Pool_Database.Forms
             }
         }
 
-        private void AddSubscriptionButton_Click(object sender, EventArgs e)
+        private void TrainingsClientComboBox_Format(object sender, ListControlConvertEventArgs e)
         {
-            new EditSubscriptions().ShowDialog();
-            FillAdaptersAndAcceptChanges();
+            var row = (DataRowView)e.ListItem;
+            e.Value = row["first_name"] + " " + row["last_name"] + " " + row["middle_name"];
         }
 
-        private void EditSubscriptionButton_Click(object sender, EventArgs e)
+        private void FilterTrainingsButton_Click(object sender, EventArgs e)
         {
-            if (!CommonFunctions.IsAnyRowSelected(subscriptionsDataGridView))
+            trainingsBindingSource.RemoveFilter();
+
+            if (!filterClientCheckBox.Checked)
             {
                 return;
             }
 
-            var dataTable = new swimmingpoolDataSet.SubscriptionsDataTable();
+            var dataTable = new swimmingpoolDataSet.VisitorCardsDataTable();
+            visitorCardsTableAdapter.FillByClientId(dataTable, Convert.ToInt32(trainingsClientComboBox.SelectedValue));
 
-            if (!CommonFunctions.TryQuery(() =>
-                    subscriptionsTableAdapter.FillBy(dataTable,
-                        Convert.ToInt32(((DataRowView)subscriptionsDataGridView.SelectedRows[0].DataBoundItem).Row[0]))))
+            if (dataTable.Rows.Count == 0)
             {
-                return;
+                trainingsBindingSource.Filter += "card_id = -1";
             }
 
-            var row = dataTable.Rows[0].ItemArray;
-            new EditSubscriptions(
-                Convert.ToInt32(row[0]),
-                row[1].ToString(),
-                Convert.ToDecimal(row[2]),
-                Convert.ToInt32(row[3]),
-                Convert.ToInt32(row[4])).ShowDialog();
-
-            FillAdaptersAndAcceptChanges();
-        }
-
-        private void DeleteSubscriptionButton_Click(object sender, EventArgs e)
-        {
-            if (!CommonFunctions.IsAnyRowSelected(subscriptionsDataGridView) || !IsSureToDelete())
+            for (var i = 0; i < dataTable.Rows.Count; i++)
             {
-                return;
+                if (i == 0)
+                {
+                    trainingsBindingSource.Filter = "card_id = " + dataTable.Rows[i].ItemArray[0];
+                }
+                else
+                {
+                    trainingsBindingSource.Filter += " OR card_id = " + dataTable.Rows[i].ItemArray[0];
+                }
             }
-
-            if (!CommonFunctions.TryQuery(() =>
-                    subscriptionsTableAdapter.DeleteQuery(
-                        Convert.ToInt32(((DataRowView)subscriptionsDataGridView.SelectedRows[0].DataBoundItem).Row[0]))))
-            {
-                return;
-            }
-
-            FillAdaptersAndAcceptChanges();
         }
 
         private void PrintVisitorCardButton_Click(object sender, EventArgs e)
@@ -307,107 +422,6 @@ namespace Swimming_Pool_Database.Forms
             );
         }
 
-        private void AddVisitorCardButton_Click(object sender, EventArgs e)
-        {
-            new EditVisitorCards().ShowDialog();
-            FillAdaptersAndAcceptChanges();
-        }
-
-        private void EditVisitorCardButton_Click(object sender, EventArgs e)
-        {
-            if (!CommonFunctions.IsAnyRowSelected(visitorCardsDataGridView))
-            {
-                return;
-            }
-
-            var dataTable = new swimmingpoolDataSet.VisitorCardsDataTable();
-
-            if (!CommonFunctions.TryQuery(() =>
-                    visitorCardsTableAdapter.FillBy(dataTable,
-                        Convert.ToInt32(((DataRowView)visitorCardsDataGridView.SelectedRows[0].DataBoundItem).Row[0]))))
-            {
-                return;
-            }
-
-            var row = dataTable.Rows[0].ItemArray;
-            new EditVisitorCards(
-                Convert.ToInt32(row[0]),
-                Convert.ToInt32(row[1]),
-                Convert.ToInt32(row[2]),
-                Convert.ToDateTime(row[3]),
-                Convert.ToDateTime(row[4]),
-                Convert.ToInt32(row[5])).ShowDialog();
-
-            FillAdaptersAndAcceptChanges();
-        }
-
-        private void DeleteVisitorCardButton_Click(object sender, EventArgs e)
-        {
-            if (!CommonFunctions.IsAnyRowSelected(visitorCardsDataGridView) || !IsSureToDelete())
-            {
-                return;
-            }
-
-            if (!CommonFunctions.TryQuery(() =>
-                    visitorCardsTableAdapter.DeleteQuery(
-                        Convert.ToInt32(((DataRowView)visitorCardsDataGridView.SelectedRows[0].DataBoundItem).Row[0]))))
-            {
-                return;
-            }
-
-            FillAdaptersAndAcceptChanges();
-        }
-
-        private void TrainingsDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (e.ColumnIndex != trainingsDataGridView.Columns["cardIdColumn"].Index)
-            {
-                return;
-            }
-
-            var dataTable = new swimmingpoolDataSet.ClientsDataTable();
-            clientsTableAdapter.FillByTrainingCardId(dataTable, Convert.ToInt32(e.Value));
-            var row = dataTable.Rows[0].ItemArray;
-            e.Value = row[1] + " " + row[2] + " " + row[3];
-            e.FormattingApplied = true;
-        }
-
-        private void ClientComboBox_Format(object sender, ListControlConvertEventArgs e)
-        {
-            var row = (DataRowView)e.ListItem;
-            e.Value = row["first_name"] + " " + row["last_name"] + " " + row["middle_name"];
-        }
-
-        private void FilterTrainingsButton_Click(object sender, EventArgs e)
-        {
-            trainingsBindingSource.RemoveFilter();
-
-            if (!filterClientCheckBox.Checked)
-            {
-                return;
-            }
-
-            var dataTable = new swimmingpoolDataSet.VisitorCardsDataTable();
-            visitorCardsTableAdapter.FillByClientId(dataTable, Convert.ToInt32(clientComboBox.SelectedValue));
-
-            if (dataTable.Rows.Count == 0)
-            {
-                trainingsBindingSource.Filter += "card_id = -1";
-            }
-
-            for (var i = 0; i < dataTable.Rows.Count; i++)
-            {
-                if (i == 0)
-                {
-                    trainingsBindingSource.Filter = "card_id = " + dataTable.Rows[i].ItemArray[0];
-                }
-                else
-                {
-                    trainingsBindingSource.Filter += " OR card_id = " + dataTable.Rows[i].ItemArray[0];
-                }
-            }
-        }
-
         private void PrintClientTrainingsButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(trainingsBindingSource.Filter))
@@ -435,20 +449,6 @@ namespace Swimming_Pool_Database.Forms
         private void PrintClientTrainings_PrintPage(object sender, PrintPageEventArgs e)
         {
             _print.PrintClientTrainings(e);
-        }
-
-        private void FillAdaptersAndAcceptChanges()
-        {
-            FillTableAdapters();
-            swimmingpoolDataSet.AcceptChanges();
-        }
-
-        private bool IsSureToDelete()
-        {
-            return MessageBox.Show("Ви впевнені, що хочете видалити запис?",
-                "Видалення",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question) == DialogResult.Yes;
         }
     }
 }
