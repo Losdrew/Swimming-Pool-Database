@@ -126,15 +126,23 @@ namespace Swimming_Pool_Database.Forms
             this.addVisitorCardButton = new System.Windows.Forms.Button();
             this.trainingsTabPage = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.printClientTrainingsButton = new System.Windows.Forms.Button();
             this.clientComboBox = new System.Windows.Forms.ComboBox();
             this.filterTrainingsButton = new System.Windows.Forms.Button();
             this.filterClientCheckBox = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.trainingsDataGridView = new System.Windows.Forms.DataGridView();
+            this.trainingidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cardIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.poolIdColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.swimLanesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.swimlaneidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datetimestartDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datetimeendDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lockeridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.trainingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.printDialog = new System.Windows.Forms.PrintDialog();
-            this.printDocument = new System.Drawing.Printing.PrintDocument();
+            this.printVisitorCard = new System.Drawing.Printing.PrintDocument();
             this.clientsTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.ClientsTableAdapter();
             this.tableAdapterManager = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.TableAdapterManager();
             this.trainingsTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.TrainingsTableAdapter();
@@ -142,13 +150,7 @@ namespace Swimming_Pool_Database.Forms
             this.visitorCardsTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.VisitorCardsTableAdapter();
             this.swimLanesTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.SwimLanesTableAdapter();
             this.poolsTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.PoolsTableAdapter();
-            this.trainingidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cardIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.poolIdColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.swimlaneidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datetimestartDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datetimeendDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lockeridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.printClientTrainings = new System.Drawing.Printing.PrintDocument();
             this.menuStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.clientsTabPage.SuspendLayout();
@@ -1224,6 +1226,7 @@ namespace Swimming_Pool_Database.Forms
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.printClientTrainingsButton);
             this.groupBox1.Controls.Add(this.clientComboBox);
             this.groupBox1.Controls.Add(this.filterTrainingsButton);
             this.groupBox1.Controls.Add(this.filterClientCheckBox);
@@ -1235,6 +1238,17 @@ namespace Swimming_Pool_Database.Forms
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Фільтрація тренувань";
+            // 
+            // printClientTrainingsButton
+            // 
+            this.printClientTrainingsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.printClientTrainingsButton.Location = new System.Drawing.Point(747, 67);
+            this.printClientTrainingsButton.Name = "printClientTrainingsButton";
+            this.printClientTrainingsButton.Size = new System.Drawing.Size(207, 48);
+            this.printClientTrainingsButton.TabIndex = 20;
+            this.printClientTrainingsButton.Text = "Роздрукувати тренування клієнта";
+            this.printClientTrainingsButton.UseVisualStyleBackColor = true;
+            this.printClientTrainingsButton.Click += new System.EventHandler(this.PrintClientTrainingsButton_Click);
             // 
             // clientComboBox
             // 
@@ -1310,10 +1324,78 @@ namespace Swimming_Pool_Database.Forms
             this.trainingsDataGridView.TabIndex = 8;
             this.trainingsDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.TrainingsDataGridView_CellFormatting);
             // 
+            // trainingidDataGridViewTextBoxColumn
+            // 
+            this.trainingidDataGridViewTextBoxColumn.DataPropertyName = "training_id";
+            this.trainingidDataGridViewTextBoxColumn.HeaderText = "training_id";
+            this.trainingidDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.trainingidDataGridViewTextBoxColumn.Name = "trainingidDataGridViewTextBoxColumn";
+            this.trainingidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.trainingidDataGridViewTextBoxColumn.Visible = false;
+            this.trainingidDataGridViewTextBoxColumn.Width = 103;
+            // 
+            // cardIdColumn
+            // 
+            this.cardIdColumn.DataPropertyName = "card_id";
+            this.cardIdColumn.HeaderText = "ПІБ клієнта";
+            this.cardIdColumn.MinimumWidth = 6;
+            this.cardIdColumn.Name = "cardIdColumn";
+            this.cardIdColumn.ReadOnly = true;
+            this.cardIdColumn.Width = 107;
+            // 
+            // poolIdColumn
+            // 
+            this.poolIdColumn.DataPropertyName = "swimlane_id";
+            this.poolIdColumn.DataSource = this.swimLanesBindingSource;
+            this.poolIdColumn.DisplayMember = "pool_id";
+            this.poolIdColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.poolIdColumn.HeaderText = "Номер басейна";
+            this.poolIdColumn.MinimumWidth = 6;
+            this.poolIdColumn.Name = "poolIdColumn";
+            this.poolIdColumn.ReadOnly = true;
+            this.poolIdColumn.ValueMember = "swimlane_id";
+            this.poolIdColumn.Width = 110;
+            // 
             // swimLanesBindingSource
             // 
             this.swimLanesBindingSource.DataMember = "SwimLanes";
             this.swimLanesBindingSource.DataSource = this.swimmingpoolDataSet;
+            // 
+            // swimlaneidDataGridViewTextBoxColumn
+            // 
+            this.swimlaneidDataGridViewTextBoxColumn.DataPropertyName = "swimlane_id";
+            this.swimlaneidDataGridViewTextBoxColumn.HeaderText = "Номер доріжки";
+            this.swimlaneidDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.swimlaneidDataGridViewTextBoxColumn.Name = "swimlaneidDataGridViewTextBoxColumn";
+            this.swimlaneidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.swimlaneidDataGridViewTextBoxColumn.Width = 132;
+            // 
+            // datetimestartDataGridViewTextBoxColumn
+            // 
+            this.datetimestartDataGridViewTextBoxColumn.DataPropertyName = "datetime_start";
+            this.datetimestartDataGridViewTextBoxColumn.HeaderText = "Час початку";
+            this.datetimestartDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.datetimestartDataGridViewTextBoxColumn.Name = "datetimestartDataGridViewTextBoxColumn";
+            this.datetimestartDataGridViewTextBoxColumn.ReadOnly = true;
+            this.datetimestartDataGridViewTextBoxColumn.Width = 112;
+            // 
+            // datetimeendDataGridViewTextBoxColumn
+            // 
+            this.datetimeendDataGridViewTextBoxColumn.DataPropertyName = "datetime_end";
+            this.datetimeendDataGridViewTextBoxColumn.HeaderText = "Час закінчення";
+            this.datetimeendDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.datetimeendDataGridViewTextBoxColumn.Name = "datetimeendDataGridViewTextBoxColumn";
+            this.datetimeendDataGridViewTextBoxColumn.ReadOnly = true;
+            this.datetimeendDataGridViewTextBoxColumn.Width = 130;
+            // 
+            // lockeridDataGridViewTextBoxColumn
+            // 
+            this.lockeridDataGridViewTextBoxColumn.DataPropertyName = "locker_id";
+            this.lockeridDataGridViewTextBoxColumn.HeaderText = "Номер шкафчика";
+            this.lockeridDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.lockeridDataGridViewTextBoxColumn.Name = "lockeridDataGridViewTextBoxColumn";
+            this.lockeridDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lockeridDataGridViewTextBoxColumn.Width = 146;
             // 
             // trainingsBindingSource
             // 
@@ -1324,9 +1406,9 @@ namespace Swimming_Pool_Database.Forms
             // 
             this.printDialog.UseEXDialog = true;
             // 
-            // printDocument
+            // printVisitorCard
             // 
-            this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintDocument_PrintPage);
+            this.printVisitorCard.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintVisitorCard_PrintPage);
             // 
             // clientsTableAdapter
             // 
@@ -1365,73 +1447,10 @@ namespace Swimming_Pool_Database.Forms
             // 
             this.poolsTableAdapter.ClearBeforeFill = true;
             // 
-            // trainingidDataGridViewTextBoxColumn
+            // printClientTrainings
             // 
-            this.trainingidDataGridViewTextBoxColumn.DataPropertyName = "training_id";
-            this.trainingidDataGridViewTextBoxColumn.HeaderText = "training_id";
-            this.trainingidDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.trainingidDataGridViewTextBoxColumn.Name = "trainingidDataGridViewTextBoxColumn";
-            this.trainingidDataGridViewTextBoxColumn.ReadOnly = true;
-            this.trainingidDataGridViewTextBoxColumn.Visible = false;
-            this.trainingidDataGridViewTextBoxColumn.Width = 103;
-            // 
-            // cardIdColumn
-            // 
-            this.cardIdColumn.DataPropertyName = "card_id";
-            this.cardIdColumn.HeaderText = "ПІБ клієнта";
-            this.cardIdColumn.MinimumWidth = 6;
-            this.cardIdColumn.Name = "cardIdColumn";
-            this.cardIdColumn.ReadOnly = true;
-            this.cardIdColumn.Width = 116;
-            // 
-            // poolIdColumn
-            // 
-            this.poolIdColumn.DataPropertyName = "swimlane_id";
-            this.poolIdColumn.DataSource = this.swimLanesBindingSource;
-            this.poolIdColumn.DisplayMember = "pool_id";
-            this.poolIdColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.poolIdColumn.HeaderText = "Номер басейна";
-            this.poolIdColumn.MinimumWidth = 6;
-            this.poolIdColumn.Name = "poolIdColumn";
-            this.poolIdColumn.ReadOnly = true;
-            this.poolIdColumn.ValueMember = "swimlane_id";
-            this.poolIdColumn.Width = 110;
-            // 
-            // swimlaneidDataGridViewTextBoxColumn
-            // 
-            this.swimlaneidDataGridViewTextBoxColumn.DataPropertyName = "swimlane_id";
-            this.swimlaneidDataGridViewTextBoxColumn.HeaderText = "Номер доріжки";
-            this.swimlaneidDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.swimlaneidDataGridViewTextBoxColumn.Name = "swimlaneidDataGridViewTextBoxColumn";
-            this.swimlaneidDataGridViewTextBoxColumn.ReadOnly = true;
-            this.swimlaneidDataGridViewTextBoxColumn.Width = 132;
-            // 
-            // datetimestartDataGridViewTextBoxColumn
-            // 
-            this.datetimestartDataGridViewTextBoxColumn.DataPropertyName = "datetime_start";
-            this.datetimestartDataGridViewTextBoxColumn.HeaderText = "Час початку";
-            this.datetimestartDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.datetimestartDataGridViewTextBoxColumn.Name = "datetimestartDataGridViewTextBoxColumn";
-            this.datetimestartDataGridViewTextBoxColumn.ReadOnly = true;
-            this.datetimestartDataGridViewTextBoxColumn.Width = 112;
-            // 
-            // datetimeendDataGridViewTextBoxColumn
-            // 
-            this.datetimeendDataGridViewTextBoxColumn.DataPropertyName = "datetime_end";
-            this.datetimeendDataGridViewTextBoxColumn.HeaderText = "Час закінчення";
-            this.datetimeendDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.datetimeendDataGridViewTextBoxColumn.Name = "datetimeendDataGridViewTextBoxColumn";
-            this.datetimeendDataGridViewTextBoxColumn.ReadOnly = true;
-            this.datetimeendDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // lockeridDataGridViewTextBoxColumn
-            // 
-            this.lockeridDataGridViewTextBoxColumn.DataPropertyName = "locker_id";
-            this.lockeridDataGridViewTextBoxColumn.HeaderText = "Номер шкафчика";
-            this.lockeridDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.lockeridDataGridViewTextBoxColumn.Name = "lockeridDataGridViewTextBoxColumn";
-            this.lockeridDataGridViewTextBoxColumn.ReadOnly = true;
-            this.lockeridDataGridViewTextBoxColumn.Width = 146;
+            this.printClientTrainings.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.PrintClientTrainings_BeginPrint);
+            this.printClientTrainings.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintClientTrainings_PrintPage);
             // 
             // AdminMainForm
             // 
@@ -1590,11 +1609,10 @@ namespace Swimming_Pool_Database.Forms
         private DataGridViewTextBoxColumn daycount;
         private Button printVisitorCardButton;
         private PrintDialog printDialog;
-        private System.Drawing.Printing.PrintDocument printDocument;
+        private System.Drawing.Printing.PrintDocument printVisitorCard;
         private TabPage trainingsTabPage;
         private BindingSource trainingsBindingSource;
         private DataGridView trainingsDataGridView;
-        private DataGridViewTextBoxColumn maxdurationDataGridViewTextBoxColumn;
         private GroupBox groupBox1;
         private Button filterTrainingsButton;
         private CheckBox filterClientCheckBox;
@@ -1610,5 +1628,7 @@ namespace Swimming_Pool_Database.Forms
         private DataGridViewTextBoxColumn datetimestartDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn datetimeendDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn lockeridDataGridViewTextBoxColumn;
+        private Button printClientTrainingsButton;
+        private System.Drawing.Printing.PrintDocument printClientTrainings;
     }
 }

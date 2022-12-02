@@ -90,6 +90,7 @@
     <Compile Include="Forms\OrderSubscription.Designer.cs">
       <DependentUpon>OrderSubscription.cs</DependentUpon>
     </Compile>
+    <Compile Include="Print.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="swimmingpoolDataSet.Designer.cs">

@@ -7,6 +7,7 @@ namespace Swimming_Pool_Database.Forms
     public partial class UserMainForm : Form
     {
         private readonly int _id;
+        private readonly Print _print = new Print();
 
         private UserMainForm()
         {
@@ -158,15 +159,15 @@ namespace Swimming_Pool_Database.Forms
                 return;
             }
 
-            printDialog.Document = printDocument;
+            printDialog.Document = printVisitorCard;
 
             if (printDialog.ShowDialog() == DialogResult.OK)
             {
-                printDocument.Print();
+                printVisitorCard.Print();
             }
         }
 
-        private void PrintDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        private void PrintVisitorCard_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             var subscriptionsDataTable = new swimmingpoolDataSet.SubscriptionsDataTable();
             var clientsDataTable = new swimmingpoolDataSet.ClientsDataTable();
@@ -181,7 +182,7 @@ namespace Swimming_Pool_Database.Forms
 
             var subscriptionsRow = subscriptionsDataTable.Rows[0].ItemArray;
             var clientsRow = clientsDataTable.Rows[0].ItemArray;
-            CommonFunctions.PrintVisitorCard(e,
+            _print.PrintVisitorCard(e,
                 subscriptionsRow[1].ToString(),
                 clientsRow[1].ToString(),
                 clientsRow[2].ToString(),
@@ -210,6 +211,43 @@ namespace Swimming_Pool_Database.Forms
 
             visitorCardsTableAdapter.Fill(swimmingpoolDataSet.VisitorCards);
             swimmingpoolDataSet.AcceptChanges();
+        }
+
+        private void TrainingsDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (!trainingsDataGridView.Columns[e.ColumnIndex].Visible || 
+                e.ColumnIndex != trainingsDataGridView.Columns["cardIdColumn"].Index)
+            {
+                return;
+            }
+
+            var dataTable = new swimmingpoolDataSet.ClientsDataTable();
+            clientsTableAdapter.FillByTrainingCardId(dataTable, Convert.ToInt32(e.Value));
+            var row = dataTable.Rows[0].ItemArray;
+            e.Value = row[1] + " " + row[2] + " " + row[3];
+            e.FormattingApplied = true;
+        }
+
+        private void PrintClientTrainingsButton_Click(object sender, EventArgs e)
+        {
+            printDialog.Document = printClientTrainings;
+
+            if (printDialog.ShowDialog() == DialogResult.OK)
+            {
+                printClientTrainings.Print();
+            }
+        }
+
+        private void PrintClientTrainings_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            trainingsDataGridView.Columns[1].Visible = true;
+            _print.BeginPrintClientTrainings(trainingsDataGridView);
+        }
+
+        private void PrintClientTrainings_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            _print.PrintClientTrainings(e);
+            trainingsDataGridView.Columns[1].Visible = false;
         }
     }
 }

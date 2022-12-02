@@ -8,6 +8,7 @@ namespace Swimming_Pool_Database.Forms
     {
         private readonly int _subscriptionId;
         private readonly int _clientId;
+        private readonly Print _print = new Print();
 
         private OrderSubscription()
         {
@@ -79,7 +80,7 @@ namespace Swimming_Pool_Database.Forms
 
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
-            CommonFunctions.PrintVisitorCard(e,
+            _print.PrintVisitorCard(e,
                 subscriptionNameTextBox.Text,
                 firstNameTextBox.Text,
                 lastNameTextBox.Text,

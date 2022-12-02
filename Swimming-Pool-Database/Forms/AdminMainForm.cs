@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Data;
+using System.Drawing.Printing;
 using System.Windows.Forms;
 
 namespace Swimming_Pool_Database.Forms
 {
     public partial class AdminMainForm : Form
     {
+        private readonly Print _print = new Print();
+
         public AdminMainForm()
         {
             InitializeComponent();
@@ -266,15 +269,15 @@ namespace Swimming_Pool_Database.Forms
                 return;
             }
 
-            printDialog.Document = printDocument;
+            printDialog.Document = printVisitorCard;
 
             if (printDialog.ShowDialog() == DialogResult.OK)
             {
-                printDocument.Print();
+                printVisitorCard.Print();
             }
         }
 
-        private void PrintDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        private void PrintVisitorCard_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             var subscriptionsDataTable = new swimmingpoolDataSet.SubscriptionsDataTable();
             var clientsDataTable = new swimmingpoolDataSet.ClientsDataTable();
@@ -293,7 +296,7 @@ namespace Swimming_Pool_Database.Forms
 
             var subscriptionsRow = subscriptionsDataTable.Rows[0].ItemArray;
             var clientsRow = clientsDataTable.Rows[0].ItemArray;
-            CommonFunctions.PrintVisitorCard(e,
+            _print.PrintVisitorCard(e,
                 subscriptionsRow[1].ToString(),
                 clientsRow[1].ToString(),
                 clientsRow[2].ToString(),
@@ -403,6 +406,35 @@ namespace Swimming_Pool_Database.Forms
                     trainingsBindingSource.Filter += " OR card_id = " + dataTable.Rows[i].ItemArray[0];
                 }
             }
+        }
+
+        private void PrintClientTrainingsButton_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(trainingsBindingSource.Filter))
+            {
+                MessageBox.Show("Спочатку оберіть клієнта.",
+                    "Клієнта не обрано",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+
+            printDialog.Document = printClientTrainings;
+
+            if (printDialog.ShowDialog() == DialogResult.OK)
+            {
+                printClientTrainings.Print();
+            }
+        }
+
+        private void PrintClientTrainings_BeginPrint(object sender, PrintEventArgs e)
+        {
+            _print.BeginPrintClientTrainings(trainingsDataGridView);
+        }
+
+        private void PrintClientTrainings_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            _print.PrintClientTrainings(e);
         }
 
         private void FillAdaptersAndAcceptChanges()
