@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 
@@ -67,6 +68,34 @@ namespace Swimming_Pool_Database.Forms
                 {
                     return;
                 }
+
+                if (startDateTimePicker.Value.Hour != DateTime.Now.Hour)
+                {
+                    return;
+                }
+
+                var poolId = swimLanesTableAdapter.GetPoolId(Convert.ToInt32(swimLanesComboBox.SelectedValue));
+
+                if (poolId is null)
+                {
+                    return;
+                }
+
+                var instructorsDataTable = new swimmingpoolDataSet.InstructorsDataTable();
+                instructorsTableAdapter.FillByPoolId(instructorsDataTable, poolId.Value);
+                
+                var instructorEmails = new List<string>();
+                foreach (DataRow dataRow in instructorsDataTable.Rows)
+                {
+                    instructorEmails.Add(dataRow.ItemArray[6].ToString());
+                }
+
+                Automation.SetClientTimeOutNotification(
+                    Convert.ToInt32(TimeSpan.FromMinutes(TrainingDuration).TotalMilliseconds),
+                    clientComboBox.Text,
+                    poolId.Value,
+                    Convert.ToInt32(swimLanesComboBox.SelectedValue),
+                    instructorEmails);
             }
 
             Close();
@@ -80,7 +109,7 @@ namespace Swimming_Pool_Database.Forms
         private void ClientComboBox_Format(object sender, ListControlConvertEventArgs e)
         {
             var row = (DataRowView)e.ListItem;
-            e.Value = row["first_name"] + " " + row["last_name"] + " " + row["middle_name"];
+            e.Value = row["last_name"] + " " + row["first_name"] + " " + row["middle_name"];
         }
 
         private void ClientsBindingSource_CurrentChanged(object sender, EventArgs e)

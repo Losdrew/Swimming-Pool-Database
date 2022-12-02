@@ -52,6 +52,7 @@
             this.swimLanesTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.SwimLanesTableAdapter();
             this.trainingsTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.TrainingsTableAdapter();
             this.subscriptionsTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.SubscriptionsTableAdapter();
+            this.instructorsTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.InstructorsTableAdapter();
             label4 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -145,7 +146,7 @@
             // 
             // endDateTimePicker
             // 
-            this.endDateTimePicker.CustomFormat = "MM/dd/yyyy hh:mm:ss";
+            this.endDateTimePicker.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             this.endDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.endDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.endDateTimePicker.Location = new System.Drawing.Point(243, 166);
@@ -156,7 +157,7 @@
             // 
             // startDateTimePicker
             // 
-            this.startDateTimePicker.CustomFormat = "MM/dd/yyyy hh:mm:ss";
+            this.startDateTimePicker.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             this.startDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.startDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.startDateTimePicker.Location = new System.Drawing.Point(243, 133);
@@ -273,6 +274,10 @@
             // 
             this.subscriptionsTableAdapter.ClearBeforeFill = true;
             // 
+            // instructorsTableAdapter
+            // 
+            this.instructorsTableAdapter.ClearBeforeFill = true;
+            // 
             // EditTrainings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -325,5 +330,6 @@
         private swimmingpoolDataSetTableAdapters.SwimLanesTableAdapter swimLanesTableAdapter;
         private swimmingpoolDataSetTableAdapters.TrainingsTableAdapter trainingsTableAdapter;
         private swimmingpoolDataSetTableAdapters.SubscriptionsTableAdapter subscriptionsTableAdapter;
+        private swimmingpoolDataSetTableAdapters.InstructorsTableAdapter instructorsTableAdapter;
     }
 }
