@@ -17,6 +17,12 @@ namespace Swimming_Pool_Database.Forms
         private void MainForm_Load(object sender, EventArgs e)
         {
             FillTableAdapters();
+
+            var minimalDateOfBirth = clientsTableAdapter.GetMinimalDateOfBirth();
+            if (minimalDateOfBirth != null)
+            {
+                filterFromDateTimePicker.Value = minimalDateOfBirth.Value;
+            }
         }
 
         private void FillTableAdapters()
