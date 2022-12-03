@@ -101,17 +101,5 @@ namespace Swimming_Pool_Database.Forms
                 startDateTimePicker.Value.AddDays(
                     Convert.ToInt32(((DataRowView)subscriptionsBindingSource.Current)["day_count"]));
         }
-
-        private void ExpiryDateTimePicker_ValueChanged(object sender, EventArgs e)
-        {
-            if (!expiryDateTimePicker.Focused)
-            {
-                return;
-            }
-
-            startDateTimePicker.Value =
-                expiryDateTimePicker.Value.AddDays(
-                    -Convert.ToInt32(((DataRowView)subscriptionsBindingSource.Current)["day_count"]));
-        }
     }
 }
