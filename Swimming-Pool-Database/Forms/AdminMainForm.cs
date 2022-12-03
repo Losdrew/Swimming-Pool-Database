@@ -315,6 +315,11 @@ namespace Swimming_Pool_Database.Forms
             SetClientsFilters();
         }
 
+        private void ClearClientFilteringButton_Click(object sender, EventArgs e)
+        {
+            clientsBindingSource.RemoveFilter();
+        }
+
         private void SetClientsSearch()
         {
             SetClientsFilter(true,
