@@ -721,7 +721,7 @@ namespace Swimming_Pool_Database.Forms
             this.subscriptionsTabPage.Location = new System.Drawing.Point(4, 27);
             this.subscriptionsTabPage.Name = "subscriptionsTabPage";
             this.subscriptionsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.subscriptionsTabPage.Size = new System.Drawing.Size(1036, 624);
+            this.subscriptionsTabPage.Size = new System.Drawing.Size(1036, 622);
             this.subscriptionsTabPage.TabIndex = 1;
             this.subscriptionsTabPage.Text = "Абонементи";
             this.subscriptionsTabPage.UseVisualStyleBackColor = true;
@@ -739,7 +739,7 @@ namespace Swimming_Pool_Database.Forms
             this.subscriptionSortGroupBox.Controls.Add(this.subscriptionsSortButton);
             this.subscriptionSortGroupBox.Controls.Add(this.label6);
             this.subscriptionSortGroupBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.subscriptionSortGroupBox.Location = new System.Drawing.Point(3, 339);
+            this.subscriptionSortGroupBox.Location = new System.Drawing.Point(3, 337);
             this.subscriptionSortGroupBox.Name = "subscriptionSortGroupBox";
             this.subscriptionSortGroupBox.Size = new System.Drawing.Size(1030, 182);
             this.subscriptionSortGroupBox.TabIndex = 5;
@@ -934,7 +934,7 @@ namespace Swimming_Pool_Database.Forms
             this.subscriptionsDataGridView.RowHeadersWidth = 51;
             this.subscriptionsDataGridView.RowTemplate.Height = 24;
             this.subscriptionsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.subscriptionsDataGridView.Size = new System.Drawing.Size(1030, 518);
+            this.subscriptionsDataGridView.Size = new System.Drawing.Size(1030, 516);
             this.subscriptionsDataGridView.TabIndex = 3;
             this.subscriptionsDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.SubscriptionsDataGridView_CellFormatting);
             // 
@@ -995,7 +995,7 @@ namespace Swimming_Pool_Database.Forms
             this.panel1.Controls.Add(this.editSubscriptionButton);
             this.panel1.Controls.Add(this.addSubscriptionButton);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(3, 521);
+            this.panel1.Location = new System.Drawing.Point(3, 519);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1030, 100);
             this.panel1.TabIndex = 2;
@@ -1040,7 +1040,7 @@ namespace Swimming_Pool_Database.Forms
             this.visitorCardsTabPage.Location = new System.Drawing.Point(4, 27);
             this.visitorCardsTabPage.Name = "visitorCardsTabPage";
             this.visitorCardsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.visitorCardsTabPage.Size = new System.Drawing.Size(1036, 624);
+            this.visitorCardsTabPage.Size = new System.Drawing.Size(1036, 622);
             this.visitorCardsTabPage.TabIndex = 2;
             this.visitorCardsTabPage.Text = "Картки відвідувачів";
             this.visitorCardsTabPage.UseVisualStyleBackColor = true;
@@ -1069,7 +1069,7 @@ namespace Swimming_Pool_Database.Forms
             this.visitorCardsDataGridView.RowHeadersWidth = 51;
             this.visitorCardsDataGridView.RowTemplate.Height = 24;
             this.visitorCardsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.visitorCardsDataGridView.Size = new System.Drawing.Size(1030, 478);
+            this.visitorCardsDataGridView.Size = new System.Drawing.Size(1030, 476);
             this.visitorCardsDataGridView.TabIndex = 7;
             // 
             // cardidDataGridViewTextBoxColumn
@@ -1175,7 +1175,7 @@ namespace Swimming_Pool_Database.Forms
             this.panel3.Controls.Add(this.editVisitorCardButton);
             this.panel3.Controls.Add(this.addVisitorCardButton);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(3, 481);
+            this.panel3.Location = new System.Drawing.Point(3, 479);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1030, 140);
             this.panel3.TabIndex = 3;
@@ -1507,6 +1507,7 @@ namespace Swimming_Pool_Database.Forms
             // printClientTrainings
             // 
             this.printClientTrainings.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.PrintClientTrainings_BeginPrint);
+            this.printClientTrainings.EndPrint += new System.Drawing.Printing.PrintEventHandler(this.PrintClientTrainings_EndPrint);
             this.printClientTrainings.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintClientTrainings_PrintPage);
             // 
             // AdminMainForm

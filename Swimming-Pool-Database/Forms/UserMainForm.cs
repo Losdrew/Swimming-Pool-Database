@@ -219,8 +219,7 @@ namespace Swimming_Pool_Database.Forms
 
         private void TrainingsDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (!trainingsDataGridView.Columns[e.ColumnIndex].Visible || 
-                e.ColumnIndex != trainingsDataGridView.Columns["cardIdColumn"].Index)
+            if (e.ColumnIndex != trainingsDataGridView.Columns["cardIdColumn"].Index)
             {
                 return;
             }
@@ -244,14 +243,12 @@ namespace Swimming_Pool_Database.Forms
 
         private void PrintClientTrainings_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            trainingsDataGridView.Columns[1].Visible = true;
             _print.BeginPrintClientTrainings(trainingsDataGridView);
         }
 
         private void PrintClientTrainings_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             _print.PrintClientTrainings(e);
-            trainingsDataGridView.Columns[1].Visible = false;
         }
     }
 }

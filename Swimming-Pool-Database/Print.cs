@@ -2,6 +2,7 @@
 using System.Drawing;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Swimming_Pool_Database
@@ -23,6 +24,8 @@ namespace Swimming_Pool_Database
             Trimming = StringTrimming.EllipsisCharacter
         };
 
+        private readonly Font _headerFont = new Font("Arial", 14, FontStyle.Bold);
+
         public void BeginPrintClientTrainings(DataGridView trainingsDataGridView)
         {
             _trainingsDataGridView = trainingsDataGridView;
@@ -42,7 +45,7 @@ namespace Swimming_Pool_Database
 
         public void PrintClientTrainings(PrintPageEventArgs e)
         {
-            var leftMargin = 0;
+            var leftMargin = e.MarginBounds.Left;
             var topMargin = e.MarginBounds.Top;
 
             if (_isFirstPage)
@@ -83,15 +86,24 @@ namespace Swimming_Pool_Database
                 {
                     topMargin = e.MarginBounds.Top;
 
-                    var columnCount = _trainingsDataGridView.Columns.Count;
-                    for (var i = 0; i < columnCount; i++)
-                    {
-                        if (!_trainingsDataGridView.Columns[i].Visible)
-                        {
-                            columnCount--;
-                            continue;
-                        }
+                    var headerSize = e.Graphics.MeasureString(
+                        "Тренування клієнта " + _trainingsDataGridView.Rows[0].Cells[1].FormattedValue, _headerFont,
+                        e.MarginBounds.Width);
+                    e.Graphics.DrawString(
+                        "Тренування клієнта " + _trainingsDataGridView.Rows[0].Cells[1].FormattedValue, _headerFont,
+                        Brushes.Black, e.MarginBounds.Left, e.MarginBounds.Top - headerSize.Height - 13);
 
+                    var date = DateTime.Now.ToShortDateString();
+                    var dateSize = e.Graphics.MeasureString(date, _headerFont, e.MarginBounds.Width);
+                    e.Graphics.DrawString(date, _headerFont, Brushes.Black,
+                        e.MarginBounds.Left + e.MarginBounds.Width - dateSize.Width,
+                        e.MarginBounds.Top - headerSize.Height - 13);
+
+                    var visibleColumns =
+                        _trainingsDataGridView.Columns.Cast<DataGridViewColumn>().Where(x => x.Visible).ToList();
+
+                    for (var i = 0; i < visibleColumns.Count; i++)
+                    {
                         e.Graphics.FillRectangle(new SolidBrush(Color.LightGray),
                             new Rectangle((int)_columnLefts[i], topMargin,
                                 (int)_columnWidths[i], _headerHeight));
@@ -100,8 +112,8 @@ namespace Swimming_Pool_Database
                             new Rectangle((int)_columnLefts[i], topMargin,
                                 (int)_columnWidths[i], _headerHeight));
 
-                        e.Graphics.DrawString(_trainingsDataGridView.Columns[i].HeaderText, 
-                            _trainingsDataGridView.Columns[i].InheritedStyle.Font, Brushes.Black,
+                        e.Graphics.DrawString(visibleColumns[i].HeaderText, 
+                            visibleColumns[i].InheritedStyle.Font, Brushes.Black,
                             new RectangleF((int)_columnLefts[i], topMargin, 
                                 (int)_columnWidths[i], _headerHeight), _stringFormat);
                     }
@@ -110,19 +122,16 @@ namespace Swimming_Pool_Database
                     topMargin += _headerHeight;
                 }
 
-                var cellCount = row.Cells.Count;
-                for (var i = 0; i < cellCount; i++)
-                {
-                    if (!row.Cells[i].Visible)
-                    {
-                        cellCount--;
-                        continue;
-                    }
+                var visibleCells = row.Cells.Cast<DataGridViewCell>().Where(x => x.Visible).ToList();
 
+                for (var i = 0; i < visibleCells.Count; i++)
+                {
                     if (row.Cells[i].FormattedValue != null)
                     {
-                        e.Graphics.DrawString(row.Cells[i].FormattedValue.ToString(), row.Cells[i].InheritedStyle.Font, 
-                            Brushes.Black, new RectangleF((int)_columnLefts[i], topMargin, (int)_columnWidths[i], cellHeight),
+                        e.Graphics.DrawString(visibleCells[i].FormattedValue.ToString(),
+                            visibleCells[i].InheritedStyle.Font,
+                            Brushes.Black,
+                            new RectangleF((int)_columnLefts[i], topMargin, (int)_columnWidths[i], cellHeight),
                             _stringFormat);
                     }
 
@@ -139,6 +148,7 @@ namespace Swimming_Pool_Database
             string middleName, string preparationLevel, DateTime startDate, DateTime expiryDate)
         {
             var headerFont = new Font("Arial", 30, FontStyle.Bold);
+            var dateFont = new Font("Arial", 23, FontStyle.Bold);
             var labelFont = new Font("Arial", 18, FontStyle.Bold);
             var dataFont = new Font("Arial", 18, FontStyle.Regular);
 
@@ -146,37 +156,41 @@ namespace Swimming_Pool_Database
             var headerLineHeight = headerFont.GetHeight() + spacing;
             var labelLineHeight = labelFont.GetHeight() + spacing;
 
-            var headerFormat = new StringFormat(StringFormatFlags.NoClip);
-            var labelFormat = new StringFormat(StringFormatFlags.NoClip);
-            headerFormat.Alignment = StringAlignment.Center;
+            var stringFormat = new StringFormat(StringFormatFlags.NoClip);
 
-            var (x, y) = (e.MarginBounds.X, e.MarginBounds.Y + spacing);
+            (float x, float y) = (e.MarginBounds.X, e.MarginBounds.Y);
 
-            e.Graphics.DrawString("Картка відвідувача", headerFont, Brushes.Black, e.MarginBounds, headerFormat);
-            y += headerLineHeight;
+            e.Graphics.DrawString("Картка відвідувача", headerFont, Brushes.Black, x, y, stringFormat);
 
-            var labelSize = e.Graphics.MeasureString("Назва абонемента:", labelFont, e.MarginBounds.Size, labelFormat);
+            var date = DateTime.Now.ToShortDateString();
+            var dateSize = e.Graphics.MeasureString(date, dateFont, e.MarginBounds.Width);
+            e.Graphics.DrawString(date, dateFont, Brushes.Black,
+                e.MarginBounds.Left + e.MarginBounds.Width - dateSize.Width, y + 10, stringFormat);
+
+            y += headerLineHeight + spacing;
+
+            var labelSize = e.Graphics.MeasureString("Назва абонемента:", labelFont, e.MarginBounds.Size, stringFormat);
             e.Graphics.DrawString("Назва абонемента:", labelFont, Brushes.Black, x, y);
             e.Graphics.DrawString(subscriptionName, dataFont, Brushes.Black, x + labelSize.Width + 1, y);
             y += labelLineHeight;
 
-            labelSize = e.Graphics.MeasureString("ПІБ:", labelFont, e.MarginBounds.Size, labelFormat);
+            labelSize = e.Graphics.MeasureString("ПІБ:", labelFont, e.MarginBounds.Size, stringFormat);
             e.Graphics.DrawString("ПIБ:", labelFont, Brushes.Black, x, y);
             e.Graphics.DrawString(lastName + " " + firstName + " " + middleName, dataFont, Brushes.Black,
                 x + labelSize.Width + 1, y);
             y += labelLineHeight;
 
-            labelSize = e.Graphics.MeasureString("Рівень підготовки:", labelFont, e.MarginBounds.Size, labelFormat);
+            labelSize = e.Graphics.MeasureString("Рівень підготовки:", labelFont, e.MarginBounds.Size, stringFormat);
             e.Graphics.DrawString("Рівень підготовки:", labelFont, Brushes.Black, x, y);
             e.Graphics.DrawString(preparationLevel, dataFont, Brushes.Black, x + labelSize.Width + 1, y);
             y += labelLineHeight;
 
-            labelSize = e.Graphics.MeasureString("Дата початку дії:", labelFont, e.MarginBounds.Size, labelFormat);
+            labelSize = e.Graphics.MeasureString("Дата початку дії:", labelFont, e.MarginBounds.Size, stringFormat);
             e.Graphics.DrawString("Дата початку дії:", labelFont, Brushes.Black, x, y);
             e.Graphics.DrawString(startDate.ToLongDateString(), dataFont, Brushes.Black, x + labelSize.Width + 1, y);
             y += labelLineHeight;
 
-            labelSize = e.Graphics.MeasureString("Дата завершення дії:", labelFont, e.MarginBounds.Size, labelFormat);
+            labelSize = e.Graphics.MeasureString("Дата завершення дії:", labelFont, e.MarginBounds.Size, stringFormat);
             e.Graphics.DrawString("Дата завершення дії:", labelFont, Brushes.Black, x, y);
             e.Graphics.DrawString(expiryDate.ToLongDateString(), dataFont, Brushes.Black, x + labelSize.Width + 1, y);
         }

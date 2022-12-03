@@ -511,12 +511,18 @@ namespace Swimming_Pool_Database.Forms
 
         private void PrintClientTrainings_BeginPrint(object sender, PrintEventArgs e)
         {
+            trainingsDataGridView.Columns[1].Visible = false;
             _print.BeginPrintClientTrainings(trainingsDataGridView);
         }
 
         private void PrintClientTrainings_PrintPage(object sender, PrintPageEventArgs e)
         {
             _print.PrintClientTrainings(e);
+        }
+
+        private void PrintClientTrainings_EndPrint(object sender, PrintEventArgs e)
+        {
+            trainingsDataGridView.Columns[1].Visible = true;
         }
     }
 }
