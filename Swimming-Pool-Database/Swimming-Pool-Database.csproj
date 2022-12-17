@@ -52,58 +52,58 @@
   <ItemGroup>
     <Compile Include="Automation.cs" />
     <Compile Include="CommonFunctions.cs" />
-    <Compile Include="Forms\EditClients.cs">
+    <Compile Include="Forms\EditForms\EditClients.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\EditClients.Designer.cs">
+    <Compile Include="Forms\EditForms\EditClients.Designer.cs">
       <DependentUpon>EditClients.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\EditSubscriptions.cs">
+    <Compile Include="Forms\EditForms\EditSubscriptions.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\EditSubscriptions.Designer.cs">
+    <Compile Include="Forms\EditForms\EditSubscriptions.Designer.cs">
       <DependentUpon>EditSubscriptions.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\EditTrainings.cs">
+    <Compile Include="Forms\EditForms\EditTrainings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\EditTrainings.Designer.cs">
+    <Compile Include="Forms\EditForms\EditTrainings.Designer.cs">
       <DependentUpon>EditTrainings.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\EnterEmailForm.cs">
+    <Compile Include="Forms\OtherForms\EnterEmailForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\EnterEmailForm.Designer.cs">
+    <Compile Include="Forms\OtherForms\EnterEmailForm.Designer.cs">
       <DependentUpon>EnterEmailForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\LoginForm.cs">
+    <Compile Include="Forms\OtherForms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\LoginForm.Designer.cs">
+    <Compile Include="Forms\OtherForms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AdminMainForm.cs">
+    <Compile Include="Forms\MainForms\AdminMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AdminMainForm.Designer.cs">
+    <Compile Include="Forms\MainForms\AdminMainForm.Designer.cs">
       <DependentUpon>AdminMainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\UserMainForm.cs">
+    <Compile Include="Forms\MainForms\UserMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\UserMainForm.Designer.cs">
+    <Compile Include="Forms\MainForms\UserMainForm.Designer.cs">
       <DependentUpon>UserMainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\EditVisitorCards.cs">
+    <Compile Include="Forms\EditForms\EditVisitorCards.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\EditVisitorCards.Designer.cs">
+    <Compile Include="Forms\EditForms\EditVisitorCards.Designer.cs">
       <DependentUpon>EditVisitorCards.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\OrderSubscription.cs">
+    <Compile Include="Forms\OtherForms\OrderSubscription.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\OrderSubscription.Designer.cs">
+    <Compile Include="Forms\OtherForms\OrderSubscription.Designer.cs">
       <DependentUpon>OrderSubscription.cs</DependentUpon>
     </Compile>
     <Compile Include="Print.cs" />
@@ -114,33 +114,33 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>swimmingpoolDataSet.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Forms\EditClients.resx">
+    <EmbeddedResource Include="Forms\EditForms\EditClients.resx">
       <DependentUpon>EditClients.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\EditSubscriptions.resx">
+    <EmbeddedResource Include="Forms\EditForms\EditSubscriptions.resx">
       <DependentUpon>EditSubscriptions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\EditTrainings.resx">
+    <EmbeddedResource Include="Forms\EditForms\EditTrainings.resx">
       <DependentUpon>EditTrainings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\EnterEmailForm.resx">
+    <EmbeddedResource Include="Forms\OtherForms\EnterEmailForm.resx">
       <DependentUpon>EnterEmailForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\LoginForm.resx">
+    <EmbeddedResource Include="Forms\OtherForms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AdminMainForm.resx">
+    <EmbeddedResource Include="Forms\MainForms\AdminMainForm.resx">
       <DependentUpon>AdminMainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\UserMainForm.resx">
+    <EmbeddedResource Include="Forms\MainForms\UserMainForm.resx">
       <DependentUpon>UserMainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\EditVisitorCards.resx">
+    <EmbeddedResource Include="Forms\EditForms\EditVisitorCards.resx">
       <DependentUpon>EditVisitorCards.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\OrderSubscription.resx">
+    <EmbeddedResource Include="Forms\OtherForms\OrderSubscription.resx">
       <DependentUpon>OrderSubscription.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -181,5 +181,6 @@
       <Version>7.1.2</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

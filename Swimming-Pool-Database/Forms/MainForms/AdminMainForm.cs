@@ -382,7 +382,7 @@ namespace Swimming_Pool_Database.Forms
 
             if (priceCheapestRadioButton.Checked || priceExpensiveRadioButton.Checked)
             {
-                var sort = (priceCheapestRadioButton.Checked && !priceExpensiveRadioButton.Checked) ? "" : "DESC";
+                var sort = (priceCheapestRadioButton.Checked && !priceExpensiveRadioButton.Checked) ? "ASC" : "DESC";
                 SetSubscriptionsSort(sortByPriceCheckBox.Checked, "price " + sort);
             }
 

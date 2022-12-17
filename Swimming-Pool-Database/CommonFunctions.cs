@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.Common;
-using System.Drawing;
-using System.Drawing.Printing;
 using System.Windows.Forms;
 
 namespace Swimming_Pool_Database
