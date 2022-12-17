@@ -150,7 +150,7 @@
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="swimmingpoolConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="GetPoolId" Modifier="Public" Name="GetPoolId" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="GetPoolId">
+              <DbSource ConnectionRef="swimmingpoolConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="GetPoolId" Modifier="Public" Name="GetPoolId" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="GetPoolId">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT "pool_id" FROM "public"."SwimLanes" WHERE ("swimlane_id"=?)</CommandText>
@@ -160,7 +160,7 @@
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="swimmingpoolConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQuery" Modifier="Public" Name="UpdateQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateQuery">
+              <DbSource ConnectionRef="swimmingpoolConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQuery" Modifier="Public" Name="UpdateQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="UpdateQuery">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE "swimmingpool"."public"."SwimLanes" SET "pool_id" = ? WHERE ("swimlane_id" = ?)</CommandText>
@@ -286,7 +286,41 @@
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="swimmingpoolConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByTrainingCardId" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByTrainingCardId" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillByTrainingCardId">
+              <DbSource ConnectionRef="swimmingpoolConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByMostMoneySpent" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByMostMoneySpent" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillByMostMoneySpent">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT "Clients".first_name, "Clients".last_name, "Clients".middle_name, SUM("Subscriptions".price)
+FROM "Clients"
+INNER JOIN "VisitorCards" ON ("Clients".client_id="VisitorCards".client_id)
+INNER JOIN "Subscriptions" ON ("VisitorCards".subscription_id="Subscriptions".subscription_id)
+GROUP BY "Clients".first_name, "Clients".last_name, "Clients".middle_name
+HAVING SUM("Subscriptions".price) &gt;= ALL(
+SELECT SUM("Subscriptions".price) 
+FROM "Subscriptions"
+INNER JOIN "VisitorCards" ON ("Subscriptions".subscription_id="VisitorCards".subscription_id)
+GROUP BY "VisitorCards".card_id)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="swimmingpoolConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByMostTrainings" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByMostTrainings" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillByMostTrainings">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT "Clients".first_name, "Clients".last_name, "Clients".middle_name, COUNT("Trainings".training_id)
+FROM "Clients"
+INNER JOIN "VisitorCards" ON ("Clients".client_id="VisitorCards".client_id)
+INNER JOIN "Trainings" ON ("VisitorCards".card_id="Trainings".card_id)
+GROUP BY "Clients".first_name, "Clients".last_name, "Clients".middle_name
+HAVING COUNT("Trainings".training_id) &gt;= ALL(
+SELECT COUNT("Trainings".training_id) 
+FROM "Trainings"
+INNER JOIN "VisitorCards" ON ("Trainings".card_id="VisitorCards".card_id)
+GROUP BY "VisitorCards".card_id)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="swimmingpoolConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByTrainingCardId" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByTrainingCardId" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="FillByTrainingCardId">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT "public"."Clients"."first_name", "public"."Clients"."last_name", "public"."Clients"."middle_name"
@@ -300,7 +334,7 @@ WHERE ("public"."Trainings"."card_id"=?)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="swimmingpoolConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="GetClientByLoginAndPassword" Modifier="Public" Name="GetClientByLoginAndPassword" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="GetClientByLoginAndPassword">
+              <DbSource ConnectionRef="swimmingpoolConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="GetClientByLoginAndPassword" Modifier="Public" Name="GetClientByLoginAndPassword" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="GetClientByLoginAndPassword">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT "client_id" FROM "swimmingpool"."public"."Clients" WHERE ("login"=?) AND ("password"=?)</CommandText>
@@ -311,7 +345,15 @@ WHERE ("public"."Trainings"."card_id"=?)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="swimmingpoolConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertLoginAndPassword" Modifier="Public" Name="InsertLoginAndPassword" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="InsertLoginAndPassword">
+              <DbSource ConnectionRef="swimmingpoolConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="GetMinimalDateOfBirth" Modifier="Public" Name="GetMinimalDateOfBirth" QueryType="Scalar" ScalarCallRetval="System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="GetMinimalDateOfBirth">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT MIN("date_of_birth") FROM "public"."Clients"</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="swimmingpoolConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertLoginAndPassword" Modifier="Public" Name="InsertLoginAndPassword" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="InsertLoginAndPassword">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO "swimmingpool"."public"."Clients" ("login", "password") VALUES (?, ?)</CommandText>
@@ -322,7 +364,7 @@ WHERE ("public"."Trainings"."card_id"=?)</CommandText>
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="swimmingpoolConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQuery" Modifier="Public" Name="UpdateQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="UpdateQuery">
+              <DbSource ConnectionRef="swimmingpoolConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQuery" Modifier="Public" Name="UpdateQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy8" UserSourceName="UpdateQuery">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE "swimmingpool"."public"."Clients" SET "first_name" = ?, "last_name" = ?, "middle_name" = ?, "date_of_birth" = ?, "sex" = ?, "preparation_level" = ?, "email" = ?, "login" = ?, "password" = ? WHERE ("client_id" = ?)</CommandText>
@@ -545,7 +587,23 @@ WHERE ("public"."Trainings"."card_id"=?)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="swimmingpoolConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQuery" Modifier="Public" Name="UpdateQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateQuery">
+              <DbSource ConnectionRef="swimmingpoolConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByMostPopular" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByMostPopular" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillByMostPopular">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT "Subscriptions".name, COUNT("VisitorCards".card_id)
+FROM "Subscriptions"
+INNER JOIN "VisitorCards" ON ("Subscriptions".subscription_id="VisitorCards".subscription_id)
+GROUP BY "Subscriptions".name
+HAVING COUNT("VisitorCards".card_id) &gt;= ALL(
+SELECT COUNT(card_id) 
+FROM "VisitorCards"
+INNER JOIN "Subscriptions" ON ("Subscriptions".subscription_id="VisitorCards".subscription_id)
+GROUP BY "Subscriptions".subscription_id)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="swimmingpoolConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQuery" Modifier="Public" Name="UpdateQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="UpdateQuery">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE "swimmingpool"."public"."Subscriptions" SET "name" = ?, "price" = ?, "attendance_count" = ?, "day_count" = ? WHERE ("subscription_id" = ?)</CommandText>
@@ -676,9 +734,10 @@ WHERE ("public"."Trainings"."card_id"=?)</CommandText>
               <DbSource ConnectionRef="swimmingpoolConnectionString (Settings)" DbObjectName="swimmingpool.Instructors" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM "swimmingpool"."public"."Instructors" WHERE (("instructor_id" = ?) AND ("salary" = ?) AND ((? = 1 AND "pool_id" IS NULL) OR ("pool_id" = ?)) AND ((? = 1 AND "email" IS NULL) OR ("email" = ?)))</CommandText>
+                    <CommandText>DELETE FROM "swimmingpool"."public"."Instructors" WHERE (("instructor_id" = ?) AND ((? = 1 AND "salary" IS NULL) OR ("salary" = ?)) AND ((? = 1 AND "pool_id" IS NULL) OR ("pool_id" = ?)) AND ((? = 1 AND "email" IS NULL) OR ("email" = ?)))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_instructor_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="instructor_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_salary" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="salary" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="Original_salary" Precision="28" ProviderType="Numeric" Scale="6" Size="0" SourceColumn="salary" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_pool_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="pool_id" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_pool_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="pool_id" SourceColumnNullMapping="false" SourceVersion="Original" />
@@ -708,7 +767,7 @@ WHERE ("public"."Trainings"."card_id"=?)</CommandText>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE "swimmingpool"."public"."Instructors" SET "first_name" = ?, "last_name" = ?, "middle_name" = ?, "salary" = ?, "pool_id" = ?, "email" = ? WHERE (("instructor_id" = ?) AND ("salary" = ?) AND ((? = 1 AND "pool_id" IS NULL) OR ("pool_id" = ?)) AND ((? = 1 AND "email" IS NULL) OR ("email" = ?)))</CommandText>
+                    <CommandText>UPDATE "swimmingpool"."public"."Instructors" SET "first_name" = ?, "last_name" = ?, "middle_name" = ?, "salary" = ?, "pool_id" = ?, "email" = ? WHERE (("instructor_id" = ?) AND ((? = 1 AND "salary" IS NULL) OR ("salary" = ?)) AND ((? = 1 AND "pool_id" IS NULL) OR ("pool_id" = ?)) AND ((? = 1 AND "email" IS NULL) OR ("email" = ?)))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="first_name" Precision="0" ProviderType="NText" Scale="0" Size="0" SourceColumn="first_name" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="last_name" Precision="0" ProviderType="NText" Scale="0" Size="0" SourceColumn="last_name" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -717,6 +776,7 @@ WHERE ("public"."Trainings"."card_id"=?)</CommandText>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="pool_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="pool_id" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="email" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="email" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_instructor_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="instructor_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_salary" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="salary" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="Original_salary" Precision="28" ProviderType="Numeric" Scale="6" Size="0" SourceColumn="salary" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_pool_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="pool_id" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_pool_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="pool_id" SourceColumnNullMapping="false" SourceVersion="Original" />
@@ -757,6 +817,29 @@ WHERE ("public"."Trainings"."card_id"=?)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
+              <DbSource ConnectionRef="swimmingpoolConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByMostClientsCurrentlyInPool" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByMostClientsCurrentlyInPool" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="FillByMostClientsCurrentlyInPool">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT "Instructors".first_name, "Instructors".last_name, "Instructors".middle_name, COUNT("Trainings".training_id)
+FROM "Instructors"
+INNER JOIN "Pools" ON ("Instructors".pool_id="Pools".pool_id)
+INNER JOIN "SwimLanes" ON ("Pools".pool_id="SwimLanes".pool_id)
+INNER JOIN "Trainings" ON ("SwimLanes".swimlane_id="Trainings".swimlane_id)
+WHERE "Trainings".datetime_start &gt;= CURRENT_TIMESTAMP AND CURRENT_TIMESTAMP &lt;= "Trainings".datetime_end
+GROUP BY "Instructors".first_name, "Instructors".last_name, "Instructors".middle_name
+HAVING COUNT("Trainings".training_id) &gt;= ALL
+(
+SELECT COUNT("Trainings".training_id)
+FROM "Trainings"
+INNER JOIN "SwimLanes" ON ("Trainings".swimlane_id="SwimLanes".swimlane_id)
+INNER JOIN "Pools" ON ("Pools".pool_id="SwimLanes".pool_id)
+WHERE "Trainings".datetime_start &gt;= CURRENT_TIMESTAMP AND CURRENT_TIMESTAMP &lt;= "Trainings".datetime_end
+GROUP BY "Pools".pool_id
+)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
               <DbSource ConnectionRef="swimmingpoolConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByPoolId" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByPoolId" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="FillByPoolId">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
@@ -772,10 +855,10 @@ WHERE ("public"."Trainings"."card_id"=?)</CommandText>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE "swimmingpool"."public"."Instructors" SET "first_name" = ?, "last_name" = ?, "middle_name" = ?, "salary" = ?, "pool_id" = ?, "email" = ? WHERE ("instructor_id" = ?)</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="first_name" DataSourceName="swimmingpool.Instructors" DataTypeServer="text(8190)" DbType="String" Direction="Input" ParameterName="first_name" Precision="0" Scale="0" Size="8190" SourceColumn="first_name" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="Param2" ColumnName="last_name" DataSourceName="swimmingpool.Instructors" DataTypeServer="text(8190)" DbType="String" Direction="Input" ParameterName="last_name" Precision="0" Scale="0" Size="8190" SourceColumn="last_name" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="Param3" ColumnName="middle_name" DataSourceName="swimmingpool.Instructors" DataTypeServer="text(8190)" DbType="String" Direction="Input" ParameterName="middle_name" Precision="0" Scale="0" Size="8190" SourceColumn="middle_name" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="Param4" ColumnName="salary" DataSourceName="swimmingpool.Instructors" DataTypeServer="numeric" DbType="Decimal" Direction="Input" ParameterName="salary" Precision="28" Scale="6" Size="0" SourceColumn="salary" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="first_name" DataSourceName="swimmingpool.Instructors" DataTypeServer="text(8190)" DbType="String" Direction="Input" ParameterName="first_name" Precision="0" Scale="0" Size="8190" SourceColumn="first_name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="last_name" DataSourceName="swimmingpool.Instructors" DataTypeServer="text(8190)" DbType="String" Direction="Input" ParameterName="last_name" Precision="0" Scale="0" Size="8190" SourceColumn="last_name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="middle_name" DataSourceName="swimmingpool.Instructors" DataTypeServer="text(8190)" DbType="String" Direction="Input" ParameterName="middle_name" Precision="0" Scale="0" Size="8190" SourceColumn="middle_name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param4" ColumnName="salary" DataSourceName="swimmingpool.Instructors" DataTypeServer="numeric" DbType="Decimal" Direction="Input" ParameterName="salary" Precision="28" Scale="6" Size="0" SourceColumn="salary" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="Param5" ColumnName="pool_id" DataSourceName="swimmingpool.Instructors" DataTypeServer="int4" DbType="Int32" Direction="Input" ParameterName="pool_id" Precision="0" Scale="0" Size="0" SourceColumn="pool_id" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="Param6" ColumnName="email" DataSourceName="swimmingpool.Instructors" DataTypeServer="citext" DbType="String" Direction="Input" ParameterName="email" Precision="0" Scale="0" Size="1024" SourceColumn="email" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="Param7" ColumnName="instructor_id" DataSourceName="swimmingpool.Instructors" DataTypeServer="int4" DbType="Int32" Direction="Input" ParameterName="Original_instructor_id" Precision="0" Scale="0" Size="0" SourceColumn="instructor_id" SourceColumnNullMapping="false" SourceVersion="Original" />
@@ -918,28 +1001,28 @@ WHERE ("public"."Trainings"."card_id"=?)</CommandText>
           <xs:complexType>
             <xs:sequence>
               <xs:element name="instructor_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="instructor_id" msprop:Generator_ColumnPropNameInTable="instructor_idColumn" msprop:Generator_ColumnVarNameInTable="columninstructor_id" msprop:Generator_UserColumnName="instructor_id" type="xs:int" />
-              <xs:element name="first_name" msprop:Generator_ColumnPropNameInRow="first_name" msprop:Generator_ColumnPropNameInTable="first_nameColumn" msprop:Generator_ColumnVarNameInTable="columnfirst_name" msprop:Generator_UserColumnName="first_name">
+              <xs:element name="first_name" msprop:Generator_ColumnPropNameInRow="first_name" msprop:Generator_ColumnPropNameInTable="first_nameColumn" msprop:Generator_ColumnVarNameInTable="columnfirst_name" msprop:Generator_UserColumnName="first_name" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="4095" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="last_name" msprop:Generator_ColumnPropNameInRow="last_name" msprop:Generator_ColumnPropNameInTable="last_nameColumn" msprop:Generator_ColumnVarNameInTable="columnlast_name" msprop:Generator_UserColumnName="last_name">
+              <xs:element name="last_name" msprop:Generator_ColumnPropNameInRow="last_name" msprop:Generator_ColumnPropNameInTable="last_nameColumn" msprop:Generator_ColumnVarNameInTable="columnlast_name" msprop:Generator_UserColumnName="last_name" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="4095" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="middle_name" msprop:Generator_ColumnPropNameInRow="middle_name" msprop:Generator_ColumnPropNameInTable="middle_nameColumn" msprop:Generator_ColumnVarNameInTable="columnmiddle_name" msprop:Generator_UserColumnName="middle_name">
+              <xs:element name="middle_name" msprop:Generator_ColumnPropNameInRow="middle_name" msprop:Generator_ColumnPropNameInTable="middle_nameColumn" msprop:Generator_ColumnVarNameInTable="columnmiddle_name" msprop:Generator_UserColumnName="middle_name" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="4095" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="salary" msprop:Generator_ColumnPropNameInRow="salary" msprop:Generator_ColumnPropNameInTable="salaryColumn" msprop:Generator_ColumnVarNameInTable="columnsalary" msprop:Generator_UserColumnName="salary" type="xs:decimal" />
+              <xs:element name="salary" msprop:Generator_ColumnPropNameInRow="salary" msprop:Generator_ColumnPropNameInTable="salaryColumn" msprop:Generator_ColumnVarNameInTable="columnsalary" msprop:Generator_UserColumnName="salary" type="xs:decimal" minOccurs="0" />
               <xs:element name="pool_id" msprop:Generator_ColumnPropNameInRow="pool_id" msprop:Generator_ColumnPropNameInTable="pool_idColumn" msprop:Generator_ColumnVarNameInTable="columnpool_id" msprop:Generator_UserColumnName="pool_id" type="xs:int" minOccurs="0" />
               <xs:element name="email" msprop:Generator_ColumnPropNameInRow="email" msprop:Generator_ColumnPropNameInTable="emailColumn" msprop:Generator_ColumnVarNameInTable="columnemail" msprop:Generator_UserColumnName="email" minOccurs="0">
                 <xs:simpleType>
@@ -984,11 +1067,11 @@ WHERE ("public"."Trainings"."card_id"=?)</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_Pools_SwimLanes" msdata:parent="Pools" msdata:child="SwimLanes" msdata:parentkey="pool_id" msdata:childkey="pool_id" msprop:Generator_UserParentTable="Pools" msprop:Generator_UserChildTable="SwimLanes" msprop:Generator_RelationVarName="relationFK_Pools_SwimLanes" msprop:Generator_ChildPropName="GetSwimLanesRows" msprop:Generator_ParentPropName="PoolsRow" msprop:Generator_UserRelationName="FK_Pools_SwimLanes" />
-      <msdata:Relationship name="FK_Subscriptions_VisitorCards" msdata:parent="Subscriptions" msdata:child="VisitorCards" msdata:parentkey="subscription_id" msdata:childkey="subscription_id" msprop:Generator_UserParentTable="Subscriptions" msprop:Generator_UserChildTable="VisitorCards" msprop:Generator_RelationVarName="relationFK_Subscriptions_VisitorCards" msprop:Generator_ChildPropName="GetVisitorCardsRows" msprop:Generator_UserRelationName="FK_Subscriptions_VisitorCards" msprop:Generator_ParentPropName="SubscriptionsRow" />
-      <msdata:Relationship name="SwimLanes_Trainings" msdata:parent="SwimLanes" msdata:child="Trainings" msdata:parentkey="swimlane_id" msdata:childkey="swimlane_id" msprop:Generator_UserParentTable="SwimLanes" msprop:Generator_UserChildTable="Trainings" msprop:Generator_RelationVarName="relationSwimLanes_Trainings" msprop:Generator_ChildPropName="GetTrainingsRows" msprop:Generator_UserRelationName="SwimLanes_Trainings" msprop:Generator_ParentPropName="SwimLanesRow" />
-      <msdata:Relationship name="VisitorCards_Trainings" msdata:parent="VisitorCards" msdata:child="Trainings" msdata:parentkey="card_id" msdata:childkey="card_id" msprop:Generator_UserParentTable="VisitorCards" msprop:Generator_UserChildTable="Trainings" msprop:Generator_RelationVarName="relationVisitorCards_Trainings" msprop:Generator_ChildPropName="GetTrainingsRows" msprop:Generator_UserRelationName="VisitorCards_Trainings" msprop:Generator_ParentPropName="VisitorCardsRow" />
-      <msdata:Relationship name="Clients_VisitorCards" msdata:parent="Clients" msdata:child="VisitorCards" msdata:parentkey="client_id" msdata:childkey="client_id" msprop:Generator_UserParentTable="Clients" msprop:Generator_UserChildTable="VisitorCards" msprop:Generator_RelationVarName="relationClients_VisitorCards" msprop:Generator_ChildPropName="GetVisitorCardsRows" msprop:Generator_UserRelationName="Clients_VisitorCards" msprop:Generator_ParentPropName="ClientsRow" />
+      <msdata:Relationship name="FK_Pools_SwimLanes" msdata:parent="Pools" msdata:child="SwimLanes" msdata:parentkey="pool_id" msdata:childkey="pool_id" msprop:Generator_UserParentTable="Pools" msprop:Generator_UserChildTable="SwimLanes" msprop:Generator_RelationVarName="relationFK_Pools_SwimLanes" msprop:Generator_ChildPropName="GetSwimLanesRows" msprop:Generator_UserRelationName="FK_Pools_SwimLanes" msprop:Generator_ParentPropName="PoolsRow" />
+      <msdata:Relationship name="SwimLanes_Trainings" msdata:parent="SwimLanes" msdata:child="Trainings" msdata:parentkey="swimlane_id" msdata:childkey="swimlane_id" msprop:Generator_UserParentTable="SwimLanes" msprop:Generator_UserChildTable="Trainings" msprop:Generator_RelationVarName="relationSwimLanes_Trainings" msprop:Generator_ChildPropName="GetTrainingsRows" msprop:Generator_ParentPropName="SwimLanesRow" msprop:Generator_UserRelationName="SwimLanes_Trainings" />
+      <msdata:Relationship name="VisitorCards_Trainings" msdata:parent="VisitorCards" msdata:child="Trainings" msdata:parentkey="card_id" msdata:childkey="card_id" msprop:Generator_UserParentTable="VisitorCards" msprop:Generator_UserChildTable="Trainings" msprop:Generator_RelationVarName="relationVisitorCards_Trainings" msprop:Generator_ChildPropName="GetTrainingsRows" msprop:Generator_ParentPropName="VisitorCardsRow" msprop:Generator_UserRelationName="VisitorCards_Trainings" />
+      <msdata:Relationship name="Clients_VisitorCards" msdata:parent="Clients" msdata:child="VisitorCards" msdata:parentkey="client_id" msdata:childkey="client_id" msprop:Generator_UserParentTable="Clients" msprop:Generator_UserChildTable="VisitorCards" msprop:Generator_RelationVarName="relationClients_VisitorCards" msprop:Generator_ChildPropName="GetVisitorCardsRows" msprop:Generator_ParentPropName="ClientsRow" msprop:Generator_UserRelationName="Clients_VisitorCards" />
+      <msdata:Relationship name="Subscriptions_VisitorCards" msdata:parent="Subscriptions" msdata:child="VisitorCards" msdata:parentkey="subscription_id" msdata:childkey="subscription_id" msprop:Generator_UserParentTable="Subscriptions" msprop:Generator_UserChildTable="VisitorCards" msprop:Generator_RelationVarName="relationSubscriptions_VisitorCards" msprop:Generator_ChildPropName="GetVisitorCardsRows" msprop:Generator_UserRelationName="Subscriptions_VisitorCards" msprop:Generator_ParentPropName="SubscriptionsRow" />
       <msdata:Relationship name="Pools_Instructors" msdata:parent="Pools" msdata:child="Instructors" msdata:parentkey="pool_id" msdata:childkey="pool_id" msprop:Generator_UserParentTable="Pools" msprop:Generator_UserChildTable="Instructors" msprop:Generator_RelationVarName="relationPools_Instructors" msprop:Generator_ChildPropName="GetInstructorsRows" msprop:Generator_ParentPropName="PoolsRow" msprop:Generator_UserRelationName="Pools_Instructors" />
     </xs:appinfo>
   </xs:annotation>

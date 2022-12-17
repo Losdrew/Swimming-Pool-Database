@@ -524,5 +524,91 @@ namespace Swimming_Pool_Database.Forms
         {
             trainingsDataGridView.Columns[1].Visible = true;
         }
+
+        private void MostPopularSubscriptionsButton_Click(object sender, EventArgs e)
+        {
+            queryDataGridView.Columns.Clear();
+            queryDataGridView.Rows.Clear();
+
+            queryDataGridView.Columns.Add("subscriptionName", "Назва абонемента");
+            queryDataGridView.Columns.Add("subscriptionCount", "Кількість разів замовлено");
+
+            var dataTable = new swimmingpoolDataSet.SubscriptionsDataTable();
+            subscriptionsTableAdapter.FillByMostPopular(dataTable);
+
+            for (int i = 0; i < dataTable.Rows.Count; i++)
+            {
+                queryDataGridView.Rows.Add(dataTable.Rows[i].ItemArray[1], dataTable.Rows[i].ItemArray[5]);
+            }
+        }
+
+        private void ClientsMostMoneySpentButton_Click(object sender, EventArgs e)
+        {
+            queryDataGridView.Columns.Clear();
+            queryDataGridView.Rows.Clear();
+
+            queryDataGridView.Columns.Add("firstName", "Ім'я");
+            queryDataGridView.Columns.Add("lastName", "Прізвище");
+            queryDataGridView.Columns.Add("middleName", "По-батькові");
+            queryDataGridView.Columns.Add("moneySum", "Грошей витрачено");
+
+            var dataTable = new swimmingpoolDataSet.ClientsDataTable();
+            clientsTableAdapter.FillByMostMoneySpent(dataTable);
+
+            for (int i = 0; i < dataTable.Rows.Count; i++)
+            {
+                queryDataGridView.Rows.Add(
+                    dataTable.Rows[i].ItemArray[1], 
+                    dataTable.Rows[i].ItemArray[2],
+                    dataTable.Rows[i].ItemArray[3],
+                    dataTable.Rows[i].ItemArray[10] + "₴");
+            }
+        }
+
+        private void ClientsMostTrainingsButton_Click(object sender, EventArgs e)
+        {
+            queryDataGridView.Columns.Clear();
+            queryDataGridView.Rows.Clear();
+
+            queryDataGridView.Columns.Add("firstName", "Ім'я");
+            queryDataGridView.Columns.Add("lastName", "Прізвище");
+            queryDataGridView.Columns.Add("middleName", "По-батькові");
+            queryDataGridView.Columns.Add("trainingsCount", "Кількість тренувань відвідано");
+
+            var dataTable = new swimmingpoolDataSet.ClientsDataTable();
+            clientsTableAdapter.FillByMostTrainings(dataTable);
+
+            for (int i = 0; i < dataTable.Rows.Count; i++)
+            {
+                queryDataGridView.Rows.Add(
+                    dataTable.Rows[i].ItemArray[1], 
+                    dataTable.Rows[i].ItemArray[2],
+                    dataTable.Rows[i].ItemArray[3],
+                    dataTable.Rows[i].ItemArray[10]);
+            }
+        }
+
+        private void InstructorsMostClientsButton_Click(object sender, EventArgs e)
+        {
+            queryDataGridView.Columns.Clear();
+            queryDataGridView.Rows.Clear();
+
+            queryDataGridView.Columns.Add("firstName", "Ім'я");
+            queryDataGridView.Columns.Add("lastName", "Прізвище");
+            queryDataGridView.Columns.Add("middleName", "По-батькові");
+            queryDataGridView.Columns.Add("clientsCount", "Кількість клієнтів у басейні");
+
+            var dataTable = new swimmingpoolDataSet.InstructorsDataTable();
+            instructorsTableAdapter.FillByMostClientsCurrentlyInPool(dataTable);
+
+            for (int i = 0; i < dataTable.Rows.Count; i++)
+            {
+                queryDataGridView.Rows.Add(
+                    dataTable.Rows[i].ItemArray[1], 
+                    dataTable.Rows[i].ItemArray[2],
+                    dataTable.Rows[i].ItemArray[3],
+                    dataTable.Rows[i].ItemArray[7]);
+            }
+        }
     }
 }
