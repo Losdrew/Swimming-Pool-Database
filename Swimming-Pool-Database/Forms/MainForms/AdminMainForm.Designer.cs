@@ -81,6 +81,10 @@ namespace Swimming_Pool_Database.Forms
             this.editClientButton = new System.Windows.Forms.Button();
             this.addClientButton = new System.Windows.Forms.Button();
             this.subscriptionsTabPage = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.subscriptionsSearchButton = new System.Windows.Forms.Button();
+            this.subscriptionNameTextBox = new System.Windows.Forms.TextBox();
+            this.subscriptionNameLabel = new System.Windows.Forms.Label();
             this.subscriptionSortGroupBox = new System.Windows.Forms.GroupBox();
             this.sortByDayCountCheckBox = new System.Windows.Forms.CheckBox();
             this.sortByAttendanceCountCheckBox = new System.Windows.Forms.CheckBox();
@@ -147,6 +151,7 @@ namespace Swimming_Pool_Database.Forms
             this.lockeridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.trainingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.queryDataGridView = new System.Windows.Forms.DataGridView();
             this.instructorsMostClientsButton = new System.Windows.Forms.Button();
             this.clientsMostTrainingsButton = new System.Windows.Forms.Button();
             this.clientsMostMoneySpentButton = new System.Windows.Forms.Button();
@@ -161,7 +166,6 @@ namespace Swimming_Pool_Database.Forms
             this.swimLanesTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.SwimLanesTableAdapter();
             this.poolsTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.PoolsTableAdapter();
             this.printClientTrainings = new System.Drawing.Printing.PrintDocument();
-            this.queryDataGridView = new System.Windows.Forms.DataGridView();
             this.instructorsTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.InstructorsTableAdapter();
             this.menuStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -175,6 +179,7 @@ namespace Swimming_Pool_Database.Forms
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.subscriptionsTabPage.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.subscriptionSortGroupBox.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -725,16 +730,59 @@ namespace Swimming_Pool_Database.Forms
             // 
             // subscriptionsTabPage
             // 
+            this.subscriptionsTabPage.Controls.Add(this.groupBox2);
             this.subscriptionsTabPage.Controls.Add(this.subscriptionSortGroupBox);
             this.subscriptionsTabPage.Controls.Add(this.subscriptionsDataGridView);
             this.subscriptionsTabPage.Controls.Add(this.panel1);
             this.subscriptionsTabPage.Location = new System.Drawing.Point(4, 27);
             this.subscriptionsTabPage.Name = "subscriptionsTabPage";
             this.subscriptionsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.subscriptionsTabPage.Size = new System.Drawing.Size(1036, 622);
+            this.subscriptionsTabPage.Size = new System.Drawing.Size(1036, 624);
             this.subscriptionsTabPage.TabIndex = 1;
             this.subscriptionsTabPage.Text = "Абонементи";
             this.subscriptionsTabPage.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.subscriptionsSearchButton);
+            this.groupBox2.Controls.Add(this.subscriptionNameTextBox);
+            this.groupBox2.Controls.Add(this.subscriptionNameLabel);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox2.Location = new System.Drawing.Point(3, 265);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1030, 74);
+            this.groupBox2.TabIndex = 28;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Пошук абонементів";
+            // 
+            // subscriptionsSearchButton
+            // 
+            this.subscriptionsSearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.subscriptionsSearchButton.Location = new System.Drawing.Point(599, 23);
+            this.subscriptionsSearchButton.Name = "subscriptionsSearchButton";
+            this.subscriptionsSearchButton.Size = new System.Drawing.Size(121, 38);
+            this.subscriptionsSearchButton.TabIndex = 19;
+            this.subscriptionsSearchButton.Text = "Шукати";
+            this.subscriptionsSearchButton.UseVisualStyleBackColor = true;
+            this.subscriptionsSearchButton.Click += new System.EventHandler(this.SubscriptionsSearchButton_Click);
+            // 
+            // subscriptionNameTextBox
+            // 
+            this.subscriptionNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.subscriptionNameTextBox.Location = new System.Drawing.Point(372, 29);
+            this.subscriptionNameTextBox.Name = "subscriptionNameTextBox";
+            this.subscriptionNameTextBox.Size = new System.Drawing.Size(187, 27);
+            this.subscriptionNameTextBox.TabIndex = 4;
+            // 
+            // subscriptionNameLabel
+            // 
+            this.subscriptionNameLabel.AutoSize = true;
+            this.subscriptionNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.subscriptionNameLabel.Location = new System.Drawing.Point(300, 32);
+            this.subscriptionNameLabel.Name = "subscriptionNameLabel";
+            this.subscriptionNameLabel.Size = new System.Drawing.Size(66, 20);
+            this.subscriptionNameLabel.TabIndex = 1;
+            this.subscriptionNameLabel.Text = "Назва:";
             // 
             // subscriptionSortGroupBox
             // 
@@ -749,7 +797,7 @@ namespace Swimming_Pool_Database.Forms
             this.subscriptionSortGroupBox.Controls.Add(this.subscriptionsSortButton);
             this.subscriptionSortGroupBox.Controls.Add(this.label6);
             this.subscriptionSortGroupBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.subscriptionSortGroupBox.Location = new System.Drawing.Point(3, 337);
+            this.subscriptionSortGroupBox.Location = new System.Drawing.Point(3, 339);
             this.subscriptionSortGroupBox.Name = "subscriptionSortGroupBox";
             this.subscriptionSortGroupBox.Size = new System.Drawing.Size(1030, 182);
             this.subscriptionSortGroupBox.TabIndex = 5;
@@ -944,7 +992,7 @@ namespace Swimming_Pool_Database.Forms
             this.subscriptionsDataGridView.RowHeadersWidth = 51;
             this.subscriptionsDataGridView.RowTemplate.Height = 24;
             this.subscriptionsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.subscriptionsDataGridView.Size = new System.Drawing.Size(1030, 516);
+            this.subscriptionsDataGridView.Size = new System.Drawing.Size(1030, 518);
             this.subscriptionsDataGridView.TabIndex = 3;
             this.subscriptionsDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.SubscriptionsDataGridView_CellFormatting);
             // 
@@ -1005,7 +1053,7 @@ namespace Swimming_Pool_Database.Forms
             this.panel1.Controls.Add(this.editSubscriptionButton);
             this.panel1.Controls.Add(this.addSubscriptionButton);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(3, 519);
+            this.panel1.Location = new System.Drawing.Point(3, 521);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1030, 100);
             this.panel1.TabIndex = 2;
@@ -1050,7 +1098,7 @@ namespace Swimming_Pool_Database.Forms
             this.visitorCardsTabPage.Location = new System.Drawing.Point(4, 27);
             this.visitorCardsTabPage.Name = "visitorCardsTabPage";
             this.visitorCardsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.visitorCardsTabPage.Size = new System.Drawing.Size(1036, 622);
+            this.visitorCardsTabPage.Size = new System.Drawing.Size(1036, 624);
             this.visitorCardsTabPage.TabIndex = 2;
             this.visitorCardsTabPage.Text = "Картки відвідувачів";
             this.visitorCardsTabPage.UseVisualStyleBackColor = true;
@@ -1079,7 +1127,7 @@ namespace Swimming_Pool_Database.Forms
             this.visitorCardsDataGridView.RowHeadersWidth = 51;
             this.visitorCardsDataGridView.RowTemplate.Height = 24;
             this.visitorCardsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.visitorCardsDataGridView.Size = new System.Drawing.Size(1030, 476);
+            this.visitorCardsDataGridView.Size = new System.Drawing.Size(1030, 478);
             this.visitorCardsDataGridView.TabIndex = 7;
             // 
             // cardidDataGridViewTextBoxColumn
@@ -1185,7 +1233,7 @@ namespace Swimming_Pool_Database.Forms
             this.panel3.Controls.Add(this.editVisitorCardButton);
             this.panel3.Controls.Add(this.addVisitorCardButton);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(3, 479);
+            this.panel3.Location = new System.Drawing.Point(3, 481);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1030, 140);
             this.panel3.TabIndex = 3;
@@ -1484,6 +1532,21 @@ namespace Swimming_Pool_Database.Forms
             this.tabPage1.Text = "Запити";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // queryDataGridView
+            // 
+            this.queryDataGridView.AllowUserToAddRows = false;
+            this.queryDataGridView.AllowUserToDeleteRows = false;
+            this.queryDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.queryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.queryDataGridView.Location = new System.Drawing.Point(30, 134);
+            this.queryDataGridView.Name = "queryDataGridView";
+            this.queryDataGridView.ReadOnly = true;
+            this.queryDataGridView.RowHeadersWidth = 51;
+            this.queryDataGridView.RowTemplate.Height = 24;
+            this.queryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.queryDataGridView.Size = new System.Drawing.Size(971, 459);
+            this.queryDataGridView.TabIndex = 9;
+            // 
             // instructorsMostClientsButton
             // 
             this.instructorsMostClientsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -1579,21 +1642,6 @@ namespace Swimming_Pool_Database.Forms
             this.printClientTrainings.EndPrint += new System.Drawing.Printing.PrintEventHandler(this.PrintClientTrainings_EndPrint);
             this.printClientTrainings.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintClientTrainings_PrintPage);
             // 
-            // queryDataGridView
-            // 
-            this.queryDataGridView.AllowUserToAddRows = false;
-            this.queryDataGridView.AllowUserToDeleteRows = false;
-            this.queryDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.queryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.queryDataGridView.Location = new System.Drawing.Point(30, 134);
-            this.queryDataGridView.Name = "queryDataGridView";
-            this.queryDataGridView.ReadOnly = true;
-            this.queryDataGridView.RowHeadersWidth = 51;
-            this.queryDataGridView.RowTemplate.Height = 24;
-            this.queryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.queryDataGridView.Size = new System.Drawing.Size(971, 459);
-            this.queryDataGridView.TabIndex = 9;
-            // 
             // instructorsTableAdapter
             // 
             this.instructorsTableAdapter.ClearBeforeFill = true;
@@ -1629,6 +1677,8 @@ namespace Swimming_Pool_Database.Forms
             this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.subscriptionsTabPage.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.subscriptionSortGroupBox.ResumeLayout(false);
             this.subscriptionSortGroupBox.PerformLayout();
             this.panel8.ResumeLayout(false);
@@ -1791,5 +1841,9 @@ namespace Swimming_Pool_Database.Forms
         private Button instructorsMostClientsButton;
         private DataGridView queryDataGridView;
         private swimmingpoolDataSetTableAdapters.InstructorsTableAdapter instructorsTableAdapter;
+        private GroupBox groupBox2;
+        private Button subscriptionsSearchButton;
+        private TextBox subscriptionNameTextBox;
+        private Label subscriptionNameLabel;
     }
 }

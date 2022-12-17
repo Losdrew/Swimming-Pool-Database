@@ -376,6 +376,11 @@ namespace Swimming_Pool_Database.Forms
             }
         }
 
+        private void SubscriptionsSearchButton_Click(object sender, EventArgs e)
+        {
+            subscriptionsBindingSource.Filter = "name LIKE '%" + subscriptionNameTextBox.Text + "%'";
+        }
+
         private void SubscriptionsSortButton_Click(object sender, EventArgs e)
         {
             subscriptionsBindingSource.RemoveSort();
