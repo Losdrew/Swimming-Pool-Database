@@ -375,6 +375,53 @@ namespace Swimming_Pool_Database.Forms
             FillAdaptersAndAcceptChanges();
         }
 
+        private void AddPoolButton_Click(object sender, EventArgs e)
+        {
+            new EditPools().ShowDialog();
+            FillAdaptersAndAcceptChanges();
+        }
+
+        private void EditPoolButton_Click(object sender, EventArgs e)
+        {
+            if (!CommonFunctions.IsAnyRowSelected(poolsDataGridView))
+            {
+                return;
+            }
+
+            var dataTable = new swimmingpoolDataSet.PoolsDataTable();
+
+            if (!CommonFunctions.TryQuery(() =>
+                    poolsTableAdapter.FillBy(dataTable,
+                        Convert.ToInt32(((DataRowView)poolsDataGridView.SelectedRows[0].DataBoundItem).Row[0]))))
+            {
+                return;
+            }
+
+            var row = dataTable.Rows[0].ItemArray;
+            new EditPools(
+                Convert.ToInt32(row[0]),
+                Convert.ToInt32(row[1])).ShowDialog();
+
+            FillAdaptersAndAcceptChanges();
+        }
+
+        private void DeletePoolButton_Click(object sender, EventArgs e)
+        {
+            if (!CommonFunctions.IsAnyRowSelected(poolsDataGridView) || !IsSureToDelete())
+            {
+                return;
+            }
+
+            if (!CommonFunctions.TryQuery(() =>
+                    poolsTableAdapter.DeleteQuery(
+                        Convert.ToInt32(((DataRowView)poolsDataGridView.SelectedRows[0].DataBoundItem).Row[0]))))
+            {
+                return;
+            }
+
+            FillAdaptersAndAcceptChanges();
+        }
+
         private void FillAdaptersAndAcceptChanges()
         {
             FillTableAdapters();
@@ -416,6 +463,15 @@ namespace Swimming_Pool_Database.Forms
             var row = dataTable.Rows[0].ItemArray;
             e.Value = row[1] + " " + row[2] + " " + row[3];
             e.FormattingApplied = true;
+        }
+
+        private void PoolsDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == poolsDataGridView.Columns["capacity"].Index)
+            {
+                e.Value = $"{e.Value:## 'людей'}";
+                e.FormattingApplied = true;
+            }
         }
 
         private void SetClientsFiltering(object sender, EventArgs e)

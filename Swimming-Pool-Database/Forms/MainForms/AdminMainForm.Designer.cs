@@ -172,6 +172,15 @@ namespace Swimming_Pool_Database.Forms
             this.deleteSwimLaneButton = new System.Windows.Forms.Button();
             this.editSwimLaneButton = new System.Windows.Forms.Button();
             this.addSwimLaneButton = new System.Windows.Forms.Button();
+            this.poolsTabPage = new System.Windows.Forms.TabPage();
+            this.poolsDataGridView = new System.Windows.Forms.DataGridView();
+            this.poolidDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.capacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.poolsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.deletePoolButton = new System.Windows.Forms.Button();
+            this.editPoolButton = new System.Windows.Forms.Button();
+            this.addPoolButton = new System.Windows.Forms.Button();
             this.queryTabPage = new System.Windows.Forms.TabPage();
             this.queryDataGridView = new System.Windows.Forms.DataGridView();
             this.instructorsMostClientsButton = new System.Windows.Forms.Button();
@@ -189,15 +198,6 @@ namespace Swimming_Pool_Database.Forms
             this.poolsTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.PoolsTableAdapter();
             this.printClientTrainings = new System.Drawing.Printing.PrintDocument();
             this.instructorsTableAdapter = new Swimming_Pool_Database.swimmingpoolDataSetTableAdapters.InstructorsTableAdapter();
-            this.poolsTabPage = new System.Windows.Forms.TabPage();
-            this.poolsDataGridView = new System.Windows.Forms.DataGridView();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.deletePoolButton = new System.Windows.Forms.Button();
-            this.editPoolButton = new System.Windows.Forms.Button();
-            this.addPoolButton = new System.Windows.Forms.Button();
-            this.poolsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.poolidDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.capacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.clientsTabPage.SuspendLayout();
@@ -235,12 +235,12 @@ namespace Swimming_Pool_Database.Forms
             this.swimLanesTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.swimLanesDataGridView)).BeginInit();
             this.panel11.SuspendLayout();
-            this.queryTabPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.queryDataGridView)).BeginInit();
             this.poolsTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.poolsDataGridView)).BeginInit();
-            this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.poolsBindingSource)).BeginInit();
+            this.panel12.SuspendLayout();
+            this.queryTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.queryDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -1807,6 +1807,107 @@ namespace Swimming_Pool_Database.Forms
             this.addSwimLaneButton.UseVisualStyleBackColor = true;
             this.addSwimLaneButton.Click += new System.EventHandler(this.AddSwimLaneButton_Click);
             // 
+            // poolsTabPage
+            // 
+            this.poolsTabPage.Controls.Add(this.poolsDataGridView);
+            this.poolsTabPage.Controls.Add(this.panel12);
+            this.poolsTabPage.Location = new System.Drawing.Point(4, 27);
+            this.poolsTabPage.Name = "poolsTabPage";
+            this.poolsTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.poolsTabPage.Size = new System.Drawing.Size(1036, 624);
+            this.poolsTabPage.TabIndex = 8;
+            this.poolsTabPage.Text = "Басейни";
+            this.poolsTabPage.UseVisualStyleBackColor = true;
+            // 
+            // poolsDataGridView
+            // 
+            this.poolsDataGridView.AllowUserToAddRows = false;
+            this.poolsDataGridView.AllowUserToDeleteRows = false;
+            this.poolsDataGridView.AutoGenerateColumns = false;
+            this.poolsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.poolsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.poolsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.poolidDataGridViewTextBoxColumn2,
+            this.capacity});
+            this.poolsDataGridView.DataSource = this.poolsBindingSource;
+            this.poolsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.poolsDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.poolsDataGridView.Name = "poolsDataGridView";
+            this.poolsDataGridView.ReadOnly = true;
+            this.poolsDataGridView.RowHeadersWidth = 51;
+            this.poolsDataGridView.RowTemplate.Height = 24;
+            this.poolsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.poolsDataGridView.Size = new System.Drawing.Size(1030, 515);
+            this.poolsDataGridView.TabIndex = 13;
+            this.poolsDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.PoolsDataGridView_CellFormatting);
+            // 
+            // poolidDataGridViewTextBoxColumn2
+            // 
+            this.poolidDataGridViewTextBoxColumn2.DataPropertyName = "pool_id";
+            this.poolidDataGridViewTextBoxColumn2.HeaderText = "Номер басейна";
+            this.poolidDataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.poolidDataGridViewTextBoxColumn2.Name = "poolidDataGridViewTextBoxColumn2";
+            this.poolidDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.poolidDataGridViewTextBoxColumn2.Width = 133;
+            // 
+            // capacity
+            // 
+            this.capacity.DataPropertyName = "capacity";
+            this.capacity.HeaderText = "Місткість";
+            this.capacity.MinimumWidth = 6;
+            this.capacity.Name = "capacity";
+            this.capacity.ReadOnly = true;
+            this.capacity.Width = 102;
+            // 
+            // poolsBindingSource
+            // 
+            this.poolsBindingSource.DataMember = "Pools";
+            this.poolsBindingSource.DataSource = this.swimmingpoolDataSet;
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.deletePoolButton);
+            this.panel12.Controls.Add(this.editPoolButton);
+            this.panel12.Controls.Add(this.addPoolButton);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel12.Location = new System.Drawing.Point(3, 518);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(1030, 103);
+            this.panel12.TabIndex = 12;
+            // 
+            // deletePoolButton
+            // 
+            this.deletePoolButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.deletePoolButton.Location = new System.Drawing.Point(728, 25);
+            this.deletePoolButton.Name = "deletePoolButton";
+            this.deletePoolButton.Size = new System.Drawing.Size(163, 46);
+            this.deletePoolButton.TabIndex = 2;
+            this.deletePoolButton.Text = "Видалити";
+            this.deletePoolButton.UseVisualStyleBackColor = true;
+            this.deletePoolButton.Click += new System.EventHandler(this.DeletePoolButton_Click);
+            // 
+            // editPoolButton
+            // 
+            this.editPoolButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.editPoolButton.Location = new System.Drawing.Point(435, 26);
+            this.editPoolButton.Name = "editPoolButton";
+            this.editPoolButton.Size = new System.Drawing.Size(163, 46);
+            this.editPoolButton.TabIndex = 1;
+            this.editPoolButton.Text = "Редагувати";
+            this.editPoolButton.UseVisualStyleBackColor = true;
+            this.editPoolButton.Click += new System.EventHandler(this.EditPoolButton_Click);
+            // 
+            // addPoolButton
+            // 
+            this.addPoolButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addPoolButton.Location = new System.Drawing.Point(139, 25);
+            this.addPoolButton.Name = "addPoolButton";
+            this.addPoolButton.Size = new System.Drawing.Size(163, 46);
+            this.addPoolButton.TabIndex = 0;
+            this.addPoolButton.Text = "Додати";
+            this.addPoolButton.UseVisualStyleBackColor = true;
+            this.addPoolButton.Click += new System.EventHandler(this.AddPoolButton_Click);
+            // 
             // queryTabPage
             // 
             this.queryTabPage.Controls.Add(this.queryDataGridView);
@@ -1936,107 +2037,6 @@ namespace Swimming_Pool_Database.Forms
             // 
             this.instructorsTableAdapter.ClearBeforeFill = true;
             // 
-            // poolsTabPage
-            // 
-            this.poolsTabPage.Controls.Add(this.poolsDataGridView);
-            this.poolsTabPage.Controls.Add(this.panel12);
-            this.poolsTabPage.Location = new System.Drawing.Point(4, 27);
-            this.poolsTabPage.Name = "poolsTabPage";
-            this.poolsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.poolsTabPage.Size = new System.Drawing.Size(1036, 624);
-            this.poolsTabPage.TabIndex = 8;
-            this.poolsTabPage.Text = "Басейни";
-            this.poolsTabPage.UseVisualStyleBackColor = true;
-            // 
-            // poolsDataGridView
-            // 
-            this.poolsDataGridView.AllowUserToAddRows = false;
-            this.poolsDataGridView.AllowUserToDeleteRows = false;
-            this.poolsDataGridView.AutoGenerateColumns = false;
-            this.poolsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.poolsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.poolsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.poolidDataGridViewTextBoxColumn2,
-            this.capacity});
-            this.poolsDataGridView.DataSource = this.poolsBindingSource;
-            this.poolsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.poolsDataGridView.Location = new System.Drawing.Point(3, 3);
-            this.poolsDataGridView.Name = "poolsDataGridView";
-            this.poolsDataGridView.ReadOnly = true;
-            this.poolsDataGridView.RowHeadersWidth = 51;
-            this.poolsDataGridView.RowTemplate.Height = 24;
-            this.poolsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.poolsDataGridView.Size = new System.Drawing.Size(1030, 515);
-            this.poolsDataGridView.TabIndex = 13;
-            this.poolsDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.PoolsDataGridView_CellFormatting);
-            // 
-            // panel12
-            // 
-            this.panel12.Controls.Add(this.deletePoolButton);
-            this.panel12.Controls.Add(this.editPoolButton);
-            this.panel12.Controls.Add(this.addPoolButton);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel12.Location = new System.Drawing.Point(3, 518);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(1030, 103);
-            this.panel12.TabIndex = 12;
-            // 
-            // deletePoolButton
-            // 
-            this.deletePoolButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.deletePoolButton.Location = new System.Drawing.Point(728, 27);
-            this.deletePoolButton.Name = "deletePoolButton";
-            this.deletePoolButton.Size = new System.Drawing.Size(163, 46);
-            this.deletePoolButton.TabIndex = 2;
-            this.deletePoolButton.Text = "Видалити";
-            this.deletePoolButton.UseVisualStyleBackColor = true;
-            this.deletePoolButton.Click += new System.EventHandler(this.DeletePoolButton_Click);
-            // 
-            // editPoolButton
-            // 
-            this.editPoolButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.editPoolButton.Location = new System.Drawing.Point(435, 28);
-            this.editPoolButton.Name = "editPoolButton";
-            this.editPoolButton.Size = new System.Drawing.Size(163, 46);
-            this.editPoolButton.TabIndex = 1;
-            this.editPoolButton.Text = "Редагувати";
-            this.editPoolButton.UseVisualStyleBackColor = true;
-            this.editPoolButton.Click += new System.EventHandler(this.EditPoolButton_Click);
-            // 
-            // addPoolButton
-            // 
-            this.addPoolButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addPoolButton.Location = new System.Drawing.Point(139, 27);
-            this.addPoolButton.Name = "addPoolButton";
-            this.addPoolButton.Size = new System.Drawing.Size(163, 46);
-            this.addPoolButton.TabIndex = 0;
-            this.addPoolButton.Text = "Додати";
-            this.addPoolButton.UseVisualStyleBackColor = true;
-            this.addPoolButton.Click += new System.EventHandler(this.AddPoolButton_Click);
-            // 
-            // poolsBindingSource
-            // 
-            this.poolsBindingSource.DataMember = "Pools";
-            this.poolsBindingSource.DataSource = this.swimmingpoolDataSet;
-            // 
-            // poolidDataGridViewTextBoxColumn2
-            // 
-            this.poolidDataGridViewTextBoxColumn2.DataPropertyName = "pool_id";
-            this.poolidDataGridViewTextBoxColumn2.HeaderText = "Номер басейна";
-            this.poolidDataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.poolidDataGridViewTextBoxColumn2.Name = "poolidDataGridViewTextBoxColumn2";
-            this.poolidDataGridViewTextBoxColumn2.ReadOnly = true;
-            this.poolidDataGridViewTextBoxColumn2.Width = 133;
-            // 
-            // capacity
-            // 
-            this.capacity.DataPropertyName = "capacity";
-            this.capacity.HeaderText = "Місткість";
-            this.capacity.MinimumWidth = 6;
-            this.capacity.Name = "capacity";
-            this.capacity.ReadOnly = true;
-            this.capacity.Width = 102;
-            // 
             // AdminMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2099,12 +2099,12 @@ namespace Swimming_Pool_Database.Forms
             this.swimLanesTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.swimLanesDataGridView)).EndInit();
             this.panel11.ResumeLayout(false);
-            this.queryTabPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.queryDataGridView)).EndInit();
             this.poolsTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.poolsDataGridView)).EndInit();
-            this.panel12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.poolsBindingSource)).EndInit();
+            this.panel12.ResumeLayout(false);
+            this.queryTabPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.queryDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
