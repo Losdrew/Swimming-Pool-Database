@@ -31,6 +31,7 @@ namespace Swimming_Pool_Database.Forms
             subscriptionsTableAdapter.Fill(swimmingpoolDataSet.Subscriptions);
             visitorCardsTableAdapter.Fill(swimmingpoolDataSet.VisitorCards);
             trainingsTableAdapter.Fill(swimmingpoolDataSet.Trainings);
+            instructorsTableAdapter.Fill(swimmingpoolDataSet.Instructors);
             swimLanesTableAdapter.Fill(swimmingpoolDataSet.SwimLanes);
         }
 
@@ -54,6 +55,9 @@ namespace Swimming_Pool_Database.Forms
                     break;
                 case TabPage tabPage when tabPage.Equals(trainingsTabPage):
                     trainingsDataGridView.Columns[0].Visible = false;
+                    break;
+                case TabPage tabPage when tabPage.Equals(instructorsTabPage):
+                    instructorsDataGridView.Columns[0].Visible = false;
                     break;
             }
         }
@@ -264,6 +268,58 @@ namespace Swimming_Pool_Database.Forms
             if (!CommonFunctions.TryQuery(() =>
                     trainingsTableAdapter.DeleteQuery(
                         Convert.ToInt32(((DataRowView)trainingsDataGridView.SelectedRows[0].DataBoundItem).Row[0]))))
+            {
+                return;
+            }
+
+            FillAdaptersAndAcceptChanges();
+        }
+
+        private void AddInstructorButton_Click(object sender, EventArgs e)
+        {
+            new EditInstructors().ShowDialog();
+            FillAdaptersAndAcceptChanges();
+        }
+
+        private void EditInstructorButton_Click(object sender, EventArgs e)
+        {
+            if (!CommonFunctions.IsAnyRowSelected(instructorsDataGridView))
+            {
+                return;
+            }
+
+            var dataTable = new swimmingpoolDataSet.InstructorsDataTable();
+
+            if (!CommonFunctions.TryQuery(() =>
+                    instructorsTableAdapter.FillBy(dataTable,
+                        Convert.ToInt32(((DataRowView)instructorsDataGridView.SelectedRows[0].DataBoundItem).Row[0]))))
+            {
+                return;
+            }
+
+            var row = dataTable.Rows[0].ItemArray;
+            new EditInstructors(
+                Convert.ToInt32(row[0]),
+                row[1].ToString(),
+                row[2].ToString(),
+                row[3].ToString(),
+                row[4].ToString(),
+                Convert.ToInt32(row[5]),
+                row[6].ToString()).ShowDialog();
+
+            FillAdaptersAndAcceptChanges();
+        }
+
+        private void DeleteInstructorButton_Click(object sender, EventArgs e)
+        {
+            if (!CommonFunctions.IsAnyRowSelected(instructorsDataGridView) || !IsSureToDelete())
+            {
+                return;
+            }
+
+            if (!CommonFunctions.TryQuery(() =>
+                    instructorsTableAdapter.DeleteQuery(
+                        Convert.ToInt32(((DataRowView)instructorsDataGridView.SelectedRows[0].DataBoundItem).Row[0]))))
             {
                 return;
             }

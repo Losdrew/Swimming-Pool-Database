@@ -150,7 +150,21 @@ namespace Swimming_Pool_Database.Forms
             this.datetimeendDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lockeridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.trainingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.instructorsTabPage = new System.Windows.Forms.TabPage();
+            this.instructorsDataGridView = new System.Windows.Forms.DataGridView();
+            this.instructoridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstnameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastnameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.middlenameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salaryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.poolidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.instructorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.deleteInstructorButton = new System.Windows.Forms.Button();
+            this.editInstructorButton = new System.Windows.Forms.Button();
+            this.addInstructorButton = new System.Windows.Forms.Button();
+            this.queryTabPage = new System.Windows.Forms.TabPage();
             this.queryDataGridView = new System.Windows.Forms.DataGridView();
             this.instructorsMostClientsButton = new System.Windows.Forms.Button();
             this.clientsMostTrainingsButton = new System.Windows.Forms.Button();
@@ -197,7 +211,11 @@ namespace Swimming_Pool_Database.Forms
             ((System.ComponentModel.ISupportInitialize)(this.trainingsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.swimLanesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trainingsBindingSource)).BeginInit();
-            this.tabPage1.SuspendLayout();
+            this.instructorsTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.instructorsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.instructorsBindingSource)).BeginInit();
+            this.panel10.SuspendLayout();
+            this.queryTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.queryDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -225,7 +243,8 @@ namespace Swimming_Pool_Database.Forms
             this.tabControl.Controls.Add(this.subscriptionsTabPage);
             this.tabControl.Controls.Add(this.visitorCardsTabPage);
             this.tabControl.Controls.Add(this.trainingsTabPage);
-            this.tabControl.Controls.Add(this.tabPage1);
+            this.tabControl.Controls.Add(this.instructorsTabPage);
+            this.tabControl.Controls.Add(this.queryTabPage);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tabControl.Location = new System.Drawing.Point(0, 28);
@@ -1517,20 +1536,171 @@ namespace Swimming_Pool_Database.Forms
             this.trainingsBindingSource.DataMember = "Trainings";
             this.trainingsBindingSource.DataSource = this.swimmingpoolDataSet;
             // 
-            // tabPage1
+            // instructorsTabPage
             // 
-            this.tabPage1.Controls.Add(this.queryDataGridView);
-            this.tabPage1.Controls.Add(this.instructorsMostClientsButton);
-            this.tabPage1.Controls.Add(this.clientsMostTrainingsButton);
-            this.tabPage1.Controls.Add(this.clientsMostMoneySpentButton);
-            this.tabPage1.Controls.Add(this.mostPopularSubscriptionsButton);
-            this.tabPage1.Location = new System.Drawing.Point(4, 27);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1036, 624);
-            this.tabPage1.TabIndex = 4;
-            this.tabPage1.Text = "Запити";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.instructorsTabPage.Controls.Add(this.instructorsDataGridView);
+            this.instructorsTabPage.Controls.Add(this.panel10);
+            this.instructorsTabPage.Location = new System.Drawing.Point(4, 27);
+            this.instructorsTabPage.Name = "instructorsTabPage";
+            this.instructorsTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.instructorsTabPage.Size = new System.Drawing.Size(1036, 624);
+            this.instructorsTabPage.TabIndex = 6;
+            this.instructorsTabPage.Text = "Інструктори";
+            this.instructorsTabPage.UseVisualStyleBackColor = true;
+            // 
+            // instructorsDataGridView
+            // 
+            this.instructorsDataGridView.AllowUserToAddRows = false;
+            this.instructorsDataGridView.AllowUserToDeleteRows = false;
+            this.instructorsDataGridView.AutoGenerateColumns = false;
+            this.instructorsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.instructorsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.instructorsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.instructoridDataGridViewTextBoxColumn,
+            this.firstnameDataGridViewTextBoxColumn1,
+            this.lastnameDataGridViewTextBoxColumn1,
+            this.middlenameDataGridViewTextBoxColumn1,
+            this.salaryDataGridViewTextBoxColumn,
+            this.poolidDataGridViewTextBoxColumn,
+            this.emailDataGridViewTextBoxColumn1});
+            this.instructorsDataGridView.DataSource = this.instructorsBindingSource;
+            this.instructorsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.instructorsDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.instructorsDataGridView.Name = "instructorsDataGridView";
+            this.instructorsDataGridView.ReadOnly = true;
+            this.instructorsDataGridView.RowHeadersWidth = 51;
+            this.instructorsDataGridView.RowTemplate.Height = 24;
+            this.instructorsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.instructorsDataGridView.Size = new System.Drawing.Size(1030, 515);
+            this.instructorsDataGridView.TabIndex = 9;
+            // 
+            // instructoridDataGridViewTextBoxColumn
+            // 
+            this.instructoridDataGridViewTextBoxColumn.DataPropertyName = "instructor_id";
+            this.instructoridDataGridViewTextBoxColumn.HeaderText = "instructor_id";
+            this.instructoridDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.instructoridDataGridViewTextBoxColumn.Name = "instructoridDataGridViewTextBoxColumn";
+            this.instructoridDataGridViewTextBoxColumn.ReadOnly = true;
+            this.instructoridDataGridViewTextBoxColumn.Visible = false;
+            this.instructoridDataGridViewTextBoxColumn.Width = 118;
+            // 
+            // firstnameDataGridViewTextBoxColumn1
+            // 
+            this.firstnameDataGridViewTextBoxColumn1.DataPropertyName = "first_name";
+            this.firstnameDataGridViewTextBoxColumn1.HeaderText = "Ім\'я";
+            this.firstnameDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.firstnameDataGridViewTextBoxColumn1.Name = "firstnameDataGridViewTextBoxColumn1";
+            this.firstnameDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.firstnameDataGridViewTextBoxColumn1.Width = 62;
+            // 
+            // lastnameDataGridViewTextBoxColumn1
+            // 
+            this.lastnameDataGridViewTextBoxColumn1.DataPropertyName = "last_name";
+            this.lastnameDataGridViewTextBoxColumn1.HeaderText = "Прізвище";
+            this.lastnameDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.lastnameDataGridViewTextBoxColumn1.Name = "lastnameDataGridViewTextBoxColumn1";
+            this.lastnameDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.lastnameDataGridViewTextBoxColumn1.Width = 102;
+            // 
+            // middlenameDataGridViewTextBoxColumn1
+            // 
+            this.middlenameDataGridViewTextBoxColumn1.DataPropertyName = "middle_name";
+            this.middlenameDataGridViewTextBoxColumn1.HeaderText = "По-батькові";
+            this.middlenameDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.middlenameDataGridViewTextBoxColumn1.Name = "middlenameDataGridViewTextBoxColumn1";
+            this.middlenameDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.middlenameDataGridViewTextBoxColumn1.Width = 122;
+            // 
+            // salaryDataGridViewTextBoxColumn
+            // 
+            this.salaryDataGridViewTextBoxColumn.DataPropertyName = "salary";
+            this.salaryDataGridViewTextBoxColumn.HeaderText = "Зарплата";
+            this.salaryDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.salaryDataGridViewTextBoxColumn.Name = "salaryDataGridViewTextBoxColumn";
+            this.salaryDataGridViewTextBoxColumn.ReadOnly = true;
+            this.salaryDataGridViewTextBoxColumn.Width = 103;
+            // 
+            // poolidDataGridViewTextBoxColumn
+            // 
+            this.poolidDataGridViewTextBoxColumn.DataPropertyName = "pool_id";
+            this.poolidDataGridViewTextBoxColumn.HeaderText = "Номер басейна";
+            this.poolidDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.poolidDataGridViewTextBoxColumn.Name = "poolidDataGridViewTextBoxColumn";
+            this.poolidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.poolidDataGridViewTextBoxColumn.Width = 133;
+            // 
+            // emailDataGridViewTextBoxColumn1
+            // 
+            this.emailDataGridViewTextBoxColumn1.DataPropertyName = "email";
+            this.emailDataGridViewTextBoxColumn1.HeaderText = "Електронна пошта";
+            this.emailDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.emailDataGridViewTextBoxColumn1.Name = "emailDataGridViewTextBoxColumn1";
+            this.emailDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.emailDataGridViewTextBoxColumn1.Width = 153;
+            // 
+            // instructorsBindingSource
+            // 
+            this.instructorsBindingSource.DataMember = "Instructors";
+            this.instructorsBindingSource.DataSource = this.swimmingpoolDataSet;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.deleteInstructorButton);
+            this.panel10.Controls.Add(this.editInstructorButton);
+            this.panel10.Controls.Add(this.addInstructorButton);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel10.Location = new System.Drawing.Point(3, 518);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(1030, 103);
+            this.panel10.TabIndex = 8;
+            // 
+            // deleteInstructorButton
+            // 
+            this.deleteInstructorButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.deleteInstructorButton.Location = new System.Drawing.Point(728, 27);
+            this.deleteInstructorButton.Name = "deleteInstructorButton";
+            this.deleteInstructorButton.Size = new System.Drawing.Size(163, 46);
+            this.deleteInstructorButton.TabIndex = 2;
+            this.deleteInstructorButton.Text = "Видалити";
+            this.deleteInstructorButton.UseVisualStyleBackColor = true;
+            this.deleteInstructorButton.Click += new System.EventHandler(this.DeleteInstructorButton_Click);
+            // 
+            // editInstructorButton
+            // 
+            this.editInstructorButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.editInstructorButton.Location = new System.Drawing.Point(435, 28);
+            this.editInstructorButton.Name = "editInstructorButton";
+            this.editInstructorButton.Size = new System.Drawing.Size(163, 46);
+            this.editInstructorButton.TabIndex = 1;
+            this.editInstructorButton.Text = "Редагувати";
+            this.editInstructorButton.UseVisualStyleBackColor = true;
+            this.editInstructorButton.Click += new System.EventHandler(this.EditInstructorButton_Click);
+            // 
+            // addInstructorButton
+            // 
+            this.addInstructorButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addInstructorButton.Location = new System.Drawing.Point(139, 27);
+            this.addInstructorButton.Name = "addInstructorButton";
+            this.addInstructorButton.Size = new System.Drawing.Size(163, 46);
+            this.addInstructorButton.TabIndex = 0;
+            this.addInstructorButton.Text = "Додати";
+            this.addInstructorButton.UseVisualStyleBackColor = true;
+            this.addInstructorButton.Click += new System.EventHandler(this.AddInstructorButton_Click);
+            // 
+            // queryTabPage
+            // 
+            this.queryTabPage.Controls.Add(this.queryDataGridView);
+            this.queryTabPage.Controls.Add(this.instructorsMostClientsButton);
+            this.queryTabPage.Controls.Add(this.clientsMostTrainingsButton);
+            this.queryTabPage.Controls.Add(this.clientsMostMoneySpentButton);
+            this.queryTabPage.Controls.Add(this.mostPopularSubscriptionsButton);
+            this.queryTabPage.Location = new System.Drawing.Point(4, 27);
+            this.queryTabPage.Name = "queryTabPage";
+            this.queryTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.queryTabPage.Size = new System.Drawing.Size(1036, 624);
+            this.queryTabPage.TabIndex = 4;
+            this.queryTabPage.Text = "Запити";
+            this.queryTabPage.UseVisualStyleBackColor = true;
             // 
             // queryDataGridView
             // 
@@ -1701,7 +1871,11 @@ namespace Swimming_Pool_Database.Forms
             ((System.ComponentModel.ISupportInitialize)(this.trainingsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.swimLanesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trainingsBindingSource)).EndInit();
-            this.tabPage1.ResumeLayout(false);
+            this.instructorsTabPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.instructorsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.instructorsBindingSource)).EndInit();
+            this.panel10.ResumeLayout(false);
+            this.queryTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.queryDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1834,7 +2008,7 @@ namespace Swimming_Pool_Database.Forms
         private Button editTrainingButton;
         private Button addTrainingButton;
         private Button clearClientFilteringButton;
-        private TabPage tabPage1;
+        private TabPage queryTabPage;
         private Button mostPopularSubscriptionsButton;
         private Button clientsMostMoneySpentButton;
         private Button clientsMostTrainingsButton;
@@ -1845,5 +2019,19 @@ namespace Swimming_Pool_Database.Forms
         private Button subscriptionsSearchButton;
         private TextBox subscriptionNameTextBox;
         private Label subscriptionNameLabel;
+        private TabPage instructorsTabPage;
+        private DataGridView instructorsDataGridView;
+        private BindingSource instructorsBindingSource;
+        private Panel panel10;
+        private Button deleteInstructorButton;
+        private Button editInstructorButton;
+        private Button addInstructorButton;
+        private DataGridViewTextBoxColumn instructoridDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn firstnameDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn lastnameDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn middlenameDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn salaryDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn poolidDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn1;
     }
 }
