@@ -108,29 +108,12 @@ namespace Swimming_Pool_Database.Forms
 
         private void EmailTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (!IsValidEmail(emailTextBox.Text, out var errorMessage))
+            if (!CommonFunctions.IsValidEmail(emailTextBox.Text, out var errorMessage))
             {
                 e.Cancel = true;
                 emailTextBox.Select(0, emailTextBox.Text.Length);
                 errorProvider.SetError(emailTextBox, errorMessage);
             }
-        }
-
-        private bool IsValidEmail(string email, out string errorMessage)
-        {
-            if (email.IndexOf('@') > -1)
-            {
-                if (email.IndexOf('.', email.IndexOf('@') ) > email.IndexOf('@') )
-                {
-                    errorMessage = "";
-                    return true;
-                }
-            }
-
-            errorMessage = "Електронна адреса повинна бути у правильному форматі.\n" +
-                           "Наприклад: 'someone@example.com' ";
-
-            return false;
         }
 
         private void EmailTextBox_Validated(object sender, EventArgs e)

@@ -15,7 +15,7 @@ namespace Swimming_Pool_Database.Forms
 
         private void EmailAuthButton_Click(object sender, EventArgs e)
         {
-            if (!IsValidEmail(emailTextBox.Text, out var errorMessage))
+            if (!CommonFunctions.IsValidEmail(emailTextBox.Text, out var errorMessage))
             {
                 MessageBox.Show("Неправильний формат адреси!",
                     errorMessage,
@@ -27,23 +27,6 @@ namespace Swimming_Pool_Database.Forms
             email = emailTextBox.Text;
             password = passwordTextBox.Text;
             Close();
-        }
-
-        private bool IsValidEmail(string email, out string errorMessage)
-        {
-            if (email.IndexOf('@') > -1)
-            {
-                if (email.IndexOf('.', email.IndexOf('@') ) > email.IndexOf('@') )
-                {
-                    errorMessage = "";
-                    return true;
-                }
-            }
-
-            errorMessage = "Електронна адреса повинна бути у правильному форматі.\n" +
-                           "Наприклад: 'someone@example.com' ";
-
-            return false;
         }
     }
 }

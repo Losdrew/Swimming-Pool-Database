@@ -44,5 +44,22 @@ namespace Swimming_Pool_Database
 
             return true;
         }
+
+        public static bool IsValidEmail(string email, out string errorMessage)
+        {
+            if (email.IndexOf('@') > -1)
+            {
+                if (email.IndexOf('.', email.IndexOf('@') ) > email.IndexOf('@') )
+                {
+                    errorMessage = "";
+                    return true;
+                }
+            }
+
+            errorMessage = "Електронна адреса повинна бути у правильному форматі.\n" +
+                           "Наприклад: 'someone@example.com' ";
+
+            return false;
+        }
     }
 }
