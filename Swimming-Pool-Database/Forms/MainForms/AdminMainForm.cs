@@ -33,6 +33,7 @@ namespace Swimming_Pool_Database.Forms
             trainingsTableAdapter.Fill(swimmingpoolDataSet.Trainings);
             instructorsTableAdapter.Fill(swimmingpoolDataSet.Instructors);
             swimLanesTableAdapter.Fill(swimmingpoolDataSet.SwimLanes);
+            poolsTableAdapter.Fill(swimmingpoolDataSet.Pools);
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -320,6 +321,53 @@ namespace Swimming_Pool_Database.Forms
             if (!CommonFunctions.TryQuery(() =>
                     instructorsTableAdapter.DeleteQuery(
                         Convert.ToInt32(((DataRowView)instructorsDataGridView.SelectedRows[0].DataBoundItem).Row[0]))))
+            {
+                return;
+            }
+
+            FillAdaptersAndAcceptChanges();
+        }
+
+        private void AddSwimLaneButton_Click(object sender, EventArgs e)
+        {
+            new EditSwimLanes().ShowDialog();
+            FillAdaptersAndAcceptChanges();
+        }
+
+        private void EditSwimLaneButton_Click(object sender, EventArgs e)
+        {
+            if (!CommonFunctions.IsAnyRowSelected(swimLanesDataGridView))
+            {
+                return;
+            }
+
+            var dataTable = new swimmingpoolDataSet.SwimLanesDataTable();
+
+            if (!CommonFunctions.TryQuery(() =>
+                    swimLanesTableAdapter.FillBy(dataTable,
+                        Convert.ToInt32(((DataRowView)swimLanesDataGridView.SelectedRows[0].DataBoundItem).Row[0]))))
+            {
+                return;
+            }
+
+            var row = dataTable.Rows[0].ItemArray;
+            new EditSwimLanes(
+                Convert.ToInt32(row[0]),
+                Convert.ToInt32(row[1])).ShowDialog();
+
+            FillAdaptersAndAcceptChanges();
+        }
+
+        private void DeleteSwimLaneButton_Click(object sender, EventArgs e)
+        {
+            if (!CommonFunctions.IsAnyRowSelected(swimLanesDataGridView) || !IsSureToDelete())
+            {
+                return;
+            }
+
+            if (!CommonFunctions.TryQuery(() =>
+                    swimLanesTableAdapter.DeleteQuery(
+                        Convert.ToInt32(((DataRowView)swimLanesDataGridView.SelectedRows[0].DataBoundItem).Row[0]))))
             {
                 return;
             }
