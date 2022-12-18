@@ -70,6 +70,12 @@
     <Compile Include="Forms\EditForms\EditSubscriptions.Designer.cs">
       <DependentUpon>EditSubscriptions.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\EditForms\EditSwimLanes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditForms\EditSwimLanes.Designer.cs">
+      <DependentUpon>EditSwimLanes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EditForms\EditTrainings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditForms\EditSubscriptions.resx">
       <DependentUpon>EditSubscriptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditForms\EditSwimLanes.resx">
+      <DependentUpon>EditSwimLanes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditForms\EditTrainings.resx">
       <DependentUpon>EditTrainings.cs</DependentUpon>
