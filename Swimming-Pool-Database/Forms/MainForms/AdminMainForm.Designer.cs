@@ -250,14 +250,14 @@ namespace Swimming_Pool_Database.Forms
             this.exitToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1044, 28);
+            this.menuStrip.Size = new System.Drawing.Size(1044, 30);
             this.menuStrip.TabIndex = 4;
             this.menuStrip.Text = "menuStrip1";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(65, 26);
             this.exitToolStripMenuItem.Text = "Вийти";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -273,10 +273,10 @@ namespace Swimming_Pool_Database.Forms
             this.tabControl.Controls.Add(this.queryTabPage);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tabControl.Location = new System.Drawing.Point(0, 28);
+            this.tabControl.Location = new System.Drawing.Point(0, 30);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1044, 655);
+            this.tabControl.Size = new System.Drawing.Size(1044, 653);
             this.tabControl.TabIndex = 6;
             this.tabControl.Selected += new System.Windows.Forms.TabControlEventHandler(this.TabControl_Selected);
             // 
@@ -290,7 +290,7 @@ namespace Swimming_Pool_Database.Forms
             this.clientsTabPage.Location = new System.Drawing.Point(4, 27);
             this.clientsTabPage.Name = "clientsTabPage";
             this.clientsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.clientsTabPage.Size = new System.Drawing.Size(1036, 624);
+            this.clientsTabPage.Size = new System.Drawing.Size(1036, 622);
             this.clientsTabPage.TabIndex = 0;
             this.clientsTabPage.Text = "Клієнти";
             this.clientsTabPage.UseVisualStyleBackColor = true;
@@ -321,7 +321,7 @@ namespace Swimming_Pool_Database.Forms
             this.clientsDataGridView.RowHeadersWidth = 51;
             this.clientsDataGridView.RowTemplate.Height = 24;
             this.clientsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.clientsDataGridView.Size = new System.Drawing.Size(1030, 211);
+            this.clientsDataGridView.Size = new System.Drawing.Size(1030, 209);
             this.clientsDataGridView.TabIndex = 4;
             // 
             // clientidDataGridViewTextBoxColumn
@@ -332,7 +332,7 @@ namespace Swimming_Pool_Database.Forms
             this.clientidDataGridViewTextBoxColumn.Name = "clientidDataGridViewTextBoxColumn";
             this.clientidDataGridViewTextBoxColumn.ReadOnly = true;
             this.clientidDataGridViewTextBoxColumn.Visible = false;
-            this.clientidDataGridViewTextBoxColumn.Width = 85;
+            this.clientidDataGridViewTextBoxColumn.Width = 101;
             // 
             // firstnameDataGridViewTextBoxColumn
             // 
@@ -435,7 +435,7 @@ namespace Swimming_Pool_Database.Forms
             this.searchGroupBox.Controls.Add(this.lastNameLabel);
             this.searchGroupBox.Controls.Add(this.middleNameLabel);
             this.searchGroupBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.searchGroupBox.Location = new System.Drawing.Point(3, 214);
+            this.searchGroupBox.Location = new System.Drawing.Point(3, 212);
             this.searchGroupBox.Name = "searchGroupBox";
             this.searchGroupBox.Size = new System.Drawing.Size(1030, 122);
             this.searchGroupBox.TabIndex = 4;
@@ -472,7 +472,7 @@ namespace Swimming_Pool_Database.Forms
             // firstNameTextBox
             // 
             this.firstNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.firstNameTextBox.Location = new System.Drawing.Point(58, 30);
+            this.firstNameTextBox.Location = new System.Drawing.Point(71, 30);
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(187, 27);
             this.firstNameTextBox.TabIndex = 4;
@@ -481,7 +481,7 @@ namespace Swimming_Pool_Database.Forms
             // 
             this.firstNameLabel.AutoSize = true;
             this.firstNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.firstNameLabel.Location = new System.Drawing.Point(8, 33);
+            this.firstNameLabel.Location = new System.Drawing.Point(21, 33);
             this.firstNameLabel.Name = "firstNameLabel";
             this.firstNameLabel.Size = new System.Drawing.Size(44, 20);
             this.firstNameLabel.TabIndex = 1;
@@ -524,7 +524,7 @@ namespace Swimming_Pool_Database.Forms
             this.filterGroupBox.Controls.Add(this.filterFromDateTimePicker);
             this.filterGroupBox.Controls.Add(this.label1);
             this.filterGroupBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.filterGroupBox.Location = new System.Drawing.Point(3, 336);
+            this.filterGroupBox.Location = new System.Drawing.Point(3, 334);
             this.filterGroupBox.Name = "filterGroupBox";
             this.filterGroupBox.Size = new System.Drawing.Size(1030, 185);
             this.filterGroupBox.TabIndex = 7;
@@ -533,12 +533,13 @@ namespace Swimming_Pool_Database.Forms
             // 
             // clearClientFilteringButton
             // 
+            this.clearClientFilteringButton.BackgroundImage = global::Swimming_Pool_Database.Properties.Resources.filter_remove_icon;
+            this.clearClientFilteringButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.clearClientFilteringButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.clearClientFilteringButton.Location = new System.Drawing.Point(648, 135);
+            this.clearClientFilteringButton.Location = new System.Drawing.Point(633, 132);
             this.clearClientFilteringButton.Name = "clearClientFilteringButton";
-            this.clearClientFilteringButton.Size = new System.Drawing.Size(190, 33);
+            this.clearClientFilteringButton.Size = new System.Drawing.Size(38, 38);
             this.clearClientFilteringButton.TabIndex = 20;
-            this.clearClientFilteringButton.Text = "Очистити фільтри";
             this.clearClientFilteringButton.UseVisualStyleBackColor = true;
             this.clearClientFilteringButton.Click += new System.EventHandler(this.ClearClientFilteringButton_Click);
             // 
@@ -735,7 +736,7 @@ namespace Swimming_Pool_Database.Forms
             this.panel2.Controls.Add(this.editClientButton);
             this.panel2.Controls.Add(this.addClientButton);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(3, 521);
+            this.panel2.Location = new System.Drawing.Point(3, 519);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1030, 100);
             this.panel2.TabIndex = 3;
@@ -775,14 +776,14 @@ namespace Swimming_Pool_Database.Forms
             // 
             // subscriptionsTabPage
             // 
+            this.subscriptionsTabPage.Controls.Add(this.subscriptionsDataGridView);
             this.subscriptionsTabPage.Controls.Add(this.groupBox2);
             this.subscriptionsTabPage.Controls.Add(this.subscriptionSortGroupBox);
-            this.subscriptionsTabPage.Controls.Add(this.subscriptionsDataGridView);
             this.subscriptionsTabPage.Controls.Add(this.panel1);
             this.subscriptionsTabPage.Location = new System.Drawing.Point(4, 27);
             this.subscriptionsTabPage.Name = "subscriptionsTabPage";
             this.subscriptionsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.subscriptionsTabPage.Size = new System.Drawing.Size(1036, 624);
+            this.subscriptionsTabPage.Size = new System.Drawing.Size(1036, 622);
             this.subscriptionsTabPage.TabIndex = 1;
             this.subscriptionsTabPage.Text = "Абонементи";
             this.subscriptionsTabPage.UseVisualStyleBackColor = true;
@@ -793,7 +794,7 @@ namespace Swimming_Pool_Database.Forms
             this.groupBox2.Controls.Add(this.subscriptionNameTextBox);
             this.groupBox2.Controls.Add(this.subscriptionNameLabel);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox2.Location = new System.Drawing.Point(3, 265);
+            this.groupBox2.Location = new System.Drawing.Point(3, 263);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1030, 74);
             this.groupBox2.TabIndex = 28;
@@ -842,7 +843,7 @@ namespace Swimming_Pool_Database.Forms
             this.subscriptionSortGroupBox.Controls.Add(this.subscriptionsSortButton);
             this.subscriptionSortGroupBox.Controls.Add(this.label6);
             this.subscriptionSortGroupBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.subscriptionSortGroupBox.Location = new System.Drawing.Point(3, 339);
+            this.subscriptionSortGroupBox.Location = new System.Drawing.Point(3, 337);
             this.subscriptionSortGroupBox.Name = "subscriptionSortGroupBox";
             this.subscriptionSortGroupBox.Size = new System.Drawing.Size(1030, 182);
             this.subscriptionSortGroupBox.TabIndex = 5;
@@ -1037,7 +1038,7 @@ namespace Swimming_Pool_Database.Forms
             this.subscriptionsDataGridView.RowHeadersWidth = 51;
             this.subscriptionsDataGridView.RowTemplate.Height = 24;
             this.subscriptionsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.subscriptionsDataGridView.Size = new System.Drawing.Size(1030, 518);
+            this.subscriptionsDataGridView.Size = new System.Drawing.Size(1030, 260);
             this.subscriptionsDataGridView.TabIndex = 3;
             this.subscriptionsDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.SubscriptionsDataGridView_CellFormatting);
             // 
@@ -1049,7 +1050,7 @@ namespace Swimming_Pool_Database.Forms
             this.subscriptionidDataGridViewTextBoxColumn.Name = "subscriptionidDataGridViewTextBoxColumn";
             this.subscriptionidDataGridViewTextBoxColumn.ReadOnly = true;
             this.subscriptionidDataGridViewTextBoxColumn.Visible = false;
-            this.subscriptionidDataGridViewTextBoxColumn.Width = 126;
+            this.subscriptionidDataGridViewTextBoxColumn.Width = 149;
             // 
             // name
             // 
@@ -1098,7 +1099,7 @@ namespace Swimming_Pool_Database.Forms
             this.panel1.Controls.Add(this.editSubscriptionButton);
             this.panel1.Controls.Add(this.addSubscriptionButton);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(3, 521);
+            this.panel1.Location = new System.Drawing.Point(3, 519);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1030, 100);
             this.panel1.TabIndex = 2;
@@ -1143,7 +1144,7 @@ namespace Swimming_Pool_Database.Forms
             this.visitorCardsTabPage.Location = new System.Drawing.Point(4, 27);
             this.visitorCardsTabPage.Name = "visitorCardsTabPage";
             this.visitorCardsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.visitorCardsTabPage.Size = new System.Drawing.Size(1036, 624);
+            this.visitorCardsTabPage.Size = new System.Drawing.Size(1036, 622);
             this.visitorCardsTabPage.TabIndex = 2;
             this.visitorCardsTabPage.Text = "Картки відвідувачів";
             this.visitorCardsTabPage.UseVisualStyleBackColor = true;
@@ -1172,7 +1173,7 @@ namespace Swimming_Pool_Database.Forms
             this.visitorCardsDataGridView.RowHeadersWidth = 51;
             this.visitorCardsDataGridView.RowTemplate.Height = 24;
             this.visitorCardsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.visitorCardsDataGridView.Size = new System.Drawing.Size(1030, 478);
+            this.visitorCardsDataGridView.Size = new System.Drawing.Size(1030, 476);
             this.visitorCardsDataGridView.TabIndex = 7;
             // 
             // cardidDataGridViewTextBoxColumn
@@ -1183,7 +1184,7 @@ namespace Swimming_Pool_Database.Forms
             this.cardidDataGridViewTextBoxColumn.Name = "cardidDataGridViewTextBoxColumn";
             this.cardidDataGridViewTextBoxColumn.ReadOnly = true;
             this.cardidDataGridViewTextBoxColumn.Visible = false;
-            this.cardidDataGridViewTextBoxColumn.Width = 85;
+            this.cardidDataGridViewTextBoxColumn.Width = 92;
             // 
             // clientId
             // 
@@ -1278,7 +1279,7 @@ namespace Swimming_Pool_Database.Forms
             this.panel3.Controls.Add(this.editVisitorCardButton);
             this.panel3.Controls.Add(this.addVisitorCardButton);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(3, 481);
+            this.panel3.Location = new System.Drawing.Point(3, 479);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1030, 140);
             this.panel3.TabIndex = 3;
@@ -1329,13 +1330,13 @@ namespace Swimming_Pool_Database.Forms
             // 
             // trainingsTabPage
             // 
+            this.trainingsTabPage.Controls.Add(this.trainingsDataGridView);
             this.trainingsTabPage.Controls.Add(this.groupBox1);
             this.trainingsTabPage.Controls.Add(this.panel9);
-            this.trainingsTabPage.Controls.Add(this.trainingsDataGridView);
             this.trainingsTabPage.Location = new System.Drawing.Point(4, 27);
             this.trainingsTabPage.Name = "trainingsTabPage";
             this.trainingsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.trainingsTabPage.Size = new System.Drawing.Size(1036, 624);
+            this.trainingsTabPage.Size = new System.Drawing.Size(1036, 622);
             this.trainingsTabPage.TabIndex = 3;
             this.trainingsTabPage.Text = "Тренування";
             this.trainingsTabPage.UseVisualStyleBackColor = true;
@@ -1348,7 +1349,7 @@ namespace Swimming_Pool_Database.Forms
             this.groupBox1.Controls.Add(this.filterClientCheckBox);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox1.Location = new System.Drawing.Point(3, 350);
+            this.groupBox1.Location = new System.Drawing.Point(3, 348);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1030, 171);
             this.groupBox1.TabIndex = 9;
@@ -1419,7 +1420,7 @@ namespace Swimming_Pool_Database.Forms
             this.panel9.Controls.Add(this.editTrainingButton);
             this.panel9.Controls.Add(this.addTrainingButton);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel9.Location = new System.Drawing.Point(3, 521);
+            this.panel9.Location = new System.Drawing.Point(3, 519);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(1030, 100);
             this.panel9.TabIndex = 10;
@@ -1480,7 +1481,7 @@ namespace Swimming_Pool_Database.Forms
             this.trainingsDataGridView.RowHeadersWidth = 51;
             this.trainingsDataGridView.RowTemplate.Height = 24;
             this.trainingsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.trainingsDataGridView.Size = new System.Drawing.Size(1030, 618);
+            this.trainingsDataGridView.Size = new System.Drawing.Size(1030, 345);
             this.trainingsDataGridView.TabIndex = 8;
             this.trainingsDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.TrainingsDataGridView_CellFormatting);
             // 
@@ -1492,7 +1493,7 @@ namespace Swimming_Pool_Database.Forms
             this.trainingidDataGridViewTextBoxColumn.Name = "trainingidDataGridViewTextBoxColumn";
             this.trainingidDataGridViewTextBoxColumn.ReadOnly = true;
             this.trainingidDataGridViewTextBoxColumn.Visible = false;
-            this.trainingidDataGridViewTextBoxColumn.Width = 103;
+            this.trainingidDataGridViewTextBoxColumn.Width = 116;
             // 
             // cardIdColumn
             // 
@@ -1569,7 +1570,7 @@ namespace Swimming_Pool_Database.Forms
             this.instructorsTabPage.Location = new System.Drawing.Point(4, 27);
             this.instructorsTabPage.Name = "instructorsTabPage";
             this.instructorsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.instructorsTabPage.Size = new System.Drawing.Size(1036, 624);
+            this.instructorsTabPage.Size = new System.Drawing.Size(1036, 622);
             this.instructorsTabPage.TabIndex = 6;
             this.instructorsTabPage.Text = "Інструктори";
             this.instructorsTabPage.UseVisualStyleBackColor = true;
@@ -1597,7 +1598,7 @@ namespace Swimming_Pool_Database.Forms
             this.instructorsDataGridView.RowHeadersWidth = 51;
             this.instructorsDataGridView.RowTemplate.Height = 24;
             this.instructorsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.instructorsDataGridView.Size = new System.Drawing.Size(1030, 515);
+            this.instructorsDataGridView.Size = new System.Drawing.Size(1030, 513);
             this.instructorsDataGridView.TabIndex = 9;
             // 
             // instructoridDataGridViewTextBoxColumn
@@ -1608,7 +1609,7 @@ namespace Swimming_Pool_Database.Forms
             this.instructoridDataGridViewTextBoxColumn.Name = "instructoridDataGridViewTextBoxColumn";
             this.instructoridDataGridViewTextBoxColumn.ReadOnly = true;
             this.instructoridDataGridViewTextBoxColumn.Visible = false;
-            this.instructoridDataGridViewTextBoxColumn.Width = 118;
+            this.instructoridDataGridViewTextBoxColumn.Width = 132;
             // 
             // firstnameDataGridViewTextBoxColumn1
             // 
@@ -1675,7 +1676,7 @@ namespace Swimming_Pool_Database.Forms
             this.panel10.Controls.Add(this.editInstructorButton);
             this.panel10.Controls.Add(this.addInstructorButton);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel10.Location = new System.Drawing.Point(3, 518);
+            this.panel10.Location = new System.Drawing.Point(3, 516);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(1030, 103);
             this.panel10.TabIndex = 8;
@@ -1719,7 +1720,7 @@ namespace Swimming_Pool_Database.Forms
             this.swimLanesTabPage.Controls.Add(this.panel11);
             this.swimLanesTabPage.Location = new System.Drawing.Point(4, 27);
             this.swimLanesTabPage.Name = "swimLanesTabPage";
-            this.swimLanesTabPage.Size = new System.Drawing.Size(1036, 624);
+            this.swimLanesTabPage.Size = new System.Drawing.Size(1036, 622);
             this.swimLanesTabPage.TabIndex = 7;
             this.swimLanesTabPage.Text = "Доріжки";
             this.swimLanesTabPage.UseVisualStyleBackColor = true;
@@ -1742,7 +1743,7 @@ namespace Swimming_Pool_Database.Forms
             this.swimLanesDataGridView.RowHeadersWidth = 51;
             this.swimLanesDataGridView.RowTemplate.Height = 24;
             this.swimLanesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.swimLanesDataGridView.Size = new System.Drawing.Size(1036, 521);
+            this.swimLanesDataGridView.Size = new System.Drawing.Size(1036, 519);
             this.swimLanesDataGridView.TabIndex = 11;
             // 
             // swimlaneidDataGridViewTextBoxColumn1
@@ -1769,7 +1770,7 @@ namespace Swimming_Pool_Database.Forms
             this.panel11.Controls.Add(this.editSwimLaneButton);
             this.panel11.Controls.Add(this.addSwimLaneButton);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel11.Location = new System.Drawing.Point(0, 521);
+            this.panel11.Location = new System.Drawing.Point(0, 519);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(1036, 103);
             this.panel11.TabIndex = 10;
@@ -1814,7 +1815,7 @@ namespace Swimming_Pool_Database.Forms
             this.poolsTabPage.Location = new System.Drawing.Point(4, 27);
             this.poolsTabPage.Name = "poolsTabPage";
             this.poolsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.poolsTabPage.Size = new System.Drawing.Size(1036, 624);
+            this.poolsTabPage.Size = new System.Drawing.Size(1036, 622);
             this.poolsTabPage.TabIndex = 8;
             this.poolsTabPage.Text = "Басейни";
             this.poolsTabPage.UseVisualStyleBackColor = true;
@@ -1837,7 +1838,7 @@ namespace Swimming_Pool_Database.Forms
             this.poolsDataGridView.RowHeadersWidth = 51;
             this.poolsDataGridView.RowTemplate.Height = 24;
             this.poolsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.poolsDataGridView.Size = new System.Drawing.Size(1030, 515);
+            this.poolsDataGridView.Size = new System.Drawing.Size(1030, 513);
             this.poolsDataGridView.TabIndex = 13;
             this.poolsDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.PoolsDataGridView_CellFormatting);
             // 
@@ -1870,7 +1871,7 @@ namespace Swimming_Pool_Database.Forms
             this.panel12.Controls.Add(this.editPoolButton);
             this.panel12.Controls.Add(this.addPoolButton);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel12.Location = new System.Drawing.Point(3, 518);
+            this.panel12.Location = new System.Drawing.Point(3, 516);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(1030, 103);
             this.panel12.TabIndex = 12;
@@ -1918,7 +1919,7 @@ namespace Swimming_Pool_Database.Forms
             this.queryTabPage.Location = new System.Drawing.Point(4, 27);
             this.queryTabPage.Name = "queryTabPage";
             this.queryTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.queryTabPage.Size = new System.Drawing.Size(1036, 624);
+            this.queryTabPage.Size = new System.Drawing.Size(1036, 622);
             this.queryTabPage.TabIndex = 4;
             this.queryTabPage.Text = "Запити";
             this.queryTabPage.UseVisualStyleBackColor = true;
@@ -1929,19 +1930,19 @@ namespace Swimming_Pool_Database.Forms
             this.queryDataGridView.AllowUserToDeleteRows = false;
             this.queryDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.queryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.queryDataGridView.Location = new System.Drawing.Point(30, 134);
+            this.queryDataGridView.Location = new System.Drawing.Point(30, 127);
             this.queryDataGridView.Name = "queryDataGridView";
             this.queryDataGridView.ReadOnly = true;
             this.queryDataGridView.RowHeadersWidth = 51;
             this.queryDataGridView.RowTemplate.Height = 24;
             this.queryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.queryDataGridView.Size = new System.Drawing.Size(971, 459);
+            this.queryDataGridView.Size = new System.Drawing.Size(971, 466);
             this.queryDataGridView.TabIndex = 9;
             // 
             // instructorsMostClientsButton
             // 
             this.instructorsMostClientsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.instructorsMostClientsButton.Location = new System.Drawing.Point(767, 52);
+            this.instructorsMostClientsButton.Location = new System.Drawing.Point(767, 38);
             this.instructorsMostClientsButton.Name = "instructorsMostClientsButton";
             this.instructorsMostClientsButton.Size = new System.Drawing.Size(234, 48);
             this.instructorsMostClientsButton.TabIndex = 3;
@@ -1952,7 +1953,7 @@ namespace Swimming_Pool_Database.Forms
             // clientsMostTrainingsButton
             // 
             this.clientsMostTrainingsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.clientsMostTrainingsButton.Location = new System.Drawing.Point(518, 52);
+            this.clientsMostTrainingsButton.Location = new System.Drawing.Point(518, 38);
             this.clientsMostTrainingsButton.Name = "clientsMostTrainingsButton";
             this.clientsMostTrainingsButton.Size = new System.Drawing.Size(214, 48);
             this.clientsMostTrainingsButton.TabIndex = 2;
@@ -1963,7 +1964,7 @@ namespace Swimming_Pool_Database.Forms
             // clientsMostMoneySpentButton
             // 
             this.clientsMostMoneySpentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.clientsMostMoneySpentButton.Location = new System.Drawing.Point(257, 52);
+            this.clientsMostMoneySpentButton.Location = new System.Drawing.Point(257, 38);
             this.clientsMostMoneySpentButton.Name = "clientsMostMoneySpentButton";
             this.clientsMostMoneySpentButton.Size = new System.Drawing.Size(222, 48);
             this.clientsMostMoneySpentButton.TabIndex = 1;
@@ -1974,7 +1975,7 @@ namespace Swimming_Pool_Database.Forms
             // mostPopularSubscriptionsButton
             // 
             this.mostPopularSubscriptionsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.mostPopularSubscriptionsButton.Location = new System.Drawing.Point(30, 52);
+            this.mostPopularSubscriptionsButton.Location = new System.Drawing.Point(30, 38);
             this.mostPopularSubscriptionsButton.Name = "mostPopularSubscriptionsButton";
             this.mostPopularSubscriptionsButton.Size = new System.Drawing.Size(187, 48);
             this.mostPopularSubscriptionsButton.TabIndex = 0;
