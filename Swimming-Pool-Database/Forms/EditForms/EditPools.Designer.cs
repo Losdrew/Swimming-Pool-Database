@@ -126,7 +126,7 @@
             this.Controls.Add(lastNameLabel);
             this.Name = "EditPools";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Редагування басейнів";
+            this.Text = "Додавання нового басейна";
             ((System.ComponentModel.ISupportInitialize)(this.capacityNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.poolIdNumericUpDown)).EndInit();
             this.ResumeLayout(false);

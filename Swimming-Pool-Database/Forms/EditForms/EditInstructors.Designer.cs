@@ -239,7 +239,7 @@
             this.Controls.Add(preparationLevelLabel);
             this.Name = "EditInstructors";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Редагування інструктора";
+            this.Text = "Додавання нового інструктора";
             ((System.ComponentModel.ISupportInitialize)(this.poolsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.swimmingpoolDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();

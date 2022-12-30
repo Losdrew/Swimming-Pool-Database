@@ -17,6 +17,7 @@ namespace Swimming_Pool_Database.Forms
 
         public EditSwimLanes(int id, int poolId) : this()
         {
+            Text = "Редагування доріжки";
             _isEdit = true;
             _id = id;
 

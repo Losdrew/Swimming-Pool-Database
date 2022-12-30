@@ -232,7 +232,7 @@
             this.Controls.Add(this.acceptButton);
             this.Name = "EditVisitorCards";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Редагування картки відвідувача";
+            this.Text = "Додавання нової картки відвідувача";
             ((System.ComponentModel.ISupportInitialize)(this.subscriptionsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.swimmingpoolDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientsBindingSource)).EndInit();

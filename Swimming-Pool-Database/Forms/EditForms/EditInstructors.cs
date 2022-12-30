@@ -17,6 +17,7 @@ namespace Swimming_Pool_Database.Forms
         public EditInstructors(int id, string firstName, string lastName, string middleName, 
             string salary, int poolId, string email) : this()
         {
+            Text = "Редагування інструктора";
             _isEdit = true;
             _id = id;
 

@@ -299,7 +299,7 @@
             this.Controls.Add(this.acceptButton);
             this.Name = "EditTrainings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Редагування тренувань";
+            this.Text = "Додавання нового тренування";
             this.Load += new System.EventHandler(this.EditTrainings_Load);
             ((System.ComponentModel.ISupportInitialize)(this.lockerIdNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientsBindingSource)).EndInit();

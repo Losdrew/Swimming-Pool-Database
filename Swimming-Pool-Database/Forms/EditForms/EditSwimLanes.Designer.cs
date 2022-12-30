@@ -145,7 +145,7 @@
             this.Controls.Add(lastNameLabel);
             this.Name = "EditSwimLanes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Редагування доріжок";
+            this.Text = "Додавання нової доріжки";
             ((System.ComponentModel.ISupportInitialize)(this.poolsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.swimmingpoolDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.swimLaneIdNumericUpDown)).EndInit();

@@ -19,6 +19,7 @@ namespace Swimming_Pool_Database.Forms
         public EditVisitorCards(int id, int subscriptionId, int clientId, DateTime startDate,
             DateTime expiryDate, int attendanceLeftCount) : this()
         {
+            Text = "Редагування картки відвідувача";
             _isEdit = true;
             _id = id;
 

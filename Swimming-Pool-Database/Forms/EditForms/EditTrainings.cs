@@ -22,6 +22,7 @@ namespace Swimming_Pool_Database.Forms
         public EditTrainings(int id, int cardId, int clientId, int swimLaneId, DateTime startDateTime,
             DateTime endDateTime, int lockerId) : this()
         {
+            Text = "Редагування тренування";
             _isEdit = true;
             _id = id;
 

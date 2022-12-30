@@ -16,6 +16,7 @@ namespace Swimming_Pool_Database.Forms
 
         public EditPools(int id, int capacity) : this()
         {
+            Text = "Редагування басейна";
             _isEdit = true;
             _id = id;
 

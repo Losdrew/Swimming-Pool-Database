@@ -17,6 +17,7 @@ namespace Swimming_Pool_Database.Forms
 
         public EditClients(int id, string login, string password) : this()
         {
+            Text = "Редагування клієнта";
             _isEdit = true;
             _id = id;
 
@@ -27,6 +28,7 @@ namespace Swimming_Pool_Database.Forms
         public EditClients(int id, string firstName, string lastName, string middleName, DateTime dateOfBirth, 
             string sex, string preparationLevel, string email, string login, string password) : this()
         {
+            Text = "Редагування клієнта";
             _isEdit = true;
             _id = id;
 

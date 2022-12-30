@@ -147,6 +147,16 @@
             loginLabel.TabIndex = 35;
             loginLabel.Text = "Логін:";
             // 
+            // passwordLabel
+            // 
+            passwordLabel.AutoSize = true;
+            passwordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            passwordLabel.Location = new System.Drawing.Point(37, 295);
+            passwordLabel.Name = "passwordLabel";
+            passwordLabel.Size = new System.Drawing.Size(86, 25);
+            passwordLabel.TabIndex = 37;
+            passwordLabel.Text = "Пароль:";
+            // 
             // acceptButton
             // 
             this.acceptButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -273,16 +283,6 @@
             this.passwordTextBox.Size = new System.Drawing.Size(193, 27);
             this.passwordTextBox.TabIndex = 38;
             // 
-            // passwordLabel
-            // 
-            passwordLabel.AutoSize = true;
-            passwordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            passwordLabel.Location = new System.Drawing.Point(37, 295);
-            passwordLabel.Name = "passwordLabel";
-            passwordLabel.Size = new System.Drawing.Size(86, 25);
-            passwordLabel.TabIndex = 37;
-            passwordLabel.Text = "Пароль:";
-            // 
             // EditClients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -310,7 +310,7 @@
             this.Controls.Add(preparationLevelLabel);
             this.Name = "EditClients";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Редагування клієнта";
+            this.Text = "Додавання нового клієнта";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.swimmingpoolDataSet)).EndInit();

@@ -97,6 +97,26 @@
             dayCountLabel.TabIndex = 38;
             dayCountLabel.Text = "Строк дії:";
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            label1.Location = new System.Drawing.Point(356, 68);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(23, 25);
+            label1.TabIndex = 50;
+            label1.Text = "₴";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            label2.Location = new System.Drawing.Point(356, 134);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(49, 25);
+            label2.TabIndex = 51;
+            label2.Text = "днів";
+            // 
             // nameTextBox
             // 
             this.nameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -181,26 +201,6 @@
             this.swimmingpoolDataSet.DataSetName = "swimmingpoolDataSet";
             this.swimmingpoolDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            label1.Location = new System.Drawing.Point(356, 68);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(23, 25);
-            label1.TabIndex = 50;
-            label1.Text = "₴";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            label2.Location = new System.Drawing.Point(356, 134);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(49, 25);
-            label2.TabIndex = 51;
-            label2.Text = "днів";
-            // 
             // EditSubscriptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -220,7 +220,7 @@
             this.Controls.Add(dayCountLabel);
             this.Name = "EditSubscriptions";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Редагування абонементів";
+            this.Text = "Додавання нового абонемента";
             ((System.ComponentModel.ISupportInitialize)(this.priceNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.attendanceCountNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dayCountNumericUpDown)).EndInit();

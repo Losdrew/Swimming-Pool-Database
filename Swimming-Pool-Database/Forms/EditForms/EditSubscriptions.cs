@@ -15,6 +15,7 @@ namespace Swimming_Pool_Database.Forms
 
         public EditSubscriptions(int id, string name, decimal price, int attendanceCount, int dayCount) : this()
         {
+            Text = "Редагування абонемента";
             _isEdit = true;
             _id = id;
 
